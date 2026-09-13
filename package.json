@@ -1,0 +1,20 @@
+{
+  "name": "fly-ecosystem",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "experiment": "node scripts/experiment.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "description": "Reproducible artificial-life ecosystem with inherited evolving neural controllers",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaiminp007/fly-ecosystem.git"
+  }
+}

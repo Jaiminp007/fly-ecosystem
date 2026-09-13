@@ -1,0 +1,40 @@
+{
+  "checkpoint_sha256": "cd908ce3fcfebe06f2206518a878529a8448d00ed456dbbdfa96947ecd0cff6c",
+  "last_birth_tick": 526199,
+  "last_sex_1_death_tick": 527554,
+  "extinction_tick": 532278,
+  "population_at_last_birth": {
+    "0": 41,
+    "1": 19
+  },
+  "population_after_sex_1_loss": {
+    "0": 17
+  },
+  "deaths_since_last_birth": [
+    {
+      "sex": 0,
+      "cause": "lifespan reached",
+      "count": 18
+    },
+    {
+      "sex": 1,
+      "cause": "energy depleted",
+      "count": 19
+    },
+    {
+      "sex": 0,
+      "cause": "energy depleted",
+      "count": 23
+    }
+  ],
+  "final_sex_1_death": [
+    {
+      "tick": 527554,
+      "kind": "death",
+      "text": "Fly 9437 \u00b7 energy depleted"
+    }
+  ],
+  "maximum_ancestry_ever": 384,
+  "seconds_without_births": 607.9,
+  "seconds_only_one_sex": 472.40000000000003
+}

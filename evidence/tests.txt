@@ -1,0 +1,18 @@
+✔ checkpoint continuation is exactly reproducible, including RNG and memory (314.402291ms)
+✔ energy accounting includes external renewal, metabolism and offspring transfer (3017.49875ms)
+✔ offspring retain both parent identities and do not inherit acquired memory (1.061042ms)
+✔ structural mutation adds valid inherited topology with unique innovation IDs (27.019ms)
+✔ no mutation preserves parental alleles (6.149792ms)
+✔ learning changes eligible weights; frozen treatment leaves weights untouched (1.2395ms)
+✔ extinction is terminal and does not insert replacements (0.708042ms)
+✔ capacity pauses instead of silently selecting which offspring survive (0.660292ms)
+✔ malformed checkpoints fail before becoming a world (2.558708ms)
+✔ local HTTP workflow persists and restores a world; rejects cross-origin and invalid imports (489.015375ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3437.126208

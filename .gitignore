@@ -1,0 +1,12 @@
+runs/
+data/
+node_modules/
+*.log
+.venv*/
+__pycache__/
+*.so
+*.dylib
+.DS_Store
+.env*
+!.env.example
+evidence/extinction/checkpoint.json

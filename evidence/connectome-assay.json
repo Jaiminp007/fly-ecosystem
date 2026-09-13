@@ -1,0 +1,23 @@
+{
+  "mode": "full-connectome-assay",
+  "source_commit": "78ef3e05ab0fa086032098558d893667068944a0",
+  "numpy_version": "2.3.5",
+  "strict_numeric_checks": true,
+  "neurons": 166700,
+  "edges": 25582938,
+  "contacts": 124177617,
+  "neural_ms": 100.0,
+  "load_seconds": 13.744543041975703,
+  "wall_seconds": 0.25944549997802824,
+  "kernel_seconds": 0.24705454107606784,
+  "neural_realtime_factor": 0.3854374040346383,
+  "total_spikes": 77514,
+  "active_neurons": 13005,
+  "changed_plastic_edges": 3,
+  "assumptions": [
+    "Synthetic white RGB field",
+    "Upstream approximate neural dynamics and visual mapping",
+    "Not connected to the ecosystem",
+    "No population reproduction or learned behavior demonstrated"
+  ]
+}
