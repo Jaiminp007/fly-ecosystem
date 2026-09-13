@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-13T05:19:19.720Z",
+  "url": "https://afterwing-production.up.railway.app",
+  "model": "compact-challenges-v2",
+  "activationTick": 27617,
+  "archivedCheckpoint": "checkpoint-1789276730296-tick-27617.json",
+  "observedTick": 28079,
+  "population": 57,
+  "births": 561
+}
