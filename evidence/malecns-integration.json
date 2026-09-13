@@ -1,0 +1,24 @@
+{
+  "model": "afterwing-malecns-arena-v1",
+  "checkpoint_continuation_exact": true,
+  "independent_neural_state": true,
+  "offspring_full_topology_equal": true,
+  "offspring_test": "Forced construction for isolation test, not spontaneous reproduction",
+  "neurons": 166700,
+  "edges": 25582938,
+  "observed_action": {
+    "turn": 0.0,
+    "speed": 0.0,
+    "eat": false,
+    "spikes": 44828,
+    "active_neurons": 9757,
+    "readout_hz": {
+      "DNa02_L": 0.0,
+      "DNa02_R": 0.0,
+      "DNp09_L": 0.0,
+      "DNp09_R": 0.0,
+      "MN9_L": 0.0,
+      "MN9_R": 0.0
+    }
+  }
+}

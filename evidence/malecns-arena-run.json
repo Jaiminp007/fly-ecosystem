@@ -1,0 +1,157 @@
+{
+  "model": "afterwing-malecns-arena-v1",
+  "dataset": "MaleCNS v1.0",
+  "tick": 30,
+  "seconds": 3.0,
+  "population": 2,
+  "simulated_per_wall": 0.18330920502730572,
+  "flies": [
+    {
+      "id": 1,
+      "parents": [],
+      "generation": 0,
+      "sex": 0,
+      "x": 160.0,
+      "y": 180.0,
+      "heading": 0.8760444114976647,
+      "age": 3.0000000000000013,
+      "energy": 64.76000000000013,
+      "cooldown": 0,
+      "alleles": {
+        "visual_gain": 1.0,
+        "motor_gain": 1.0,
+        "plastic_gain": 1.0
+      },
+      "neural": {
+        "turn": 0.0,
+        "speed": 0.0,
+        "eat": false,
+        "spikes": 43603,
+        "active_neurons": 9741,
+        "readout_hz": {
+          "DNa02_L": 0.0,
+          "DNa02_R": 0.0,
+          "DNp09_L": 0.0,
+          "DNp09_R": 0.0,
+          "MN9_L": 0.0,
+          "MN9_R": 0.0
+        },
+        "kernel_seconds": 0.12904833402717486
+      }
+    },
+    {
+      "id": 2,
+      "parents": [],
+      "generation": 0,
+      "sex": 1,
+      "x": 180.0,
+      "y": 180.0,
+      "heading": 1.3549399233844452,
+      "age": 3.0000000000000013,
+      "energy": 70.05000000000018,
+      "cooldown": 0,
+      "alleles": {
+        "visual_gain": 1.0,
+        "motor_gain": 1.0,
+        "plastic_gain": 1.0
+      },
+      "neural": {
+        "turn": -0.7615941559557649,
+        "speed": 0.0,
+        "eat": true,
+        "spikes": 96306,
+        "active_neurons": 19073,
+        "readout_hz": {
+          "DNa02_L": 30.0,
+          "DNa02_R": 0.0,
+          "DNp09_L": 0.0,
+          "DNp09_R": 0.0,
+          "MN9_L": 50.0,
+          "MN9_R": 0.0
+        },
+        "kernel_seconds": 0.4271842499729246
+      }
+    }
+  ],
+  "brains": {
+    "1": {
+      "neurons": 166700,
+      "edges": 25582938,
+      "readout_source_ids": {
+        "DNa02_L": [
+          523769
+        ],
+        "DNa02_R": [
+          10360
+        ],
+        "DNp09_L": [
+          10783
+        ],
+        "DNp09_R": [
+          11177
+        ],
+        "MN9_L": [
+          10331
+        ],
+        "MN9_R": [
+          16949
+        ]
+      }
+    },
+    "2": {
+      "neurons": 166700,
+      "edges": 25582938,
+      "readout_source_ids": {
+        "DNa02_L": [
+          523769
+        ],
+        "DNa02_R": [
+          10360
+        ],
+        "DNp09_L": [
+          10783
+        ],
+        "DNp09_R": [
+          11177
+        ],
+        "MN9_L": [
+          10331
+        ],
+        "MN9_R": [
+          16949
+        ]
+      }
+    }
+  },
+  "error": null,
+  "assumptions": [
+    "Full MaleCNS graph with approximate spiking dynamics",
+    "Engineered retinal panorama, motor readouts and body physics",
+    "Both reproductive roles use the same male anatomical template",
+    "Offspring inherit three gain alleles; acquired neural memory is not inherited",
+    "Anatomical topology is fixed in this integration; no structural evolution yet",
+    "No demonstrated learning benefit or biological validation"
+  ],
+  "source_hashes": {
+    "annotations.feather": {
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "bytes": 14483314,
+      "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2"
+    },
+    "neurotransmitters.feather": {
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-neurotransmitters-male-cns-v1.0.feather",
+      "bytes": 43282834,
+      "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621"
+    },
+    "edges.feather": {
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+      "bytes": 1051241946,
+      "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1"
+    }
+  },
+  "implementation_sha256": {
+    "connectome/server.py": "976bc07513139dddb4129501934bf75a411fd2a9a8f9ec20d38d12c3b7ae49a6",
+    "connectome/verify.py": "15c4c4ab12e320f2caadfda96032c332f71b8e610ed02dc31831901527a83712",
+    "connectome/arena.py": "bd09330e5134f0ff1b88d5b136ffa001f88301862aaa823073140588a6d821ad"
+  }
+}

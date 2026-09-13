@@ -1,3 +1,5 @@
+> **Model correction:** The published v1/v2 population used compact artificial networks, not the Google/Janelia connectome. The primary local entry point now runs the actual MaleCNS graph. The existing Railway deployment still runs the legacy compact model until a full-brain deployment is verified. See [MaleCNS integration](docs/MALECNS.md). No legacy results establish anything about the full-connectome model.
+
 # Afterwing
 
 **Small lives. Long histories.**
