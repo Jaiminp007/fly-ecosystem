@@ -2,6 +2,11 @@
 
 **Small lives. Long histories.**
 
+[Open the live observatory](https://afterwing-production.up.railway.app) · [Releases](https://github.com/Jaiminp007/fly-ecosystem/releases)
+
+The Railway deployment runs on limited trial credit with a persistent volume.
+Public controls are read-only; availability beyond the trial is not guaranteed.
+
 A local artificial-life experiment with two-parent inheritance, individual neural
 state, structural mutation and a persistent habitat. The visible ecosystem uses
 **compact artificial recurrent networks**, not the biological fly connectome.

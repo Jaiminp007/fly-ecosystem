@@ -1,5 +1,19 @@
 # Hosting Afterwing
 
+## Live Railway trial deployment
+
+https://afterwing-production.up.railway.app
+
+Deployed 2026-09-13 as one container with a persistent volume mounted at `/data`,
+RUNS_DIR=/data, HOST=0.0.0.0 and AUTO_START=true. Requested speed is 5×. Public writes
+return 401; no ADMIN_TOKEN is configured. HTTP health and restart recovery were
+checked; see evidence/railway-deployment.json. Browser visual QA remains unverified.
+
+This is trial-funded infrastructure, not a promise of permanently free hosting.
+No recurring ping job or paid subscription was created. Updates currently deploy
+through the Railway CLI; GitHub pushes do not automatically redeploy this service.
+
+
 ## Render Free demo
 
 `render.yaml` configures a public, read-only, auto-starting demo at 5× requested
@@ -13,7 +27,7 @@ Free instances sleep after 15 minutes without inbound traffic, can restart, and
 lose filesystem changes. Pings do not provide durability or guaranteed uptime.
 See https://render.com/docs/free (checked 2026-09-13).
 
-## Persistent deployment (not provisioned)
+## Persistent deployment configuration
 
 Use one Node process, one replica, and durable storage mounted at RUNS_DIR.
 Set HOST=0.0.0.0 and a random ADMIN_TOKEN of at least 32 characters. Terminate HTTPS
@@ -26,8 +40,8 @@ writing a replacement. Rolling files retain the most recent twelve snapshots;
 manual/terminal archives are retained. Monitor disk growth and independently back
 up the mounted storage. A local atomic rename is not an off-site backup.
 
-Railway can run this container with a volume, but the checked account's trial was
-expired. No paid plan was authorized. Published Railway Free allowances are small
+An earlier checked Railway account had an expired trial. The selected account
+had trial credit and now hosts the service. No paid plan was authorized. Published Railway Free allowances are small
 and do not guarantee continuous simulation. See https://docs.railway.com/pricing/free-trial.
 
 Vercel Functions have bounded execution duration and do not directly fit this
