@@ -1,6 +1,6 @@
 # Validation record
 
-Engine SHA-256: `d029c829ec5fb20eae9e152691b27d72fe225135f976cc99d80143907e4cfb20`. Results match the packaged engine.
+Engine SHA-256: `d029c829ec5fb20eae9e152691b27d72fe225135f976cc99d80143907e4cfb20`. These historical results correspond to the baseline engine at release 1.0.0; they are not measurements of the challenge-enabled model.
 
 Independent seeds; fixed 20000-tick requested horizon unless TICKS overridden. No reseeding. Comparisons descriptive; not proof of learning or intelligence. Timings are local observations, not isolated hardware benchmarks.
 

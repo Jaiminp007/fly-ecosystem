@@ -16,6 +16,13 @@ let world=new World(),paused=true,speed=1,actualSpeed=0,lastError=null;
 const recovered=await store.recover();
 if(recovered){world=World.restore(recovered);paused=recovered.server?.paused!==false;speed=recovered.server?.speed||1;}
 else if(process.env.AUTO_START==='true'){paused=false;speed=5;}
+// Explicit one-time deployment intervention, preserving the preceding world first.
+if(process.env.ACTIVATE_CHALLENGES==='cycle'&&world.config.challenges!=='cycle'){
+  await store.save(`checkpoint-${Date.now()}-tick-${world.tick}.json`,{...world.checkpoint(),server:{paused,speed}});
+  world.config.challenges='cycle';world.config.challengeStartTick=world.tick;
+  world.record('intervention','Changing-world challenges enabled; previous world archived.');
+  await store.save('autosave.json',{...world.checkpoint(),server:{paused,speed}});
+}
 let savedAt=null,lastWall=performance.now(),owed=0,windowStart=performance.now(),windowTicks=0;
 const checkpoint=()=>({...world.checkpoint(),server:{paused,speed,savedAt:new Date().toISOString()}});
 const atomic=(name,value)=>store.save(name,value);

@@ -1,0 +1,29 @@
+
+> fly-ecosystem@2.0.0 test
+> node --test tests/*.test.mjs
+
+✔ challenge schedule is deterministic with distinct food and danger pressures (0.874583ms)
+✔ challenge continuation, accounting and phase records survive checkpoints (854.914584ms)
+✔ off preserves legacy dynamics; challenge activation cannot revive extinct worlds (100.658542ms)
+✔ stress-zone costs preserve energy accounting and expose danger to sensors (0.615459ms)
+✔ checkpoint continuation is exactly reproducible, including RNG and memory (186.754792ms)
+✔ energy accounting includes external renewal, metabolism and offspring transfer (1991.009541ms)
+✔ offspring retain both parent identities and do not inherit acquired memory (0.706375ms)
+✔ structural mutation adds valid inherited topology with unique innovation IDs (17.917ms)
+✔ no mutation preserves parental alleles (3.790125ms)
+✔ learning changes eligible weights; frozen treatment leaves weights untouched (0.8265ms)
+✔ extinction is terminal and does not insert replacements (0.401292ms)
+✔ capacity pauses instead of silently selecting which offspring survive (0.380584ms)
+✔ malformed checkpoints fail before becoming a world (1.761125ms)
+✔ serialized saves, rolling retention and malformed recovery preservation (6.978542ms)
+✔ telemetry detects a single-sex bottleneck without mutating the world (5.736875ms)
+✔ local HTTP workflow persists and restores a world; rejects cross-origin and invalid imports (431.512ms)
+✔ hosted mode rejects public writes and restart preserves pause and extinction (199.600958ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2251.438375

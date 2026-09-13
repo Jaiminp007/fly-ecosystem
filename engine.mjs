@@ -1,3 +1,4 @@
+import {challengeAt,fertility,stress} from './challenges.mjs';
 // Compact artificial controller. No biological connectome is represented here.
 export const INPUTS = ['food ahead','food left','food right','food proximity','energy','age','mate ahead','mate left','mate right','mate proximity','wall left','wall right','scent','previous food','clock sin','clock cos','bias'];
 export const OUTPUTS = ['turn','move','eat','mate','signal'];
@@ -88,23 +89,31 @@ export class World {
     this.lineage.push({id,parents,generation,sex,born:this.tick,died:null,mutations,nodes:genome.nodes.length,edges:genome.edges.length,traits:clone(genome.traits)});return fly;}
   record(kind,text){this.events.push({tick:this.tick,kind,text});if(this.events.length>300)this.events.shift();}
   energy(){return this.food.reduce((s,f)=>s+f.amount,0)+this.flies.reduce((s,f)=>s+f.energy,0);}
-  sensors(f,fi,ai){
+  sensors(f,fi,ai,challenge=null){
     const r=f.genome.traits.sense;const foods=fi.nearby(f,r).filter(p=>p.amount>.06);let best=null,score=0;
     for(const p of foods){const value=p.amount/(distance(f,p)+20);if(value>score){best=p;score=value;}}
     const mates=ai.nearby(f,r).filter(m=>m.id!==f.id&&m.sex!==f.sex&&m.age>=m.genome.traits.maturity);
     const mate=mates.sort((a,b)=>distance(f,a)-distance(f,b))[0];
     const bearing=p=>p?angle(Math.atan2(p.y-f.y,p.x-f.x)-f.heading):0;
     const foodA=bearing(best),mateA=bearing(mate);
-    const wall=(offset)=>{const x=f.x+Math.cos(f.heading+offset)*35,y=f.y+Math.sin(f.heading+offset)*35;return x<10||x>990||y<10||y>630||this.obstacles.some(o=>distance({x,y},o)<o.r+6)?1:0;};
+    const wall=(offset)=>{const x=f.x+Math.cos(f.heading+offset)*35,y=f.y+Math.sin(f.heading+offset)*35;return x<10||x>990||y<10||y>630||(this.obstacles.some(o=>distance({x,y},o)<o.r+6)||stress(challenge,{x,y})>0)?1:0;};
     const scent=ai.nearby(f,r/2).filter(m=>m.id!==f.id).reduce((s,m)=>s+m.signal/(1+distance(f,m)),0);
     return [best?Math.cos(foodA):0,best?Math.max(0,-Math.sin(foodA)):0,best?Math.max(0,Math.sin(foodA)):0,best?1-distance(f,best)/r:0,f.energy/120,Math.min(f.age/300,1),mate?Math.cos(mateA):0,mate?Math.max(0,-Math.sin(mateA)):0,mate?Math.max(0,Math.sin(mateA)):0,mate?1-distance(f,mate)/r:0,wall(-.7),wall(.7),clamp(scent,0,1),f.lastFood,Math.sin(this.tick*.018),Math.cos(this.tick*.018),1];
   }
   step(){
     if(!this.flies.length||this.capacityReached)return false;
-    this.tick++;const season=this.config.seasonal?.6+.4*Math.sin(this.tick*DT/50):1;
-    for(const p of this.food){const inc=Math.min(p.capacity-p.amount,p.regrowth*this.config.nutrient*season*DT);p.amount+=inc;this.totals.externalEnergy+=inc;}
+    this.tick++;const challenge=challengeAt(this.config,this.tick);
+    if(challenge){
+      if(!this.challengeHistory)this.challengeHistory=[];
+      const key=`${challenge.cycle}:${challenge.index}`,previous=this.challengeHistory.at(-1);
+      if(previous?.key!==key){if(previous){previous.endTick=this.tick;previous.endPopulation=this.flies.length;previous.births=this.totals.births-previous.startBirths;previous.deaths=this.totals.deaths-previous.startDeaths;previous.foodEaten=this.totals.foodEaten-previous.startFood;}
+        this.challengeHistory.push({key,name:challenge.name,startTick:this.tick,startPopulation:this.flies.length,startBirths:this.totals.births,startDeaths:this.totals.deaths,startFood:this.totals.foodEaten});
+        if(this.challengeHistory.length>64)this.challengeHistory.shift();this.record('challenge',`${challenge.name} · cycle ${challenge.cycle}`);}
+    }
+    const season=this.config.seasonal?.6+.4*Math.sin(this.tick*DT/50):1;
+    for(const p of this.food){const inc=Math.min(p.capacity-p.amount,p.regrowth*this.config.nutrient*season*DT*fertility(challenge,p));p.amount+=inc;this.totals.externalEnergy+=inc;}
     const fi=new Spatial(this.food),ai=new Spatial(this.flies);const actions=new Map();
-    for(const f of this.flies)actions.set(f.id,brainStep(f.genome,f.brain,this.sensors(f,fi,ai),f.reward,this.config.learning));
+    for(const f of this.flies)actions.set(f.id,brainStep(f.genome,f.brain,this.sensors(f,fi,ai,challenge),f.reward,this.config.learning));
     // Shuffle update order with the checkpointed RNG to avoid fixed-ID resource priority.
     const order=[...this.flies];for(let i=order.length-1;i>0;i--){const j=Math.floor(this.rng.next()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
     for(const f of order){
@@ -114,7 +123,7 @@ export class World {
       const speed=(move+1)/2*g.speed;const x=clamp(f.x+Math.cos(f.heading)*speed*DT,6,994),y=clamp(f.y+Math.sin(f.heading)*speed*DT,6,634);
       if(!this.obstacles.some(o=>distance({x,y},o)<o.r+5)){f.x=x;f.y=y;}else f.heading=angle(f.heading+1.1);
       f.signal=(signal+1)/2;
-      const cost=Math.min(f.energy,(g.metabolism+speed*.008+f.genome.nodes.length*.0007+f.signal*.015)*DT);f.energy-=cost;this.totals.dissipated+=cost;
+      const cost=Math.min(f.energy,(g.metabolism+speed*.008+f.genome.nodes.length*.0007+f.signal*.015+stress(challenge,f))*DT);f.energy-=cost;this.totals.dissipated+=cost;
       let eaten=0;if(eat>0){for(const p of fi.nearby(f,15)){const take=Math.min(p.amount,Math.max(0,120-f.energy),.8);p.amount-=take;f.energy+=take;eaten+=take;}}
       this.totals.foodEaten+=eaten;f.lastFood=Math.min(1,eaten);f.reward=clamp(eaten-cost,-1,1);
     }
@@ -140,19 +149,23 @@ export class World {
   metrics(){const n=this.flies.length,mean=fn=>n?this.flies.reduce((s,f)=>s+fn(f),0)/n:0;
     return {tick:this.tick,seconds:this.tick*DT,population:n,births:this.totals.births,deaths:this.totals.deaths,generation:Math.max(0,...this.flies.map(f=>f.generation)),meanNodes:mean(f=>f.genome.nodes.length),meanEnergy:mean(f=>f.energy),meanSpeed:mean(f=>f.genome.traits.speed),learnedMagnitude:mean(f=>f.brain.plastic.reduce((s,p)=>s+Math.abs(p),0)/Math.max(1,f.brain.plastic.length)),food:this.food.reduce((s,p)=>s+p.amount,0),structuralMutations:this.totals.structuralMutations,accountingError:this.energy()+this.totals.dissipated-this.initialEnergy-this.totals.externalEnergy,status:!n?'extinct':this.capacityReached?'capacity':'running'};}
   sample(){this.history.push(this.metrics());if(this.history.length>2000)this.history.shift();}
-  snapshot(){return {schema:1,model:'compact-evolving-v1',config:clone(this.config),width:this.width,height:this.height,metrics:this.metrics(),food:this.food,obstacles:this.obstacles,flies:this.flies.map(f=>({id:f.id,x:f.x,y:f.y,heading:f.heading,energy:f.energy,sex:f.sex,generation:f.generation,nodes:f.genome.nodes.length,color:f.genome.traits.color})),history:this.history,events:this.events.slice(-35),lineage:this.lineage.slice(-500)};}
+  snapshot(){return {schema:1,model:this.config.challenges==='cycle'?'compact-challenges-v2':'compact-evolving-v1',challenge:challengeAt(this.config,this.tick),challengeHistory:this.challengeHistory||[],config:clone(this.config),width:this.width,height:this.height,metrics:this.metrics(),food:this.food,obstacles:this.obstacles,flies:this.flies.map(f=>({id:f.id,x:f.x,y:f.y,heading:f.heading,energy:f.energy,sex:f.sex,generation:f.generation,nodes:f.genome.nodes.length,color:f.genome.traits.color})),history:this.history,events:this.events.slice(-35),lineage:this.lineage.slice(-500)};}
   inspect(id){const f=this.flies.find(f=>f.id===id);return f?clone(f):{archived:this.lineage.find(l=>l.id===id)||null};}
-  checkpoint(){return {schema:1,model:'compact-evolving-v1',world:clone({...this,rng:{state:this.rng.state}})};}
+  checkpoint(){return {schema:1,model:this.config.challenges==='cycle'?'compact-challenges-v2':'compact-evolving-v1',world:clone({...this,rng:{state:this.rng.state}})};}
   static restore(data){validateCheckpoint(data);const w=Object.create(World.prototype);Object.assign(w,clone(data.world));w.rng=new RNG(data.world.rng.state);return w;}
 }
 export function validateConfig(c){
+  if(c.challenges!==undefined&&!['off','cycle'].includes(c.challenges))throw Error('Invalid challenge profile');
+  if(c.challengeStartTick!==undefined&&(!Number.isInteger(c.challengeStartTick)||c.challengeStartTick<0))throw Error('Invalid challenge start');
   for(const [k,min,max] of [['seed',1,4294967295],['founders',2,500],['capacity',2,2000]])if(!Number.isInteger(c[k])||c[k]<min||c[k]>max)throw new Error(`Invalid ${k}`);
   if(c.capacity<c.founders)throw new Error('Capacity must cover founders');
   if(typeof c.learning!=='boolean'||typeof c.mutation!=='boolean'||typeof c.seasonal!=='boolean'||!Number.isFinite(c.nutrient)||c.nutrient<0||c.nutrient>5)throw new Error('Invalid environment settings');
 }
 export function validateCheckpoint(d){
-  if(d?.schema!==1||d?.model!=='compact-evolving-v1'||!d.world)throw new Error('Unsupported checkpoint');
+  if(d?.schema!==1||!['compact-evolving-v1','compact-challenges-v2'].includes(d?.model)||!d.world)throw new Error('Unsupported checkpoint');
   const w=d.world;validateConfig(w.config);
+  if((d.model==='compact-challenges-v2')!==(w.config.challenges==='cycle'))throw Error('Challenge model mismatch');
+  if(w.config.challengeStartTick>w.tick)throw Error('Challenge start is in the future');
   if(!Number.isInteger(w.tick)||w.tick<0||!Number.isInteger(w.rng?.state)||w.rng.state<=0||w.width!==1000||w.height!==640)throw new Error('Invalid clock or geometry');
   if(!Array.isArray(w.flies)||w.flies.length>w.config.capacity||!Array.isArray(w.food)||w.food.length>10000||!Array.isArray(w.lineage)||!Array.isArray(w.history)||!Array.isArray(w.events)||!Array.isArray(w.obstacles))throw new Error('Invalid populations');
   const walk=v=>{if(typeof v==='number'&&!Number.isFinite(v))throw new Error('Nonfinite state');if(v&&typeof v==='object')for(const [k,x]of Object.entries(v)){if(['__proto__','constructor','prototype'].includes(k))throw new Error('Invalid property');walk(x);}};walk(w);

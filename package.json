@@ -1,12 +1,13 @@
 {
   "name": "fly-ecosystem",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "experiment": "node scripts/experiment.mjs"
+    "experiment": "node scripts/experiment.mjs",
+    "evaluate:challenges": "node scripts/challenge-evaluation.mjs"
   },
   "engines": {
     "node": ">=22"

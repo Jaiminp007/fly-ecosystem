@@ -12,6 +12,12 @@ state, structural mutation and a persistent habitat. The visible ecosystem uses
 **compact artificial recurrent networks**, not the biological fly connectome.
 A separately runnable MaleCNS assay is included and clearly distinguished.
 
+## The changing world
+
+Four repeating challenges change food renewal and introduce a moving stress zone.
+Watch phase outcomes in the observatory, or start an original-habitat control locally.
+[Challenge design and limitations](docs/CHALLENGES.md) · [Measured comparison](evidence/challenge-release/summary.md)
+
 ## Project status
 
 Versioned artificial-life observatory. Public viewing is supported; hosted writes

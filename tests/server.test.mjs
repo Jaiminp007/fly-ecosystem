@@ -29,11 +29,11 @@ test('local HTTP workflow persists and restores a world; rejects cross-origin an
 
 test('hosted mode rejects public writes and restart preserves pause and extinction',async()=>{
  const dir=await mkdtemp(resolve('runs/hosted-test-'));const port=18766;let child;
- const start=async()=>{child=spawn(process.execPath,['server.mjs'],{env:{...process.env,PORT:String(port),RUNS_DIR:dir,HOST:'0.0.0.0',ADMIN_TOKEN:'test-only-owner-token-with-at-least-32-characters'},stdio:['ignore','pipe','pipe']});await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Startup timed out')),6000);child.stdout.once('data',()=>{clearTimeout(timer);resolve();});child.once('error',reject);});};
+ const start=async()=>{child=spawn(process.execPath,['server.mjs'],{env:{...process.env,PORT:String(port),RUNS_DIR:dir,HOST:'0.0.0.0',ACTIVATE_CHALLENGES:'cycle',ADMIN_TOKEN:'test-only-owner-token-with-at-least-32-characters'},stdio:['ignore','pipe','pipe']});await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Startup timed out')),6000);child.stdout.once('data',()=>{clearTimeout(timer);resolve();});child.once('error',reject);});};
  const stop=async()=>{const done=once(child,'exit');child.kill('SIGTERM');await done;child=null;};
  const base=`http://127.0.0.1:${port}`;const post=(body,authorized=true)=>fetch(base+'/api/control',{method:'POST',headers:{'Content-Type':'application/json',...(authorized?{Authorization:'Bearer test-only-owner-token-with-at-least-32-characters'}:{})},body:JSON.stringify(body)});
  try{await start();assert.equal((await post({action:'run'},false)).status,401);assert.equal((await fetch(base+'/healthz')).status,200);
- await post({action:'step'});await stop();await start();let s=await(await fetch(base+'/api/state')).json();assert.equal(s.metrics.tick,10);assert.equal(s.runtime.paused,true);
+ await post({action:'step'});await stop();await start();let s=await(await fetch(base+'/api/state')).json();assert.equal(s.metrics.tick,10);assert.equal(s.runtime.paused,true);assert.equal(s.config.challenges,'cycle');assert.equal(s.config.challengeStartTick,0);assert.equal(s.events.filter(e=>e.kind==='intervention').length,1);
  const cp=await(await fetch(base+'/api/checkpoint')).json();cp.world.flies=[];await post({action:'import',checkpoint:cp});await stop();await start();s=await(await fetch(base+'/api/state')).json();assert.equal(s.metrics.status,'extinct');assert.equal((await post({action:'run'})).status,400);
  }finally{if(child)await stop();await rm(dir,{recursive:true,force:true});}
 });

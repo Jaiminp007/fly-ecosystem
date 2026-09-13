@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0 — 2026-09-13
+
+Changing-world challenge cycle: recovery, moving fertility, scarcity, and a moving
+energy-cost zone sensed through existing danger inputs. Phase history and visual
+overlays expose the pressures and observed outcomes. Versioned challenge checkpoints
+preserve legacy controls. Added founder/descendant comparisons, learning-disabled
+controls and one-time, archived cloud activation. No intelligence claim is made.
+
+
 ## 1.1.0 — 2026-09-13
 
 Afterwing observatory identity and responsive dashboard. Added per-sex population
