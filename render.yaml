@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: afterwing
+    runtime: node
+    plan: free
+    buildCommand: npm test
+    startCommand: node server.mjs
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: HOST
+        value: 0.0.0.0
+      - key: DEMO_MODE
+        value: 'true'
+      - key: AUTO_START
+        value: 'true'

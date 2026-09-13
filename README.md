@@ -1,4 +1,6 @@
-# Fly ecosystem
+# Afterwing
+
+**Small lives. Long histories.**
 
 A local artificial-life experiment with two-parent inheritance, individual neural
 state, structural mutation and a persistent habitat. The visible ecosystem uses
@@ -7,8 +9,9 @@ A separately runnable MaleCNS assay is included and clearly distinguished.
 
 ## Project status
 
-Published research baseline. Always-on hosting and authenticated owner controls
-are under development, not available in this release.
+Versioned artificial-life observatory. Public viewing is supported; hosted writes
+require an owner bearer token. The Render Free configuration is an ephemeral demo,
+not an always-on or durable research deployment.
 
 - [Model and architecture](docs/ARCHITECTURE.md)
 - [Release checklist](docs/RELEASE_PLAN.md)
@@ -28,10 +31,9 @@ Open [the local control panel](http://127.0.0.1:8765/). On macOS, `start.command
 is also a launcher. The server binds only to localhost. No cloud account or API
 key is required. Use `PORT=8766 npm start` if the normal port is occupied.
 
-The world starts paused. Choose **Run world**, then a requested speed. “Maximum”
+The local world starts paused on first launch. Subsequent restarts preserve the saved pause state. Choose **Run world**, then a requested speed. “Maximum”
 uses available computation; the achieved rate is measured separately. Closing the
-browser leaves the server running. Stopping the server pauses the simulation; it
-does not simulate the elapsed time while the computer is off.
+browser leaves the server running. Stopping the server saves its state; it does not simulate elapsed time while off.
 
 ## Controls
 
@@ -42,7 +44,9 @@ does not simulate the elapsed time while the computer is off.
 - Start a new seeded world with mutation, lifetime learning and seasonality independently selectable.
 - Inspect population history, recent ancestry, birth/death notes and accounting residuals.
 
-The server saves automatic recovery snapshots every 15 seconds. User checkpoints
+The server saves automatic recovery snapshots every 15 seconds, retains twelve
+rolling checkpoints at five simulated-minute intervals, and archives terminal
+worlds. Corrupt recovery files stop startup instead of being overwritten. User checkpoints
 are stored in `runs/`. A new world first saves the previous world. Capacity pauses
 the simulation; increasing it is an explicit intervention. There is **no reseeding
 after extinction**. Low-resource worlds may die out, and this is a valid result.

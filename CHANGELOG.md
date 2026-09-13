@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0 — 2026-09-13
+
+Afterwing observatory identity and responsive dashboard. Added per-sex population
+and eligibility observations, retained-event death causes, historical maximum
+ancestry, and an explicit extinction panel. Serialized recovery writes, rolling
+checkpoints, terminal archives, and restart-state persistence. Hosted writes are
+blocked without an owner bearer token; public demo mode is explicitly ephemeral.
+Added container and Render Free configuration. Compact model dynamics are unchanged.
+
+
 ## 1.0.0 — 2026-09-13
 
 Initial published research baseline: compact evolving neural agents, two-parent

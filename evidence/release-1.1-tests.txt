@@ -1,0 +1,25 @@
+
+> fly-ecosystem@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ checkpoint continuation is exactly reproducible, including RNG and memory (179.017083ms)
+✔ energy accounting includes external renewal, metabolism and offspring transfer (1979.326875ms)
+✔ offspring retain both parent identities and do not inherit acquired memory (0.753334ms)
+✔ structural mutation adds valid inherited topology with unique innovation IDs (17.681875ms)
+✔ no mutation preserves parental alleles (4.460708ms)
+✔ learning changes eligible weights; frozen treatment leaves weights untouched (1.006417ms)
+✔ extinction is terminal and does not insert replacements (0.401166ms)
+✔ capacity pauses instead of silently selecting which offspring survive (0.313875ms)
+✔ malformed checkpoints fail before becoming a world (1.650542ms)
+✔ serialized saves, rolling retention and malformed recovery preservation (9.8695ms)
+✔ telemetry detects a single-sex bottleneck without mutating the world (5.761291ms)
+✔ local HTTP workflow persists and restores a world; rejects cross-origin and invalid imports (419.605541ms)
+✔ hosted mode rejects public writes and restart preserves pause and extinction (195.371625ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2232.679125

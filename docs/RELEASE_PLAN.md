@@ -6,17 +6,17 @@ A versioned research software release, with tests and limitations. Version numbe
 identify reproducible code; they do not certify biological fidelity or production
 readiness. Existing measured experiments apply to their recorded engine digest.
 
-## Next iteration: persistence and observability
+## Implemented in 1.1.0: persistence and observability
 
-- Retain rolling full checkpoints, not only the latest autosave.
-- Never overwrite a corrupt recovery file with a silently created new world.
-- Add per-sex counts, reproductive eligibility and death-cause telemetry.
-- Preserve original run evidence and label model changes with a new version.
-- Test restart recovery, retention, malformed recovery and extinction behavior.
+- [x] Retain rolling full checkpoints, not only the latest autosave.
+- [x] Never overwrite a corrupt recovery file with a silently created new world.
+- [x] Add per-sex counts, reproductive eligibility and death-cause telemetry.
+- [x] Preserve original run evidence and label model changes with a new version.
+- [x] Test restart recovery, retention, malformed recovery and extinction behavior.
 
 ## Hosted-release gate
 
-- Vercel frontend with a documented authoritative simulation backend.
+- Render Free demo first; persistent hosting remains a separate gate.
 - Durable storage, bounded compute and retained checkpoints.
 - Public read access separated from authenticated owner controls.
 - Server-restart recovery preserving intentional pause and extinction.
