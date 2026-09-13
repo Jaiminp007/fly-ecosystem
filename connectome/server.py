@@ -3,6 +3,7 @@ import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import signal
 import threading
 from arena import Arena
 p=argparse.ArgumentParser()
@@ -14,12 +15,13 @@ p.add_argument('--restore',type=Path)
 a=p.parse_args()
 if a.steps<0:p.error('steps must be nonnegative')
 world=Arena.restore(a.restore) if a.restore else Arena(a.founders,a.capacity)
-lock=threading.Lock();state=world.state()
+lock=threading.Lock();state=world.state();stop=threading.Event()
 def run():
     global state
     world.paused=False
     try:
         for _ in range(a.steps):
+            if stop.is_set():break
             world.step()
             with lock:state=json.loads(json.dumps(world.state(),allow_nan=False))
             if world.paused:break
@@ -44,6 +46,17 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers();self.wfile.write(payload)
     def log_message(self,*args):pass
 server=ThreadingHTTPServer(('127.0.0.1',a.port),Handler)
-threading.Thread(target=run,daemon=True).start()
+worker=threading.Thread(target=run)
+worker.start()
 print(f'MaleCNS observer: http://127.0.0.1:{a.port}/',flush=True)
-server.serve_forever()
+def request_stop(*_):
+    raise KeyboardInterrupt
+signal.signal(signal.SIGTERM,request_stop)
+try:
+    server.serve_forever()
+except KeyboardInterrupt:
+    pass
+finally:
+    stop.set()
+    worker.join()
+    server.server_close()

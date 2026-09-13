@@ -1,4 +1,8 @@
-# Architecture and model specification
+# Legacy compact architecture and model specification
+
+This document describes the v1/v2 compact model retained under
+`npm run start:legacy`. The primary v3 entry point is specified in
+[`MALECNS.md`](MALECNS.md). Results from these systems are not interchangeable.
 
 The authoritative world lives in `engine.mjs`; the browser never advances it.
 `server.mjs` owns one World, advances fixed 0.1-second steps within a wall-clock
@@ -40,5 +44,6 @@ bounded history/events and no complete neural genomes for dead individuals.
 Consequently an extinct autosave cannot reconstruct earlier neural decisions.
 Baseline restarts restore the world paused; this is not always-on cloud recovery.
 
-The separate Python assay imports a retained MaleCNS graph using pinned source
-checksums. It is neither the live population controller nor biological validation.
+Version 3's Python arena imports the retained MaleCNS graph using pinned source
+checksums and uses it as the local population controller. That does not make it a
+biological validation; the sensory adapter, physiology and body decoder are models.

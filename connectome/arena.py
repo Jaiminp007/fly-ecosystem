@@ -20,8 +20,10 @@ import numpy as np
 from stonkfly.neural.brain import MemoryBrain
 from stonkfly.neural.common import DATA, annotations
 
-MODEL = 'afterwing-malecns-arena-v1'
+MODEL = 'afterwing-malecns-arena-v4'
+MIGRATABLE_MODELS = {'afterwing-malecns-arena-v2', 'afterwing-malecns-arena-v3'}
 DT = .1
+MATING_ENERGY = 60.
 
 def angle(v):
     return (v + math.pi) % (2 * math.pi) - math.pi
@@ -31,7 +33,7 @@ class Controller:
         self.brain = MemoryBrain()
         a = annotations(self.brain.ids)
         self.groups = {f'{kind}_{side}': np.flatnonzero(a.type.eq(kind) & a.somaSide.eq(side))
-                       for kind in ['DNa02', 'DNp09', 'MN9'] for side in ['L', 'R']}
+                       for kind in ['LC9', 'DNa02', 'DNp09', 'MN9'] for side in ['L', 'R']}
         if any(not len(v) for v in self.groups.values()):
             raise ValueError('Required annotated motor readout absent')
         self.alleles = alleles or {'visual_gain': 1., 'motor_gain': 1., 'plastic_gain': 1.}
@@ -46,26 +48,55 @@ class Controller:
         bearings = (b.uv[:, 0] - .5) * math.pi * 2
         light = np.full(len(b.retina), .015, dtype=np.float32)
         contact = False
+        target = None
         for p in food:
             if p['amount'] <= .01:
                 continue
             dx, dy = p['x']-fly['x'], p['y']-fly['y']
             dist = math.hypot(dx,dy)
             bearing = angle(math.atan2(dy,dx)-fly['heading'])
+            if target is None or dist < target[0]:
+                target = (dist, bearing)
             delta = (bearings-bearing+math.pi) % (2*math.pi)-math.pi
             light += np.exp(-delta**2/.025).astype(np.float32) * min(1.,p['amount']/5) / (1+dist/80)
             contact |= dist < 15
-        pulses = (b.sugar, 20.) if contact else None
+        pulses = []
+        sensory_drive = {'LC9_L': 0., 'LC9_R': 0., 'sugar': 20. if contact else 0.}
+        if target is not None:
+            # The connectome does not include a calibrated retina-to-behaviour model.
+            # LC9 is an annotated visual projection population upstream of DNp09.
+            # This explicit object-detector adapter preserves the full graph between
+            # visual input and descending motor output; it is not a movement fallback.
+            dist, bearing = target
+            salience = math.exp(-dist / 350.)
+            lateral = math.sin(bearing)
+            # In arena coordinates a positive bearing is a clockwise/rightward
+            # target. DNp09 activation drives an ipsilateral forward turn, so
+            # the right LC9 population receives the stronger rightward cue.
+            gain = self.alleles['visual_gain']
+            sensory_drive['LC9_L'] = 40. * gain * salience * (.75 - .25 * lateral)
+            sensory_drive['LC9_R'] = 40. * gain * salience * (.75 + .25 * lateral)
+            pulses.extend((self.groups[k], sensory_drive[k]) for k in ['LC9_L', 'LC9_R'])
+        if contact:
+            pulses.append((b.sugar, sensory_drive['sugar']))
         counts, wall = b.step(np.clip(light*self.alleles['visual_gain'],0,1), DT*1000,
-                             learning=learning, stimulation=pulses)
-        hz = {k: float(counts[v].mean()/DT) for k,v in self.groups.items()}
-        turn = math.tanh((hz['DNa02_R']-hz['DNa02_L'])/30) * self.alleles['motor_gain']
-        speed = 35 * math.tanh((hz['DNp09_L']+hz['DNp09_R'])/50) * self.alleles['motor_gain']
+                             learning=learning, stimulation=pulses or None)
+        hz = {k: float(counts[v].mean()/DT) for k,v in self.groups.items() if not k.startswith('LC9_')}
+        forward_hz = hz['DNp09_L'] + hz['DNp09_R']
+        # DNp09 is the calibrated target-pursuit interface used here: bilateral
+        # activity supplies forward drive and its right-left difference supplies
+        # the ipsilateral turn. DNa02 remains reported for later steering assays
+        # but is not mixed into this decoder because the approximate dynamics can
+        # produce a conflicting transient response to the same LC9 stimulus.
+        turn_hz = hz['DNp09_R'] - hz['DNp09_L']
+        turn = math.tanh(turn_hz/30) * self.alleles['motor_gain']
+        speed = 35 * math.tanh(forward_hz/50) * self.alleles['motor_gain']
         eat = hz['MN9_L']+hz['MN9_R'] > 0
         if not np.isfinite(b.v).all() or not np.isfinite(b.g).all():
             raise FloatingPointError('Nonfinite neural state')
         return {'turn':turn,'speed':speed,'eat':eat,'spikes':int(counts.sum()),
-                'active_neurons':int(np.count_nonzero(counts)),'readout_hz':hz,'kernel_seconds':wall}
+                'active_neurons':int(np.count_nonzero(counts)),'readout_hz':hz,
+                'sensory_drive':sensory_drive,'kernel_seconds':wall}
 
 class Arena:
     def __init__(self, founders=2, capacity=4, seed=42):
@@ -140,9 +171,9 @@ class Arena:
             self.flies.remove(f)
         # Reproduction is an explicit body rule, not inferred neural courtship.
         for f in list(self.flies):
-            if f['sex']!=0 or f['age']<30 or f['energy']<65 or f['cooldown']:
+            if f['sex']!=0 or f['age']<30 or f['energy']<MATING_ENERGY or f['cooldown']:
                 continue
-            mate = next((m for m in self.flies if m['sex']==1 and m['age']>=30 and m['energy']>=65
+            mate = next((m for m in self.flies if m['sex']==1 and m['age']>=30 and m['energy']>=MATING_ENERGY
                          and not m['cooldown'] and math.hypot(f['x']-m['x'],f['y']-m['y'])<26),None)
             if mate is None:
                 continue
@@ -166,12 +197,13 @@ class Arena:
         return {'model':MODEL,'dataset':'MaleCNS v1.0','tick':self.tick,'seconds':self.tick*DT,
                 'paused':self.paused,'error':self.error,'population':len(self.flies),
                 'births':self.births,'deaths':self.deaths,'capacity':self.capacity,
+                'mating_energy':MATING_ENERGY,
                 'phase':['First Light','The Drift','Lean Season','The Squall'][(self.tick//1800)%4],
                 'simulated_per_wall':self.tick*DT/self.wall_seconds if self.wall_seconds else 0,
                 'flies':self.flies,'food':self.food,'lineage':self.lineage,'events':self.events[-20:],
                 'brains':{str(k):v.audit for k,v in self.controllers.items()},
                 'assumptions':['Full MaleCNS graph with approximate spiking dynamics',
-                    'Engineered retinal panorama, motor readouts and body physics',
+                    'Engineered retinal panorama plus LC9 object detector, motor readouts and body physics',
                     'Both reproductive roles use the same male anatomical template',
                     'Offspring inherit three gain alleles; acquired neural memory is not inherited',
                     'Anatomical topology is fixed in this integration; no structural evolution yet',
@@ -193,8 +225,8 @@ class Arena:
     @classmethod
     def restore(cls, target):
         target=Path(target);data=json.loads((target/'world.json').read_text())
-        if data['model']!=MODEL:
-            raise ValueError('Not a MaleCNS arena checkpoint; compact checkpoints cannot be migrated')
+        if data['model'] != MODEL and data['model'] not in MIGRATABLE_MODELS:
+            raise ValueError('Not a compatible MaleCNS arena checkpoint; compact checkpoints cannot be migrated')
         s=data['state'];w=object.__new__(cls)
         w.rng=random.Random()
         def tuples(x):return tuple(tuples(v) for v in x) if isinstance(x,list) else x
@@ -202,6 +234,8 @@ class Arena:
         w.next_id=data['next_id'];w.tick=s['tick'];w.capacity=s['capacity']
         w.births=s['births'];w.deaths=s['deaths'];w.flies=s['flies'];w.food=s['food']
         w.lineage=s['lineage'];w.events=s['events'];w.paused=True;w.error=None
+        if data['model'] != MODEL:
+            w.events.append(f"Migrated {data['model']} to {MODEL}; neural state retained, mating energy changed to {MATING_ENERGY}.")
         w.wall_seconds=data['wall_seconds'];w.controllers={}
         for f in w.flies:
             c=Controller(f['alleles']);c.brain.restore(target/f"brain-{f['id']}.npz")

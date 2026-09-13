@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.0.0 — 2026-09-13
+
+Corrected the primary model to use independent state for the full MaleCNS v1.0
+graph in every local fly. Added an explicit LC9 object-detection adapter and
+DNp09/MN9 body decoder, full-state checkpoints, inherited gain traits, a read-only
+observer, and real full-graph continuation/isolation/approach assays. The compact
+v1/v2 model remains available as legacy mode, and its Railway deployment is clearly
+identified as legacy. An uninterrupted local run produced one generation-1 birth.
+Full-brain hosting, structural neural evolution, and self-sustaining population
+growth remain unresolved.
+
 ## 2.0.0 — 2026-09-13
 
 Changing-world challenge cycle: recovery, moving fertility, scarcity, and a moving

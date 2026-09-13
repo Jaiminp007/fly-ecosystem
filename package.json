@@ -1,6 +1,6 @@
 {
   "name": "fly-ecosystem",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,7 +13,7 @@
   "engines": {
     "node": ">=22"
   },
-  "description": "Reproducible artificial-life ecosystem with inherited evolving neural controllers",
+  "description": "MaleCNS whole-connectome artificial-life arena with inherited gain traits",
   "license": "MIT",
   "repository": {
     "type": "git",

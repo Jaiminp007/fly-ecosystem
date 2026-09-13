@@ -1,6 +1,6 @@
 # Hosting Afterwing
 
-## Live Railway trial deployment
+## Live Railway trial deployment — legacy compact model
 
 https://afterwing-production.up.railway.app
 
@@ -8,6 +8,12 @@ Deployed 2026-09-13 as one container with a persistent volume mounted at `/data`
 RUNS_DIR=/data, HOST=0.0.0.0 and AUTO_START=true. Requested speed is 5×. Public writes
 return 401; no ADMIN_TOKEN is configured. HTTP health and restart recovery were
 checked; see evidence/railway-deployment.json. Browser visual QA remains unverified.
+This service runs `server.mjs` and is not the MaleCNS v3 arena.
+
+The measured local MaleCNS process peaked above 1 GB with one brain and above
+1.4 GB with two. Railway's published Trial limit is 1 GB RAM per service, so the
+full-connectome population has not been deployed there. The 0.5 GB Trial volume
+also does not fit the original source downloads. No paid upgrade was authorized.
 
 This is trial-funded infrastructure, not a promise of permanently free hosting.
 No recurring ping job or paid subscription was created. Updates currently deploy

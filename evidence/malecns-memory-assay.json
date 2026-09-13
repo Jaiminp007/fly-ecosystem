@@ -1,0 +1,10 @@
+{
+  "platform": "darwin",
+  "start_peak_bytes": 31703040,
+  "one_brain_peak_bytes": 1078509568,
+  "two_brain_peak_bytes": 1494220800,
+  "neurons_per_brain": 166700,
+  "edges_per_brain": 25582938,
+  "arena_sha256": "59ab6612b8e4e555f4c444b566c3846b0b8a53e98892cda15121feed72e24179",
+  "interpretation": "Process peak RSS on this machine, including temporary initialization memory. It is evidence for hosting assessment, not a portable guarantee."
+}

@@ -1,0 +1,22 @@
+{
+  "model": "afterwing-malecns-arena-v4",
+  "births": 1,
+  "population": 3,
+  "child_id": 3,
+  "parents": [
+    1,
+    2
+  ],
+  "generation": 1,
+  "neurons": 166700,
+  "edges": 25582938,
+  "independent_neural_state": true,
+  "full_topology_equal": true,
+  "inherited_alleles": {
+    "visual_gain": 1.0003519240224055,
+    "motor_gain": 1.0110195052983946,
+    "plastic_gain": 0.9957257184027637
+  },
+  "arena_sha256": "59ab6612b8e4e555f4c444b566c3846b0b8a53e98892cda15121feed72e24179",
+  "assay_setup": "Parents were deliberately placed together at maturity with qualifying energy. This proves the construction path, not spontaneous reproduction or self-sustaining population growth."
+}

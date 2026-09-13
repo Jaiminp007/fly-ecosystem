@@ -1,24 +1,31 @@
 {
-  "model": "afterwing-malecns-arena-v1",
+  "model": "afterwing-malecns-arena-v4",
   "checkpoint_continuation_exact": true,
   "independent_neural_state": true,
   "offspring_full_topology_equal": true,
+  "lc9_to_dnp09_forward_motion": true,
+  "v2_checkpoint_migration": true,
   "offspring_test": "Forced construction for isolation test, not spontaneous reproduction",
   "neurons": 166700,
   "edges": 25582938,
   "observed_action": {
     "turn": 0.0,
-    "speed": 0.0,
+    "speed": 23.241286959374715,
     "eat": false,
-    "spikes": 44828,
-    "active_neurons": 9757,
+    "spikes": 102560,
+    "active_neurons": 20672,
     "readout_hz": {
-      "DNa02_L": 0.0,
+      "DNa02_L": 40.0,
       "DNa02_R": 0.0,
-      "DNp09_L": 0.0,
-      "DNp09_R": 0.0,
+      "DNp09_L": 20.0,
+      "DNp09_R": 20.0,
       "MN9_L": 0.0,
       "MN9_R": 0.0
+    },
+    "sensory_drive": {
+      "LC9_L": 30.98969815816385,
+      "LC9_R": 27.39292137962614,
+      "sugar": 20.0
     }
   }
 }
