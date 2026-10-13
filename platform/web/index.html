@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Afterwing — Neural Ecosystem Lab</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><a class="brand" href="/">AFTERWING <span>NEURAL ECOSYSTEM LAB</span></a><span id="connection" role="status">Connecting…</span></header>
+  <main>
+    <section class="intro"><span class="eyebrow">LIFE THROUGH INHERITANCE</span><h1>Many minds.<br><em>One shared world.</em></h1><p>Create habitats for artificial neural agents. Observe how they forage, learn, signal, and pass changing networks to their offspring.</p></section>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <div class="layout">
+      <aside class="ecosystems panel">
+        <div class="section-heading"><h2>Ecosystems</h2><button id="new" class="primary">+ New</button></div>
+        <div id="ecosystemList" class="ecosystem-list"></div>
+        <p class="hint">Each habitat has its own agents, random seed, and history. New habitats and restored checkpoints start paused.</p>
+      </aside>
+      <section class="habitat panel">
+        <div id="empty"><h2>Your first ecosystem starts here.</h2><p>Choose a seed, give your agents food and room to live, and watch a history emerge.</p><button id="first" class="primary">Create an ecosystem</button></div>
+        <div id="workspace" hidden>
+          <div class="section-heading"><div><span id="model" class="eyebrow"></span><h2 id="name"></h2></div><span id="status" class="badge"></span></div>
+          <div class="toolbar"><button id="run" class="primary">Run</button><button id="step">Step 1s</button><button id="advance">Advance 10s</button><label>Speed <select id="speed"><option value="1">1×</option><option value="5">5×</option><option value="10">10×</option></select></label><button id="save">Checkpoint</button><button id="fork">Fork a copy</button><a id="export" class="button" download>Export</a></div>
+          <div class="arena"><canvas id="world" width="1000" height="640" aria-label="Shared habitat. Choose an agent below or click one to inspect its network."></canvas><span id="phase" class="phase"></span></div>
+          <div id="metrics" class="metrics"></div>
+          <div class="history-heading"><h3>Population over time</h3><span id="time" class="hint"></span></div><canvas id="history" width="1000" height="140" aria-label="Recorded population history"></canvas>
+          <div class="archive"><label>Saved checkpoint <select id="checkpoints"><option value="">Choose a checkpoint</option></select></label><button id="restore">Restore paused</button><span id="saved" class="hint"></span></div>
+          <details><summary>Habitat settings</summary><form id="settings"><label>Food renewal <input id="nutrient" type="number" min="0" max="5" step=".1" required></label><label>Population capacity <input id="capacity" type="number" min="2" max="2000" required></label><label class="check"><input id="learning" type="checkbox"> Lifetime learning</label><label class="check"><input id="mutation" type="checkbox"> Inherited mutation</label><label class="check"><input id="seasonal" type="checkbox"> Seasonal resources</label><button type="submit">Apply settings</button></form></details>
+          <p id="accounting" class="hint"></p>
+        </div>
+      </section>
+      <aside class="inspector panel"><h2>Inside one life</h2><label>Agent <select id="agents"><option value="">Choose an agent</option></select></label><div id="individual" class="hint">Select an agent to inspect inherited traits and acquired state.</div><canvas id="brain" width="440" height="300" aria-label="Selected agent's neural network"></canvas><p id="brainLegend" class="hint"></p><h3>Recent events</h3><div id="events" class="events"></div></aside>
+    </div>
+    <section class="methods panel"><h2>What this experiment measures</h2><p>Agents have recurrent artificial neural controllers. Food, danger, nearby agents, and internal state feed their inputs. Outputs govern movement, feeding, mating, and a simple signal. Eligible pairs transfer energy to children that inherit genome traits and network structure, with optional mutation. Children start with fresh neural activity and learned weight changes.</p><p>These first habitats use the existing compact model and its engineered founder reflex. The full MaleCNS fruit-fly model remains available through its separate entry point. Neither model reproduces a human brain. Survival, network growth, and changing weights alone do not establish useful learning or intelligence.</p></section>
+  </main>
+  <dialog id="createDialog"><form id="create"><div class="section-heading"><h2>Create a habitat</h2><button type="button" id="cancel" aria-label="Close">×</button></div><label>Name <input name="name" maxlength="80" value="The Commons" required></label><div class="form-grid"><label>Seed <input name="seed" type="number" min="1" max="4294967295" value="42" required></label><label>Founders <input name="founders" type="number" min="2" max="500" value="24" required></label><label>Capacity <input name="capacity" type="number" min="2" max="2000" value="120" required></label><label>Food renewal <input name="nutrient" type="number" min="0" max="5" step=".1" value="3" required></label></div><label>Environment <select name="challenges"><option value="cycle">Changing world: renewal, drift, scarcity, stress</option><option value="off">Original habitat</option></select></label><label class="check"><input name="learning" type="checkbox" checked> Lifetime learning</label><label class="check"><input name="mutation" type="checkbox" checked> Inherited mutation</label><label class="check"><input name="seasonal" type="checkbox" checked> Seasonal resources</label><p id="createError" role="alert"></p><button type="submit" class="primary">Create paused ecosystem</button></form></dialog>
+  <dialog id="forkDialog"><form id="forkForm"><h2>Fork this ecosystem</h2><p>A branch copies the current world, including its genomes and acquired state. It then evolves independently. This operation creates an experiment, rather than a biological offspring.</p><label>Name <input id="forkName" maxlength="80" required></label><p id="forkError" role="alert"></p><div class="toolbar"><button type="button" id="cancelFork">Cancel</button><button type="submit" class="primary">Create paused branch</button></div></form></dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

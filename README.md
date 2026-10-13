@@ -4,6 +4,29 @@
 
 **Small lives. Long histories.**
 
+## Neural ecosystem platform
+
+The first platform milestone manages independent habitats for evolving artificial
+neural agents, with a dashboard, agent/network inspection, inherited genomes,
+lifetime learning, checkpoints and experimental branches.
+
+```sh
+npm run start:platform
+```
+
+Requires Node.js 22 or newer and binds locally on port 8767. Create a named habitat,
+run or step it, inspect an agent, and fork a paused copy to compare interventions.
+Checkpoints persist under `runs/platform/`; restarts recover habitats paused.
+This platform uses the compact artificial controller. The default `npm start`
+continues to run the separate MaleCNS model described below.
+Read [platform behavior, validation and next milestones](docs/PLATFORM.md).
+
+With the platform running, `npm run train:platform` starts or resumes three
+matched learning/control seed pairs. The runner uses Python's standard library.
+[Recorded results](evidence/platform-training/summary.md) show 822 births across
+the first full cycle, with no consistent learning advantage. The next goal is
+learning and memory that improve performance on unseen, unpredictable tasks.
+
 [Open the legacy compact observatory](https://afterwing-production.up.railway.app) · [Releases](https://github.com/Jaiminp007/fly-ecosystem/releases)
 
 The Railway deployment runs on limited trial credit with a persistent volume.
