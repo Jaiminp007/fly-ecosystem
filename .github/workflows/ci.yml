@@ -13,5 +13,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: node --check engine.mjs && node --check server.mjs && node --check dist/app.js
+      - run: node --check platform/manager.mjs && node --check platform/server.mjs && node --check platform/web/app.js
       - run: npm test
