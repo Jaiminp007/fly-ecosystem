@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-23T19:51:57.938Z",
+  "worlds": 804,
+  "developmentSeedPairs": 12,
+  "heldoutSeedPairs": 30,
+  "maxAccountingResidual": 2.325123205082491e-9,
+  "passed": false,
+  "checks": [
+    "seed separation and complete paired outcomes",
+    "matched founder hashes and energy ledgers",
+    "all development/held-out comparisons recomputed",
+    "development eligibility, ranking and frozen selection recomputed",
+    "memory-component intervals recomputed from raw trial scores",
+    "all qualification gates recomputed",
+    "zero-weight and disabled-risk-learning behavior exactly equal",
+    "disabled-risk physical outcomes exactly equal incumbent",
+    "archived algorithm and reference hashes"
+  ],
+  "limitations": [
+    "Audit does not replay all worlds",
+    "Cue task exercises the underlying episodic component without reserve targets",
+    "No same-body retention qualification or RSI claim"
+  ]
+}

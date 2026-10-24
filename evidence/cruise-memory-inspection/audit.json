@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-23T18:49:51.975Z",
+  "directory": "evidence/episodic-credit/3cee78f1-91cf-456c-9a4d-87d113643852",
+  "seedPairs": 30,
+  "disjointSeeds": true,
+  "requiredControls": [
+    "frozen",
+    "neural",
+    "noMemory",
+    "fullRange"
+  ],
+  "allComparisonsRecomputed": true,
+  "allFounderHashesMatched": true,
+  "disabledMemoryStayedEmpty": true,
+  "allAgentEnergyEndpointsReconciled": true,
+  "archivedSourcesVerified": true,
+  "browserGeometryVerified": true,
+  "passed": true
+}

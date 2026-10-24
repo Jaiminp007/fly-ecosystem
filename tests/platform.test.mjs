@@ -102,6 +102,17 @@ test('concurrent controls serialize, active worlds share compute, and capacity e
   assert.equal(manager.state(a).metrics.tick, 20);
 });
 
+test('realtime backlog catches up only owed ticks and respects paused or pending controls',async t=>{
+ const {manager}=await workspace(t),id=(await manager.create({name:'Catch-up',config:{founders:2,reproduction:false,challenges:'off'}})).ecosystem.id;
+ assert.equal(manager.advanceRealtime(.2,0),false);
+ await manager.control(id,{action:'speed',value:10});await manager.control(id,{action:'run'});
+ assert.equal(manager.advanceRealtime(.2,0),true);assert.equal(manager.get(id).world.tick,0);
+ assert.equal(manager.advanceRealtime(0,1000),false);assert.equal(manager.get(id).world.tick,20);
+ assert.equal(manager.advanceRealtime(0,1000),false);assert.equal(manager.get(id).world.tick,20);
+ const entry=manager.get(id);entry.pending++;assert.equal(manager.advanceRealtime(.2,1000),false);entry.pending--;assert.equal(entry.world.tick,20);
+ await manager.control(id,{action:'pause'});assert.equal(manager.advanceRealtime(.2,1000),false);assert.equal(entry.world.tick,20);
+});
+
 test('recovery preserves corrupt evidence and persistence failures pause the affected ecosystem', async t => {
   const {directory, manager} = await workspace(t);
   const id = (await manager.create({name: 'Recovery', config: {founders: 2}})).ecosystem.id;
@@ -117,9 +128,9 @@ test('recovery preserves corrupt evidence and persistence failures pause the aff
   assert.match(manager.state(id).ecosystem.error, /Checkpoint failed/);
 });
 
-test('HTTP workflow creates, controls, inspects, checkpoints, forks and recovers independent ecosystems', async t => {
+for (const workers of [false,true]) test(`HTTP workflow creates, controls, inspects, checkpoints, forks and recovers independent ecosystems (${workers?'workers':'main'})`, async t => {
   const directory = await mkdtemp(join(tmpdir(), 'afterwing-platform-http-'));
-  let app = await createPlatform({directory, port: 0, realtime: false});
+  let app = await createPlatform({directory, port: 0, realtime: false, workers});
   t.after(async () => { await app.close(); await rm(directory, {recursive: true, force: true}); });
   let base = `http://127.0.0.1:${app.server.address().port}`;
   const get = async path => { const res = await fetch(base + path); return {status: res.status, body: await res.json()}; };
@@ -128,21 +139,34 @@ test('HTTP workflow creates, controls, inspects, checkpoints, forks and recovers
     return {status: res.status, body: await res.json()};
   };
   assert.equal((await fetch(base)).status, 200);
-  assert.match(await (await fetch(base)).text(), /Neural Ecosystem Lab/);
+  assert.match(await (await fetch(base)).text(), /A world of learning flies/);
   assert.equal((await fetch(base + '/app.js')).status, 200);
+  assert.equal((await fetch(base + '/controller-adapter.mjs')).status, 200);
   assert.equal((await fetch(base + '/style.css')).status, 200);
   assert.equal((await get('/healthz')).body.ok, true);
+  assert.equal((await get('/api/autonomy')).status, 200);
+  assert.equal((await post('/api/autonomy', {action: 'start', rounds: 1000})).status, 400);
   assert.equal((await post('/api/ecosystems', {name: 'Foreign'}, {Origin: 'https://example.com'})).status, 403);
   assert.equal((await post('/api/ecosystems', {name: '', config: {}})).status, 400);
   const created = await post('/api/ecosystems', {name: 'Interactive lab', config: {founders: 8, seed: 23}});
   assert.equal(created.status, 201);
   const id = created.body.ecosystem.id;
   const path = `/api/ecosystems/${id}`;
+  const frame = await get(path + '/frame?sinceTick=0&sinceEvent=0');
+  assert.equal(frame.status, 200);
+  assert.equal(frame.body.flies.length, 8);
+  assert.equal(Object.hasOwn(frame.body, 'lineage'), false);
+  assert.equal((await get(path + '/lineage?offset=0&limit=2')).body.items.length, 2);
+  const earlierEvents = await get(path + '/events?offset=0&limit=2');
+  assert.equal(earlierEvents.body.items.length, 1);
   assert.equal((await post(path + '/control', {action: 'step', ticks: 20})).body.metrics.tick, 20);
   assert.equal((await get(path + '/agents/1')).body.genome.nodes.length, 30);
   const checkpoint = await post(path + '/control', {action: 'checkpoint'});
   assert.equal((await get(path + '/checkpoints')).body.length, 1);
-  assert.equal((await get(path + '/checkpoint')).body.world.tick, 20);
+  const exportData = (await get(path + '/checkpoint')).body;
+  assert.equal(exportData.world.tick, 20);
+  assert.ok(exportData.provenance.sourceSha256['engine.mjs']);
+  assert.ok(exportData.provenance.sourceSha256['learning/trace-actor.mjs']);
   assert.equal((await post(path + '/control', {action: 'step', ticks: 10})).body.metrics.tick, 30);
   assert.equal((await post(path + '/control', {action: 'restore', name: checkpoint.body.savedCheckpoint})).body.metrics.tick, 20);
   const fork = await post(path + '/fork', {name: 'Comparison branch'});
@@ -155,7 +179,7 @@ test('HTTP workflow creates, controls, inspects, checkpoints, forks and recovers
   assert.equal((await post(path + '/control', {action: 'restore', name: '../autosave.json'})).status, 400);
   assert.equal((await get('/api/ecosystems/missing')).status, 404);
   await app.close();
-  app = await createPlatform({directory, port: 0, realtime: false});
+  app = await createPlatform({directory, port: 0, realtime: false, workers});
   base = `http://127.0.0.1:${app.server.address().port}`;
   assert.equal((await get(path)).body.ecosystem.paused, true);
   assert.equal((await get(path)).body.metrics.tick, 20);

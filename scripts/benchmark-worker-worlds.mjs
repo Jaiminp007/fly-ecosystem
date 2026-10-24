@@ -1,0 +1,25 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {resolve,dirname,join} from 'node:path';
+import {createHash,randomUUID} from 'node:crypto';
+import {isDeepStrictEqual} from 'node:util';
+import {World,DT} from '../engine.mjs';
+import {WorkerWorld} from '../platform/worker-world.mjs';
+
+const directory=resolve(process.argv[2]||`evidence/worker-world-benchmark/${randomUUID()}`),base=process.argv[3]||'http://127.0.0.1:8767';
+await mkdir(dirname(directory),{recursive:true});await mkdir(directory);
+const listResponse=await fetch(base+'/api/ecosystems');if(!listResponse.ok)throw Error('World list returned '+listResponse.status);const active=(await listResponse.json()).filter(w=>!w.paused).slice(0,2);if(active.length!==2)throw Error('This benchmark requires two actually running source worlds');
+const inputs=[];for(const w of active){const response=await fetch(base+'/api/ecosystems/'+w.id+'/checkpoint');if(!response.ok)throw Error('Checkpoint returned '+response.status);const data=await response.json();await writeFile(join(directory,w.id+'.json'),JSON.stringify(data)+'\n');inputs.push({id:w.id,name:w.name,checkpoint:data});}
+const sourceFiles=['engine.mjs','challenges.mjs','learning/trace-actor.mjs','learning/episodic.mjs','learning/episodic-actor.mjs','learning/joint-episodic.mjs','platform/worker-world.mjs','platform/world-worker.mjs','scripts/benchmark-worker-worlds.mjs'],sourceSha256={};for(const f of sourceFiles){const bytes=await readFile(f);sourceSha256[f]=createHash('sha256').update(bytes).digest('hex');const target=join(directory,'sources',f);await mkdir(dirname(target),{recursive:true});await writeFile(target,bytes);}
+const ticks=200,repetitions=3,rows=[];
+async function serial(){const worlds=inputs.map(i=>World.restore(i.checkpoint)),start=performance.now();for(const w of worlds)w.advance(ticks);const computeMs=performance.now()-start,checkpoints=worlds.map(w=>w.checkpoint());return{computeMs,totalMs:performance.now()-start,checkpoints};}
+async function parallel(){const workers=inputs.map(i=>new WorkerWorld(i.checkpoint));try{await Promise.all(workers.map(w=>w.ready));const start=performance.now();await Promise.all(workers.map(w=>w.advance(ticks)));const computeMs=performance.now()-start,checkpoints=await Promise.all(workers.map(w=>w.checkpoint()));return{computeMs,totalMs:performance.now()-start,checkpoints};}finally{await Promise.all(workers.map(w=>w.close()));}}
+await serial();await parallel();
+for(let repetition=0;repetition<repetitions;repetition++){
+ const results={};for(const name of repetition%2?['parallel','serial']:['serial','parallel'])results[name]=await(name==='serial'?serial():parallel());
+ const pairs=inputs.map((input,i)=>{if(!isDeepStrictEqual(results.serial.checkpoints[i],results.parallel.checkpoints[i]))throw Error('Worker/serial full-world mismatch: '+input.id);const elapsedTicks=results.parallel.checkpoints[i].world.tick-input.checkpoint.world.tick;return{id:input.id,elapsedTicks,checkpointSha256:createHash('sha256').update(JSON.stringify(results.parallel.checkpoints[i])).digest('hex')};});
+ rows.push({repetition:repetition+1,serial:{computeMs:results.serial.computeMs,totalMs:results.serial.totalMs},parallel:{computeMs:results.parallel.computeMs,totalMs:results.parallel.totalMs},pairs});console.log(JSON.stringify({directory,repetition:repetition+1,exactWorldMatch:true}));
+}
+const median=a=>[...a].sort((x,y)=>x-y)[Math.floor(a.length/2)],timing=Object.fromEntries(['serial','parallel'].map(name=>[name,Object.fromEntries(['computeMs','totalMs'].map(k=>[k,median(rows.map(r=>r[name][k]))]))]));
+for(const f of sourceFiles)if(createHash('sha256').update(await readFile(f)).digest('hex')!==sourceSha256[f])throw Error('Benchmark sources changed');
+const result={at:new Date().toISOString(),sourceSha256,ticksRequested:ticks,repetitions,inputs:inputs.map(i=>({id:i.id,name:i.name,tick:i.checkpoint.world.tick,population:i.checkpoint.world.flies.length,meanNodes:i.checkpoint.world.flies.reduce((s,f)=>s+f.genome.nodes.length,0)/i.checkpoint.world.flies.length})),rows,timing,computeSpeedup:timing.serial.computeMs/timing.parallel.computeMs,endToEndSpeedup:timing.serial.totalMs/timing.parallel.totalMs,parallelRatioPerWorld:inputs.map((i,index)=>({id:i.id,compute:median(rows.map(r=>r.pairs[index].elapsedTicks*DT/(r.parallel.computeMs/1000))),includingCheckpointTransfer:median(rows.map(r=>r.pairs[index].elapsedTicks*DT/(r.parallel.totalMs/1000)))})),exactWorldMatch:true,scope:'Read-only copies of two actually running worlds; original worlds remain unchanged. Alternating serial versus parallel restored runs; entire final state must match for each world. Startup/initial restore excluded. Compute and checkpoint-transfer times reported separately. Not a live-server integration or sustained 10× acceptance.'};
+await writeFile(join(directory,'results.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({directory,computeSpeedup:result.computeSpeedup,endToEndSpeedup:result.endToEndSpeedup,parallelRatioPerWorld:result.parallelRatioPerWorld},null,2));

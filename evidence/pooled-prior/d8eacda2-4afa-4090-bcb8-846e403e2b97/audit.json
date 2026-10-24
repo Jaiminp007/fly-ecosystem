@@ -1,0 +1,200 @@
+{
+  "at": "2026-10-24T00:56:41.257Z",
+  "auditorSha256": "e1ba2c71d4cf2b872b736ac8113b78cd5111e727fc308c81e6ff6f70c6c7befc",
+  "worlds": 552,
+  "developmentSeedPairs": 12,
+  "heldoutSeedPairs": 30,
+  "maxAccountingResidual": 2.315118763362989e-9,
+  "locked": "prior-4",
+  "eligible": false,
+  "memoryPassed": false,
+  "habitatPassed": false,
+  "incumbentPassed": false,
+  "passed": false,
+  "replays": [
+    {
+      "seed": 1865946858,
+      "environment": "stable",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "sha256": "85e553cf4b7898c1e7d91c9466e0ef9c9200d10016bdaba2562541c8b29cbe32"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "stable",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "425795d6c4db750d0e9112b68c51d502dfa2d8c6aa4acda7c0a8cfd3a84ef2f6"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "stable",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "sha256": "d8c4f2a6dde9a9e3817164a865ffd85bd605ee41f5e990fab87d67252957831c"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "stable",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "2b6ae583dfff22adbf603e9e195e97297668ee49d84216274978940da0f16c90"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "stable",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "a3c02c43aab4db94f249ca095bfd08a4d4e492f3ec3f88603603883b43f25034"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "stable",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "d526d7784828d2c30fd7fcdbbc67e08cb4a658ce92daeb823c6d4358d1f7c066"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "relocation",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "sha256": "756752639d54b0c0709e6c69ac44d43bf334205bd4db9fca061673e28e1b4d5a"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "relocation",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "0ee9c36dd515f048b79055bb9e48c06012924e91828a5c329808da0dea6428f9"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "relocation",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "sha256": "addc716aff3a4357e6b3d55fd82a98428a258391b8c548ebea5aa478861261d6"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "relocation",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "7f7d005e99eda2add639c5f8d7d59859471b8dfa0fac71ffe7b1d4600ee657a1"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "relocation",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "5d1c8774b577b1d0e34ce52b638493f881cacfc82b44df2e295bd983acd7f3d3"
+    },
+    {
+      "seed": 1865946858,
+      "environment": "relocation",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "5556a21dd7c6dcd7278a4d2889d8a0fbcb7292029e3a1d62e98768b9834f7326"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "stable",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "sha256": "2f72e382617d1a720a22ee63ccbc47aa084af8fb066457e8e82906344e5f4924"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "stable",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "aff1947dce728ea08d416a624dffaa5834d3981246ce31f8d2cb89ea02393824"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "stable",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "sha256": "f7fbf78d74beed71d374c2c71bbd410710713d2930b4223fc0514539ee79db87"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "stable",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "e1109f39a01a6bb5f6ad7a668f7625ec2a0fd71145af818097e2f267eb84d428"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "stable",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "c2b5a7502095030b16155ed8d8c0ae0ee77f0a884775fa6f79b31089aa6b0171"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "stable",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "8599fa24a085e8ff1a0ef22f8e6fc30c635ea86cc69ca28bc27626a0e38e8828"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "relocation",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "sha256": "46c9890d227ad75a8fc916a8eb95791b45c0515ad2fa53e0974659495c9d0f6b"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "relocation",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "12822fb1013a9b1fcaa731aa7d316533d258cffbdd329a09546c6cfca37db119"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "relocation",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "sha256": "541a0adc3a3678c6a0956ca51dec4f9f90484690fd79e54f522d4a3dd4a236b7"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "relocation",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "552be426ced370765b2aa3e5316a08768efef12ac257ecf8d4367c35b82d63b8"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "relocation",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "2dbdedb91f41bab2cce02d132243e16bc03eea5ebe17a1e47f2349a577c70036"
+    },
+    {
+      "seed": 1866176509,
+      "environment": "relocation",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "189515783346e77cf0422b77eebd578d6919a1c8ecb05cc498e30d6ec79f0cc7"
+    }
+  ],
+  "checks": [
+    "fixed seed separation and prior seed registry hashes",
+    "complete paired arm/environment outcomes and matched founder hashes",
+    "energy ledgers and behavior count invariants",
+    "archived source/reference/diagnosis hashes",
+    "all development/held-out comparisons independently recomputed",
+    "cue component intervals recomputed from raw scores",
+    "candidate ranking, lock and qualification gates recomputed",
+    "complete archived-state replay of first/last held-out seed for every arm/environment",
+    "complete old-default checkpoint compatibility"
+  ],
+  "limitations": [
+    "Only the specified complete-world subset was replayed.",
+    "The separate cue task does not establish habitat TD bootstrapping or continual whole-body retention.",
+    "An ineligible development fallback cannot qualify. No sample extension or environmental promotion is authorized by a failed gate."
+  ]
+}

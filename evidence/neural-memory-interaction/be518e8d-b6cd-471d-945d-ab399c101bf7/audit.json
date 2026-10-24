@@ -1,0 +1,284 @@
+{
+  "at": "2026-10-24T00:42:04.394Z",
+  "auditorSha256": "d4740442f6b755125a40a6c49dce7810fd5e18e9451385de9af975bcf164f441",
+  "worlds": 576,
+  "seeds": 32,
+  "environments": 2,
+  "arms": 9,
+  "maxAccountingResidual": 2.4233486328739673e-9,
+  "interferenceSignal": false,
+  "qualificationPassed": false,
+  "replays": [
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "fbd43b6b14d6f6354b5ee400b3f2be5c43016f2f3ce70c6a548740ee2c0ba2a1"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "memoryOnly",
+      "exactCompleteWorld": true,
+      "sha256": "3e6daef59adaaa58fd136d24620c6b6d0d46f43a1f96d47549bf47fda9ff3311"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "neuralOnly",
+      "exactCompleteWorld": true,
+      "sha256": "8d4c8e449f99fd735890c9694c639881587c35c3812e186538a0cc7979e745ad"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "neither",
+      "exactCompleteWorld": true,
+      "sha256": "cc8d49b2452b2f3a742bdab2d0f2279ba72b1555f5b4cd09254d8ec2e605d31b"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "8fa9123ab61553cf7c85451a39fe8b25df3af80e51c517c2b00e5aa86ea05d45"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "eatOnly",
+      "exactCompleteWorld": true,
+      "sha256": "51ea5075253f8a9ce644a61ea8cb2805c0ab313cac98dc4e81a18dabded0338c"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "signalOnly",
+      "exactCompleteWorld": true,
+      "sha256": "629d109d8961265ae91d90114c6873af2b11c9099c53e51f4c0dcae5a178c7af"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "207b711affc1351d4b544b2b75b92d16e37cb3dd5c012bf53fb7b8557ae0dfec"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "79e4d0d4ee7fb0e9c07898ed2f1bc6537dae53002dddc8c0a8f22d41b103d8f9"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "1bb648c07d0e96edc011cef415e4a074286aec42a99d97f5f2f46d90fdf1e153"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "memoryOnly",
+      "exactCompleteWorld": true,
+      "sha256": "7ec673b1154a24394f6fdb950c088e2d63b49a29e067a34541eb615347473a61"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "neuralOnly",
+      "exactCompleteWorld": true,
+      "sha256": "8426ab8ab46f9e631445cc0011aa90f85900cf7263c490f0a628e95ca4ff5f3b"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "neither",
+      "exactCompleteWorld": true,
+      "sha256": "2ed45399a10a276cd3ad6cad8b063e3a0c61d7a5c98df41a14c95fd1655a970d"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "7fe336c4e785191932e1062186733aa9abc3e8d342bb1782e897a2d1c75342a5"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "eatOnly",
+      "exactCompleteWorld": true,
+      "sha256": "62f8af90dfe7d3a69a5e961d5f2c5f8b964344922113ff2ff46fb25f215a8092"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "signalOnly",
+      "exactCompleteWorld": true,
+      "sha256": "ef6f1998fcb02fc42ac1232b433c5d9c82f5e17f6edd5934858892ddfb49e3d1"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "1d588b58fe882ef4a38a039a4cc49bf6d98232e64aa5b184d4c83c03c44b094b"
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "d950ad89ce7061d7a08b5fd3d99965aa059efc36a3cb00b01505470c526d0f38"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "3ec927b50146ff7e9fd01ed6f7f6edcb892eac48eeec6d77a5141b32e00ec1a8"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "memoryOnly",
+      "exactCompleteWorld": true,
+      "sha256": "0da0d6e2ecd408dcbc139c79909e1de62143a1e9f962c9713e88b7cd6d2509c3"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "neuralOnly",
+      "exactCompleteWorld": true,
+      "sha256": "b35bd01c125b6fdd7864f64dbd1d03c9ef81bff6c7245a597f053b25207ed52b"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "neither",
+      "exactCompleteWorld": true,
+      "sha256": "6e157031e08fda8938b8537e1f7cc5cce7b8cac367b6fb65711bfa5271754bc7"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "0d57b496c927e14e53cc35913b8b704eb81493275bdcf3b5dd014d13378e40ac"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "eatOnly",
+      "exactCompleteWorld": true,
+      "sha256": "9358f433d6b241655cf31f4700c0fa80f540d6d22c24542cce9d5584567e83b6"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "signalOnly",
+      "exactCompleteWorld": true,
+      "sha256": "8d4df5daa05b58c6621216351834a75fb31512bc00ac4720b71137c134993b3d"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "b2f0f1d7f6921567762e0490e91185425e7a47a88a2c9b2cb11f950aaa9dfc0c"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "stable",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "1d04a4532297f6a48583470148a4f74ecfe253c15619ae3d054416c6c3e55927"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "sha256": "e1ba6accaf7097c4d2657357893376f7b37a60eba9a5f5fd4bbf75c60a606c46"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "memoryOnly",
+      "exactCompleteWorld": true,
+      "sha256": "cd4ca0581797dacddf1790737758d35ec9032ff503397f5c17414760c6bb15fb"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "neuralOnly",
+      "exactCompleteWorld": true,
+      "sha256": "9d1ff11c0f430b18f3ed89d82b4e666cf7790445267687db8f81a2031d53b2ba"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "neither",
+      "exactCompleteWorld": true,
+      "sha256": "15ad29d896a2e4ed6f319cf526e90fff44fad5f95749a00986a5cbb328051cfa"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "sha256": "2643330a8589dd22b4c2a3de9cc3d5cfd0739603ad10f93adb1fcf84022e72d3"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "eatOnly",
+      "exactCompleteWorld": true,
+      "sha256": "52b1307412c2d1558b97175bb9548acd45ef493a2ffdedb14ba82b0b1745a11c"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "signalOnly",
+      "exactCompleteWorld": true,
+      "sha256": "83a585c574cdb24e1ad3aef8dab0fe2717d34678770dc24c47faa15f43b2ddc7"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "sha256": "b0b6e6fb6b6b90b291dc5b7ab7b018769c6353a83720dedfb5edde0c69f4b45b"
+    },
+    {
+      "seed": 1425427837,
+      "environment": "relocation",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "sha256": "2ca3032227bad4e8a499df06710fdc6975508b079fa804348d38a77ebcbd4969"
+    }
+  ],
+  "checks": [
+    "complete fixed seed/arm/environment outcomes",
+    "registered seed exclusion and registry hashes",
+    "matched inherited founders and initial actor RNG states",
+    "frozen/both-off full non-config state equality",
+    "energy and population ledger reconciliation",
+    "plastic-output routing and behavior summaries",
+    "source and reference hashes",
+    "independent recomputation of all contrasts and interaction intervals",
+    "declared diagnostic decision rule",
+    "complete archived-source replay of first and last seed in every arm/environment",
+    "memory-only JSON checkpoint continuation in replayed worlds",
+    "historical raw-result comparisons and recorded endpoint replay"
+  ],
+  "limitations": [
+    "Only the specified subset of complete worlds was replayed; other worlds were audited from recorded outcomes.",
+    "Intervals use the declared seed-level method and are not multiplicity-adjusted.",
+    "This fixed mechanistic diagnostic cannot qualify a policy, continual retention, environmental promotion or RSI."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-24T01:56:16.712Z",
+  "experiment": "constructed-food-availability-sensory-aliases",
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/option-outcome/ae62a9d3-1415-4234-bd99-210ad26e4caf",
+  "referenceSha256": "9d329b52a50e13ef444fe8ffb8896fb6e259302e603c816c5f1c0dff16aedc6b",
+  "sourceSha256": "05d9cbb3c65ca9f7d59395b4aeba7a0e50270e294c4086aaa0fde7e054bc1732",
+  "worldSources": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7/sources",
+  "worldSourceSha256": {
+    "engine.mjs": "dfa91a1c3cf36c9767920e05a08af4ea7f0ac91c819b68aeedb746736408f87b",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "ddba20e421a1f9498ab7765ccd4866cdd3b74e1da9cb437e2a5aa103c8310ca6",
+    "learning/episodic.mjs": "f45d2a2c47d4b3d634c0ed3440fc9f7198a2ec66592aff3329704aeb90f9e012",
+    "learning/episodic-actor.mjs": "1f12c882902306887123e8bc9c11003571f6794490ff49ecb46e6cc23c952e4e",
+    "learning/joint-episodic.mjs": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/neural-memory-interaction.mjs": "285a4581b47338d0473265747cdb4d47d38c8fa00ae4c02d0194dbb69f4f5dfd"
+  },
+  "seeds": [
+    467961412,
+    467969331,
+    467977250,
+    467985169,
+    467993088,
+    468001007,
+    468008926,
+    468016845,
+    468024764,
+    468032683,
+    468040602,
+    468048521
+  ],
+  "environments": {
+    "stable": {
+      "nutrient": 0.4,
+      "ecology": "baseline",
+      "challenges": "off",
+      "seasonal": false
+    },
+    "relocation": {
+      "nutrient": 0.4,
+      "ecology": "relocation",
+      "challenges": "off",
+      "seasonal": false
+    }
+  },
+  "scales": [
+    0.5,
+    1,
+    2
+  ],
+  "horizon": 8,
+  "interpretation": "Controlled copies of reused failed cases, not naturally encountered independent evidence or policy qualification. Before the first step, multiply every food amount, capacity and regrowth by a fixed factor. Enter the signed energy addition/removal in externalEnergy; preserve target body, position, all acquired internal state and RNG. Retain every case and report which interventions preserve the complete initial 17-channel target observation and non-speed motor outputs exactly. Only such cases can demonstrate initial sensory aliasing. Other agents may sense different food; later target observations can diverge. A preference flip on these constructed copies is not an irreducible-error bound for natural history, a proposed sensor benefit, or a reason to change ecological difficulty. No outcomes train models."
+}

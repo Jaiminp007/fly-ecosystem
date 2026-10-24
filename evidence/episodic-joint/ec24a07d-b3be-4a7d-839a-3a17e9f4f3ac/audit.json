@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-23T22:05:55.646Z",
+  "worlds": 1008,
+  "developmentSeedPairs": 12,
+  "heldoutSeedPairs": 30,
+  "maxAccountingResidual": 2.3758275347063318e-9,
+  "passed": false,
+  "checks": [
+    "seed separation and complete paired outcomes",
+    "matched founder hashes and energy ledgers",
+    "all development/held-out comparisons recomputed",
+    "development eligibility, ranking and frozen selection recomputed",
+    "memory-component intervals recomputed from raw trial scores",
+    "all qualification gates recomputed",
+    "archived causal-fork and retrieval diagnosis hashes",
+    "archived algorithm and reference hashes"
+  ],
+  "limitations": [
+    "Audit does not replay all worlds",
+    "Cue task exercises the retrieval representation but not TD bootstrapping",
+    "Four-choice cue reward depends on turn; it does not prove habitat coordination or whole-body retention"
+  ]
+}

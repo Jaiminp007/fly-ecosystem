@@ -1,0 +1,222 @@
+{
+  "at": "2026-10-24T01:16:40.246Z",
+  "auditorSha256": "11bf55f79d603b21b1f60624d854ac2252e730a23a08724178e290e857393ad6",
+  "worlds": 480,
+  "seeds": 40,
+  "maxAccountingResidual": 2.5097506295423955e-9,
+  "habitatPassed": false,
+  "memoryPassed": true,
+  "incumbentPassed": false,
+  "passed": false,
+  "replays": [
+    {
+      "seed": 1119586096,
+      "environment": "stable",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "e205fda9f0e1a17062ba6bd5ded58e10b3aab1777f56dea52a2a593586e04b11"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "stable",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "20e04d5fb8e2b012558e019efffc58c44bb9e1501edd15c3956566538bd67085"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "stable",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "3ab1c13b0ff075e37839f9652408e8bdd6022e42dfcd633b6d61e2560b446152"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "stable",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "86f8dbf696027e8800e24debcbf3cff0c4a816d776fce7307ac77432e935efea"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "stable",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "89d1666aa214f794352f3d2f5d09001c8473afb35d7da170cb6ca783d8fd77e1"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "stable",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "056f9dff5c5a881ac98af9d500749b30ffef075b8dfcce693fbb2b3e318390a9"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "relocation",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "d2ffdc443b6b3836cfecc9643ce2c5e9e56dc5f21f1a857dc1b5e7a0f5daed14"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "relocation",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "a8b9da2e63555d47f91fee1a966a12ab7588fc9d80bd21bdaf2454e6e7ea1849"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "relocation",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "993884bc2ba965cd759340e05f6fa38f9b133bd018d87ef78ac313f386535512"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "relocation",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "e4ff30d2588ee713b3b5ccfaa9a1fd6b9d2aca4395496dc3f1bceeb4bc2093a8"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "relocation",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "4348670cab1a1d9caacef058b76d333d8bdd697a906cfc51c2ba34c7ab28aac0"
+    },
+    {
+      "seed": 1119586096,
+      "environment": "relocation",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "d7b6648b8fb2ed166c6ec59fec34d36d3bc43cf4e904750412077efe64ebc1e5"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "stable",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "b8cf790ed1fcdff2368ee354450d8d8db8fe394731e0b57d84afda1e9abb10bb"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "stable",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "185c0c944271e642ac1ceb8843320ef643983a6026e8f5e168cde455659f96bf"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "stable",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "973ae709f314de9cac6b0649ed911ac3960ed0d4f35e1574cf439eab6e392bbc"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "stable",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "dca74847d3de67aada89af68a0650ca99f8bd856e69f3060a0fa6a651578b693"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "stable",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "c19aa9f3f3710fc191a89c02a67cc8ecd6de2a59d8e8de4d31abc1886753c95d"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "stable",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "483db77dcd060335c4c350c5acd9bec4dafc22bb777714ed4cd666a690cdec84"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "relocation",
+      "arm": "learned",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "c212aa8f5e1f2edeb8ed2b02ea9634180a88ca871114d95ca07e473713e2e116"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "relocation",
+      "arm": "frozen",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "344321cf0f496c280ac2b11218bcb36ed55d75c19f188355a73b6dd23492db26"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "relocation",
+      "arm": "noMemory",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "272b787842b920cd94f6ae91e188bdb442364f5b62e1135cf4afa056553c9e1d"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "relocation",
+      "arm": "fullRange",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "7c8fb52a6a6a673820338caaf09bd37142eb2a8b24dde5469b34c98dcf6e2c4a"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "relocation",
+      "arm": "neural",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "24e380a9d808195ee8568e37113df328fffbce3293120f6c9bb0bb23459d1557"
+    },
+    {
+      "seed": 1119894937,
+      "environment": "relocation",
+      "arm": "incumbent",
+      "exactCompleteWorld": true,
+      "exactCheckpointContinuation": true,
+      "sha256": "b27a1a833ca7c7024828becb2c5e6bf75a9c4c11dc08c1c7eb920a128206b770"
+    }
+  ],
+  "checks": [
+    "fixed unused seeds and registry hashes",
+    "candidate inherited founder equality and specified cross-architecture neutral equality",
+    "energy/population and trace-sample accounting",
+    "archived source/reference/diagnosis hashes",
+    "all paired comparisons recomputed",
+    "cue-memory summary and qualification gates recomputed",
+    "first/last seed complete-state replays of every arm/environment",
+    "JSON checkpoint continuation in every replay arm",
+    "historical default checkpoint hash correspondence"
+  ],
+  "limitations": [
+    "Replay verifies the declared subset, not all worlds.",
+    "The normalization intervention changes input genes and neural readout features; gains cannot be attributed solely to episodic retrieval.",
+    "Neutral founder equality removes only the declared trace normalization tags and input gains. Candidate controls retain full equality.",
+    "Cue retention is separate from habitat TD bootstrapping and whole-body continual retention; no RSI claim."
+  ]
+}

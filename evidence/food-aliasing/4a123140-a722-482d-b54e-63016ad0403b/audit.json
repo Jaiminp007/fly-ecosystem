@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-24T01:58:26.944Z",
+  "auditorSha256": "1e276d27babaf0e8bb254312898c7c23749923f5dc80ff837251e6d9f3c9500a",
+  "kind": "constructed-food-availability-sensory-aliases",
+  "arithmeticWorlds": 24,
+  "arithmeticCases": 96,
+  "replayedWorlds": 2,
+  "replayedCases": 8,
+  "replayedForks": 48,
+  "replay": [
+    {
+      "seed": 467961412,
+      "environment": "stable",
+      "exactBaseline": true,
+      "cases": 4
+    },
+    {
+      "seed": 467961412,
+      "environment": "relocation",
+      "exactBaseline": true,
+      "cases": 4
+    }
+  ],
+  "checks": [
+    "source and reference hashes",
+    "all case and summary arithmetic",
+    "initial-state invariants, intervention energy and/or predeclared stream seeds",
+    "all selected physical forks and complete baseline hashes",
+    "original failed qualification remains unchanged"
+  ],
+  "limitations": [
+    "Only the first fixed seed in both environments was independently physically replayed.",
+    "Diagnostic reuse does not qualify a policy or establish natural-distribution irreducible error."
+  ]
+}

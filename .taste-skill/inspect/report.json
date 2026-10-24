@@ -1,0 +1,1136 @@
+{
+ "url": "http://127.0.0.1:8767",
+ "at": "2026-10-23T03:21:25.839Z",
+ "allow": [
+  "few-pictures",
+  "still-page",
+  "no-footage"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.89,
+    0.85,
+    0.64
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2093,
+     "screens": 2.3,
+     "words": 382,
+     "img": 0,
+     "video": 0,
+     "canvas": 3,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 18,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 3,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "chars": 26,
+     "lines": 1,
+     "size": 49,
+     "vw": 3.4,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.05,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.52,
+     "top": 112,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "lines": 1,
+     "size": 49,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "A world of learning flies.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 49,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "weight": 650,
+      "tracking": -0.05,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 112,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      16,
+      20,
+      26,
+      49
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 81,
+     "max": {
+      "size": 49,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "text": "A world of learning flies."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e9eeec",
+     "bodyBgHsl": {
+      "h": 156,
+      "s": 0.13,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f9fbf9",
+       "top": 311,
+       "hsl": {
+        "h": 120,
+        "s": 0.2,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#142c2c",
+       "top": 497,
+       "hsl": {
+        "h": 180,
+        "s": 0.38,
+        "l": 0.13
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#586b64",
+       "share": 0.43
+      },
+      {
+       "color": "#354f46",
+       "share": 0.26
+      },
+      {
+       "color": "#213838",
+       "share": 0.23
+      },
+      {
+       "color": "#f0f6f1",
+       "share": 0.02
+      },
+      {
+       "color": "#176559",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#edf2ef",
+      "hsl": {
+       "h": 144,
+       "s": 0.16,
+       "l": 0.94
+      },
+      "fg": "#213838"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 14,
+     "inHero": 4,
+     "radius": 6,
+     "height": 40,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New habitat +",
+      "Run",
+      "Agent",
+      "Agent 3608 · G188"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 2,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 9,
+     "boxRadius": 9,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.3
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 80,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.82,
+    0.92,
+    0.79
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2849,
+     "screens": 2.8,
+     "words": 382,
+     "img": 0,
+     "video": 0,
+     "canvas": 3,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 18,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 3,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "chars": 26,
+     "lines": 2,
+     "size": 37.6,
+     "vw": 4.9,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.05,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.43,
+     "top": 103,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "lines": 2,
+     "size": 37.6,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "A world of learning flies.",
+      "words": 5,
+      "chars": 26,
+      "lines": 2,
+      "size": 37.6,
+      "vw": 4.9,
+      "font": "Libre Franklin",
+      "weight": 650,
+      "tracking": -0.05,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 103,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Agents that keep improving themselves.",
+      "words": 5,
+      "chars": 38,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.39,
+      "top": 128,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "50",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 1146,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "3656 / 3630",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 1146,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "193",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 1146,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "419.1",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 1146,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "Read the world.",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Source Serif 4",
+      "weight": 650,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 2564,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      16,
+      20,
+      26,
+      38
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 37.6,
+      "vw": 4.9,
+      "font": "Libre Franklin",
+      "text": "A world of learning flies."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e9eeec",
+     "bodyBgHsl": {
+      "h": 156,
+      "s": 0.13,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f9fbf9",
+       "top": 386,
+       "hsl": {
+        "h": 120,
+        "s": 0.2,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#142c2c",
+       "top": 568,
+       "hsl": {
+        "h": 180,
+        "s": 0.38,
+        "l": 0.13
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#586b64",
+       "share": 0.43
+      },
+      {
+       "color": "#354f46",
+       "share": 0.26
+      },
+      {
+       "color": "#213838",
+       "share": 0.23
+      },
+      {
+       "color": "#f0f6f1",
+       "share": 0.02
+      },
+      {
+       "color": "#176559",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#edf2ef",
+      "hsl": {
+       "h": 144,
+       "s": 0.16,
+       "l": 0.94
+      },
+      "fg": "#213838"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 14,
+     "inHero": 2,
+     "radius": 6,
+     "height": 40,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New habitat +",
+      "Run"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 2,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 9,
+     "boxRadius": 9,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.39
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 76,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.9,
+    0.92,
+    0.92,
+    0.84,
+    0.71
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 3539,
+     "screens": 4.2,
+     "words": 373,
+     "img": 0,
+     "video": 0,
+     "canvas": 3,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 18,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 3,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "chars": 26,
+     "lines": 2,
+     "size": 34.4,
+     "vw": 8.8,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.05,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.84,
+     "top": 87,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "lines": 2,
+     "size": 34.4,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "A world of learning flies.",
+      "words": 5,
+      "chars": 26,
+      "lines": 2,
+      "size": 34.4,
+      "vw": 8.8,
+      "font": "Libre Franklin",
+      "weight": 650,
+      "tracking": -0.05,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 87,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Agents that keep improving themselves.",
+      "words": 5,
+      "chars": 38,
+      "lines": 2,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 377,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "50",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 1269,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "3656 / 3630",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.42,
+      "top": 1269,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "193",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 1336,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "419.1",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.42,
+      "top": 1336,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "Read the world.",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Source Serif 4",
+      "weight": 650,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3065,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      16,
+      20,
+      26,
+      34
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 34.4,
+      "vw": 8.8,
+      "font": "Libre Franklin",
+      "text": "A world of learning flies."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Compare inherited traits",
+      "above": "Read the world.",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 3002
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e9eeec",
+     "bodyBgHsl": {
+      "h": 156,
+      "s": 0.13,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#dae7df",
+       "top": 334,
+       "hsl": {
+        "h": 143,
+        "s": 0.21,
+        "l": 0.88
+       }
+      },
+      {
+       "color": "#f9fbf9",
+       "top": 620,
+       "hsl": {
+        "h": 120,
+        "s": 0.2,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#edf2ef",
+       "top": 1395,
+       "hsl": {
+        "h": 144,
+        "s": 0.16,
+        "l": 0.94
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#586b64",
+       "share": 0.42
+      },
+      {
+       "color": "#354f46",
+       "share": 0.26
+      },
+      {
+       "color": "#213838",
+       "share": 0.23
+      },
+      {
+       "color": "#f0f6f1",
+       "share": 0.02
+      },
+      {
+       "color": "#526b60",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#edf2ef",
+      "hsl": {
+       "h": 144,
+       "s": 0.16,
+       "l": 0.94
+      },
+      "fg": "#213838"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 13,
+     "inHero": 2,
+     "radius": 6,
+     "height": 40,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New habitat +",
+      "Run"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 2,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 9,
+     "boxRadius": 9,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 66,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 390,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Compare inherited traits\" above \"Read the world.\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect/desktop-fold.jpg",
+   "pages": [
+    "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect/desktop-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect/tablet-fold.jpg",
+   "pages": [
+    "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect/tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect/mobile-fold.jpg",
+   "pages": [
+    "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect/mobile-page-01.jpg"
+   ]
+  }
+ ]
+}

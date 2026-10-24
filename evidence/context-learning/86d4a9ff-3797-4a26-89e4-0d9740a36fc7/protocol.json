@@ -1,0 +1,61 @@
+{
+  "id": "86d4a9ff-3797-4a26-89e4-0d9740a36fc7",
+  "at": "2026-10-23T05:57:19.840Z",
+  "parentCueCampaign": "c2c746c3-0ada-401a-9826-272be9a2d2ec",
+  "parameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "seeds": [
+    2262084095,
+    2262084096,
+    2262084097,
+    2262084098,
+    2262084099,
+    2262084100,
+    2262084101,
+    2262084102,
+    2262084103,
+    2262084104
+  ],
+  "sourceSha256": {
+    "engine.mjs": "d769817f8d1f66df3e52a3d92536b9ff344f4c48128e9418af467ff7a547d733",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/context-tasks.mjs": "584b6cb2ec34de592fbc1a0bfd8de10bb648f5d093b444adb494bd96e6d69022",
+    "scripts/context-baseline.mjs": "c79a4e7b069b773b5de8d8b8d792d079ce599b870ebea6b08705302c8b106f20"
+  },
+  "task": {
+    "trainTrialsPerContext": 256,
+    "mixedTrainingTrials": 512,
+    "testTrialsPerContext": 96,
+    "trainDelay": [
+      30,
+      70
+    ],
+    "testDelay": [
+      80,
+      130
+    ],
+    "trainAmplitude": [
+      0.7,
+      1
+    ],
+    "testAmplitude": [
+      0.45,
+      0.7
+    ],
+    "noise": 0.01,
+    "cueChannels": [
+      1,
+      2
+    ],
+    "contextChannels": [
+      12,
+      13
+    ],
+    "interpretation": "The same left/right sensory cue requires opposite actions in two explicitly observed contexts. Cue and context disappear before the choice. Train A, train B without clearing acquired weights, then measure forgetting. A later mixed-training phase separately diagnoses representational capacity; it cannot rescue a failed sequential-retention claim."
+  },
+  "purpose": "Measure the existing linear readout before implementing a nonlinear feature extension. Development diagnostic; no model promotion."
+}

@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-24T03:00:14.636Z",
+  "auditorSha256": "2ef3e5fd562a7dcec6398c2f655bc665fd99686da47340db4db775d3a1a2df4c",
+  "sourceAndSeedRegistriesVerified": true,
+  "freshWorlds": 80,
+  "factualWindows": 36000,
+  "proposalsReplayed": 144,
+  "allProgramScoresAndGatesReplayed": true,
+  "physicalReplays": [
+    {
+      "bank": "promotion-0",
+      "seed": 2946601773,
+      "environment": "fixed",
+      "finalSha256": "e1bf5ec8eb4d5422637ac88e268090c2930ae713317373adecc0c8f2a5ea23b7",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "promotion-0",
+      "seed": 2946601773,
+      "environment": "relocation",
+      "finalSha256": "5e76181204ce3837be8cc7afab23e11624046e7f7aab0212b88dd45d4ff0b508",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "promotion-1",
+      "seed": 2946665125,
+      "environment": "fixed",
+      "finalSha256": "76ae2675d8dd82f109f1a224ad8080c8d527ebe4c1f2fcbc8d16cfcd9ea47c36",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "promotion-1",
+      "seed": 2946665125,
+      "environment": "relocation",
+      "finalSha256": "3b129ffee5df10c98916f64d218ca9bbb9102e259dc2ae097889d8d99d6e0f3b",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "promotion-2",
+      "seed": 2946728477,
+      "environment": "fixed",
+      "finalSha256": "9d5a35e263ef052467fbce3a57898907871dd0740f045b6b6e87414e8b0701fd",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "promotion-2",
+      "seed": 2946728477,
+      "environment": "relocation",
+      "finalSha256": "95c82734243e8bc415b64db5f76752eed6cdd23525556af3b2d6ac27688afe1f",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "final",
+      "seed": 2946791829,
+      "environment": "fixed",
+      "finalSha256": "f40c42d1cfbce96410bb7c2b470be4d9460fff9d7c9f54cf04aa9ee9bf81d598",
+      "exactWindowsAndWorld": true
+    },
+    {
+      "bank": "final",
+      "seed": 2946791829,
+      "environment": "relocation",
+      "finalSha256": "c8805e41869303f6eebc5bf715701f55c4b9a5f04e9e3401360709174c6ea939",
+      "exactWindowsAndWorld": true
+    }
+  ],
+  "alteredComparisonRejected": true,
+  "boundedMechanismPassed": false,
+  "limitations": [
+    "Physical cold replay covers the first seed of each bank in both environments, not every world.",
+    "Forecasting and retained forecast skill do not demonstrate embodied decision quality or survival.",
+    "Sign-flip tests assume symmetric independent seed-level paired effects.",
+    "Equal proposal counts and maximum expression bounds do not imply equal realized instruction work.",
+    "The grammar and evaluator are fixed; broad RSI is unestablished."
+  ]
+}

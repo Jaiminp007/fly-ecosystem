@@ -4,6 +4,10 @@
 
 **Small lives. Long histories.**
 
+**Paused research handoff:** start with [HANDOFF.md](HANDOFF.md) for the complete
+new-machine setup, evidence restore, Astra findings, file map and exact unfinished
+work. The research studies do not demonstrate recursive self-improvement.
+
 ## Neural ecosystem platform
 
 The first platform milestone manages independent habitats for evolving artificial
@@ -26,6 +30,13 @@ matched learning/control seed pairs. The runner uses Python's standard library.
 [Recorded results](evidence/platform-training/summary.md) show 822 births across
 the first full cycle, with no consistent learning advantage. The next goal is
 learning and memory that improve performance on unseen, unpredictable tasks.
+
+Use `npm run evaluate:memory` for the held-out delayed-cue task,
+`npm run evaluate:ecology` for seeded food relocations,
+`npm run evaluate:signals` for signal-channel controls, and
+`npm run profile:platform` for the local scale baseline. Each runner writes
+seed-level measurements and source hashes under `evidence/`; results apply only
+to the compact model and their stated protocols.
 
 [Open the legacy compact observatory](https://afterwing-production.up.railway.app) · [Releases](https://github.com/Jaiminp007/fly-ecosystem/releases)
 
@@ -199,3 +210,11 @@ UI source, JavaScript syntax and HTTP behavior are checked. Browser screenshot
 and interaction QA, and a supported-browser WebMCP contract test, have not been
 performed unless explicitly recorded in the validation notes. Optional WebMCP
 availability does not affect normal controls.
+
+### Autonomous learning lab
+
+The platform includes an experimental trace actor, checkpointed parameter search,
+independent cue-memory evaluations, and gated ecological difficulty. Open the
+**Autonomous learning lab** in the app, or use `npm run train:autonomy` and
+`npm run train:ecology`. These are bounded experiments toward the research goal;
+RSI is not demonstrated. See [the protocol and controls](docs/AUTONOMY.md).

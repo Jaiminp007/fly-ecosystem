@@ -1,0 +1,13 @@
+{
+  "activityTab": true,
+  "agentTab": true,
+  "energyLegend": "Low energyHigh energyEnergy range: 0–120",
+  "followOnMap": "true",
+  "networkVisible": true,
+  "overflow": false,
+  "panMode": "pan",
+  "pickedAgentOnMap": true,
+  "pickerAccessibleName": "View: Agent energy",
+  "pickerReturnsFocus": true,
+  "resetStopsFollowing": true
+}

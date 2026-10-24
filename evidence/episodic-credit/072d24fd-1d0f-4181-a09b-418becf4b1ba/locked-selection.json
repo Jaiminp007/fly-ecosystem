@@ -1,0 +1,563 @@
+{
+  "id": "move-mixed-8",
+  "parameters": {
+    "capacity": 128,
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir",
+    "featureMode": "mixed",
+    "decisionTicks": 8,
+    "creditTicks": 8,
+    "discount": 0.95,
+    "actuator": "move",
+    "turnGain": 0.25,
+    "moveGain": 2,
+    "memoryLearning": true,
+    "neuralLearning": true,
+    "memoryEnergyPerRecordSecond": 0.00001,
+    "lookupEnergyPerRecord": 0.000005
+  },
+  "comparisons": {
+    "frozen": {
+      "energy": {
+        "mean": -1.1683017198397079,
+        "ci95": [
+          -2.7858940844823294,
+          0.4492906448029135
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0.1,
+        "ci95": [
+          -0.12619999999999998,
+          0.3262
+        ],
+        "n": 10
+      }
+    },
+    "neural": {
+      "energy": {
+        "mean": 3.8164191539597683,
+        "ci95": [
+          2.481614199097738,
+          5.151224108821799
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0.1,
+        "ci95": [
+          -0.12619999999999998,
+          0.3262
+        ],
+        "n": 10
+      }
+    },
+    "noMemory": {
+      "energy": {
+        "mean": -0.635556451577643,
+        "ci95": [
+          -2.0486196927954525,
+          0.7775067896401667
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0.1,
+        "ci95": [
+          -0.12619999999999998,
+          0.3262
+        ],
+        "n": 10
+      }
+    }
+  },
+  "eligible": true,
+  "score": -1.1683017198397079,
+  "lockedAt": "2026-10-23T17:37:23.379Z",
+  "rankings": [
+    {
+      "id": "move-mixed-8",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -1.1683017198397079,
+            "ci95": [
+              -2.7858940844823294,
+              0.4492906448029135
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.1,
+            "ci95": [
+              -0.12619999999999998,
+              0.3262
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 3.8164191539597683,
+            "ci95": [
+              2.481614199097738,
+              5.151224108821799
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.1,
+            "ci95": [
+              -0.12619999999999998,
+              0.3262
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": -0.635556451577643,
+            "ci95": [
+              -2.0486196927954525,
+              0.7775067896401667
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.1,
+            "ci95": [
+              -0.12619999999999998,
+              0.3262
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": true,
+      "score": -1.1683017198397079
+    },
+    {
+      "id": "move-memory-only",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": false,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -0.3639306155606448,
+            "ci95": [
+              -2.2231938853759394,
+              1.4953326542546497
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 4.620790258238832,
+            "ci95": [
+              3.7584336762052013,
+              5.483146840272462
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": -0.3639306155606448,
+            "ci95": [
+              -2.2231938853759394,
+              1.4953326542546497
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": false,
+      "score": -0.3639306155606448
+    },
+    {
+      "id": "move-local-small",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 1,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -0.7350297993030618,
+            "ci95": [
+              -1.8410092949899806,
+              0.3709496963838571
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.3,
+            "ci95": [
+              -0.6455262073996704,
+              0.04552620739967034
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 1.4962757742910668,
+            "ci95": [
+              -0.010884940458980141,
+              3.003436489041114
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.2,
+            "ci95": [
+              -0.6524,
+              0.25239999999999996
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": -0.8283160132623021,
+            "ci95": [
+              -2.3568648868182525,
+              0.7002328602936482
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.3,
+            "ci95": [
+              -0.6455262073996704,
+              0.04552620739967034
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": false,
+      "score": -0.8283160132623021
+    },
+    {
+      "id": "move-local-8",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -0.8900993152090981,
+            "ci95": [
+              -2.516445046941704,
+              0.7362464165235074
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 4.094621558590378,
+            "ci95": [
+              2.4203618324344798,
+              5.768881284746275
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": -0.3573540469470336,
+            "ci95": [
+              -1.6289219257920562,
+              0.9142138318979891
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": false,
+      "score": -0.8900993152090981
+    },
+    {
+      "id": "move-local-delayed",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 32,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -1.0220933652538586,
+            "ci95": [
+              -2.3359419840629387,
+              0.2917552535552217
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 3.9626275085456166,
+            "ci95": [
+              2.565982474645268,
+              5.359272542445965
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": -0.489348096991794,
+            "ci95": [
+              -1.5556978719791865,
+              0.5770016779955984
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.5060414264579416,
+              0.3060414264579415
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": false,
+      "score": -1.0220933652538586
+    },
+    {
+      "id": "move-local-16",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 16,
+        "creditTicks": 16,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -1.9959151688512122,
+            "ci95": [
+              -2.5903424676682336,
+              -1.4014878700341908
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.3262,
+              0.12619999999999998
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 3.684418276142201,
+            "ci95": [
+              2.300691817269068,
+              5.068144735015334
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              -0.33719905100696823,
+              0.33719905100696823
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": -1.5483968447922347,
+            "ci95": [
+              -2.8089147633366767,
+              -0.28787892624779277
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.3262,
+              0.12619999999999998
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": false,
+      "score": -1.9959151688512122
+    }
+  ]
+}

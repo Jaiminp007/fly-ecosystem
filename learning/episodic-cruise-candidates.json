@@ -1,0 +1,8 @@
+[
+  {"id":"cruise-15-50","actuator":"move","moveMode":"levels","slowSpeed":0.15,"fastSpeed":0.5,"returnMode":"mean","featureMode":"mixed","decisionTicks":8,"creditTicks":8,"moveGain":2},
+  {"id":"cruise-20-60","actuator":"move","moveMode":"levels","slowSpeed":0.2,"fastSpeed":0.6,"returnMode":"mean","featureMode":"mixed","decisionTicks":8,"creditTicks":8,"moveGain":2},
+  {"id":"cruise-20-60-16","actuator":"move","moveMode":"levels","slowSpeed":0.2,"fastSpeed":0.6,"returnMode":"mean","featureMode":"mixed","decisionTicks":16,"creditTicks":16,"moveGain":2},
+  {"id":"cruise-local","actuator":"move","moveMode":"levels","slowSpeed":0.2,"fastSpeed":0.6,"returnMode":"mean","featureMode":"local","decisionTicks":8,"creditTicks":8,"moveGain":2},
+  {"id":"cruise-value-20","actuator":"move","moveMode":"levels","slowSpeed":0.2,"fastSpeed":0.6,"returnMode":"td","discount":0.995,"featureMode":"mixed","decisionTicks":8,"creditTicks":8,"moveGain":2},
+  {"id":"cruise-value-15","actuator":"move","moveMode":"levels","slowSpeed":0.15,"fastSpeed":0.5,"returnMode":"td","discount":0.99,"featureMode":"mixed","decisionTicks":8,"creditTicks":8,"moveGain":2}
+]

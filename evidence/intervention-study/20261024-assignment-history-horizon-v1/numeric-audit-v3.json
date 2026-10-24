@@ -1,0 +1,11 @@
+{
+  "modelsChecked": 64,
+  "comparisonsChecked": 12,
+  "maxCoefficientDifference": 2.6683516507475247e-14,
+  "maximumInverseResidual": 7.684164558444054e-14,
+  "maximumDelayedDRTargetDifference": 5.898059818321144e-17,
+  "warningMessages": [],
+  "warningFree": true,
+  "allNumericalAndStatisticalChecksPassed": true,
+  "scope": "Independent batch linear algebra and held-out policy/statistical arithmetic. Physical reproducibility is checked separately in audit.json."
+}

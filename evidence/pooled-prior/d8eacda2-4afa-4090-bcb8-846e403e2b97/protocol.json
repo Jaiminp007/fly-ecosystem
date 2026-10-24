@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "at": "2026-10-24T00:50:12.544Z",
+  "experiment": "pooled-local-return-prior",
+  "referencePath": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/episodic-confirmation/b3ee4b6f-557e-455f-b98b-513c19fc7173/results.json",
+  "referenceSha256": "45899b2d7f8197420fd08b3ffa49f31170fcefef268ec057c2b056dc9271e6bd",
+  "diagnosisSha256": {
+    "evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/retrieval-diagnosis.json": "aebfbd3ea301e61e98fac4691a8981ed8a077f30cb53c0d6e554a296330517bf",
+    "evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7/results.json": "21b6eac2415854d065f52f61484bb6d4285da54bbae6a99cb9b206f48f895cd7",
+    "evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7/outcomes.json": "52370282a45196e2589dd70bc05c4a0b24390009d8ad6465bd27ba8718d842df"
+  },
+  "sourceSha256": {
+    "engine.mjs": "dfa91a1c3cf36c9767920e05a08af4ea7f0ac91c819b68aeedb746736408f87b",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "ddba20e421a1f9498ab7765ccd4866cdd3b74e1da9cb437e2a5aa103c8310ca6",
+    "learning/episodic.mjs": "6c63d91ee48db88f08f1af29bfe0ae692bf5974e02c1f0625ea2f966bdcbca23",
+    "learning/episodic-actor.mjs": "7a13b41e36df0887451a74ff7deab16bd1b055a45c1ec60aaad5bf1ea57bd86d",
+    "learning/joint-episodic.mjs": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "learning/context-tasks.mjs": "8fbbb23c7a212725b9fbf73ab23831f9e2e6463610b6542f75b8abe11b050bf4",
+    "scripts/pooled-prior-study.mjs": "605105b30d4bcf46a81ebf6303db96a4ecc17f502529908459479a829f24cb00"
+  },
+  "seedRegistries": [
+    {
+      "path": "evidence/context-learning/6a35e952-fb72-4716-af61-9ff7ed23e07c/protocol.json",
+      "sha256": "4e48ffc37ac1cff56a9cc1f65f97b873014f5410f00fb64b740016a9fa88ba4c"
+    },
+    {
+      "path": "evidence/context-learning/86d4a9ff-3797-4a26-89e4-0d9740a36fc7/protocol.json",
+      "sha256": "271d5c4363edbc1d5ad1b2dabe1b84e0557e50537aafba8312044c7416a5bfce"
+    },
+    {
+      "path": "evidence/context-learning/d5d94f5a-019e-44f9-917f-823fe0ab56e6/protocol.json",
+      "sha256": "787b9b6469b488bcad78c024e0963f677d787a04c2994ec798c22bd217445e1b"
+    },
+    {
+      "path": "evidence/continual-learning/7de7e41e-57bf-4581-9ec6-c59eb1b88d79/protocol.json",
+      "sha256": "00ef9c7e51d43c115fc6f7141279e95a869e36ff251bf694bff2ab5b2409b562"
+    },
+    {
+      "path": "evidence/cruise-memory-inspection/live-observation/protocol.json",
+      "sha256": "6323689ed0722a4f88c38dcad339d6f97df62ad1ed8c8aeeed165b7a1f68d3da"
+    },
+    {
+      "path": "evidence/ecology-confirmation/4c790e7c-a814-4f06-b36a-8e8d95128579/protocol.json",
+      "sha256": "9d01e3af9d7ffc13edb655614767924ab498479405741ad455a6cb229a5b72c7"
+    },
+    {
+      "path": "evidence/episodic-adaptation/4dc8f483-9c0c-45a1-a98e-de169d325e2b/protocol.json",
+      "sha256": "1a5ce26140c285d813814279d74d1feec5bd8799e274d67184426a232c020263"
+    },
+    {
+      "path": "evidence/episodic-body/8b19d187-3bb3-4c45-a9cc-d9f01ff7d447/protocol.json",
+      "sha256": "83aa3014b2c8dfbd245ce9406377329a08d503feb328fd78215e7a27fe00e437"
+    },
+    {
+      "path": "evidence/episodic-body/ee41ec59-eef4-4261-a4e9-42d7aa8bba61/protocol.json",
+      "sha256": "cd94496a2f0a56d70ebb9291b5dedd614b3b3e43aea6978af8252c50d2bcbcbd"
+    },
+    {
+      "path": "evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/protocol.json",
+      "sha256": "c193b054a4354e81e2ddb280e8f12a8c33a3286611234fecd0b72bbf220c15e2"
+    },
+    {
+      "path": "evidence/episodic-confirmation/b3ee4b6f-557e-455f-b98b-513c19fc7173/protocol.json",
+      "sha256": "31c16151df7fa747bcae25978bcf34a9c2e77b24129a9456a198bf524c59d3a7"
+    },
+    {
+      "path": "evidence/episodic-context-replication/e1744294-b5a1-4a0e-b113-c08332990792/protocol.json",
+      "sha256": "a96a0fef2764b7529e428ad8f80aa1fbd66e7f426d9909499150abdb24f19602"
+    },
+    {
+      "path": "evidence/episodic-context-value/b6d3bd05-5838-47a4-ba56-cd12e0c4cc59/protocol.json",
+      "sha256": "f802e526fe38be54f670e8c562455d5abbab1b8fb9b00dcfd76760c79e1cf491"
+    },
+    {
+      "path": "evidence/episodic-credit/072d24fd-1d0f-4181-a09b-418becf4b1ba/protocol.json",
+      "sha256": "bae2ac196d013bd0f0c9ddbd946d1bb0a58607030c893819bee2a715b7a65afd"
+    },
+    {
+      "path": "evidence/episodic-credit/37bf0467-36b8-45a5-b7c9-5f1cc2f5bc5c/protocol.json",
+      "sha256": "1b61646876b69ddc5c39eff59ad2821e59175e30d195d50d3252c566106021cf"
+    },
+    {
+      "path": "evidence/episodic-credit/3cee78f1-91cf-456c-9a4d-87d113643852/protocol.json",
+      "sha256": "b3ffd8d4d647d168e352a89da50076dc91aea0e178b88dd76707aaddb0bb6ba6"
+    },
+    {
+      "path": "evidence/episodic-credit/accf4ed9-962c-4053-86d7-84803187789d/protocol.json",
+      "sha256": "4cbee5ae839d1178a67fd7ed45bec8d9a9fbe65a484b5e8accffa4a94504391e"
+    },
+    {
+      "path": "evidence/episodic-credit/e47816bf-0161-4444-a4cb-51f578b86ca3/protocol.json",
+      "sha256": "ab98273cd6858bf6b597cb0573bde62393528ee2a5c808db47266bf6e9f6108f"
+    },
+    {
+      "path": "evidence/episodic-joint/ec24a07d-b3be-4a7d-839a-3a17e9f4f3ac/protocol.json",
+      "sha256": "bca42bf7d9e642b7c777d441951814270e5cea5369a3261576094c97b2070df8"
+    },
+    {
+      "path": "evidence/episodic-retention/0658bde9-3fe6-4172-aebc-9920de93d0f5/protocol.json",
+      "sha256": "bb5938b940d1e59a9cf8e2c269dbb31aa897ff808c6cada672609491bc0e18ff"
+    },
+    {
+      "path": "evidence/episodic-retention/3b598126-9414-406c-b14d-5ec5915ba6a5/protocol.json",
+      "sha256": "50aec89fe5ae4688bf8f42aa839527217a7372e524670de42467d8845cb91428"
+    },
+    {
+      "path": "evidence/episodic-risk/335d12d4-477d-483f-8e06-5dfe474b4c16/protocol.json",
+      "sha256": "67b71983ac0df1088d4944767fe7159470dcd25d9c98a5b808b42741d971e491"
+    },
+    {
+      "path": "evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7/protocol.json",
+      "sha256": "b62892d806827fe36053e61383031a2df7826e5c0678358561591b7e40561762"
+    },
+    {
+      "path": "evidence/pooled-prior/79cc240f-daad-45dc-83f0-269f14b7b9b7/protocol.json",
+      "sha256": "dc6ac67a93fad40751817d7b44e6f10fa8df01859f024921993281f0cca87e53"
+    },
+    {
+      "path": "evidence/pooled-prior/9b0d32fd-6b6e-4a1b-a9d4-200aab956b33/protocol.json",
+      "sha256": "8a61488594f0d2e838a9f706a8244a5675626119f108397d9500101807983f07"
+    },
+    {
+      "path": "evidence/resource-pressure/67c2e7f8-51a6-4e2f-bfbe-37d2241f031e/protocol.json",
+      "sha256": "ace6dc8611b7c074103ec710c83d7d0070ba3cbe82a2ed7e54ae4629f073cd76"
+    }
+  ],
+  "developmentSeeds": [
+    1865851830,
+    1865859749,
+    1865867668,
+    1865875587,
+    1865883506,
+    1865891425,
+    1865899344,
+    1865907263,
+    1865915182,
+    1865923101,
+    1865931020,
+    1865938939
+  ],
+  "heldoutSeeds": [
+    1865946858,
+    1865954777,
+    1865962696,
+    1865970615,
+    1865978534,
+    1865986453,
+    1865994372,
+    1866002291,
+    1866010210,
+    1866018129,
+    1866026048,
+    1866033967,
+    1866041886,
+    1866049805,
+    1866057724,
+    1866065643,
+    1866073562,
+    1866081481,
+    1866089400,
+    1866097319,
+    1866105238,
+    1866113157,
+    1866121076,
+    1866128995,
+    1866136914,
+    1866144833,
+    1866152752,
+    1866160671,
+    1866168590,
+    1866176509
+  ],
+  "candidates": [
+    {
+      "id": "prior-1",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.99,
+        "returnMode": "td",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.15,
+        "fastSpeed": 0.5,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005,
+        "priorStrength": 1
+      }
+    },
+    {
+      "id": "prior-4",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.99,
+        "returnMode": "td",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.15,
+        "fastSpeed": 0.5,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005,
+        "priorStrength": 4
+      }
+    }
+  ],
+  "incumbent": {
+    "capacity": 128,
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir",
+    "featureMode": "mixed",
+    "decisionTicks": 8,
+    "creditTicks": 8,
+    "discount": 0.99,
+    "returnMode": "td",
+    "actuator": "move",
+    "turnGain": 0.25,
+    "moveGain": 2,
+    "moveMode": "levels",
+    "slowSpeed": 0.15,
+    "fastSpeed": 0.5,
+    "memoryLearning": true,
+    "neuralLearning": true,
+    "memoryEnergyPerRecordSecond": 0.00001,
+    "lookupEnergyPerRecord": 0.000005
+  },
+  "actorParameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "founders": 24,
+  "horizonTicks": 1800,
+  "environments": {
+    "stable": {
+      "nutrient": 0.4,
+      "ecology": "baseline",
+      "challenges": "off",
+      "seasonal": false
+    },
+    "relocation": {
+      "nutrient": 0.4,
+      "ecology": "relocation",
+      "challenges": "off",
+      "seasonal": false
+    }
+  },
+  "requiredControls": [
+    "frozen",
+    "noMemory",
+    "neural",
+    "fullRange"
+  ],
+  "gates": {
+    "energyDifferenceLowerBound": 0,
+    "populationDifferenceMeanMinimum": 0,
+    "memoryAccuracyLowerBound": 0.8,
+    "retentionChangeLowerBound": -0.05,
+    "stableIncumbentEnergyLowerBound": -0.5,
+    "relocationIncumbentEnergyLowerBound": 0
+  },
+  "selection": "Two fixed strengths of shared local outcome prior. Prefer cue-retention passing candidates with nonnegative mean population differences versus candidate-specific frozen/memory-disabled and shared incumbent/neural controls in BOTH worlds, stable mean energy >= -0.5 versus incumbent, and positive relocation mean energy versus incumbent. Rank by worst mean energy versus frozen/memory-disabled/neural in both worlds plus relocating incumbent; tie by ID. Lock once before held-out evaluation. An ineligible fallback is exploratory and cannot qualify even if later gates pass.",
+  "interpretation": "New human-designed retrieval intervention, not RSI. Action-specific kNN weighted means are shrunk toward their pooled local outcome mean, using relative support weights with a shared numerical offset. Missing action experience inherits the observed local prior instead of assumed zero. The prior uses only already retrieved records and creates no new stored experience or oracle action label. Same record bound, sensory representation, TD windows, motor levels, inherited bodies and physical prices. One existing charged scan per action lookup and one per TD query; pooled arithmetic reuses the selected record statistics. No reproduction/mutation or environment promotion. Qualification requires all existing matched energy/survival guards in BOTH worlds, incumbent preservation/improvement, and separate cue-memory retention. Cue task does not test habitat TD bootstrapping or whole-body continual learning. Do not extend a failed held-out sample.",
+  "priorBoundary": "With both actions supported, shrinking toward their shared weighted mean preserves their ordering for unchanged stored targets; the intervention changes value magnitudes/TD bootstraps and unsupported-action preferences, not direct discrimination of two supported actions. Unsupported actions tie exactly with the supported local value. A partial development run was stopped before held-out evaluation for this numerical tie correction; its seeds remain excluded and evidence retained."
+}

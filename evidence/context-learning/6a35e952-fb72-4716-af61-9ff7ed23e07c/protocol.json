@@ -1,0 +1,108 @@
+{
+  "id": "6a35e952-fb72-4716-af61-9ff7ed23e07c",
+  "at": "2026-10-23T05:59:00.070Z",
+  "parentCueCampaign": "c2c746c3-0ada-401a-9826-272be9a2d2ec",
+  "parameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "sourceSha256": {
+    "engine.mjs": "d769817f8d1f66df3e52a3d92536b9ff344f4c48128e9418af467ff7a547d733",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/context-tasks.mjs": "584b6cb2ec34de592fbc1a0bfd8de10bb648f5d093b444adb494bd96e6d69022",
+    "learning/projection-actor.mjs": "cdce982f1adf34e883d05d7727a022c953f144f9ba35b794099d09710b9e773f",
+    "scripts/context-architecture-study.mjs": "d3fc7175bc2b9e92cc840db6d89888a0a38b487c668479250f1986eb49edb623"
+  },
+  "task": {
+    "trainTrialsPerContext": 256,
+    "mixedTrainingTrials": 512,
+    "testTrialsPerContext": 96,
+    "trainDelay": [
+      30,
+      70
+    ],
+    "testDelay": [
+      80,
+      130
+    ],
+    "trainAmplitude": [
+      0.7,
+      1
+    ],
+    "testAmplitude": [
+      0.45,
+      0.7
+    ],
+    "noise": 0.01,
+    "cueChannels": [
+      1,
+      2
+    ],
+    "contextChannels": [
+      12,
+      13
+    ],
+    "interpretation": "The same left/right sensory cue requires opposite actions in two explicitly observed contexts. Cue and context disappear before the choice. Train A, train B without clearing acquired weights, then measure forgetting. A later mixed-training phase separately diagnoses representational capacity; it cannot rescue a failed sequential-retention claim."
+  },
+  "candidates": [
+    0,
+    8,
+    16,
+    32
+  ],
+  "projectionScale": 3.5,
+  "developmentSeeds": [
+    61710000,
+    61710001,
+    61710002,
+    61710003,
+    61710004,
+    61710005,
+    61710006,
+    61710007,
+    61710008,
+    61710009
+  ],
+  "heldoutSeeds": [
+    61790000,
+    61790001,
+    61790002,
+    61790003,
+    61790004,
+    61790005,
+    61790006,
+    61790007,
+    61790008,
+    61790009,
+    61790010,
+    61790011,
+    61790012,
+    61790013,
+    61790014,
+    61790015,
+    61790016,
+    61790017,
+    61790018,
+    61790019,
+    61790020,
+    61790021,
+    61790022,
+    61790023,
+    61790024,
+    61790025,
+    61790026,
+    61790027,
+    61790028,
+    61790029
+  ],
+  "selection": "Maximize mean per-seed minimum of A after B, B after B, and mixed-task accuracy. Break exact ties by fewer added features. Freeze count before held-out evaluation.",
+  "gates": {
+    "representationAccuracyLowerBound": 0.85,
+    "controlAdvantageLowerBound": 0.2,
+    "sequentialAccuracyLowerBound": 0.8,
+    "retentionLossLowerBound": -0.05
+  },
+  "interpretation": "Bounded architecture selection over engineered random nonlinear sensory-trace features. The projection weights are fixed; output weights learn from reward. Mixed-training accuracy measures representational capacity separately from sequential retention. No change to existing habitats or self-written learning algorithm."
+}

@@ -1,0 +1,192 @@
+{
+  "at": "2026-10-24T01:43:13.113Z",
+  "auditorSha256": "2f9465e5a9498d814bfdec20290cc2c1ec924d4b628fdab23282247899ab32cf",
+  "worlds": 24,
+  "cases": 96,
+  "physicalSteps": 1536,
+  "replay": [
+    {
+      "seed": 1430674274,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430674274,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430682193,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430682193,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430690112,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430690112,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430698031,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430698031,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430705950,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430705950,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430713869,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430713869,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430721788,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430721788,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430729707,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430729707,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430737626,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430737626,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430745545,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430745545,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430753464,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430753464,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430761383,
+      "environment": "stable",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    },
+    {
+      "seed": 1430761383,
+      "environment": "relocation",
+      "exactWorld": true,
+      "independentAcquiredModels": true,
+      "cases": 4
+    }
+  ],
+  "checks": [
+    "source/reference hashes",
+    "all baseline worlds and acquired founder hashes",
+    "independent numeric learner and forecasts at every recorded case",
+    "all slow/fast physical step sequences and ending hashes",
+    "energy/reward accounting and additive decomposition",
+    "seed-level intervals and ranking/gain summaries"
+  ],
+  "limitations": [
+    "Diagnostic reuse of failed cases cannot qualify a candidate.",
+    "Teacher-forced states and future motor schedules are privileged inputs.",
+    "Decomposition gaps are correlated numerical differences, not isolated causal effects."
+  ],
+  "integrationSupported": false,
+  "ecologicalQualification": false
+}

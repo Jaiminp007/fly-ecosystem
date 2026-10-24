@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-23T20:22:23.921Z",
+  "worlds": 636,
+  "developmentSeedPairs": 12,
+  "heldoutSeedPairs": 30,
+  "maxAccountingResidual": 2.5472672859905288e-9,
+  "passed": false,
+  "checks": [
+    "seed separation and complete paired outcomes",
+    "matched founder hashes and energy ledgers",
+    "all development/held-out comparisons recomputed",
+    "development eligibility, ranking and frozen selection recomputed",
+    "memory-component intervals recomputed from raw trial scores",
+    "all qualification gates recomputed",
+    "archived causal-fork and retrieval diagnosis hashes",
+    "archived algorithm and reference hashes"
+  ],
+  "limitations": [
+    "Audit does not replay all worlds",
+    "Cue task exercises the retrieval representation but not TD bootstrapping",
+    "No same-body retention qualification or RSI claim"
+  ]
+}

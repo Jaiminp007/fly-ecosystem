@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-24T04:03:52.190Z",
+  "auditorSha256": "99fbf987832c8ef23b04ac273f0740dffa9207d31bc9196742799ad39d2ee280",
+  "sourceAndReferenceFingerprintsVerified": true,
+  "independentlyReconstructedDecisions": 10800,
+  "matchedOriginalFactualWindows": 10800,
+  "matchedOriginalWorldHashes": 24,
+  "summary": {
+    "worlds": 24,
+    "decisions": 10800,
+    "completedWindows": 10800,
+    "exactDrawReplays": 10800,
+    "reasonCounts": {
+      "exploration": 1080,
+      "tie": 226,
+      "retrieval": 9494
+    },
+    "randomizedCompletedWindows": 1306,
+    "explicitExplorationWindows": 1080,
+    "minimumChosenProbability": 0.04999999999999993,
+    "maximumInverseUniformWeight": 10.000000000000014
+  },
+  "limitations": [
+    "The collector physically replayed each original world; this independent audit reconstructs probabilities and RNG arithmetic, not a second physical replay.",
+    "Probabilities are the nominal epsilon-greedy model; pseudorandom determinism and these checks do not establish causal identification.",
+    "No policy-aware estimator or live policy was qualified."
+  ]
+}

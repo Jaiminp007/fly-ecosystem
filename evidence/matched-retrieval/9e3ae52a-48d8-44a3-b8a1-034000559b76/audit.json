@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-24T01:01:38.389Z",
+  "auditorSha256": "78d40ab1762c1567921dbe8ac0289d63517734bf302a3df53875d5e93aaabdad",
+  "seeds": 20,
+  "cases": 120,
+  "availableCases": 100,
+  "eligibleCases": 100,
+  "pairComparisons": 3080,
+  "prospectiveStudySignal": false,
+  "replays": [
+    {
+      "seed": 3265863333,
+      "exactBaselineEndpoints": true,
+      "exactSampledRetrievals": true
+    },
+    {
+      "seed": 3266013794,
+      "exactBaselineEndpoints": true,
+      "exactSampledRetrievals": true
+    }
+  ],
+  "checks": [
+    "archived algorithm, estimator and input hashes",
+    "exact pairing with historical fork cases",
+    "every pair distance, cutoff, log cost, weight and return estimate independently recomputed",
+    "pair comparison and proposed additional read accounting",
+    "action centroid separation recomputed",
+    "same-case gain and agreement comparisons",
+    "seed-level summaries and fixed signal recomputed",
+    "first/last archived baseline endpoints and sampled retrievals replayed"
+  ],
+  "limitations": [
+    "Reuses historical data with finite-horizon counterfactual effects; no prospective policy qualification.",
+    "Only the first and last baseline/retrieval trajectories were independently replayed by this audit; the analysis driver checked all included baseline endpoints.",
+    "The prototype is offline and does not establish ecological survival, checkpoint integration, continual retention or RSI."
+  ]
+}

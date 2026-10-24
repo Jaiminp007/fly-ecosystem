@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-23T20:19:10.484Z",
+  "baselineReplays": 20,
+  "factualCheckedCases": 120,
+  "eligibleCases": 118,
+  "retrievalReplays": 20,
+  "excludedChannelDistanceFraction": 0.6736122118977305,
+  "checks": [
+    "stored exact baseline/factual checks present",
+    "all paired short/medium/long differences recomputed",
+    "all seed-level intervals recomputed",
+    "archived horizon/retrieval source hashes verified",
+    "all seed-level horizon statistics recomputed from cases",
+    "retrieval totals and feature-distance sums recomputed from raw rows"
+  ],
+  "scope": "Post-hoc sampled states, first two surviving founder IDs and three fixed times per seed. This audit does not rerun every counterfactual fork or establish a causal reason for ecological failure."
+}

@@ -1,0 +1,78 @@
+{
+  "id": "7de7e41e-57bf-4581-9ec6-c59eb1b88d79",
+  "parentCueCampaign": "c2c746c3-0ada-401a-9826-272be9a2d2ec",
+  "at": "2026-10-23T05:41:14.255Z",
+  "sourceSha256": {
+    "engine.mjs": "d769817f8d1f66df3e52a3d92536b9ff344f4c48128e9418af467ff7a547d733",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/continual.mjs": "f321b12668680f433ae235ff8b84c92a33c8f99e74528f6b0e1e6df0d4b11ce2",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/continual-learning-study.mjs": "2cd62d9dd387eb548f46824c8333b3e3d9ec5e22702a313743546190354f9292"
+  },
+  "seeds": [
+    2112349214,
+    2112349215,
+    2112349216,
+    2112349217,
+    2112349218,
+    2112349219,
+    2112349220,
+    2112349221,
+    2112349222,
+    2112349223,
+    2112349224,
+    2112349225,
+    2112349226,
+    2112349227,
+    2112349228,
+    2112349229,
+    2112349230,
+    2112349231,
+    2112349232,
+    2112349233,
+    2112349234,
+    2112349235,
+    2112349236,
+    2112349237,
+    2112349238,
+    2112349239,
+    2112349240,
+    2112349241,
+    2112349242,
+    2112349243
+  ],
+  "parameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "task": {
+    "trainTrialsPerTask": 256,
+    "testTrialsPerTask": 96,
+    "trainDelay": [
+      30,
+      70
+    ],
+    "testDelay": [
+      80,
+      130
+    ],
+    "noise": 0.015,
+    "taskAChannels": [
+      1,
+      2
+    ],
+    "taskBChannels": [
+      7,
+      8
+    ],
+    "interpretation": "Sequential acquisition of two unknown cue associations on disjoint sensory channels in one lifetime. Acquired weights persist from A to B. Activity/eligibility reset between episodes. This tests limited skill retention with engineered traces; it does not establish general continual learning or ecological transfer."
+  },
+  "gates": {
+    "accuracyLowerBound": 0.8,
+    "retentionChangeLowerBound": -0.05,
+    "controlAdvantageLowerBound": 0.2
+  },
+  "interpretation": "One preregistered local study on fixed accepted settings. No candidate tuning or selection on these seeds. The two tasks use disjoint channels, so passing is a narrow retention result."
+}

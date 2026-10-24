@@ -1,0 +1,5 @@
+# Reference run: Python 3.9.6, NumPy 2.0.2, SciPy 1.13.1 (macOS arm64).
+# Broader ranges permit a fresh modern Python environment; exact cross-machine
+# bitwise physical replay has not yet been established.
+numpy>=2.0,<3
+scipy>=1.13,<2

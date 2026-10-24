@@ -1,0 +1,812 @@
+{
+  "protocolSha256": "6c2c24dbf7170f2e8dc68b81cc330405b681e42d9b5af1e8416357c23af06c8e",
+  "lockSha256": "6d9a77ce773ea27dde4dd49629960eda62a7e496d1c4950ec16d130837010365",
+  "completedAt": "2026-10-24T04:55:36.502Z",
+  "selected": {
+    "representation": "current",
+    "mode": "ipw-contrast"
+  },
+  "tests": {
+    "stable:action:incumbent": {
+      "mean": -0.09660919001161564,
+      "se": 0.1375328450639525,
+      "n": 16,
+      "lower": -0.5141978600661572,
+      "margin": 0,
+      "pOneSided": 0.75506591796875,
+      "passed": false
+    },
+    "stable:action:slow": {
+      "mean": 0.05203813752018267,
+      "se": 0.14823011084286197,
+      "n": 16,
+      "lower": -0.39803046114892077,
+      "margin": 0,
+      "pOneSided": 0.36383056640625,
+      "passed": false
+    },
+    "stable:action:fast": {
+      "mean": -0.19098833104740415,
+      "se": 0.0746839175301892,
+      "n": 16,
+      "lower": -0.4177498568588771,
+      "margin": 0,
+      "pOneSided": 0.9915924072265625,
+      "passed": false
+    },
+    "stable:mechanism:uniform-over-observational": {
+      "mean": 0.001943217017180185,
+      "se": 0.09393074560823268,
+      "n": 16,
+      "lower": -0.2832571299801795,
+      "margin": 0,
+      "pOneSided": 0.49237060546875,
+      "passed": false
+    },
+    "stable:mechanism:selected-over-observational": {
+      "mean": -0.17266659339791524,
+      "se": 0.14774297324059266,
+      "n": 16,
+      "lower": -0.621256104338043,
+      "margin": 0,
+      "pOneSided": 0.869598388671875,
+      "passed": false
+    },
+    "stable:mechanism:selected-vs-uniform": {
+      "mean": -0.17460981041509535,
+      "se": 0.12301505621026182,
+      "n": 16,
+      "lower": -0.5481183617407158,
+      "margin": 0.1,
+      "pOneSided": 0.7234954833984375,
+      "passed": false
+    },
+    "relocation:action:incumbent": {
+      "mean": -0.05854868361302372,
+      "se": 0.1285414060103819,
+      "n": 16,
+      "lower": -0.4488367981201899,
+      "margin": 0,
+      "pOneSided": 0.613555908203125,
+      "passed": false
+    },
+    "relocation:action:slow": {
+      "mean": 0.045962898611518296,
+      "se": 0.11189602346887254,
+      "n": 16,
+      "lower": -0.2937851201474227,
+      "margin": 0,
+      "pOneSided": 0.3404693603515625,
+      "passed": false
+    },
+    "relocation:action:fast": {
+      "mean": -0.08756547324648228,
+      "se": 0.14171443235688283,
+      "n": 16,
+      "lower": -0.5178506266433105,
+      "margin": 0,
+      "pOneSided": 0.6869354248046875,
+      "passed": false
+    },
+    "relocation:mechanism:uniform-over-observational": {
+      "mean": 0.007725313618697854,
+      "se": 0.1140940406497913,
+      "n": 16,
+      "lower": -0.3386965078301395,
+      "margin": 0,
+      "pOneSided": 0.4736175537109375,
+      "passed": false
+    },
+    "relocation:mechanism:selected-over-observational": {
+      "mean": -0.02335099850330745,
+      "se": 0.10269783285908644,
+      "n": 16,
+      "lower": -0.33517070543344374,
+      "margin": 0,
+      "pOneSided": 0.585693359375,
+      "passed": false
+    },
+    "relocation:mechanism:selected-vs-uniform": {
+      "mean": -0.031076312122005303,
+      "se": 0.1140406678157835,
+      "n": 16,
+      "lower": -0.37733607853039025,
+      "margin": 0.1,
+      "pOneSided": 0.277435302734375,
+      "passed": false
+    }
+  },
+  "outcomes": {
+    "stable": [
+      {
+        "seed": 3909429410,
+        "environment": "stable",
+        "value": 0.20535362446396377,
+        "incumbent": 0.3038215615293338,
+        "slow": 0.49745843974425075,
+        "fast": 0.08982943751621786,
+        "oracle": 1.586009435233064
+      },
+      {
+        "seed": 2778834894,
+        "environment": "stable",
+        "value": 4.437717275089536,
+        "incumbent": 4.5987695383109575,
+        "slow": 5.019785675530002,
+        "fast": 4.699392027264418,
+        "oracle": 5.793969156194539
+      },
+      {
+        "seed": 3602129108,
+        "environment": "stable",
+        "value": -2.6612172525794113,
+        "incumbent": -2.4434920573394647,
+        "slow": -2.9822995359971216,
+        "fast": -2.2683760608019625,
+        "oracle": -1.347194350616271
+      },
+      {
+        "seed": 2692756051,
+        "environment": "stable",
+        "value": 3.0852924474298185,
+        "incumbent": 3.8892466101606846,
+        "slow": 4.231048510866752,
+        "fast": 3.5920595703219265,
+        "oracle": 5.5908397039756785
+      },
+      {
+        "seed": 3066680082,
+        "environment": "stable",
+        "value": -1.4223618441528112,
+        "incumbent": -0.3522610645935449,
+        "slow": -0.9195510372014337,
+        "fast": -0.9809064923578557,
+        "oracle": 0.4590219771924242
+      },
+      {
+        "seed": 1148824249,
+        "environment": "stable",
+        "value": -0.6572473007254389,
+        "incumbent": -0.5630073753774598,
+        "slow": -1.128183912371353,
+        "fast": -0.5558973453214844,
+        "oracle": 0.06905403051141046
+      },
+      {
+        "seed": 2884936987,
+        "environment": "stable",
+        "value": 4.205361708006315,
+        "incumbent": 4.305846018073867,
+        "slow": 3.351835707212385,
+        "fast": 4.091622768007898,
+        "oracle": 4.961590397718851
+      },
+      {
+        "seed": 1273885134,
+        "environment": "stable",
+        "value": -2.788994296808136,
+        "incumbent": -2.638801065973632,
+        "slow": -2.6737503510844722,
+        "fast": -2.5292422343005523,
+        "oracle": -1.8645580225884288
+      },
+      {
+        "seed": 154675788,
+        "environment": "stable",
+        "value": -0.5581066198803801,
+        "incumbent": 0.6282903912957021,
+        "slow": -0.278325248634945,
+        "fast": 0.38435826228072356,
+        "oracle": 1.533624690368379
+      },
+      {
+        "seed": 2355555278,
+        "environment": "stable",
+        "value": 4.7413970067247,
+        "incumbent": 4.612814555258833,
+        "slow": 3.7407137247112114,
+        "fast": 4.620653071024488,
+        "oracle": 5.460480475140901
+      },
+      {
+        "seed": 233866133,
+        "environment": "stable",
+        "value": 0.9093161666928995,
+        "incumbent": 0.864001071688135,
+        "slow": 0.7762720272650927,
+        "fast": 0.9332952231190745,
+        "oracle": 2.2341268542473287
+      },
+      {
+        "seed": 1923113958,
+        "environment": "stable",
+        "value": -1.3255306140620764,
+        "incumbent": -2.1106564027093766,
+        "slow": -1.6975468985830573,
+        "fast": -1.3527650948066792,
+        "oracle": -0.32209945778313
+      },
+      {
+        "seed": 938441043,
+        "environment": "stable",
+        "value": 2.2530930299966605,
+        "incumbent": 1.8354750831036417,
+        "slow": 1.8108310850453904,
+        "fast": 2.6289957102879695,
+        "oracle": 3.5001519688721334
+      },
+      {
+        "seed": 3214717764,
+        "environment": "stable",
+        "value": -4.003533944045486,
+        "incumbent": -4.710759532293084,
+        "slow": -3.3285625116951403,
+        "fast": -4.056556916931417,
+        "oracle": -2.433421691404023
+      },
+      {
+        "seed": 4204796173,
+        "environment": "stable",
+        "value": 0.5954765089478384,
+        "incumbent": 0.3597873504644644,
+        "slow": 0.06250230044846838,
+        "fast": 0.884570411846781,
+        "oracle": 1.6869477266634452
+      },
+      {
+        "seed": 1929244585,
+        "environment": "stable",
+        "value": -1.5172229574710814,
+        "incumbent": -1.5345347037862969,
+        "slow": -1.8160452379520424,
+        "fast": -1.6264261027641702,
+        "oracle": -0.4071277349337765
+      }
+    ],
+    "relocation": [
+      {
+        "seed": 3909429410,
+        "environment": "relocation",
+        "value": -2.3536776476119647,
+        "incumbent": -2.297851768391438,
+        "slow": -2.6621023003205444,
+        "fast": -2.044424963925795,
+        "oracle": -1.2814620190087749
+      },
+      {
+        "seed": 2778834894,
+        "environment": "relocation",
+        "value": -0.7253346348907543,
+        "incumbent": -0.5472900521767872,
+        "slow": -0.6128194397688547,
+        "fast": -0.6995869735698834,
+        "oracle": 0.1671751533454957
+      },
+      {
+        "seed": 3602129108,
+        "environment": "relocation",
+        "value": -2.8220662418380487,
+        "incumbent": -2.720778060436322,
+        "slow": -2.419902227873452,
+        "fast": -2.5249668591214762,
+        "oracle": -1.514543629946599
+      },
+      {
+        "seed": 2692756051,
+        "environment": "relocation",
+        "value": 2.2967136939906925,
+        "incumbent": 2.337975432723478,
+        "slow": 2.5488397428634086,
+        "fast": 2.322574908601476,
+        "oracle": 3.321510974555793
+      },
+      {
+        "seed": 3066680082,
+        "environment": "relocation",
+        "value": -0.18105091673278362,
+        "incumbent": 1.5642550064144944,
+        "slow": -0.3543062800216763,
+        "fast": 1.6359069006602316,
+        "oracle": 2.541541131380847
+      },
+      {
+        "seed": 1148824249,
+        "environment": "relocation",
+        "value": -3.8136269543186097,
+        "incumbent": -3.9793736054167064,
+        "slow": -4.4373733546285425,
+        "fast": -3.8710356509057515,
+        "oracle": -3.3634762170419608
+      },
+      {
+        "seed": 2884936987,
+        "environment": "relocation",
+        "value": 2.1423898275942275,
+        "incumbent": 2.2841555186388014,
+        "slow": 2.2419755041911333,
+        "fast": 2.6006560257182234,
+        "oracle": 3.7365355260639226
+      },
+      {
+        "seed": 1273885134,
+        "environment": "relocation",
+        "value": 2.6890782959228536,
+        "incumbent": 2.7783179423415625,
+        "slow": 3.206914496698328,
+        "fast": 2.631398664010594,
+        "oracle": 4.221883026064956
+      },
+      {
+        "seed": 154675788,
+        "environment": "relocation",
+        "value": 0.04802090253035596,
+        "incumbent": 0.015404739974736348,
+        "slow": 0.5975109997627734,
+        "fast": -0.15027741692493035,
+        "oracle": 1.935105497175961
+      },
+      {
+        "seed": 2355555278,
+        "environment": "relocation",
+        "value": 1.5813786896482134,
+        "incumbent": 1.8986705146133265,
+        "slow": 0.8815155959002718,
+        "fast": 1.799386844648458,
+        "oracle": 2.531656221532863
+      },
+      {
+        "seed": 233866133,
+        "environment": "relocation",
+        "value": 2.7842204649332913,
+        "incumbent": 2.326500503715593,
+        "slow": 2.1353949200076774,
+        "fast": 2.196777489425183,
+        "oracle": 3.137566887279287
+      },
+      {
+        "seed": 1923113958,
+        "environment": "relocation",
+        "value": 0.2895860202255973,
+        "incumbent": -0.41637355592928005,
+        "slow": 0.8459965780612393,
+        "fast": -0.24354154194584465,
+        "oracle": 1.5546407247395504
+      },
+      {
+        "seed": 938441043,
+        "environment": "relocation",
+        "value": 0.8804214547979088,
+        "incumbent": 0.8733607932546543,
+        "slow": 0.832818636752604,
+        "fast": 1.1953275252028743,
+        "oracle": 2.265308317008639
+      },
+      {
+        "seed": 3214717764,
+        "environment": "relocation",
+        "value": -8.018682212500234,
+        "incumbent": -8.079644358969665,
+        "slow": -7.847979646773544,
+        "fast": -7.9570281293597995,
+        "oracle": -7.356048451406762
+      },
+      {
+        "seed": 4204796173,
+        "environment": "relocation",
+        "value": 0.5537399461239658,
+        "incumbent": 0.3228160579223118,
+        "slow": 0.27191073706577273,
+        "fast": 0.5076272562997233,
+        "oracle": 1.3736153452693538
+      },
+      {
+        "seed": 1929244585,
+        "environment": "relocation",
+        "value": 0.2761868959470559,
+        "incumbent": 0.20393141335138631,
+        "slow": -0.33650275587912115,
+        "fast": -0.3704489230478003,
+        "oracle": 1.0465470943003503
+      }
+    ]
+  },
+  "diagnostic": {
+    "stable:8:current:observational": {
+      "meanValue": 0.06039544171764391,
+      "regret": 0.05282132638016227,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:current:ipw": {
+      "meanValue": 0.06371541834756231,
+      "regret": 0.049501349750243874,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:current:ipw-contrast": {
+      "meanValue": 0.0546766442002215,
+      "regret": 0.05854012389758468,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:current:dr-contrast": {
+      "meanValue": 0.06268765243283651,
+      "regret": 0.05052911566496967,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:current:uniform": {
+      "meanValue": 0.06605862673988577,
+      "regret": 0.0471581413579204,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:current:paired": {
+      "meanValue": 0.06762289920540385,
+      "regret": 0.045593868892402335,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "stable:8:current:explicit-exploration": {
+      "meanValue": 0.05943284820511219,
+      "regret": 0.053783919892693995,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:8:current:matched-uniform": {
+      "meanValue": 0.06785475528212548,
+      "regret": 0.0453620128156807,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:8:history:observational": {
+      "meanValue": 0.05654061499318207,
+      "regret": 0.056676153104624115,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:history:ipw": {
+      "meanValue": 0.0577458017092555,
+      "regret": 0.05547096638855068,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:history:ipw-contrast": {
+      "meanValue": 0.050108900937631054,
+      "regret": 0.06310786716017514,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:history:dr-contrast": {
+      "meanValue": 0.05474611989521015,
+      "regret": 0.05847064820259603,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:history:uniform": {
+      "meanValue": 0.06163184528730817,
+      "regret": 0.051584922810498014,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:8:history:paired": {
+      "meanValue": 0.059401981315369445,
+      "regret": 0.05381478678243674,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "stable:8:history:explicit-exploration": {
+      "meanValue": 0.05626864610964258,
+      "regret": 0.056948121988163604,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:8:history:matched-uniform": {
+      "meanValue": 0.06586291461471733,
+      "regret": 0.047353853483088855,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:256:current:observational": {
+      "meanValue": 0.5163411519995971,
+      "regret": 1.1399972954249358,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:current:ipw": {
+      "meanValue": 0.4817797608939596,
+      "regret": 1.174558686530573,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:current:ipw-contrast": {
+      "meanValue": 0.3436745586016819,
+      "regret": 1.312663888822851,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:current:dr-contrast": {
+      "meanValue": 0.4146775383347813,
+      "regret": 1.2416609090897517,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:current:uniform": {
+      "meanValue": 0.5182843690167771,
+      "regret": 1.1380540784077555,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:current:paired": {
+      "meanValue": 0.6448123241530092,
+      "regret": 1.0115261232715238,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "stable:256:current:explicit-exploration": {
+      "meanValue": 0.36233360858463737,
+      "regret": 1.2940048388398955,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:256:current:matched-uniform": {
+      "meanValue": 0.4445692871261091,
+      "regret": 1.2117691602984237,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:256:history:observational": {
+      "meanValue": 0.4347597520391686,
+      "regret": 1.2215786953853642,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:history:ipw": {
+      "meanValue": 0.4999674804633596,
+      "regret": 1.1563709669611733,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:history:ipw-contrast": {
+      "meanValue": 0.4991603414369697,
+      "regret": 1.1571781059875632,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:history:dr-contrast": {
+      "meanValue": 0.47166001151451137,
+      "regret": 1.1846784359100215,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:history:uniform": {
+      "meanValue": 0.40970085837960857,
+      "regret": 1.2466375890449246,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "stable:256:history:paired": {
+      "meanValue": 0.531628665575914,
+      "regret": 1.124709781848619,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "stable:256:history:explicit-exploration": {
+      "meanValue": 0.3550089567888185,
+      "regret": 1.3013294906357142,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "stable:256:history:matched-uniform": {
+      "meanValue": 0.30731999446640795,
+      "regret": 1.349018452958125,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:8:current:observational": {
+      "meanValue": 0.041972998320393945,
+      "regret": 0.04041244824868297,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:current:ipw": {
+      "meanValue": 0.04357301692218579,
+      "regret": 0.03881242964689112,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:current:ipw-contrast": {
+      "meanValue": 0.002769095873055391,
+      "regret": 0.07961635069602152,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:current:dr-contrast": {
+      "meanValue": 0.008053816572090006,
+      "regret": 0.0743316299969869,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:current:uniform": {
+      "meanValue": 0.0259740047323916,
+      "regret": 0.05641144183668531,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:current:paired": {
+      "meanValue": 0.03286192643784951,
+      "regret": 0.0495235201312274,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "relocation:8:current:explicit-exploration": {
+      "meanValue": -0.0012218878774500064,
+      "regret": 0.08360733444652692,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:8:current:matched-uniform": {
+      "meanValue": 0.03748953500361909,
+      "regret": 0.04489591156545782,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:8:history:observational": {
+      "meanValue": 0.036597457103805964,
+      "regret": 0.04578798946527095,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:history:ipw": {
+      "meanValue": 0.036179174937025785,
+      "regret": 0.04620627163205113,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:history:ipw-contrast": {
+      "meanValue": 0.015283716509381672,
+      "regret": 0.06710173005969525,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:history:dr-contrast": {
+      "meanValue": 0.021712383305161398,
+      "regret": 0.060673063263915514,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:history:uniform": {
+      "meanValue": 0.03192915206557229,
+      "regret": 0.05045629450350462,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:8:history:paired": {
+      "meanValue": 0.029396972054365228,
+      "regret": 0.052988474514711684,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "relocation:8:history:explicit-exploration": {
+      "meanValue": 0.028126691512361503,
+      "regret": 0.05425875505671541,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:8:history:matched-uniform": {
+      "meanValue": 0.0330595101012052,
+      "regret": 0.049325936467871714,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:256:current:observational": {
+      "meanValue": -0.24994290250783208,
+      "regret": 1.1447901263398899,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:current:ipw": {
+      "meanValue": -0.26446503611475036,
+      "regret": 1.1593122599468078,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:current:ipw-contrast": {
+      "meanValue": -0.2732939010111396,
+      "regret": 1.1681411248431974,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:current:dr-contrast": {
+      "meanValue": -0.19504308420565591,
+      "regret": 1.0898903080377136,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:current:uniform": {
+      "meanValue": -0.2422175888891342,
+      "regret": 1.1370648127211922,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:current:paired": {
+      "meanValue": -0.3163720265869925,
+      "regret": 1.2112192504190502,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "relocation:256:current:explicit-exploration": {
+      "meanValue": -0.29471703179194186,
+      "regret": 1.1895642556239996,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:256:current:matched-uniform": {
+      "meanValue": -0.32027964042279455,
+      "regret": 1.215126864254852,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:256:history:observational": {
+      "meanValue": -0.07434362099755107,
+      "regret": 0.9691908448296086,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:history:ipw": {
+      "meanValue": -0.07934551431302875,
+      "regret": 0.9741927381450862,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:history:ipw-contrast": {
+      "meanValue": -0.19078627582936275,
+      "regret": 1.0856334996614203,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:history:dr-contrast": {
+      "meanValue": -0.18492686180970044,
+      "regret": 1.0797740856417581,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:history:uniform": {
+      "meanValue": -0.2543304819119594,
+      "regret": 1.149177705744017,
+      "labels": 128,
+      "checkpoints": 128
+    },
+    "relocation:256:history:paired": {
+      "meanValue": -0.2814447181992918,
+      "regret": 1.1762919420313493,
+      "labels": 128,
+      "checkpoints": 64
+    },
+    "relocation:256:history:explicit-exploration": {
+      "meanValue": -0.36220351591662125,
+      "regret": 1.2570507397486788,
+      "labels": 22,
+      "checkpoints": 22
+    },
+    "relocation:256:history:matched-uniform": {
+      "meanValue": -0.19720953914768924,
+      "regret": 1.0920567629797469,
+      "labels": 22,
+      "checkpoints": 22
+    }
+  },
+  "actionPassed": false,
+  "mechanismPassed": false,
+  "advanceWeighting": false,
+  "mechanismInterpretation": "A passing screen motivates further investigation; it does not identify systematic propensity bias. Contrast/DR comparisons also vary target/model structure. Inference is conditional on a single fitted bank and assignment realization.",
+  "scheduledCases": 1024,
+  "alreadyDeadCases": 0,
+  "shortLongSignDisagreement": 0.4677734375,
+  "terminalBranchCounts": {
+    "8": 0,
+    "256": 0
+  },
+  "embodiedQualification": false,
+  "recursiveImprovement": false
+}

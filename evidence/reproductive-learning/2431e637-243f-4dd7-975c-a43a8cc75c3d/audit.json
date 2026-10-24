@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-24T02:58:47.325Z",
+  "auditorSha256": "78384587214bdd35b31f6d5699c6f4c4c677244e2753154666ae2eed67547b6a",
+  "worlds": 96,
+  "birthsAndEmptyNewborns": 13075,
+  "extinctions": 17,
+  "capacityCensored": 0,
+  "maxSampledAbsoluteAccountingError": 5.7632860261946917e-8,
+  "learningSignalPassed": false,
+  "selectedReplayedWorlds": 8,
+  "replaySourceSha256": "274654f90fb441c0a1077e4191460400e8fa9a8e049ac633bddbc1887372dd1f",
+  "checks": [
+    "fixed source/reference/seed registries and matched founders",
+    "all endpoint, sampled demographic and ledger arithmetic",
+    "independent paired intervals and fixed combined gate",
+    "selected independent cold physical replays, lifetime-sum exposure and whole-state continuation",
+    "offspring acquired-state checks and mutation-off topology guards"
+  ],
+  "limitations": [
+    "Only the first fixed seed in both environments and four arms was independently physically replayed.",
+    "Ledger guard and mating opportunities are sampled every 100 ticks and at termination.",
+    "New reproductive context does not replace prior failed scarcity gates or qualify environmental promotion.",
+    "No whole-body continual retention, autonomous algorithm revision or RSI claim."
+  ]
+}

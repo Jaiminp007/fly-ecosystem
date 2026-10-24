@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-24T03:07:13.607963+00:00",
+  "experiment": "post-hoc-forecast-capacity-and-chronology",
+  "reference": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/self-modification/a5f74db8-2b02-4ae5-a8dd-17c8c416c2d3",
+  "referenceSha256": "e312e4332e84d0abdabe77c968e251a121f12fb9715fab224eb08ea7b4005c4e",
+  "sourceSha256": "630d967a21a530664303c5f5242dbb8cf92c7e7fb7c8384ed01631e3f476e2b1",
+  "splitTick": 900,
+  "observedAgents": [
+    1,
+    2
+  ],
+  "models": [
+    "zero",
+    "training-mean",
+    "online-initial",
+    "ridge-linear-1",
+    "ridge-quadratic-1",
+    "rbf-ridge-0.1"
+  ],
+  "interpretation": "Exploratory use of ALL prior study banks. No new held-out qualification, algorithm adoption or RSI claim. Fits use only each founder's completed A/B training windows. A tests are read-only. Richer models have different storage/compute costs. Continuing online B additionally learns the preceding B test labels after forecasting, unlike the frozen-window endpoint; these protocols are deliberately distinct. No hyperparameter selection or seed extension."
+}

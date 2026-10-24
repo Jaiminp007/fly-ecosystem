@@ -1,0 +1,46 @@
+{
+  "at": "2026-10-24T01:33:40.605Z",
+  "auditorSha256": "449a240e07a7f8f3cb239b4502846ba7edf0a1c83925f1288abe5617ce066055",
+  "worlds": 24,
+  "seeds": 12,
+  "scoredTransitions": 518356,
+  "actionCases": 96,
+  "reasonNormalizations": 90,
+  "predictionPassed": true,
+  "actionPassed": false,
+  "integrationSupported": false,
+  "replays": [
+    {
+      "seed": 1430674274,
+      "environment": "stable",
+      "exactPredictorStates": true,
+      "exactWorld": true,
+      "lossTotalsMatch": true,
+      "checkedPlans": 4
+    },
+    {
+      "seed": 1430674274,
+      "environment": "relocation",
+      "exactPredictorStates": true,
+      "exactWorld": true,
+      "lossTotalsMatch": true,
+      "checkedPlans": 4
+    }
+  ],
+  "checks": [
+    "fixed fresh seeds and registry hashes",
+    "source/motivation/reference hashes",
+    "loss sums and head equivalence identities",
+    "paired chronological intervals and fixed gates",
+    "action-effect pairing, gain arithmetic and declared reason normalization",
+    "independent learner reproduces all predictor states and losses on one seed in both environments",
+    "learned plan forecasts and real action forks independently replayed on that seed",
+    "baseline complete-state hashes unchanged"
+  ],
+  "limitations": [
+    "Offline predictive and finite-window action-effect screens, not ecological survival/retention qualification.",
+    "Only the selected learner/physics trajectories were independently replayed.",
+    "The factual-fork comparison normalizes only its target decision-reason marker; raw and normalized hashes are both recorded.",
+    "No live integration, model metabolic-cost acceptance, whole-body continual learning or RSI claim."
+  ]
+}

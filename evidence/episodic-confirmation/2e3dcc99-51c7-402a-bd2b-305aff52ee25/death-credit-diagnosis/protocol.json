@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-23T19:29:53.066Z",
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25",
+  "sourceSha256": {
+    "engine.mjs": "2bf1672d903299144d2ef7e1d118fe045532633648479413b8ed8dcc7a9ee48a",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "d5513b37ea07b6a1317be2f9d59f9f9da92387f77b9071fece1bf68cf8f97ce8",
+    "learning/episodic-actor.mjs": "a95e518bc19df6de62b950e39250a9c492c7ed8b00d66566f6376cdc02c21e80",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/diagnose-cruise-deaths.mjs": "19b8e027ffe5e12885d4db3bbea2bccc07c591b202fe0feb6128272b6cc97e9c"
+  },
+  "seeds": [
+    3265863333,
+    3265871252,
+    3265879171,
+    3265887090,
+    3265895009,
+    3265902928,
+    3265910847,
+    3265918766,
+    3265926685,
+    3265934604,
+    3265942523,
+    3265950442,
+    3265958361,
+    3265966280,
+    3265974199,
+    3265982118,
+    3265990037,
+    3265997956,
+    3266005875,
+    3266013794
+  ],
+  "scope": "Exact same-seed replay of terminal outcomes and value updates. Founder matching is across interacting worlds, not isolated individual causal attribution. Death-credit values describe actual targets; they do not establish a causal explanation of survival differences."
+}

@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-23T20:29:17.876Z",
+  "seedCount": 20,
+  "maxAccountingResidual": 3.913100954378024e-9,
+  "reusedProbeSeeds": true,
+  "checks": [
+    "unique seeds and full outcomes",
+    "matched within-probe bodies",
+    "energy ledger after recorded interventions",
+    "all paired probe intervals recomputed",
+    "archived policy reference and source hashes",
+    "seed source hash and exact pairing when supplied"
+  ],
+  "scope": "Exploratory intervention among surviving bodies with standardized probe budgets. No prespecified noninferiority/new-skill gate; A/B fields are not guaranteed distinct skills. No ecological or RSI promotion."
+}

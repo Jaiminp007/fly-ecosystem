@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-23T18:09:50.163Z",
+  "referenceDirectory": "evidence/episodic-credit/e47816bf-0161-4444-a4cb-51f578b86ca3",
+  "sourceSha256": {
+    "engine.mjs": "2bf1672d903299144d2ef7e1d118fe045532633648479413b8ed8dcc7a9ee48a",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "dab563aceb0bb6484cb7956359c6478803de13b7ad7af00e70b05382b595a31f",
+    "learning/episodic-actor.mjs": "127c41dbc0a913b5ab6114b8321fffea35c6e8c2d1979c20f16305c88b820d57",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/diagnose-episodic-values.mjs": "057a5af4479865ca21c3e6c06520e49c1b5a1bed2fa9f2c4b28a705d5c16c621"
+  },
+  "seeds": [
+    1785370234,
+    1785378153,
+    1785386072,
+    1785393991,
+    1785401910,
+    1785409829,
+    1785417748,
+    1785425667,
+    1785433586,
+    1785441505
+  ],
+  "decisionTicks": [
+    401,
+    801
+  ],
+  "agentsPerDecision": 2,
+  "discount": 0.995,
+  "horizonTicks": 1800,
+  "interpretation": "Post-hoc same-seed calibration diagnosis. Compare the recalled value for the action actually selected with normalized later rewards under the agent actual exploratory, still-learning policy. TD max targets refer to a greedy continuation, so this is a behaviour-policy return comparison, not an unbiased estimate of greedy-policy value error. Bound any unobserved tail by +/- discount^observedTicks; terminate that tail at zero upon agent death. Do not train from diagnostic results. Check final baseline outcomes against the recorded experiment."
+}

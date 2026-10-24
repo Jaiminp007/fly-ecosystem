@@ -1,0 +1,8 @@
+[
+  {"id":"mixed-previous","featureMode":"mixed","decisionTicks":4,"creditTicks":16},
+  {"id":"mixed-aligned-8","featureMode":"mixed","decisionTicks":8,"creditTicks":8},
+  {"id":"local-previous","featureMode":"local","decisionTicks":4,"creditTicks":16},
+  {"id":"local-aligned-4","featureMode":"local","decisionTicks":4,"creditTicks":4},
+  {"id":"local-aligned-8","featureMode":"local","decisionTicks":8,"creditTicks":8},
+  {"id":"local-aligned-16","featureMode":"local","decisionTicks":16,"creditTicks":16}
+]

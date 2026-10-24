@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-24T00:55:59.487Z",
+  "seeds": 20,
+  "cases": 120,
+  "checks": [
+    "input, reference, outcome and analysis-source hashes",
+    "case pairing to recorded historical action forks",
+    "support-count classification",
+    "raw prediction/effect correspondence",
+    "per-case agreement and greedy-gain arithmetic",
+    "seed-level stratified intervals independently recomputed"
+  ],
+  "limitation": "This audit recomputes stored joined cases; it does not independently rerun all historical trajectories. The analysis script replayed all included baseline endpoints and checked each sampled original retrieval. This is post-hoc reused-data diagnosis, not new qualification."
+}

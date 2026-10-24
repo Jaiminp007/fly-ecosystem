@@ -1,0 +1,408 @@
+{
+  "at": "2026-10-24T03:43:06.587Z",
+  "auditorSha256": "19b88f94b8076171e5245bef8d9e370afd1547f0a63218334695bcfd5ca8400d",
+  "allSourceAndSeedRegistriesVerified": true,
+  "allHistoriesReplayed": 16,
+  "freshWorlds": 224,
+  "completedFactualWindows": 100777,
+  "coldWorldsReplayed": 64,
+  "physicalReplays": [
+    {
+      "history": 0,
+      "seed": 2744395484,
+      "environment": "fixed",
+      "finalSha256": "2933c4861d62cd2029354ca1e9dc854079646b6f45e150eb63155caff3122587"
+    },
+    {
+      "history": 0,
+      "seed": 2744395484,
+      "environment": "relocation",
+      "finalSha256": "4c7c7c8e26a819fb0d6e9fa469a2c5e7170b153fd100339ecf30b78cca62601c"
+    },
+    {
+      "history": 0,
+      "seed": 2744442998,
+      "environment": "fixed",
+      "finalSha256": "64e3377d47ea9b22cdf63b8210558a136e37e791cf60f9f4412296704d5e44ae"
+    },
+    {
+      "history": 0,
+      "seed": 2744442998,
+      "environment": "relocation",
+      "finalSha256": "0c0c4cbd35f56b345b95adfd4f7896821117558d2812d2abf7bd1f5c85cb63a5"
+    },
+    {
+      "history": 1,
+      "seed": 2744450917,
+      "environment": "fixed",
+      "finalSha256": "c6b7d723e3977328c450d21d11424ee9dc6bf76d145786cf24b32b520ce409c0"
+    },
+    {
+      "history": 1,
+      "seed": 2744450917,
+      "environment": "relocation",
+      "finalSha256": "04bc8303843fd6f8c83e68d9964a5ba6e7a47aaa45782b3c0985d7d51c4a8e5f"
+    },
+    {
+      "history": 1,
+      "seed": 2744498431,
+      "environment": "fixed",
+      "finalSha256": "9410cc53c593c06e1716a334a7287cce9b1f8a595d673d41582e882e3932f7ca"
+    },
+    {
+      "history": 1,
+      "seed": 2744498431,
+      "environment": "relocation",
+      "finalSha256": "bfeeb6aae3c42316364f6235a37f1df60172c3a42b7bfefadc0f7347603a921b"
+    },
+    {
+      "history": 2,
+      "seed": 2744506350,
+      "environment": "fixed",
+      "finalSha256": "c6fc36a4667ce090d779af74e9f11b1fc4dfac0e88f97195510f73a316da8a00"
+    },
+    {
+      "history": 2,
+      "seed": 2744506350,
+      "environment": "relocation",
+      "finalSha256": "c819f012310c5b9607953ff1737fcc637474c08b2c174a60cc8a4f3d3a63c83a"
+    },
+    {
+      "history": 2,
+      "seed": 2744553864,
+      "environment": "fixed",
+      "finalSha256": "8fbc39fdb18bfe77a60dc77266dc96424f04d1dadc9d7f3ed0aea83da7d01558"
+    },
+    {
+      "history": 2,
+      "seed": 2744553864,
+      "environment": "relocation",
+      "finalSha256": "28e24413a4691a9b1583968a0d0d804d5249b45e503fb2648dabea74ef2fa913"
+    },
+    {
+      "history": 3,
+      "seed": 2744561783,
+      "environment": "fixed",
+      "finalSha256": "b4cabaf330825ee00706e915b82d516b7e1f7c68d4ab0fd5aa5aecb945ec02e5"
+    },
+    {
+      "history": 3,
+      "seed": 2744561783,
+      "environment": "relocation",
+      "finalSha256": "d36a8a78f5998c24b41a338986c3f24a8c51a5224b4724d8e145823bc84a0a54"
+    },
+    {
+      "history": 3,
+      "seed": 2744609297,
+      "environment": "fixed",
+      "finalSha256": "8b99dfa1bb8dd4975d0e7b995d8b9bd31a1b51d45d1ffe95d6b8e8e39c72ebc6"
+    },
+    {
+      "history": 3,
+      "seed": 2744609297,
+      "environment": "relocation",
+      "finalSha256": "3ec102ffc27ab7f4806907e77d626407688e461d750753f0c96cf323019e3511"
+    },
+    {
+      "history": 4,
+      "seed": 2744617216,
+      "environment": "fixed",
+      "finalSha256": "d0b948ad9832bb096b7a0f60ee559be5c3d110a2886bb706812d976024876475"
+    },
+    {
+      "history": 4,
+      "seed": 2744617216,
+      "environment": "relocation",
+      "finalSha256": "65a461658acfb7ac5d24992726793244e4fec8f76940165393ba6a8d314cd217"
+    },
+    {
+      "history": 4,
+      "seed": 2744664730,
+      "environment": "fixed",
+      "finalSha256": "e9f1d0345d5d11ab7da91b1d6fbf153f951a6ba24c5f7210cfc4020189c6cfd4"
+    },
+    {
+      "history": 4,
+      "seed": 2744664730,
+      "environment": "relocation",
+      "finalSha256": "1b6db3d09dff0a3e3f581c8e0749fcb05bc6def18e4dae98ea4c9f444fab3135"
+    },
+    {
+      "history": 5,
+      "seed": 2744672649,
+      "environment": "fixed",
+      "finalSha256": "7fea3fcd093d5f2a1c34ee75d1014df4b47772bea675c8bded83dfe0e5c8efd6"
+    },
+    {
+      "history": 5,
+      "seed": 2744672649,
+      "environment": "relocation",
+      "finalSha256": "56f247eae261f88676bb8b4a0787d1bc9f1b86b2d003e6b098c9e88ae7563599"
+    },
+    {
+      "history": 5,
+      "seed": 2744720163,
+      "environment": "fixed",
+      "finalSha256": "26f89a140ce1b42f796cd5249f0cf6f6b4c3eee116d9f0c176c0ac3780569293"
+    },
+    {
+      "history": 5,
+      "seed": 2744720163,
+      "environment": "relocation",
+      "finalSha256": "cf88d7b4bf9098f2fba921082ef40f329271dbc3a279fe5b6c63f0990e8cdaf2"
+    },
+    {
+      "history": 6,
+      "seed": 2744728082,
+      "environment": "fixed",
+      "finalSha256": "7b9a3d2d5a38fd2fd455b70be63dcbec40067ad17f12f31222f42cd97da26bae"
+    },
+    {
+      "history": 6,
+      "seed": 2744728082,
+      "environment": "relocation",
+      "finalSha256": "3edd2d66068fcf20ca49b2abd884a2fe6d9aa58df778828cf81a82121cbb2b32"
+    },
+    {
+      "history": 6,
+      "seed": 2744775596,
+      "environment": "fixed",
+      "finalSha256": "7299de3e0f0fa448b320007aec7c4cb9e2d82c2d2df265dfd9a35395324970ac"
+    },
+    {
+      "history": 6,
+      "seed": 2744775596,
+      "environment": "relocation",
+      "finalSha256": "d837746ab100e738507088ff168e587a38baaba3a62042607afb84f7be2743d0"
+    },
+    {
+      "history": 7,
+      "seed": 2744783515,
+      "environment": "fixed",
+      "finalSha256": "ec8b220747f46dec3699817059e58e81fd6e6284842f7d3b06852d38546bc349"
+    },
+    {
+      "history": 7,
+      "seed": 2744783515,
+      "environment": "relocation",
+      "finalSha256": "6a7140f6469c560d5cae5ef297a8f90521d571ca4a5d1d1f9336197a8f420354"
+    },
+    {
+      "history": 7,
+      "seed": 2744831029,
+      "environment": "fixed",
+      "finalSha256": "c27c59e84fa155152bc0e9a45d7e18b994eada80a7db0354cfa2b50fdf665bdb"
+    },
+    {
+      "history": 7,
+      "seed": 2744831029,
+      "environment": "relocation",
+      "finalSha256": "f8294be228e654bc272db0f8d89af91d3a8cf83b2c67cd0cb000aaf2130b402f"
+    },
+    {
+      "history": 8,
+      "seed": 2744838948,
+      "environment": "fixed",
+      "finalSha256": "00284aedfa3a464bd8bd8071459642d128f248ef7dff1708421ac9dd74cc0abc"
+    },
+    {
+      "history": 8,
+      "seed": 2744838948,
+      "environment": "relocation",
+      "finalSha256": "9927ed880cc966244d5abe6ff67f580b3d95767168e4b8eaafc1aa23a3e238d0"
+    },
+    {
+      "history": 8,
+      "seed": 2744886462,
+      "environment": "fixed",
+      "finalSha256": "74e1e8e07bd399ee2fe4371694d4b092ddae03169846997c90da1878c172c974"
+    },
+    {
+      "history": 8,
+      "seed": 2744886462,
+      "environment": "relocation",
+      "finalSha256": "f815e4c5d78be15ed7f4fc19a5c1e07d42eecaf53ee58c6947eab0cbd1d77a9c"
+    },
+    {
+      "history": 9,
+      "seed": 2744894381,
+      "environment": "fixed",
+      "finalSha256": "faa6885c1e4397c25a85b3f71fda4bb4fb2bbf3285ce1e94e95187fa044f3e3d"
+    },
+    {
+      "history": 9,
+      "seed": 2744894381,
+      "environment": "relocation",
+      "finalSha256": "f915138553eb096a3d18017680656d37af0ccf9a688d0c03fef64023e23d670f"
+    },
+    {
+      "history": 9,
+      "seed": 2744941895,
+      "environment": "fixed",
+      "finalSha256": "7bf0313e47af91fa1ec9335fe878421b285c1f78b51cf1109ef0cf929875b460"
+    },
+    {
+      "history": 9,
+      "seed": 2744941895,
+      "environment": "relocation",
+      "finalSha256": "798a64a1215b4893e999c6b61a314bc07a998ef8b748ebd90f87bbfe78e2337d"
+    },
+    {
+      "history": 10,
+      "seed": 2744949814,
+      "environment": "fixed",
+      "finalSha256": "4d3e73d9f29be6ecc16afc22e3214bc0f8297c7b470d80ad06dda9248d4294ca"
+    },
+    {
+      "history": 10,
+      "seed": 2744949814,
+      "environment": "relocation",
+      "finalSha256": "d8f3073fedf5c69125a2911c89030c0c3c58421f27e9878d78474a8fc87dcbc7"
+    },
+    {
+      "history": 10,
+      "seed": 2744997328,
+      "environment": "fixed",
+      "finalSha256": "93702fb4cbe93752db467d2e76f3b6e249d945ae639413dce560fe3c3cbbe4fb"
+    },
+    {
+      "history": 10,
+      "seed": 2744997328,
+      "environment": "relocation",
+      "finalSha256": "75bdbfd3bdfd317265bda3559e6f4016aebac18ffa742702b8b9415adefbbe1b"
+    },
+    {
+      "history": 11,
+      "seed": 2745005247,
+      "environment": "fixed",
+      "finalSha256": "af236df52f4dd0bab3f4513004c972f6a2e49aeba08b73861456e88bf75bb3f3"
+    },
+    {
+      "history": 11,
+      "seed": 2745005247,
+      "environment": "relocation",
+      "finalSha256": "08ed76a8e062330e101de7ee86f8fe50abc8a9ba7ce5be7e23a5f7cf383dc3b0"
+    },
+    {
+      "history": 11,
+      "seed": 2745052761,
+      "environment": "fixed",
+      "finalSha256": "17c0b68b807d7e73c6bff3503f48030825be8ce35bb31f86133b0ea549105bd5"
+    },
+    {
+      "history": 11,
+      "seed": 2745052761,
+      "environment": "relocation",
+      "finalSha256": "c6e5322a47371cdde781516ebaf88d1994005af61e06f480fb4330f052ea00be"
+    },
+    {
+      "history": 12,
+      "seed": 2745060680,
+      "environment": "fixed",
+      "finalSha256": "01b810bec4cb017b6321a7aab8f99f5b5cbcc1ed0b22fc42a4c59aef9a4fc2e3"
+    },
+    {
+      "history": 12,
+      "seed": 2745060680,
+      "environment": "relocation",
+      "finalSha256": "c96af40e8dd345d326b193f44262b4046361f4d6c8dca6ca74bd669809e58fd7"
+    },
+    {
+      "history": 12,
+      "seed": 2745108194,
+      "environment": "fixed",
+      "finalSha256": "92463c76efaf53976531b6aef0f657d9ac20a6f2db835969ba487bf74be42fe4"
+    },
+    {
+      "history": 12,
+      "seed": 2745108194,
+      "environment": "relocation",
+      "finalSha256": "4bfb4117a98c91e94fd66299109b6e2751bf9cf1e822692df76d75b371d28566"
+    },
+    {
+      "history": 13,
+      "seed": 2745116113,
+      "environment": "fixed",
+      "finalSha256": "c3415754862c2f1d738c65d57360042b97a66682bd4c0f95009645f11fa18d01"
+    },
+    {
+      "history": 13,
+      "seed": 2745116113,
+      "environment": "relocation",
+      "finalSha256": "fda4ff1d126ace27cef856fdfc2dbb65a37abd12637e9fd71d42f7d931019cb8"
+    },
+    {
+      "history": 13,
+      "seed": 2745163627,
+      "environment": "fixed",
+      "finalSha256": "db58808cc40761bf5659d9e26ed8f20ed019d60713b4a9cf9b6aff8a40b9c99b"
+    },
+    {
+      "history": 13,
+      "seed": 2745163627,
+      "environment": "relocation",
+      "finalSha256": "37ff6ef6a71471e374541d0a5988c4c83bd52532222a40a1bfd52739fdba5680"
+    },
+    {
+      "history": 14,
+      "seed": 2745171546,
+      "environment": "fixed",
+      "finalSha256": "455cc6a6982819a4dab9658f9970fff7412c233f045317c470ce4d25409ff799"
+    },
+    {
+      "history": 14,
+      "seed": 2745171546,
+      "environment": "relocation",
+      "finalSha256": "01c81538eec2fae71842fc34520e3cceb2d7e3d9f2986b933a3bbbeb08ce5896"
+    },
+    {
+      "history": 14,
+      "seed": 2745219060,
+      "environment": "fixed",
+      "finalSha256": "fd4a93ff7fa0f7743f61d4b9e1926041283ca702b740de137147263f12a3cdee"
+    },
+    {
+      "history": 14,
+      "seed": 2745219060,
+      "environment": "relocation",
+      "finalSha256": "66a84adbd912a1258411ecd8e3e43f8ebe9e69511031f2107d06adccf039b050"
+    },
+    {
+      "history": 15,
+      "seed": 2745226979,
+      "environment": "fixed",
+      "finalSha256": "335fb35963d52113d6b6e54f34d4120bb58585f2a9b2167550658ef20be25d39"
+    },
+    {
+      "history": 15,
+      "seed": 2745226979,
+      "environment": "relocation",
+      "finalSha256": "c1f3ec76d8a6118e8eca1988366bb29d2ae9cd3f699dbfa66379566763ba9405"
+    },
+    {
+      "history": 15,
+      "seed": 2745274493,
+      "environment": "fixed",
+      "finalSha256": "4a4063654dc3105234bbdd5f29089754170abfe0ba3143f61fabe1916b4bd9a1"
+    },
+    {
+      "history": 15,
+      "seed": 2745274493,
+      "environment": "relocation",
+      "finalSha256": "76d5c64f421352aa02bff5de392d38cef4588921b5a14cf6bdcde7a51598687c"
+    }
+  ],
+  "logicalPolicyQueriesVerified": 240,
+  "exactCheckpointReplays": 80,
+  "oracleExtraValidationPrograms": 75,
+  "allChoicesScoresAndGatesReplayed": true,
+  "alteredEvidenceRejected": true,
+  "recursiveSearchQualified": false,
+  "limitations": [
+    "Cold physical replay covers every target pair and the first warm pair per history; remaining warm worlds are checked by fingerprints and deterministic learner replay, not cold physical replay.",
+    "The fixed kernel library, task profile, orchestration and validation rules are human designed.",
+    "Equal logical query counts do not imply equal arithmetic or wall-clock cost.",
+    "Prior-fact recall is a narrow modifier-retention probe, not broad skill retention.",
+    "Forecast search is not embodied action, survival or general RSI."
+  ]
+}

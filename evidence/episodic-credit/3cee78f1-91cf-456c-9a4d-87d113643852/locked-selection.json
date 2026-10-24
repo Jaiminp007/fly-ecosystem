@@ -1,0 +1,717 @@
+{
+  "id": "cruise-value-15",
+  "parameters": {
+    "capacity": 128,
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir",
+    "featureMode": "mixed",
+    "decisionTicks": 8,
+    "creditTicks": 8,
+    "discount": 0.99,
+    "returnMode": "td",
+    "actuator": "move",
+    "turnGain": 0.25,
+    "moveGain": 2,
+    "moveMode": "levels",
+    "slowSpeed": 0.15,
+    "fastSpeed": 0.5,
+    "memoryLearning": true,
+    "neuralLearning": true,
+    "memoryEnergyPerRecordSecond": 0.00001,
+    "lookupEnergyPerRecord": 0.000005
+  },
+  "comparisons": {
+    "frozen": {
+      "energy": {
+        "mean": 2.3444780526399915,
+        "ci95": [
+          0.40234001681849807,
+          4.286616088461485
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "n": 10
+      }
+    },
+    "neural": {
+      "energy": {
+        "mean": 4.246284637909272,
+        "ci95": [
+          3.3920013989151343,
+          5.10056787690341
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0.2,
+        "ci95": [
+          -0.10160000000000002,
+          0.5016
+        ],
+        "n": 10
+      }
+    },
+    "noMemory": {
+      "energy": {
+        "mean": 2.334630542041576,
+        "ci95": [
+          0.577962782120629,
+          4.091298301962523
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "n": 10
+      }
+    },
+    "fullRange": {
+      "energy": {
+        "mean": 3.3274105744979225,
+        "ci95": [
+          2.3974822766954915,
+          4.257338872300354
+        ],
+        "n": 10
+      },
+      "population": {
+        "mean": 0.3,
+        "ci95": [
+          -0.04552620739967028,
+          0.6455262073996703
+        ],
+        "n": 10
+      }
+    }
+  },
+  "eligible": true,
+  "score": 2.334630542041576,
+  "lockedAt": "2026-10-23T18:35:56.580Z",
+  "rankings": [
+    {
+      "id": "cruise-value-15",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.99,
+        "returnMode": "td",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.15,
+        "fastSpeed": 0.5,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": 2.3444780526399915,
+            "ci95": [
+              0.40234001681849807,
+              4.286616088461485
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 4.246284637909272,
+            "ci95": [
+              3.3920013989151343,
+              5.10056787690341
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.2,
+            "ci95": [
+              -0.10160000000000002,
+              0.5016
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": 2.334630542041576,
+            "ci95": [
+              0.577962782120629,
+              4.091298301962523
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "fullRange": {
+          "energy": {
+            "mean": 3.3274105744979225,
+            "ci95": [
+              2.3974822766954915,
+              4.257338872300354
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.3,
+            "ci95": [
+              -0.04552620739967028,
+              0.6455262073996703
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": true,
+      "score": 2.334630542041576
+    },
+    {
+      "id": "cruise-15-50",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "returnMode": "mean",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.15,
+        "fastSpeed": 0.5,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": 3.099322935361111,
+            "ci95": [
+              1.0524484351672427,
+              5.1461974355549795
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 5.001129520630391,
+            "ci95": [
+              3.9493889355190293,
+              6.052870105741753
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.2,
+            "ci95": [
+              -0.10160000000000002,
+              0.5016
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": 3.0894754247626954,
+            "ci95": [
+              1.2656483373876861,
+              4.9133025121377045
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "fullRange": {
+          "energy": {
+            "mean": 1.4429505870660742,
+            "ci95": [
+              0.3825388252475459,
+              2.503362348884602
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.4,
+            "ci95": [
+              -0.10014701838559426,
+              0.9001470183855943
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": true,
+      "score": 1.4429505870660742
+    },
+    {
+      "id": "cruise-20-60-16",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 16,
+        "creditTicks": 16,
+        "discount": 0.95,
+        "returnMode": "mean",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.2,
+        "fastSpeed": 0.6,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": 1.039984215971032,
+            "ci95": [
+              -0.8439263830381072,
+              2.923894814980171
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 4.786033842214346,
+            "ci95": [
+              2.9923336384205506,
+              6.5797340460081415
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.2,
+            "ci95": [
+              -0.10160000000000002,
+              0.5016
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": 1.7841568921247606,
+            "ci95": [
+              -0.32174056619626157,
+              3.8900543504457827
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "fullRange": {
+          "energy": {
+            "mean": 2.8903172207385848,
+            "ci95": [
+              1.6349871897243642,
+              4.145647251752806
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.1,
+            "ci95": [
+              -0.12619999999999998,
+              0.3262
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": true,
+      "score": 1.039984215971032
+    },
+    {
+      "id": "cruise-20-60",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "returnMode": "mean",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.2,
+        "fastSpeed": 0.6,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": 0.978265731997678,
+            "ci95": [
+              0.13604302678459967,
+              1.8204884372107561
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 5.478042488133741,
+            "ci95": [
+              4.454677828939958,
+              6.501407147327524
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.2,
+            "ci95": [
+              -0.10160000000000002,
+              0.5016
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": 1.209198407704208,
+            "ci95": [
+              -0.2619366160433272,
+              2.680333431451743
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "fullRange": {
+          "energy": {
+            "mean": 1.919863554569425,
+            "ci95": [
+              0.8117838069044028,
+              3.027943302234447
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.4,
+            "ci95": [
+              -0.10014701838559426,
+              0.9001470183855943
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": true,
+      "score": 0.978265731997678
+    },
+    {
+      "id": "cruise-value-20",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.995,
+        "returnMode": "td",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.2,
+        "fastSpeed": 0.6,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": -0.023553070223775285,
+            "ci95": [
+              -0.7389790312787549,
+              0.6918728908312043
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 4.476223685912289,
+            "ci95": [
+              3.7172391282852604,
+              5.235208243539318
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.2,
+            "ci95": [
+              -0.10160000000000002,
+              0.5016
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": 0.20737960548275503,
+            "ci95": [
+              -1.5998788558346049,
+              2.014638066800115
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0,
+            "ci95": [
+              0,
+              0
+            ],
+            "n": 10
+          }
+        },
+        "fullRange": {
+          "energy": {
+            "mean": 3.9135559717770767,
+            "ci95": [
+              2.625565251765507,
+              5.201546691788646
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.6,
+            "ci95": [
+              0.0998529816144057,
+              1.1001470183855941
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": true,
+      "score": -0.023553070223775285
+    },
+    {
+      "id": "cruise-local",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "returnMode": "mean",
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "moveMode": "levels",
+        "slowSpeed": 0.2,
+        "fastSpeed": 0.6,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      },
+      "comparisons": {
+        "frozen": {
+          "energy": {
+            "mean": 1.1390378205950733,
+            "ci95": [
+              0.21372879063102457,
+              2.0643468505591223
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.3262,
+              0.12619999999999998
+            ],
+            "n": 10
+          }
+        },
+        "neural": {
+          "energy": {
+            "mean": 5.6388145767311375,
+            "ci95": [
+              4.70792334737126,
+              6.569705806091015
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.1,
+            "ci95": [
+              -0.3060414264579415,
+              0.5060414264579416
+            ],
+            "n": 10
+          }
+        },
+        "noMemory": {
+          "energy": {
+            "mean": 1.3699704963016042,
+            "ci95": [
+              -0.15820829390102875,
+              2.8981492865042373
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": -0.1,
+            "ci95": [
+              -0.3262,
+              0.12619999999999998
+            ],
+            "n": 10
+          }
+        },
+        "fullRange": {
+          "energy": {
+            "mean": 0.967874891046149,
+            "ci95": [
+              -0.06964618474863671,
+              2.0053959668409345
+            ],
+            "n": 10
+          },
+          "population": {
+            "mean": 0.5,
+            "ci95": [
+              -0.19515365207988367,
+              1.1951536520798838
+            ],
+            "n": 10
+          }
+        }
+      },
+      "eligible": false,
+      "score": 0.967874891046149
+    }
+  ]
+}

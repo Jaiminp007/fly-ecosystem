@@ -1,0 +1,216 @@
+{
+  "at": "2026-10-24T02:03:59.561Z",
+  "auditorSha256": "5929b1b837d4d6f9e67436b2954158050b7b5ea9b6497a6785117907fb734d5e",
+  "worlds": 24,
+  "cases": 96,
+  "completedWindows": 129565,
+  "partials": 3,
+  "screenPassed": false,
+  "replay": [
+    {
+      "seed": 3714881383,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714881383,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714889302,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714889302,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714897221,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714897221,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714905140,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714905140,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714913059,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714913059,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714920978,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714920978,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714928897,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714928897,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714936816,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714936816,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714944735,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714944735,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714952654,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714952654,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714960573,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714960573,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714968492,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 3714968492,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    }
+  ],
+  "checks": [
+    "source/reference/seed-registry hashes",
+    "independent local receptor and kernel/history arithmetic",
+    "every baseline world and all acquired founder-model hashes",
+    "all chronological scores and action forks",
+    "observational instrumentation preserves plain-world state",
+    "factual normalization, support, fallback rules, intervals and fixed screen"
+  ],
+  "limitations": [
+    "Offline sensing screen, not embodied survival/cost/retention qualification.",
+    "Forecast contrasts use common supported completed windows.",
+    "Constructed aliases motivated the hypothesis but do not quantify natural irreducible error."
+  ]
+}

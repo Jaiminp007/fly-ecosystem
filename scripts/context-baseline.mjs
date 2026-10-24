@@ -1,0 +1,10 @@
+import {evaluateContext,CONTEXT_PROTOCOL} from '../learning/context-tasks.mjs';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createHash,randomUUID} from 'node:crypto';
+const parent=JSON.parse(await readFile('runs/autonomy/state.json','utf8'));
+const id=randomUUID(),directory=`evidence/context-learning/${id}`,offset=parseInt(id.slice(0,8),16)>>>0;
+const sourceSha256={};for(const file of ['engine.mjs','learning/trace-actor.mjs','learning/context-tasks.mjs','scripts/context-baseline.mjs'])sourceSha256[file]=createHash('sha256').update(await readFile(file)).digest('hex');
+const protocol={id,at:new Date().toISOString(),parentCueCampaign:parent.id,parameters:parent.parameters,seeds:Array.from({length:10},(_,i)=>((offset+i)>>>0)||1),sourceSha256,task:CONTEXT_PROTOCOL,purpose:'Measure the existing linear readout before implementing a nonlinear feature extension. Development diagnostic; no model promotion.'};
+await mkdir(directory,{recursive:true});await writeFile(`${directory}/protocol.json`,JSON.stringify(protocol,null,2)+'\n');
+const started=performance.now(),result=evaluateContext(protocol.seeds,parent.parameters);
+await writeFile(`${directory}/results.json`,JSON.stringify({...result,protocol,wallSeconds:(performance.now()-started)/1000},null,2)+'\n');console.log(JSON.stringify({directory,summary:result.summary},null,2));

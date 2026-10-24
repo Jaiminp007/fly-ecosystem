@@ -1,0 +1,19 @@
+{
+  "featureMode": "mixed",
+  "parameters": {
+    "capacity": 128,
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir",
+    "featureMode": "mixed",
+    "decisionTicks": 4,
+    "creditTicks": 16,
+    "discount": 0.95,
+    "turnGain": 0.25,
+    "memoryEnergyPerRecordSecond": 0.00001,
+    "lookupEnergyPerRecord": 0.000005
+  },
+  "developmentPopulationConstraintMet": true
+}

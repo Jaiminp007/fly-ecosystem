@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-23T21:37:47.717Z",
+  "worlds": 1400,
+  "seedPairsPerEnvironment": 100,
+  "parentPassed": false,
+  "passed": false,
+  "maxAccountingResidual": 2.70210875896737e-9,
+  "checks": [
+    "fixed independent 100-seed sample and no parent-seed overlap",
+    "locked policy/parameters, gates, environments and body settings preserved",
+    "matched founders and energy ledgers",
+    "all replication and archived parent comparisons recomputed",
+    "cue component intervals recomputed from raw scores",
+    "all gates recomputed without pooling",
+    "source/reference fingerprints"
+  ],
+  "limitations": [
+    "No replay of every world in this audit",
+    "Cue component is not whole-body continual retention",
+    "Original 30-seed failure remains a failure; no sample pooling or replacement"
+  ]
+}
