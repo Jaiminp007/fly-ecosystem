@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "protocolSha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220",
+  "originalCheckerIssue": "Original checker/test filtered by learner IDs, but recorded events use roles candidate/oneStep/linear. A missing program selection returned zero counts without failing. Discovered before the full scientific numeric audit completed; its earlier focused-test pass was vacuous for learned-policy arithmetic.",
+  "correction": "Use recorded role names, assert a nonempty audited learner set, and require exactly 96 candidate-arm bodies plus 24 one-step and 24 linear bodies per history. The corrected engineering fixture requires 16/4/4 audited bodies and performs the actual independent arithmetic checks.",
+  "originalWrongFilterCounts": {
+    "factualTransitions": 0,
+    "decisions": 0,
+    "learnerBodies": 0
+  },
+  "correctedWrongFilterRejection": "('No learner records audited', 'evidence\\\\sarsa-screen\\\\20261024-retrace-development-v2\\\\development\\\\numerics\\\\846735184.jsonl', 'linear-retrace-v1')",
+  "originalSources": {
+    "audit-replay-development.py": "3bf8bac3306c47addb4ab592c3191ad0b08079c0e19b028818fd60540b231ec1",
+    "audit-sarsa-development.py": "02e328f014f1dc203fe53d5d8aec273da3d225696cd19a9aa54ccb8635c7de6a",
+    "audit-sarsa-screen.py": "978c23b354476c5f09aa79b37ee41fd7bd6c5d6d01429078539623da2815ebf5"
+  },
+  "correctedSources": {
+    "audit-replay-development.py": "b9d5b99da54becfe37634dc321cd079f0ffde7bcac0ceed96eb85f42b6582282",
+    "audit-sarsa-development.py": "02e328f014f1dc203fe53d5d8aec273da3d225696cd19a9aa54ccb8635c7de6a",
+    "audit-sarsa-screen.py": "61a248b8d60b22aa065a5de5f9ecd59d53c059a7b53c3079ecaabd0ca545d800"
+  },
+  "originalTestSha256": "b1d4363797a33c2113d37c1ac05bb77e5d09a881a3a8c80b48d37fec5e83d935",
+  "correctedTestSha256": "d147db0fa1e1e8ea343e3fbb7caebec4c7e84b09272e010ac9f2629b7ef6b990",
+  "scope": "Checker/test correction only. Every frozen learner source, protocol, trace, row, score and scientific gate stays unchanged. No new performance observations, tuning, or confirmation collection.",
+  "numericAuditSha256": "4c1393b503c0bc119db3fb94ef4d1a600da3c41a201f15b2090792efc2099e53"
+}

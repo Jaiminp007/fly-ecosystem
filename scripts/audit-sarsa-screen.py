@@ -128,6 +128,80 @@ def update(s, tr):
         s['eligibility'].fill(0)
 
 
+def retrace_update(s, tr):
+    """Independent bounded Retrace backup over retained contiguous records."""
+    assert tr['experience'] == s['transitions'] + 1
+    assert tr['agentId'] == s['agentId'] and s['acquisition']
+    assert tr['behaviorProbability'] == s['lastBehaviorProbability']
+    close(tr['reward'], (tr['finalEnergy'] - tr['initialEnergy']) / 120, 'reward/energy')
+    action = int(tr['action'] > 0)
+    predicted = values(s, tr['phi'])[action]
+    delta = target(s, tr) - predicted
+    decay = math.exp(-tr['duration'] / 256) * s['config']['lambda']
+    s['eligibility'] *= decay
+    s['eligibility'][action] += np.array(tr['phi'])
+    s['weights'] += s['config']['updateRate'] * delta * s['eligibility']
+    s['operations'] += 400
+    s['transitions'] += 1
+    s['recent'].append(tr)
+    if len(s['recent']) > 16:
+        displaced = s['recent'].pop(0)
+        s['olderSeen'] += 1
+        if len(s['older']) < 48:
+            s['older'].append(displaced)
+        else:
+            i = math.floor(draw(s, 'retentionRngState') * s['olderSeen'])
+            if i < 48:
+                s['older'][i] = displaced
+    memory = s['older'] + s['recent']
+    selected = memory[math.floor(draw(s, 'replayRngState') * len(memory))]
+    s['operations'] += 2 + len(memory)
+    index = {v['experience']: v for v in memory}
+    assert index[selected['experience']] is selected
+    weights = s['weights'].copy()
+    correction, coefficient, steps = 0.0, 1.0, 0
+    current = selected
+    q = values(s, current['phi'])
+    while True:
+        gamma = math.exp(-current['duration'] / 256)
+        next_q = None if current['terminal'] else values(s, current['nextPhi'])
+        future = 0.0 if current['terminal'] else gamma * (.9 * max(next_q) + .1 * sum(next_q) / 2)
+        correction += coefficient * (current['reward'] + future - q[int(current['action'] > 0)])
+        steps += 1
+        s['operations'] += 14
+        if current['terminal'] or steps == 16 or s['config']['replayLambda'] == 0:
+            break
+        nxt = index.get(current['experience'] + 1)
+        s['operations'] += 3
+        if not nxt or nxt['agentId'] != s['agentId'] or nxt['tick'] != current['tick'] + current['duration']:
+            break
+        same = True
+        for left, right in zip(current['nextPhi'], nxt['phi'], strict=True):
+            s['operations'] += 1
+            if left != right:
+                same = False
+                break
+        if not same:
+            break
+        assert nxt['behaviorProbability'] in (.05, .5, .95)
+        pi = .5 if next_q[0] == next_q[1] else (.95 if (next_q[1] > next_q[0]) == (nxt['action'] > 0) else .05)
+        coefficient *= gamma * s['config']['replayLambda'] * min(1.0, pi / nxt['behaviorProbability'])
+        s['operations'] += 8
+        q, current = next_q, nxt
+    assert np.array_equal(weights, s['weights'])
+    assert math.isfinite(correction)
+    a = int(selected['action'] > 0)
+    s['weights'][a] += s['config']['replayRate'] * correction * np.array(selected['phi'])
+    s['operations'] += 124
+    s['replayUpdates'] += 1
+    s['replayDiagnostics']['updates'] += 1
+    s['replayDiagnostics']['terms'] += steps
+    s['replayDiagnostics']['multiStepUpdates'] += int(steps > 1)
+    s['replayDiagnostics']['maxSteps'] = max(s['replayDiagnostics']['maxSteps'], steps)
+    if tr['terminal']:
+        s['eligibility'].fill(0)
+
+
 def audit_trace(path, seed, program=None):
     states = {}
     transitions = decisions = bodies = 0
@@ -144,7 +218,10 @@ def audit_trace(path, seed, program=None):
                     s = dict(original)
                     s['tile'] = s['config'].get('representation') == 'local-tiles-v1'
                     size = 256 if s['tile'] else 40
-                    s.update(weights=np.zeros((2, size)), eligibility=np.zeros((2, size)), history=[], recent=[], older=[], operations=0)
+                    is_retrace = s['config'].get('replayAlgorithm') == 'bounded-retrace-v1'
+                    s.update(weights=np.zeros((2, size)), eligibility=np.zeros((2, size)), history=[], recent=[], older=[], operations=0,
+                             lastBehaviorProbability=None, replayUpdates=0,
+                             replayDiagnostics={'updates': 0, 'terms': 0, 'multiStepUpdates': 0, 'maxSteps': 0})
                     expected = (seed ^ ((s['agentId'] * 2654435761) & 0xffffffff)) & 0xffffffff or 1
                     assert s['rngState'] == expected
                     assert s['retentionRngState'] == ((expected ^ 0x9e3779b9) or 1)
@@ -161,6 +238,7 @@ def audit_trace(path, seed, program=None):
                         s['history'], s['recent'], s['older'], s['olderSeen'] = [], [], [], 0
             elif e['type'] == 'experience':
                 s = states[arm][e['agentId']]
+                is_retrace = s['config'].get('replayAlgorithm') == 'bounded-retrace-v1'
                 decision = e['decision']
                 records = e.get('transitions', [e['transition']] if e.get('transition') else [])
                 phi = features(s, decision['observation']) if decision else None
@@ -171,13 +249,17 @@ def audit_trace(path, seed, program=None):
                     close(tr['nextPhi'], ([] if s['tile'] else np.zeros(40)) if tr['terminal'] else phi, 'next-history features')
                     if s.get('lastDecisionPhi') is not None:
                         close(tr['phi'], s['lastDecisionPhi'], 'factual prior features')
-                    update(s, tr)
+                    (retrace_update if is_retrace else update)(s, tr)
                     transitions += 1
                 if decision:
                     q = values(s, phi)
                     first, second = draw(s, 'rngState'), draw(s, 'rngState')
                     selected = (-1 if second < .5 else 1) if first < .1 or q[0] == q[1] else (1 if q[1] > q[0] else -1)
                     assert selected == decision['choice'], 'independent policy choice'
+                    if is_retrace:
+                        mu = .5 if q[0] == q[1] else (.95 if (q[1] > q[0]) == (selected > 0) else .05)
+                        s['lastBehaviorProbability'] = mu
+                        s['operations'] += 3
                     s['lastDecisionPhi'] = phi
                     s['history'] = (s['history'] + [decision])[-3:]
                     s['decisions'] += 1
@@ -186,7 +268,7 @@ def audit_trace(path, seed, program=None):
                     assert tr['terminal'] and tr['duration'] == 1
                     close(tr['phi'], phi, 'terminal decision features')
                     close(tr['nextPhi'], [] if s['tile'] else np.zeros(40), 'terminal zero bootstrap')
-                    update(s, tr)
+                    (retrace_update if is_retrace else update)(s, tr)
                     transitions += 1
             elif e['type'] == 'end':
                 for original in e['learners']:
@@ -197,6 +279,10 @@ def audit_trace(path, seed, program=None):
                         assert original[key] == s[key], (arm, key)
                     assert original['work']['scalarOperations'] == s['operations']
                     assert original['work']['liveUpdates'] == original['work']['replayUpdates'] == s['transitions']
+                    if is_retrace:
+                        for key, value in s['replayDiagnostics'].items():
+                            assert original['replayDiagnostics'][key] == value, ('replay diagnostics', key)
+                        assert original['replayUpdates'] == s['replayUpdates']
                     assert original['recentExperiences'] == [v['experience'] for v in s['recent']]
                     assert original['olderExperiences'] == [v['experience'] for v in s['older']]
                     charge = original['charge']
@@ -205,6 +291,7 @@ def audit_trace(path, seed, program=None):
                     bodies += 1
             else:
                 raise AssertionError(e['type'])
+    assert bodies > 0, ('No learner records audited', str(path), program)
     return {'factualTransitions': transitions, 'decisions': decisions, 'learnerBodies': bodies}
 
 

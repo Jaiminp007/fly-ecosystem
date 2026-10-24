@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "passed": true,
+  "phase": "development",
+  "protocolSha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220",
+  "resultsSha256": "d2833ece6584535343f9b44c4b7fb865723a4a0df7322fd55548c5d430b161e1",
+  "histories": 8,
+  "mainWorlds": 80,
+  "probes": 144,
+  "replayActivityPassed": 8,
+  "runtime": {
+    "wallSeconds": 215.87696590000002,
+    "cpuMicroseconds": {
+      "user": 208640000,
+      "system": 8906000
+    }
+  }
+}

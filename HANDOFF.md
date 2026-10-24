@@ -1,5 +1,7 @@
 # Afterwing / Fly Ecosystem: complete paused research handoff
 
+Latest continuation: [bounded contiguous replay development](docs/RETRACE_RESULTS.md) completed and failed its fixed gate: 10/12 required energy means, 1/9 survival guards, 8/8 activity checks. All 80 main worlds and 144 probes cold-replayed exactly. Independent arithmetic checked 225,696 transitions after a disclosed checker-filter correction; the original frozen checker and all outcomes are preserved. The sixteen reserved confirmation histories remain unrun. The current goal is active and unachieved; later paused-state descriptions below are historical. New commits/pushes use the configured Jaiminp007 identity and upstream origin only.
+
 Further continuation: [local tile-coded Expected SARSA development](docs/LOCAL_TILE_RESULTS.md) completed and failed its predeclared screen; sixteen reserved confirmation histories remain unrun. Its independent arithmetic and full cold audit passed. A separate historical-intervention replay found a strict Mac-to-Windows discrepancy that persisted with the matching Node version; the exact cause remains unresolved. See the new result record before interpreting the earlier portability limits.
 
 Continuation on Windows, 2026-10-24: the user authorized resuming from PR #2. See [the fixed SARSA screen](docs/SARSA_SCREEN.md) and [its result/continuation record](docs/SARSA_SCREEN_RESULTS.md) for current status. The original paused snapshot below remains historical context; no saved habitat was restarted.

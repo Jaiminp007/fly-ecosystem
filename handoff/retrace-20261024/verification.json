@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "passed": true,
+  "manifestSha256": "fff06809ae605feb84ee76df2acb2103aac939cb103a20d96d6b03260172cc4a",
+  "workspaceVerifiedFiles": 210,
+  "separatelyRestoredAndVerifiedFiles": 210,
+  "failedFiles": 0,
+  "chunks": 6,
+  "rawBytes": 418380844,
+  "compressedBytes": 138645888,
+  "restoreDestination": "runs/retrace-archive-restore-20261024",
+  "node": "v22.19.0",
+  "platform": "win32",
+  "nodeTests": {
+    "passed": 157,
+    "failed": 0,
+    "skipped": 0,
+    "independentPythonEnabled": true
+  },
+  "pythonAdapterTests": {
+    "passed": 1
+  },
+  "physicalAudit": {
+    "schema": 1,
+    "passed": true,
+    "phase": "development",
+    "protocolSha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220",
+    "resultsSha256": "d2833ece6584535343f9b44c4b7fb865723a4a0df7322fd55548c5d430b161e1",
+    "histories": 8,
+    "mainWorlds": 80,
+    "probes": 144,
+    "replayActivityPassed": 8,
+    "runtime": {
+      "wallSeconds": 215.87696590000002,
+      "cpuMicroseconds": {
+        "user": 208640000,
+        "system": 8906000
+      }
+    }
+  },
+  "numericAudit": {
+    "schema": 1,
+    "passed": true,
+    "phase": "development",
+    "protocolSha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220",
+    "resultsSha256": "d2833ece6584535343f9b44c4b7fb865723a4a0df7322fd55548c5d430b161e1",
+    "histories": 8,
+    "factualTransitions": 225696,
+    "decisions": 257926,
+    "learnerBodies": 1152,
+    "reflexDecisions": 43008,
+    "comparisons": 13,
+    "multiStepHistoriesPassed": 8,
+    "survivalGuardsPassed": 1,
+    "scope": "Independent Expected SARSA features, choices, logged nominal behavior probabilities, bounded contiguous clipped-ratio replay, replay activity, online traces/reservoir/RNG/work, reflex, endpoint/debt and inference. Physical cold replay is separate.",
+    "warnings": []
+  },
+  "confirmationDirectoryExists": false,
+  "originalHandoffManifestSha256": "7f2c8ec7858d4c3b0aa51b7e97a0806b310748f64c68b17f3317520dbeb7baf4",
+  "priorLinearManifestSha256": "77bc69695a6deb6e3de819deba82633c277c7a49c078fb2d014e617e26116b83",
+  "priorTileManifestSha256": "828736abf67e2d9b0e67f99d671222fc0772f494d07995b85e79697c5fcd2a64",
+  "scope": "Archive integrity/restoration and software/arithmetic/physical replay verification. Scientific replay development failed. No confirmation or RSI qualification."
+}

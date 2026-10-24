@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "passed": true,
+  "phase": "development",
+  "protocolSha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220",
+  "resultsSha256": "d2833ece6584535343f9b44c4b7fb865723a4a0df7322fd55548c5d430b161e1",
+  "histories": 8,
+  "factualTransitions": 225696,
+  "decisions": 257926,
+  "learnerBodies": 1152,
+  "reflexDecisions": 43008,
+  "comparisons": 13,
+  "multiStepHistoriesPassed": 8,
+  "survivalGuardsPassed": 1,
+  "scope": "Independent Expected SARSA features, choices, logged nominal behavior probabilities, bounded contiguous clipped-ratio replay, replay activity, online traces/reservoir/RNG/work, reflex, endpoint/debt and inference. Physical cold replay is separate.",
+  "warnings": []
+}

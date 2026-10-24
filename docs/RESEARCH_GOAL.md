@@ -1,5 +1,7 @@
 # Revised research goal
 
+Latest progress: [bounded replay development](RETRACE_RESULTS.md) also failed its fixed gate. Its full cold physical replay and corrected independent arithmetic audit passed; its sixteen confirmation histories remain unopened. Continuing embodied qualification is still required before persistent autonomous algorithm revisions or copied-improvement/search-productivity experiments can establish the goal.
+
 Further progress: [one fixed local-feature development study](LOCAL_TILE_RESULTS.md) has now completed with full audits and failed its development rule. Confirmation is unopened. The original scientific failures remain failures; continuing embodied qualification and the subsequent persistent/copy-control recursion stages remain required and unachieved.
 
 Resumed in a new thread on 2026-10-24 at the user's request to follow PR #2 and continue the goal. The revised native goal is active in this thread. The previous paused goal is not claimed complete. Current prospective screen: [SARSA_SCREEN.md](SARSA_SCREEN.md); outcome and remaining obligations: [SARSA_SCREEN_RESULTS.md](SARSA_SCREEN_RESULTS.md).

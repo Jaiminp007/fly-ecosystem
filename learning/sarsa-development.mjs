@@ -31,6 +31,10 @@ export function validateLocalProtocol(p) {
 export function simulateLocalHistory(p, h, phase, emit = () => {}) {
   const programs = {};
   for (const program of ['tile', 'linear']) programs[program] = simulateSarsaHistory(options(p, phase, program), h, event => emit({program, ...event}));
+  const reference = simulateReflexReference(p, h, emit);
+  return {schema: 1, seed: h.seed, phase, resourceSeeds: h.resourceSeeds, probeSeeds: h.probeSeeds, programs, reflex: reference};
+}
+export function simulateReflexReference(p, h, emit = () => {}) {
   const reflex = new SarsaExperiment({seed: h.seed, resourceSeeds: h.resourceSeeds, arm: 'candidate', reference: p.reference, pricing: p.pricing, learnerProgram: 'feeding-reflex-v1'});
   emit({program: 'reflex', type: 'start', seed: h.seed});
   while (reflex.world.tick < 1792 && reflex.world.flies.length) {
@@ -41,7 +45,7 @@ export function simulateLocalHistory(p, h, phase, emit = () => {}) {
   }
   const reference = {endpoint: reflex.endpoint(), finalSha256: digest(reflex.checkpoint()), phases: reflex.phaseRows, learners: reflex.learners};
   emit({program: 'reflex', type: 'end', learners: reflex.learners});
-  return {schema: 1, seed: h.seed, phase, resourceSeeds: h.resourceSeeds, probeSeeds: h.probeSeeds, programs, reflex: reference};
+  return reference;
 }
 export function validateLocalRow(row, h, p, phase) {
   assert.equal(row.seed, h.seed); assert.equal(row.phase, phase); assert.deepEqual(Object.keys(row.programs), ['tile', 'linear']);
