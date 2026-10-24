@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "passed": true,
+  "manifestSha256": "689c8fa45677e39a89dc6933a3db7c3b6953310b513b46c84b628581cf1bf217",
+  "workspaceVerifiedFiles": 229,
+  "separatelyRestoredAndVerifiedFiles": 229,
+  "failedFiles": 0,
+  "chunks": 3,
+  "rawBytes": 340110537,
+  "compressedBytes": 63464166,
+  "restoreDestination": "runs/mushroom-archive-restore-20261024",
+  "node": "v22.19.0",
+  "platform": "win32",
+  "nodeTests": {
+    "passed": 161,
+    "failed": 0,
+    "skipped": 0,
+    "independentPythonEnabled": true
+  },
+  "pythonAdapterTests": {
+    "passed": 1
+  },
+  "physicalAudit": {
+    "schema": 1,
+    "passed": true,
+    "phase": "development",
+    "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+    "resultsSha256": "7faad4f394dcb03f2860a155ef14ee3dc8707bc7e1905a01cd378f3488362074",
+    "histories": 8,
+    "mainWorlds": 80,
+    "probes": 144,
+    "comparison": "Exact JSON equality and exact factual trace hashes without numeric tolerance. Original raw-object equality failed on signed zeros; strict failure and original source are preserved.",
+    "signedZeroRows": [
+      {
+        "seed": 1163789946,
+        "signedZeroEntries": 16
+      },
+      {
+        "seed": 1122698529,
+        "signedZeroEntries": 16
+      },
+      {
+        "seed": 3104627144,
+        "signedZeroEntries": 21
+      },
+      {
+        "seed": 2095595747,
+        "signedZeroEntries": 20
+      },
+      {
+        "seed": 2975533712,
+        "signedZeroEntries": 27
+      },
+      {
+        "seed": 2479087895,
+        "signedZeroEntries": 26
+      },
+      {
+        "seed": 243360808,
+        "signedZeroEntries": 30
+      },
+      {
+        "seed": 3431558968,
+        "signedZeroEntries": 39
+      }
+    ],
+    "signedZeroEntries": 195,
+    "auditorSha256": "4709a8037787f0c2ff09313e7e5d1acab88da367775ebf54c3e9f41cbdc3328d",
+    "runtime": {
+      "wallSeconds": 160.1205907,
+      "cpuMicroseconds": {
+        "user": 155984000,
+        "system": 5687000
+      }
+    }
+  },
+  "numericAudit": {
+    "schema": 1,
+    "passed": true,
+    "phase": "development",
+    "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+    "resultsSha256": "7faad4f394dcb03f2860a155ef14ee3dc8707bc7e1905a01cd378f3488362074",
+    "histories": 8,
+    "factualTransitions": 225792,
+    "decisions": 258047,
+    "learnerBodies": 1152,
+    "reflexDecisions": 43008,
+    "comparisons": 13,
+    "plasticityHistoriesPassed": 8,
+    "survivalGuardsPassed": 9,
+    "scope": "Independent sparse sensory projection, winner selection, stochastic policy/score gradient, dopamine/baseline/fast decay/slow consolidation, traces/RNG/work; old linear learner, fixed reflex, debt/endpoints and all inference. Physical replay is separate.",
+    "warnings": []
+  },
+  "physicalCorrectionSha256": "21a361b00cdd0babd754e83702d9c86d25ac5651aeaafaa178d4a308fdf7cfe0",
+  "confirmationDirectoryExists": false,
+  "priorManifestHashes": {
+    "handoff\\evidence-manifest.json": "7f2c8ec7858d4c3b0aa51b7e97a0806b310748f64c68b17f3317520dbeb7baf4",
+    "handoff\\sarsa-screen-20261024\\manifest.json": "77bc69695a6deb6e3de819deba82633c277c7a49c078fb2d014e617e26116b83",
+    "handoff\\local-tiles-20261024\\manifest.json": "828736abf67e2d9b0e67f99d671222fc0772f494d07995b85e79697c5fcd2a64",
+    "handoff\\retrace-20261024\\manifest.json": "fff06809ae605feb84ee76df2acb2103aac939cb103a20d96d6b03260172cc4a"
+  },
+  "scope": "Integrity/restoration and independent numerical plus exact-JSON physical replay. Scientific development failed; raw-object signed-zero failure remains preserved. No cross-platform strict portability resolution, confirmation or RSI claim."
+}

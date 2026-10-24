@@ -2,12 +2,19 @@ import assert from 'node:assert/strict';
 import * as linear from './sarsa-body.mjs';
 import * as tiles from './tile-sarsa-body.mjs';
 import * as retrace from './retrace-sarsa-body.mjs';
+import * as mushroom from './mushroom-body.mjs';
 
 const linearApi = {create: linear.createSarsaBody, choose: linear.chooseSarsaAction, observe: linear.observeSarsaBody, freeze: linear.freezeSarsaBody, reset: linear.resetSarsaAcquired, restore: linear.restoreSarsaBody};
 const tileApi = {create: tiles.createTileBody, choose: tiles.chooseTileAction, observe: tiles.observeTileBody, freeze: tiles.freezeTileBody, reset: tiles.resetTileAcquired, restore: tiles.restoreTileBody};
 const replayApi = {create: retrace.createRetraceBody, choose: retrace.chooseRetraceAction, observe: retrace.observeRetraceBody, freeze: retrace.freezeRetraceBody, reset: retrace.resetRetraceAcquired,
   restore(s) { assert.equal(s.config.replayLambda, .9); return retrace.restoreRetraceBody(s); }};
 const oneStepApi = {...replayApi, create: retrace.createOneStepReplayBody, restore(s) { assert.equal(s.config.replayLambda, 0); return retrace.restoreRetraceBody(s); }};
+const mushroomApi = {create(id, seed, options = {}) { if (Object.hasOwn(options, 'consolidationRate')) assert.equal(options.consolidationRate, .02); return mushroom.createMushroomBody(id, seed, options); },
+  choose: mushroom.chooseMushroomAction, observe: mushroom.observeMushroomBody,
+  freeze: mushroom.freezeMushroomBody, reset: mushroom.resetMushroomBody,
+  restore(s) { assert.equal(s.config.consolidationRate, .02); return mushroom.restoreMushroomBody(s); }};
+const fastMushroomApi = {...mushroomApi, create: mushroom.createFastMushroomBody,
+  restore(s) { assert.equal(s.config.consolidationRate, 0); return mushroom.restoreMushroomBody(s); }};
 const reflexApi = {
   create(agentId, seed) { return {schema: 1, kind: 'fixed-feeding-reflex', agentId, config: {}, weights: [], eligibility: [], history: [], pending: null, recent: [], older: [], olderSeen: 0,
     rngState: seed, retentionRngState: seed, replayRngState: seed, acquisition: false, dead: false, decisions: 0, transitions: 0, replayUpdates: 0, lastDecisionTick: 0, lastObservedTick: 0,
@@ -18,6 +25,8 @@ const reflexApi = {
   restore(s) { assert.equal(s?.kind, 'fixed-feeding-reflex'); assert.equal(s.schema, 1); assert.ok(!s.acquisition && s.transitions === 0); return structuredClone(s); }
 };
 export const EMBODIED_PROGRAMS = Object.freeze({
+  'mushroom-policy-v1': {id: 'mushroom-policy-v1', api: mushroomApi, learned: true},
+  'mushroom-fast-only-v1': {id: 'mushroom-fast-only-v1', api: fastMushroomApi, learned: true},
   'linear-sarsa-v1': {id: 'linear-sarsa-v1', api: linearApi, learned: true},
   'tile-sarsa-v1': {id: 'tile-sarsa-v1', api: tileApi, learned: true},
   'linear-retrace-v1': {id: 'linear-retrace-v1', api: replayApi, learned: true},

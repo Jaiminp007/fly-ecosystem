@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "passed": true,
+  "phase": "development",
+  "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+  "resultsSha256": "7faad4f394dcb03f2860a155ef14ee3dc8707bc7e1905a01cd378f3488362074",
+  "histories": 8,
+  "mainWorlds": 80,
+  "probes": 144,
+  "comparison": "Exact JSON equality and exact factual trace hashes without numeric tolerance. Original raw-object equality failed on signed zeros; strict failure and original source are preserved.",
+  "signedZeroRows": [
+    {
+      "seed": 1163789946,
+      "signedZeroEntries": 16
+    },
+    {
+      "seed": 1122698529,
+      "signedZeroEntries": 16
+    },
+    {
+      "seed": 3104627144,
+      "signedZeroEntries": 21
+    },
+    {
+      "seed": 2095595747,
+      "signedZeroEntries": 20
+    },
+    {
+      "seed": 2975533712,
+      "signedZeroEntries": 27
+    },
+    {
+      "seed": 2479087895,
+      "signedZeroEntries": 26
+    },
+    {
+      "seed": 243360808,
+      "signedZeroEntries": 30
+    },
+    {
+      "seed": 3431558968,
+      "signedZeroEntries": 39
+    }
+  ],
+  "signedZeroEntries": 195,
+  "auditorSha256": "4709a8037787f0c2ff09313e7e5d1acab88da367775ebf54c3e9f41cbdc3328d",
+  "runtime": {
+    "wallSeconds": 160.1205907,
+    "cpuMicroseconds": {
+      "user": 155984000,
+      "system": 5687000
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Revised research goal
 
+Latest: [a sparse dopamine-gated direct policy](MUSHROOM_POLICY_RESULTS.md) was tested as a different mechanism and failed its fresh development bank. The confirmation reserve remains closed; no biological or RSI claim follows its motivation. [Source/task reassessment](EMBODIED_TASK_REASSESSMENT.md) identifies the next obligation as a new prospective cue-learning/action-authority design with unchanged honest energy, survival, acquisition and retention standards, plus transfer back to the original task. The later persistent-revision and copied-improvement/search-productivity stages remain required.
+
 Latest progress: [bounded replay development](RETRACE_RESULTS.md) also failed its fixed gate. Its full cold physical replay and corrected independent arithmetic audit passed; its sixteen confirmation histories remain unopened. Continuing embodied qualification is still required before persistent autonomous algorithm revisions or copied-improvement/search-productivity experiments can establish the goal.
 
 Further progress: [one fixed local-feature development study](LOCAL_TILE_RESULTS.md) has now completed with full audits and failed its development rule. Confirmation is unopened. The original scientific failures remain failures; continuing embodied qualification and the subsequent persistent/copy-control recursion stages remain required and unachieved.
