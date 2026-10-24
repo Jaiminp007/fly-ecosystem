@@ -5,7 +5,7 @@ import {World, DT} from '../engine.mjs';
 import {digest} from './intervention-study.mjs';
 import {CONTINUAL_PHASES, enterContinualPhase, updateContinualResources} from './continual-regimes.mjs';
 import {stepEmbodiedControl} from './embodied-control.mjs';
-import {createSarsaBody, chooseSarsaAction, observeSarsaBody, freezeSarsaBody, resetSarsaAcquired, restoreSarsaBody} from './sarsa-body.mjs';
+import {embodiedProgram} from './embodied-programs.mjs';
 
 export const SARSA_ARMS = ['candidate', 'lambda0', 'frozen', 'reset', 'incumbent', 'fast', 'slow'];
 // Declared canonical encoding: float64 numbers, one-byte booleans/null,
@@ -42,22 +42,25 @@ const learnedArm = arm => ['candidate', 'lambda0', 'frozen', 'reset'].includes(a
 function resourceMetrics(world) { return {foodInventory: world.food.reduce((s, p) => s + p.amount, 0), foodEaten: world.totals.foodEaten, deliveredRegrowth: world.totals.externalEnergy}; }
 
 export class SarsaExperiment {
-  constructor({seed, resourceSeeds, arm, reference, pricing}) {
+  constructor({seed, resourceSeeds, arm, reference, pricing, learnerProgram}) {
     assert.ok(SARSA_ARMS.includes(arm)); assert.equal(resourceSeeds.length, CONTINUAL_PHASES.length);
     assert.ok(pricing && pricing.byteEnergyPerSecond > 0 && pricing.operationEnergy > 0, 'Campaign prices are mandatory');
     this.schema = 1; this.arm = arm; this.seed = seed; this.resourceSeeds = [...resourceSeeds]; this.pricing = {...pricing};
+    const learner = embodiedProgram(learnerProgram).api;
+    if (learnerProgram && learnerProgram !== 'linear-sarsa-v1') this.learnerProgram = learnerProgram;
     const legacy = arm === 'incumbent';
     this.world = new World({seed, founders: reference.founders, capacity: 240, reproduction: false, mutation: false, controller: 'episodic-actor', learning: true,
       actorParameters: reference.actorParameters, episodicParameters: {...reference.parameters, ...(legacy ? {} : {memoryLearning: false, neuralLearning: false})},
       nutrient: .4, seasonal: false, challenges: 'off'});
     this.founderIds = this.world.flies.map(f => f.id); this.startingEnergy = this.world.flies.reduce((s, f) => s + f.energy, 0);
-    this.learners = learnedArm(arm) ? Object.fromEntries(this.world.flies.map(f => [f.id, createSarsaBody(f.id, ((seed ^ Math.imul(f.id, 2654435761)) >>> 0) || 1, arm === 'lambda0' ? {lambda: 0} : {})])) : {};
+    this.learners = learnedArm(arm) ? Object.fromEntries(this.world.flies.map(f => [f.id, learner.create(f.id, ((seed ^ Math.imul(f.id, 2654435761)) >>> 0) || 1, arm === 'lambda0' ? {lambda: 0} : {})])) : {};
     this.phaseIndex = 0; this.phaseEnd = CONTINUAL_PHASES[0].ticks;
     this.resource = enterContinualPhase(this.world, CONTINUAL_PHASES[0], resourceSeeds[0]);
     this.phaseStart = resourceMetrics(this.world); this.phaseRows = []; this.savedModels = {}; this.atC = null;
     this.scalarOperationsAtStart = 0;
   }
   step() {
+    const learner = embodiedProgram(this.learnerProgram).api;
     if (this.phaseIndex >= CONTINUAL_PHASES.length || !this.world.flies.length) return false;
     if (this.world.tick === this.phaseEnd) {
       this.phaseIndex++;
@@ -65,8 +68,8 @@ export class SarsaExperiment {
       const phase = CONTINUAL_PHASES[this.phaseIndex];
       this.resource = enterContinualPhase(this.world, phase, this.resourceSeeds[this.phaseIndex]);
       this.phaseEnd += phase.ticks; this.phaseStart = resourceMetrics(this.world);
-      if (this.arm === 'frozen' && phase.id === 'B') for (const state of Object.values(this.learners)) { freezeSarsaBody(state); state.charge.storageBytes = 0; }
-      if (this.arm === 'reset' && ['B', 'C'].includes(phase.id)) for (const state of Object.values(this.learners)) { resetSarsaAcquired(state); state.charge.storageBytes = 0; }
+      if (this.arm === 'frozen' && phase.id === 'B') for (const state of Object.values(this.learners)) { learner.freeze(state); state.charge.storageBytes = 0; }
+      if (this.arm === 'reset' && ['B', 'C'].includes(phase.id)) for (const state of Object.values(this.learners)) { learner.reset(state); state.charge.storageBytes = 0; }
     }
     updateContinualResources(this.world, this.resource);
     const before = [...this.world.flies];
@@ -74,12 +77,12 @@ export class SarsaExperiment {
     else {
       assert.equal(this.world.config.episodicParameters.memoryLearning, false);
       assert.equal(this.world.config.episodicParameters.neuralLearning, false);
-      stepEmbodiedControl(this.world, own => learnedArm(this.arm) ? chooseSarsaAction(this.learners[own.agentId], {...own, energy: own.energy - this.learners[own.agentId].charge.outstandingEnergy}) : this.arm === 'fast' ? 1 : -1,
+      stepEmbodiedControl(this.world, own => learnedArm(this.arm) ? learner.choose(this.learners[own.agentId], {...own, energy: own.energy - this.learners[own.agentId].charge.outstandingEnergy}) : this.arm === 'fast' ? 1 : -1,
         ({agentId}) => learnedArm(this.arm) ? chargeForStep(this.learners[agentId], this.pricing) : 0);
       for (const fly of before) if (learnedArm(this.arm)) {
         const alive = this.world.flies.includes(fly), state = this.learners[fly.id];
         const netEnergy = (alive ? fly.energy : 0) - state.charge.outstandingEnergy;
-        observeSarsaBody(state, {agentId: fly.id, tick: this.world.tick, energy: netEnergy, terminal: !alive});
+        learner.observe(state, {agentId: fly.id, tick: this.world.tick, energy: netEnergy, terminal: !alive});
         // A terminal update has no later alive step in which to pay. Keep its
         // complete bill in the joint state and subtract it at scoring.
         if (!alive) billSarsaWork(state, this.pricing);
@@ -113,7 +116,7 @@ export class SarsaExperiment {
     assert.equal(value?.schema, 1); assert.equal(value.kind, 'joint-sarsa-world-experiment');
     const result = Object.create(SarsaExperiment.prototype);
     Object.assign(result, structuredClone(value.experiment)); result.world = World.restore(value.world); result.atC = structuredClone(value.atC);
-    for (const state of Object.values(result.learners)) restoreSarsaBody(state);
+    for (const state of Object.values(result.learners)) embodiedProgram(result.learnerProgram).api.restore(state);
     assert.ok(SARSA_ARMS.includes(result.arm)); assert.equal(result.founderIds.length, value.world.world.config.founders);
     assert.ok(result.pricing.byteEnergyPerSecond > 0 && result.pricing.operationEnergy > 0);
     return result;
@@ -129,11 +132,12 @@ export const SARSA_PROBES = Object.freeze([
 export function runSarsaProbe(atC, {family, version}, resourceSeed, founders) {
   if (!atC) return {family, version, resourceSeed, founders, survivors: 0, value: 0, skippedAllDead: true};
   const run = SarsaExperiment.restore(atC), current = structuredClone(run.learners);
+  const learner = embodiedProgram(run.learnerProgram).api;
   const source = version === 'C' ? current : version === 'reset' ? null : run.savedModels[version];
   assert.ok(source || version === 'reset');
   for (const [id, state] of Object.entries(current)) {
-    const model = source ? structuredClone(source[id]) : createSarsaBody(state.agentId, state.rngState, state.config);
-    freezeSarsaBody(model); model.history = []; model.rngState = state.rngState;
+    const model = source ? structuredClone(source[id]) : learner.create(state.agentId, state.rngState, state.config);
+    learner.freeze(model); model.history = []; model.rngState = state.rngState;
     model.lastObservedTick = run.world.tick; model.lastDecisionTick = run.world.tick - 7;
     model.dead = !run.world.flies.some(f => f.id === Number(id));
     model.charge = {operationsBilled: model.work.scalarOperations, outstandingEnergy: 0, incurredEnergy: 0, paidEnergy: 0, storageBytes: 0};

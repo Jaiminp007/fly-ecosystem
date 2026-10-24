@@ -42,7 +42,7 @@ export function simulateSarsaHistory(p, h, emit = () => {}) {
   const arms = {}, initialWorlds = [], phases = p.phases.map(v => v.ticks), totalTicks = phases.reduce((a, b) => a + b, 0);
   let atC = null;
   for (const arm of p.arms) {
-    const run = new SarsaExperiment({seed: h.seed, resourceSeeds: h.resourceSeeds, arm, reference: p.reference, pricing: p.pricing});
+    const run = new SarsaExperiment({seed: h.seed, resourceSeeds: h.resourceSeeds, arm, reference: p.reference, pricing: p.pricing, learnerProgram: p.learnerProgram});
     // Config flags differ, but founder genomes, energy and physical bodies agree.
     initialWorlds.push(digest(run.world.flies));
     emit({type: 'start', arm, seed: h.seed, learners: Object.values(run.learners).map(learnerSummary)});
@@ -77,7 +77,7 @@ export function simulateSarsaHistory(p, h, emit = () => {}) {
   const probes = p.probes.map(spec => runSarsaProbe(atC, spec, h.probeSeeds[spec.family], p.reference.founders));
   for (const family of ['A', 'B', 'C']) {
     const rows = probes.filter(r => r.family === family);
-    assert.equal(new Set(rows.map(r => r.startWorldSha256)).size, 1, 'Probe bodies differ');
+    if (rows.length) assert.equal(new Set(rows.map(r => r.startWorldSha256)).size, 1, 'Probe bodies differ');
   }
   return {schema: 1, seed: h.seed, resourceSeeds: h.resourceSeeds, probeSeeds: h.probeSeeds,
     founders: p.reference.founders, arms, probes, endCCheckpointSha256: atC ? digest(atC) : null};

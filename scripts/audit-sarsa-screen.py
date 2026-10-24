@@ -39,6 +39,30 @@ def draw(s, key):
 
 
 def features(s, obs):
+    if s.get('tile'):
+        history = s['history']
+        old = history[-1] if history else None
+        average = lambda channel: sum(h['observation'][channel] for h in history) / len(history) if history else obs[channel]
+        groups = [[(obs[0] + 1) / 2, obs[3], obs[4], obs[13]], [obs[1], obs[2], obs[10], obs[11]],
+                  [obs[3], average(3), (obs[3] - (old['observation'][3] if old else obs[3]) + 1) / 2, ((old['choice'] if old else 0) + 1) / 2],
+                  [obs[4], average(4), average(13), obs[12]]]
+        s['operations'] += 3 * (len(history) + 1) + 12
+        counts = {}
+        for g, group in enumerate(groups):
+            for tiling in range(4):
+                cells = [math.floor(v * 4 + (tiling * (2 * d + 1) % 4) / 4) for d, v in enumerate(group)]
+                s['operations'] += 16
+                key = str(g) + ':' + str(tiling) + ':' + ','.join(str(v) for v in cells)
+                hashed = 2166136261
+                for char in key:
+                    hashed = ((hashed ^ ord(char)) * 16777619) & 0xffffffff
+                    s['operations'] += 3
+                index = hashed % 256
+                counts[index] = counts.get(index, 0) + 1
+                s['operations'] += 2
+        norm = math.sqrt(sum(v * v for _, v in sorted(counts.items())))
+        s['operations'] += len(counts) * 3 + 1
+        return [[i, v / norm] for i, v in sorted(counts.items())]
     channels = [0, 1, 2, 3, 4, 10, 11, 12, 13]
     raw = [1] + [obs[i] for i in channels] + [0] * (10 * (3 - len(s['history'])))
     for h in s['history']:
@@ -49,6 +73,9 @@ def features(s, obs):
 
 
 def values(s, phi):
+    if s.get('tile'):
+        s['operations'] += len(phi) * 4
+        return [sum(float(row[i]) * float(v) for i, v in phi) for row in s['weights']]
     s['operations'] += 160
     return [sum(float(w) * float(x) for w, x in zip(row, phi)) for row in s['weights']]
 
@@ -68,9 +95,13 @@ def update(s, tr):
     predicted = values(s, tr['phi'])[a]
     delta = target(s, tr) - predicted
     s['eligibility'] *= math.exp(-tr['duration'] / 256) * s['config']['lambda']
-    s['eligibility'][a] += tr['phi']
+    dense = np.zeros(256) if s.get('tile') else np.array(tr['phi'])
+    if s.get('tile'):
+        for i, v in tr['phi']:
+            dense[i] = v
+    s['eligibility'][a] += dense
     s['weights'] += s['config']['updateRate'] * delta * s['eligibility']
-    s['operations'] += 400
+    s['operations'] += 2560 if s.get('tile') else 400
     s['transitions'] += 1
     s['recent'].append(tr)
     if len(s['recent']) > 16:
@@ -86,25 +117,34 @@ def update(s, tr):
     selected = memory[math.floor(draw(s, 'replayRngState') * len(memory))]
     a = int(selected['action'] > 0)
     error = target(s, selected) - values(s, selected['phi'])[a]
-    s['weights'][a] += s['config']['replayRate'] * error * np.array(selected['phi'])
-    s['operations'] += 120
+    if s.get('tile'):
+        for i, v in selected['phi']:
+            s['weights'][a][i] += s['config']['replayRate'] * error * v
+        s['operations'] += len(selected['phi']) * 3
+    else:
+        s['weights'][a] += s['config']['replayRate'] * error * np.array(selected['phi'])
+        s['operations'] += 120
     if tr['terminal']:
         s['eligibility'].fill(0)
 
 
-def audit_trace(path, seed):
+def audit_trace(path, seed, program=None):
     states = {}
     transitions = decisions = bodies = 0
     with path.open(encoding='utf8') as stream:
         for line in stream:
             e = json.loads(line)
+            if program is not None and e.get('program') != program:
+                continue
             arm = e['arm']
             if e['type'] == 'start':
                 assert e['seed'] == seed
                 states[arm] = {}
                 for original in e['learners']:
                     s = dict(original)
-                    s.update(weights=np.zeros((2, 40)), eligibility=np.zeros((2, 40)), history=[], recent=[], older=[], operations=0)
+                    s['tile'] = s['config'].get('representation') == 'local-tiles-v1'
+                    size = 256 if s['tile'] else 40
+                    s.update(weights=np.zeros((2, size)), eligibility=np.zeros((2, size)), history=[], recent=[], older=[], operations=0)
                     expected = (seed ^ ((s['agentId'] * 2654435761) & 0xffffffff)) & 0xffffffff or 1
                     assert s['rngState'] == expected
                     assert s['retentionRngState'] == ((expected ^ 0x9e3779b9) or 1)
@@ -128,7 +168,7 @@ def audit_trace(path, seed):
                 after = [tr for tr in records if decision and tr['tick'] == e['tick']]
                 for tr in before:
                     assert 0 < tr['duration'] <= 8
-                    close(tr['nextPhi'], np.zeros(40) if tr['terminal'] else phi, 'next-history features')
+                    close(tr['nextPhi'], ([] if s['tile'] else np.zeros(40)) if tr['terminal'] else phi, 'next-history features')
                     if s.get('lastDecisionPhi') is not None:
                         close(tr['phi'], s['lastDecisionPhi'], 'factual prior features')
                     update(s, tr)
@@ -145,7 +185,7 @@ def audit_trace(path, seed):
                 for tr in after:
                     assert tr['terminal'] and tr['duration'] == 1
                     close(tr['phi'], phi, 'terminal decision features')
-                    close(tr['nextPhi'], np.zeros(40), 'terminal zero bootstrap')
+                    close(tr['nextPhi'], [] if s['tile'] else np.zeros(40), 'terminal zero bootstrap')
                     update(s, tr)
                     transitions += 1
             elif e['type'] == 'end':

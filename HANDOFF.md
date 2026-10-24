@@ -1,5 +1,7 @@
 # Afterwing / Fly Ecosystem: complete paused research handoff
 
+Further continuation: [local tile-coded Expected SARSA development](docs/LOCAL_TILE_RESULTS.md) completed and failed its predeclared screen; sixteen reserved confirmation histories remain unrun. Its independent arithmetic and full cold audit passed. A separate historical-intervention replay found a strict Mac-to-Windows discrepancy that persisted with the matching Node version; the exact cause remains unresolved. See the new result record before interpreting the earlier portability limits.
+
 Continuation on Windows, 2026-10-24: the user authorized resuming from PR #2. See [the fixed SARSA screen](docs/SARSA_SCREEN.md) and [its result/continuation record](docs/SARSA_SCREEN_RESULTS.md) for current status. The original paused snapshot below remains historical context; no saved habitat was restarted.
 
 **Read this first in a new thread or on a new machine. Research is paused at the user's explicit request. No RSI result has been demonstrated. This PR is a continuation snapshot, not an approved policy release.**

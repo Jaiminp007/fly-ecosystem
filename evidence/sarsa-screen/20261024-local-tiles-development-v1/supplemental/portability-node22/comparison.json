@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "sourceSha256": "7e94d062b1406e25bb8a591cc725c44fcf860e9d9ee9c186ffae392560e1b8bc",
+  "protocolSha256": "6c2c24dbf7170f2e8dc68b81cc330405b681e42d9b5af1e8416357c23af06c8e",
+  "recordedArtifactSha256": "3c66fb886a544376bc06e1070394625f033a009f501b26825e50312c5b74ba6d",
+  "seed": 2661084926,
+  "environment": "stable",
+  "cases": 32,
+  "forkWorldSteps": 16384,
+  "runtime": {
+    "node": "v22.19.0",
+    "versions": {
+      "node": "22.19.0",
+      "acorn": "8.15.0",
+      "ada": "2.9.2",
+      "amaro": "1.1.0",
+      "ares": "1.34.5",
+      "brotli": "1.1.0",
+      "cjs_module_lexer": "2.1.0",
+      "cldr": "47.0",
+      "icu": "77.1",
+      "llhttp": "9.3.0",
+      "modules": "127",
+      "napi": "10",
+      "nbytes": "0.1.1",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.64.0",
+      "openssl": "3.0.17",
+      "simdjson": "3.13.0",
+      "simdutf": "6.4.2",
+      "sqlite": "3.50.4",
+      "tz": "2025b",
+      "undici": "6.21.2",
+      "unicode": "16.0",
+      "uv": "1.51.0",
+      "uvwasi": "0.0.21",
+      "v8": "12.4.254.21-node.29",
+      "zlib": "1.3.1-470d3a2",
+      "zstd": "1.5.7"
+    },
+    "platform": "win32",
+    "arch": "x64",
+    "wallSeconds": 33.93019949999999
+  },
+  "counts": {
+    "numbersCompared": 2914,
+    "numericDifferences": 630,
+    "signedZeroDifferences": 0,
+    "hashDifferences": 161,
+    "otherDifferences": 0
+  },
+  "maximumAbsoluteDifference": 4.426974342663925e-10,
+  "largest": [
+    {
+      "path": "cases.22.history.0.observation.6",
+      "actual": -0.5148855892541442,
+      "recorded": -0.5148855896968416,
+      "absoluteDifference": 4.426974342663925e-10
+    },
+    {
+      "path": "cases.22.history.0.observation.7",
+      "actual": 0.857258904869709,
+      "recorded": 0.8572589046038167,
+      "absoluteDifference": 2.6589230817108955e-10
+    },
+    {
+      "path": "cases.22.history.0.observation.9",
+      "actual": 0.753286268248835,
+      "recorded": 0.7532862680746977,
+      "absoluteDifference": 1.7413737118943118e-10
+    },
+    {
+      "path": "cases.22.history.1.observation.9",
+      "actual": 0.6599298225648533,
+      "recorded": 0.6599298224568357,
+      "absoluteDifference": 1.0801759486867013e-10
+    },
+    {
+      "path": "cases.22.observation.7",
+      "actual": 0.44479141235881675,
+      "recorded": 0.44479141242513853,
+      "absoluteDifference": 6.63217814000916e-11
+    },
+    {
+      "path": "cases.22.history.2.observation.7",
+      "actual": 0.5231568788001905,
+      "recorded": 0.5231568788643133,
+      "absoluteDifference": 6.412281816636778e-11
+    },
+    {
+      "path": "cases.22.history.0.observation.2",
+      "actual": 0.05814710029334172,
+      "recorded": 0.0581471002344772,
+      "absoluteDifference": 5.886451742709298e-11
+    },
+    {
+      "path": "cases.22.history.1.observation.6",
+      "actual": -0.29923972672013294,
+      "recorded": -0.2992397267783542,
+      "absoluteDifference": 5.822126114551907e-11
+    },
+    {
+      "path": "cases.26.history.2.observation.7",
+      "actual": 0.10435396655841404,
+      "recorded": 0.10435396650828546,
+      "absoluteDifference": 5.012858184105795e-11
+    },
+    {
+      "path": "cases.26.history.1.observation.7",
+      "actual": 0.6319174853243408,
+      "recorded": 0.6319174852788483,
+      "absoluteDifference": 4.5492498657040414e-11
+    },
+    {
+      "path": "cases.22.history.2.observation.9",
+      "actual": 0.558312143284822,
+      "recorded": 0.5583121432451684,
+      "absoluteDifference": 3.965361372593179e-11
+    },
+    {
+      "path": "cases.22.history.2.observation.6",
+      "actual": -0.8522363992250289,
+      "recorded": -0.8522363991856662,
+      "absoluteDifference": 3.936273529348e-11
+    },
+    {
+      "path": "cases.26.history.1.observation.6",
+      "actual": 0.7750356712702723,
+      "recorded": 0.7750356713073641,
+      "absoluteDifference": 3.709177409660924e-11
+    },
+    {
+      "path": "cases.22.observation.6",
+      "actual": -0.8956341884340108,
+      "recorded": -0.8956341884010739,
+      "absoluteDifference": 3.2936875449252057e-11
+    },
+    {
+      "path": "cases.28.history.1.observation.12",
+      "actual": 0.0940268174683337,
+      "recorded": 0.09402681744414103,
+      "absoluteDifference": 2.4192675640577477e-11
+    },
+    {
+      "path": "cases.22.history.0.observation.12",
+      "actual": 0.00934498111348392,
+      "recorded": 0.009344981092837804,
+      "absoluteDifference": 2.064611676066974e-11
+    },
+    {
+      "path": "cases.22.history.1.observation.12",
+      "actual": 0.006085017764765603,
+      "recorded": 0.006085017744366304,
+      "absoluteDifference": 2.0399299437146023e-11
+    },
+    {
+      "path": "cases.22.history.1.observation.7",
+      "actual": 0.9541779634598884,
+      "recorded": 0.9541779634416296,
+      "absoluteDifference": 1.8258727862985324e-11
+    },
+    {
+      "path": "cases.24.history.0.observation.0",
+      "actual": 0.6292051445728982,
+      "recorded": 0.6292051445550103,
+      "absoluteDifference": 1.7887913372760522e-11
+    },
+    {
+      "path": "cases.11.history.1.observation.12",
+      "actual": 0.0033594259232446583,
+      "recorded": 0.0033594259408793745,
+      "absoluteDifference": 1.763471616997303e-11
+    }
+  ],
+  "strictlyIdentical": false,
+  "boundary": "One prespecified first development world, same frozen graph/seed/outcomes. Descriptive comparison only; historical strict cold-audit failure remains unless the full registered bank passes unchanged. No numerical tolerance, source correction or scientific gate is substituted."
+}

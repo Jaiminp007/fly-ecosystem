@@ -1,5 +1,7 @@
 # Revised research goal
 
+Further progress: [one fixed local-feature development study](LOCAL_TILE_RESULTS.md) has now completed with full audits and failed its development rule. Confirmation is unopened. The original scientific failures remain failures; continuing embodied qualification and the subsequent persistent/copy-control recursion stages remain required and unachieved.
+
 Resumed in a new thread on 2026-10-24 at the user's request to follow PR #2 and continue the goal. The revised native goal is active in this thread. The previous paused goal is not claimed complete. Current prospective screen: [SARSA_SCREEN.md](SARSA_SCREEN.md); outcome and remaining obligations: [SARSA_SCREEN_RESULTS.md](SARSA_SCREEN_RESULTS.md).
 
 Requested by the user on 2026-10-24 after the completed [Astra consultation](ASTRA_REVIEW_DECISION.md).

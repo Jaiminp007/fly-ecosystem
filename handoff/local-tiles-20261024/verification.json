@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "manifestSha256": "828736abf67e2d9b0e67f99d671222fc0772f494d07995b85e79697c5fcd2a64",
+  "archive": {
+    "files": 199,
+    "chunks": 3,
+    "uncompressedBytes": 279308194,
+    "compressedBytes": 59394049
+  },
+  "separateDirectoryRestoredAndVerifiedFiles": 199,
+  "separateDirectoryFailedCount": 0,
+  "workspaceFailedCount": 0,
+  "decision": {
+    "schema": 1,
+    "candidate": "tile-sarsa-v1",
+    "developmentPromising": false,
+    "confirmationOpened": false,
+    "reservedConfirmationHistories": 16,
+    "positiveRequiredMeans": 7,
+    "requiredMeans": 11,
+    "survivalGuardsPassed": 5,
+    "survivalGuards": 8,
+    "protocolSha256": "6bb4ee33e6ee39f7dd1a52e70ddbb91589a2b06d0d31b61e963a3fb4e1f5874b",
+    "resultsSha256": "284b51ade99e6e433cc782543ca67653d2c27bef1b40210a5ba4e97af22c9397",
+    "physicalAuditSha256": "0c8534c03d2ea96f1d834b1960c830c6ff5290a6b145f2b3fd1418d4ab3f7fe8",
+    "numericAuditSha256": "d015141c5f6ff0b4ec4c1f7e4d19168daa696d1b14493ce12dcb3a6cb145a4ce",
+    "testSuite": {
+      "tests": 152,
+      "pass": 152,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "testLogSha256": "97407fc471feb14ed07086ba4a8a1a90cd093bf9844a5ae9056dcbb525de89d9",
+    "pythonAdapter": "1 test, OK",
+    "reportRegenerationMatches": true,
+    "originalFrozenSourcesUnchanged": true,
+    "historicalWindowsStrictReplayPassed": false,
+    "nextObligations": [
+      "Qualified continuing embodied learning and separate retained skills remain unachieved.",
+      "Do not run reserved confirmation, tune or reselect on this failed development bank.",
+      "Prior neural-output interference and joint-control failures remain preserved; do not repeat them unchanged.",
+      "Resolve the next factual temporal-credit/interference hypothesis before a new prospective bank.",
+      "Persistent autonomous revisions, copied-improvement and matched-budget recursive productivity remain required."
+    ]
+  },
+  "oldArchiveChanges": 0,
+  "limits": [
+    "Development failed; sixteen reserved confirmation histories unrun.",
+    "No qualified embodied learner or RSI demonstrated.",
+    "Historical intervention strict Mac-to-Windows physical replay failed; first-world difference persists under matching Node version. Exact cause unestablished.",
+    "All earlier source/evidence and scientific gates preserved."
+  ]
+}

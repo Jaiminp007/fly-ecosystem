@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "strictHistoricalAuditPassedOnWindows": false,
+  "firstWorld": {
+    "seed": 2661084926,
+    "environment": "stable",
+    "cases": 32,
+    "forkWorldSteps": 16384
+  },
+  "node22": {
+    "counts": {
+      "numbersCompared": 2914,
+      "numericDifferences": 630,
+      "signedZeroDifferences": 0,
+      "hashDifferences": 161,
+      "otherDifferences": 0
+    },
+    "maximumAbsoluteDifference": 4.426974342663925e-10
+  },
+  "node26": {
+    "counts": {
+      "numbersCompared": 2914,
+      "numericDifferences": 630,
+      "signedZeroDifferences": 0,
+      "hashDifferences": 161,
+      "otherDifferences": 0
+    },
+    "maximumAbsoluteDifference": 4.426974342663925e-10
+  },
+  "windowsNode22And26RegeneratedRowBytesEqual": true,
+  "regeneratedRowSha256": "c3c59942eaed71137f5d549501e324a76148e27539ec74b1f04c0efdf75d03da",
+  "naturalChoicesEqualInThisWorld": true,
+  "outcomeEnergyValuesCompared": 128,
+  "maximumOutcomeEnergyDifference": 1.3820056210533949e-11,
+  "runtimeDownload": {
+    "url": "https://nodejs.org/dist/v26.5.0/node-v26.5.0-win-x64.zip",
+    "sha256": "d3b2277dbcccfdf24ef6302928f64f484cff1d77a6d3caa3a28f4d20ce9158f6",
+    "matchesOfficialManifest": true
+  },
+  "conclusion": "Matching the recorded Node version on Windows did not remove this first-world discrepancy. The exact cross-platform cause is not established. The original strict audit remains failed on Windows; no tolerance is substituted, no original evidence/gate is altered, and this one-world comparison does not establish whole-bank agreement."
+}
