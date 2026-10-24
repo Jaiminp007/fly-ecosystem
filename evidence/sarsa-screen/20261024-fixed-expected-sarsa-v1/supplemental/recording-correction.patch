@@ -1,0 +1,70 @@
+--- original/scripts/audit-sarsa-screen.py
++++ supplemental/scripts/audit-sarsa-screen.py
+@@ -120,9 +120,12 @@
+                     s['history'], s['recent'], s['older'], s['olderSeen'] = [], [], [], 0
+         elif e['type'] == 'experience':
+             s = states[arm][e['agentId']]
+-            decision, tr = e['decision'], e['transition']
++            decision = e['decision']
++            records = e.get('transitions', [e['transition']] if e.get('transition') else [])
+             phi = features(s, decision['observation']) if decision else None
+-            if tr:
++            before = [tr for tr in records if not decision or tr['tick'] < e['tick']]
++            after = [tr for tr in records if decision and tr['tick'] == e['tick']]
++            for tr in before:
+                 assert 0 < tr['duration'] <= 8
+                 close(tr['nextPhi'], np.zeros(40) if tr['terminal'] else phi, 'next-history features')
+                 if s.get('lastDecisionPhi') is not None:
+@@ -138,6 +141,12 @@
+                 s['history'] = (s['history'] + [decision])[-3:]
+                 s['decisions'] += 1
+                 decisions += 1
++            for tr in after:
++                assert tr['terminal'] and tr['duration'] == 1
++                close(tr['phi'], phi, 'terminal decision features')
++                close(tr['nextPhi'], np.zeros(40), 'terminal zero bootstrap')
++                update(s, tr)
++                transitions += 1
+         elif e['type'] == 'end':
+             for original in e['learners']:
+                 s = states[arm][original['agentId']]
+@@ -184,6 +193,14 @@
+         assert row['protocolSha256'] == sha(directory / 'protocol.json')
+         trace = directory / 'numerics' / f'{seed}.jsonl'
+         assert row['numericsSha256'] == sha(trace)
++        supplement_path = directory / 'supplemental/audit.json'
++        if supplement_path.exists():
++            supplement = json.loads(supplement_path.read_text(encoding='utf8'))
++            assert supplement['protocolSha256'] == sha(directory / 'protocol.json')
++            corrected = supplement['histories'][str(seed)]
++            assert corrected['originalNumericsSha256'] == row['numericsSha256']
++            trace = directory / 'supplemental/numerics' / f'{seed}.jsonl'
++            assert sha(trace) == corrected['correctedNumericsSha256']
+         count = audit_trace(trace, seed)
+         for k, v in count.items():
+             totals[k] += v
+@@ -224,6 +241,7 @@
+         survival.append(m >= 0)
+     assert results['qualified'] == (all(passed) and all(survival))
+     return {'schema': 1, 'passed': True, 'protocolSha256': sha(directory / 'protocol.json'), 'resultsSha256': sha(directory / 'results.json'),
++            'recaptureAuditSha256': sha(directory / 'supplemental/audit.json') if (directory / 'supplemental/audit.json').exists() else None,
+             'histories': len(rows), **totals, 'comparisons': len(p['contrasts']), 'scope': 'Independent factual features, policy RNG/choices, online/replay updates, traces, reservoir, scalar work, debt arithmetic, all-founder endpoints and all statistical gates. Physical replay is separate.'}
+ 
+ 
+--- original/learning/sarsa-screen.mjs
++++ supplemental/learning/sarsa-screen.mjs
+@@ -54,9 +54,12 @@
+       assert.ok(run.step());
+       for (const [id, old] of Object.entries(previous)) {
+         const s = run.learners[id];
+-        const transition = s.transitions > old.transitions ? s.recent.at(-1) : null;
++        // A death on a decision tick completes the previous transition before
++        // choosing and the new terminal transition afterward. Preserve both.
++        const transitions = s.recent.filter(t => t.experience > old.transitions);
++        assert.equal(transitions.length, s.transitions - old.transitions);
+         const decision = s.decisions > old.decisions ? s.history.at(-1) : null;
+-        if (transition || decision) emit({type: 'experience', arm, tick, agentId: s.agentId, transition, decision});
++        if (transitions.length || decision) emit({type: 'experience', arm, tick, agentId: s.agentId, transitions, decision});
+       }
+       if ([512, 1024, 1536, 1792].includes(run.world.tick)) checkpoints.push({tick: run.world.tick, sha256: digest(run.checkpoint()), endpoint: run.endpoint()});
+     }

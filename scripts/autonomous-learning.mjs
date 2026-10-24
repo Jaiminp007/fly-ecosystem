@@ -1,4 +1,5 @@
-import {mkdir,readFile,writeFile,rename} from 'node:fs/promises';
+import {mkdir,readFile} from 'node:fs/promises';
+import {atomicJson} from './atomic-json.mjs';
 import {resolve,join} from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
 import {performance} from 'node:perf_hooks';
@@ -9,8 +10,8 @@ const args=process.argv.slice(2),value=(key,fallback)=>args.includes(key)?args[a
 const root=resolve(value('--directory','runs/autonomy')),roundLimit=Number(value('--rounds','12'));
 if(!Number.isInteger(roundLimit)||roundLimit<1||roundLimit>64)throw Error('Rounds must be 1–64');
 await mkdir(root,{recursive:true});
-const atomic=async(path,data)=>{await writeFile(path+'.tmp',JSON.stringify(data,null,2)+'\n');await rename(path+'.tmp',path);};
-const sourceSha256={};for(const file of ['engine.mjs','learning/trace-actor.mjs','learning/tasks.mjs','learning/curriculum.mjs','scripts/autonomous-learning.mjs'])sourceSha256[file]=createHash('sha256').update(await readFile(file)).digest('hex');
+const atomic=atomicJson;
+const sourceSha256={};for(const file of ['engine.mjs','learning/trace-actor.mjs','learning/tasks.mjs','learning/curriculum.mjs','scripts/autonomous-learning.mjs','scripts/atomic-json.mjs'])sourceSha256[file]=createHash('sha256').update(await readFile(file)).digest('hex');
 let state;
 if(!args.includes('--new'))try{state=JSON.parse(await readFile(join(root,'state.json'),'utf8'));}catch(error){if(error.code!=='ENOENT')throw error;}
 if(state&&JSON.stringify(state.sourceSha256)!==JSON.stringify(sourceSha256))throw Error('Source changed since campaign checkpoint. Start a new campaign; earlier evidence is preserved.');

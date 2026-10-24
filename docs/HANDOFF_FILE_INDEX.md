@@ -1,5 +1,9 @@
 # Handoff touched-file catalog
 
+The original handoff inventory below is preserved. Resumed work adds the [fixed-screen design](SARSA_SCREEN.md), [results/continuation record](SARSA_SCREEN_RESULTS.md), `learning/sarsa-screen.mjs`, the screen runner/Node and Python auditors, corrected-trace recorder, report/packaging utilities, atomic JSON retry helper and regression tests. Windows portability fixes touch `.gitattributes`, the historical loader/test and existing autonomy runner/test. Updated context pointers are in `HANDOFF.md`, `RESEARCH_GOAL.md`, `AUTONOMY_PROGRESS.md` and `EMBODIED_SUBSTRATE.md`.
+
+The additional [checked evidence manifest](../handoff/sarsa-screen-20261024/manifest.json) inventories every new raw study artifact and retained log; [verification](../handoff/sarsa-screen-20261024/verification.json) records actual checks and limits. It supplements the original archive without changing its manifest/chunks. Selected protocol/result/audit/correction files are also directly readable under `evidence/sarsa-screen/20261024-fixed-expected-sarsa-v1/`.
+
 This catalog covers source, documentation, tests and UI assets carried by the handoff PR. The complete raw-evidence/runtime file inventory, sizes and SHA-256 values are in [the evidence manifest](../handoff/evidence-manifest.json). No failed artifact is omitted from that archive.
 
 ## Active source and context files

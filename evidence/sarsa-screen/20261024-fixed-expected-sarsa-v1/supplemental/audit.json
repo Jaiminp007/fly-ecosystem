@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "passed": true,
+  "protocolSha256": "4d692980b32e6966b1a32917153a81619f15a8984a77a7d5621449d160256044",
+  "sourceManifestSha256": "89ca6d77a091f68353f6c473cccd1f2c96bfdac32620c1307f9c1e7c5bc13fc6",
+  "histories": {
+    "75464031": {
+      "originalNumericsSha256": "79ef5967e11c052a0fc0b587df5e796dd8d83a25241e34ef81e4de6837ef1329",
+      "correctedNumericsSha256": "e7a412ac04359c5c906a64f75b12019729fa4cb396d5aac7ab33000d088d8470"
+    },
+    "84548994": {
+      "originalNumericsSha256": "b890729cd8374f20eadf707041c0986a0a7d973ba4c08489bd6253d95845eac2",
+      "correctedNumericsSha256": "c310134cf8ded12f947eff731979cb0cfca360fb91ae41c763a73ce6d3036733"
+    },
+    "410628969": {
+      "originalNumericsSha256": "9f67100b97186f48ac4bd8aa65c4b20e0c6b6b234a548e32dd00dde3d586d695",
+      "correctedNumericsSha256": "4000a68a6de4fe7b2e3adf6b2f18b4fb58df9190e4df3a86ea4f524a029cead0"
+    },
+    "747156505": {
+      "originalNumericsSha256": "a885e6fae4a3523d68eb193db7a835cbc5c468fc1d655f653f8e2c9551a9cac2",
+      "correctedNumericsSha256": "71c9cddb800f6b224ed352b265958627cad56cda22b67bccf55a7dcce88fdc11"
+    },
+    "1892575133": {
+      "originalNumericsSha256": "b6068a5acb1a194513074bd013e493f7854082d72e4d5790257ebb9edca3c72d",
+      "correctedNumericsSha256": "8a87c3ae1e212130bcff590afae9f6d885fbde9a56094733b2dfbaaaf6ae9726"
+    },
+    "2074082998": {
+      "originalNumericsSha256": "25abd5f6d583f1ea3a5384df99eb31dea57e3747d8f79a6a08b71011bcd75c7c",
+      "correctedNumericsSha256": "6002356df71c8466014ce0313cb40b9badb9a80a4f0d49583ee5003baa76d86a"
+    },
+    "2131523080": {
+      "originalNumericsSha256": "9935dbbd9a7a64f18bc6d51c5891c9902f66518d94f8e1a293a655a3d53000d1",
+      "correctedNumericsSha256": "4fd99d9ff77dc53e954509226daf8fa7321e3b62608743a96017989594189279"
+    },
+    "2207516516": {
+      "originalNumericsSha256": "b587dc66e1010e72801a8571224349e19937c048e4c0a522cf07e2b0426517fc",
+      "correctedNumericsSha256": "fd1b5d0dbff6ab96d9644b95f556bc1d25dcd13faee8673a9177dfa7bc2aca39"
+    },
+    "2247670974": {
+      "originalNumericsSha256": "08c82a552ca9c38f9e12045a4c2b6d673f1b35ebf648847d77e6ac5a4d7aaab9",
+      "correctedNumericsSha256": "95e114986ad6e5b6ac3841b9feb41a4396d5b3d9788f182f234aa2ff9915bb77"
+    },
+    "2633996650": {
+      "originalNumericsSha256": "3a0932f7dcd53d08aa7329af0f1216221307fe700720cb3c8c9a9934771c152b",
+      "correctedNumericsSha256": "439fd364435c6a5527b1ddc5e29f1c73a76bb0afea7e0c93ad3c24d69e1dd502"
+    },
+    "2756034938": {
+      "originalNumericsSha256": "ac2cf893a9662cfa06fd18916fa690afb73cd0c287f237a333eaf6ddec34cf0b",
+      "correctedNumericsSha256": "1bb0417509bb186fd25c9a16b236b8c8ab0ce50533b7bc3e532c5d56c64008b5"
+    },
+    "2772135566": {
+      "originalNumericsSha256": "924a0cd79aa1f51f839f323ce1d8460bd303c4163ca596f1d4d223a1e07534ba",
+      "correctedNumericsSha256": "64aae9d5a6464b112bda94a378fe6013399dc2e80e0124d380b27c88689f6bad"
+    },
+    "2777985258": {
+      "originalNumericsSha256": "a1bcbd73e58636870d3eb498869de6010ec28ec6b87162e8c1a870b79cc0f670",
+      "correctedNumericsSha256": "f80a6d52b68c3b1649dbe4d8ec4298df13ed96a1fdb2ff9275da5ae6c3dbaf5a"
+    },
+    "3307943542": {
+      "originalNumericsSha256": "48feae811a8cb8e62b8ee107802ce838694951095d4f0ac27866f5a227ce7369",
+      "correctedNumericsSha256": "f4aaca7868ff8998f4b2b77faa706ce976a7be50e8ae077938d33ba2f52914ca"
+    },
+    "3375352029": {
+      "originalNumericsSha256": "15468202077b816c29e4a297969de13560f7a5ecd04f57f686f6dcce5f9a0db6",
+      "correctedNumericsSha256": "5f9ef860843b3b5ac7ff746c3244cd27dc8dfb60eae327c048f11739aa860171"
+    },
+    "4119840850": {
+      "originalNumericsSha256": "5cac51aac7edf47277f8d92354d9d3d53b05f5071dd02bebf3183a572713944f",
+      "correctedNumericsSha256": "1558acce331ba5a86ec95041a4837a69f9a8e279083713dbe9a0f46f75961625"
+    }
+  },
+  "mainWorlds": 112,
+  "probes": 144,
+  "doubleUpdateEvents": 2,
+  "unchanged": "Every original main/probe/checkpoint/learner/endpoint row is identical. Only evaluator trace emission changed; no sample extension or score/gate alteration.",
+  "runtime": {
+    "wallSeconds": 244.2545284,
+    "cpuMicroseconds": {
+      "user": 240281000,
+      "system": 9953000
+    }
+  }
+}

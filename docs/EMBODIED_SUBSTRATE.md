@@ -1,5 +1,7 @@
 # Continuing embodied learner: preparation
 
+Continuation: the fixed Expected SARSA screen is now implemented and audited, and **failed qualification**. See [the current result and remaining obligations](SARSA_SCREEN_RESULTS.md). The preparatory notes below describe the earlier substrate and unqualified prototype; they are preserved as history.
+
 Implemented after [Astra's review](ASTRA_REVIEW_DECISION.md), alongside the frozen [intervention diagnostic](INTERVENTION_STUDY.md). This module set is preparation for a separate prospective study. No embodied benefit, retention gate, autonomous algorithm revision or RSI result is claimed.
 
 - `learning/continual-regimes.mjs` changes resources in the same living bodies across stable A, moving B, scarce C and a return to the stable family. Each phase uses its own resource seed. Transitions preserve food amounts, total energy, bodies, all acquired state and the simulator RNG streams. They do not replay A's early world in B or refill agents. Moving B shifts renewal centers on an explicit experiment clock.

@@ -1,5 +1,7 @@
 # Revised research goal
 
+Resumed in a new thread on 2026-10-24 at the user's request to follow PR #2 and continue the goal. The revised native goal is active in this thread. The previous paused goal is not claimed complete. Current prospective screen: [SARSA_SCREEN.md](SARSA_SCREEN.md); outcome and remaining obligations: [SARSA_SCREEN_RESULTS.md](SARSA_SCREEN_RESULTS.md).
+
 Requested by the user on 2026-10-24 after the completed [Astra consultation](ASTRA_REVIEW_DECISION.md).
 
 Implement Astra's staged research program: audit a locked intervention study separating action-assignment bias, observation-history limits and reward horizon; qualify continuing embodied learning and retained skills on distinct tasks under memory pressure; then test successive persistent autonomous algorithm revisions and improved subsequent search against copied-improvement and matched budget controls. Preserve negative results and claim bounded RSI only if the declared causal, retention and fresh-task gates pass.

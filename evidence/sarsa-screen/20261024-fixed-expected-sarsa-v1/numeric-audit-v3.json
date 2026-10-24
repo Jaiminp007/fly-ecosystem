@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "passed": true,
+  "protocolSha256": "4d692980b32e6966b1a32917153a81619f15a8984a77a7d5621449d160256044",
+  "resultsSha256": "169be3d8947b02174d29181113a56183a64fb29213693859b3a84bdd4ffebad5",
+  "recaptureAuditSha256": "3cd7ec6a38356f49b35f93ea143d03f51b89422ec3c6e6a8f8db6fc583260780",
+  "histories": 16,
+  "factualTransitions": 280266,
+  "decisions": 344000,
+  "learnerBodies": 1536,
+  "comparisons": 10,
+  "scope": "Independent factual features, policy RNG/choices, online/replay updates, traces, reservoir, scalar work, debt arithmetic, all-founder endpoints and all statistical gates. Physical replay is separate.",
+  "warnings": []
+}

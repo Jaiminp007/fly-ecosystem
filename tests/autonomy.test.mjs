@@ -15,10 +15,10 @@ test('autonomous campaigns run in a child, checkpoint and resume without replaci
  assert.equal((await service.status()).status,'not-started');
  await assert.rejects(service.control({action:'start',rounds:1000}),/Rounds/);
  await service.control({action:'start',rounds:1});await waitFor(async()=>!(await service.status()).running);
- const first=await service.status();assert.equal(first.status,'round-budget-reached');assert.equal(first.round,1);assert.equal(first.stage,1);
+ const first=await service.status();assert.equal(first.status,'round-budget-reached',first.error);assert.equal(first.round,1);assert.equal(first.stage,1);
  await service.control({action:'start',rounds:1});await waitFor(async()=>!(await service.status()).running);
  const second=await service.status();assert.equal(second.id,first.id);assert.equal(second.round,2);assert.equal(second.stage,2);
- const checkpoint=JSON.parse(await readFile(join(directory,'state.json'),'utf8'));assert.equal(checkpoint.history.length,2);assert.ok(checkpoint.sourceSha256['learning/trace-actor.mjs']);
+ const checkpoint=JSON.parse(await readFile(join(directory,'state.json'),'utf8'));assert.equal(checkpoint.history.length,2);assert.ok(checkpoint.sourceSha256['learning/trace-actor.mjs']);assert.ok(checkpoint.sourceSha256['scripts/atomic-json.mjs']);
 });
 
 test('bounded proposals preserve parameters unidentifiable in the cue task and gates reject uncertain learning',()=>{

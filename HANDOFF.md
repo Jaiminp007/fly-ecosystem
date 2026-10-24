@@ -1,5 +1,7 @@
 # Afterwing / Fly Ecosystem: complete paused research handoff
 
+Continuation on Windows, 2026-10-24: the user authorized resuming from PR #2. See [the fixed SARSA screen](docs/SARSA_SCREEN.md) and [its result/continuation record](docs/SARSA_SCREEN_RESULTS.md) for current status. The original paused snapshot below remains historical context; no saved habitat was restarted.
+
 **Read this first in a new thread or on a new machine. Research is paused at the user's explicit request. No RSI result has been demonstrated. This PR is a continuation snapshot, not an approved policy release.**
 
 The user asked to stop the current work, commit it, and make a comprehensive PR carrying the source, evidence, Astra consultation, touched-file map and exact continuation state. Preserve the failed studies. Do not restart a finished campaign or silently resume a habitat while setting up.

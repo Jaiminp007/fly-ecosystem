@@ -25,6 +25,12 @@ for (const name of ['readFile', 'open', 'stat', 'lstat', 'realpath', 'readdir', 
 for (const name of ['readFile', 'readFileSync', 'open', 'openSync', 'stat', 'statSync', 'lstat', 'lstatSync', 'realpath', 'realpathSync', 'readdir', 'readdirSync', 'access', 'accessSync', 'existsSync', 'createReadStream']) wrap(fs, name);
 syncBuiltinESMExports();
 registerHooks({resolve(specifier, context, nextResolve) {
-  const mapped = specifier.startsWith('file:') ? translated(new URL(specifier)).href : translated(specifier);
+  // Parse historical POSIX file URLs before Windows interprets /Users as a
+  // path on the current drive. ESM always receives a real file URL.
+  const oldFileUrl = 'file://' + original;
+  const mapped = specifier === oldFileUrl || specifier.startsWith(oldFileUrl + '/')
+    ? pathToFileURL(current + decodeURIComponent(specifier.slice(oldFileUrl.length))).href
+    : specifier.startsWith('file:') ? translated(new URL(specifier)).href
+      : specifier === original || specifier.startsWith(original + '/') ? pathToFileURL(translated(specifier)).href : specifier;
   return nextResolve(mapped, context);
 }});
