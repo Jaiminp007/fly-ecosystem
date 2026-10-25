@@ -30,12 +30,13 @@ export function validateSarsaProtocol(p) {
   assert.ok(p.critical > 0 && p.alphaPerTest === .05 / 10);
 }
 
-const learnerSummary = s => ({agentId: s.agentId, config: s.config, weights: s.weights, eligibility: s.eligibility,
+export const learnerSummary = s => ({agentId: s.agentId, config: s.config, weights: s.weights, eligibility: s.eligibility,
   recentExperiences: s.recent.map(t => t.experience), olderExperiences: s.older.map(t => t.experience),
   olderSeen: s.olderSeen, rngState: s.rngState, retentionRngState: s.retentionRngState, replayRngState: s.replayRngState,
   decisions: s.decisions, transitions: s.transitions, replayUpdates: s.replayUpdates, work: s.work, charge: s.charge,
   acquisition: s.acquisition, dead: s.dead, ...(s.replayDiagnostics ? {replayDiagnostics: s.replayDiagnostics} : {}),
-  ...(s.plasticityDiagnostics ? {projection: s.projection, rewardBaseline: s.rewardBaseline, plasticityDiagnostics: s.plasticityDiagnostics} : {})});
+  ...(s.plasticityDiagnostics ? {projection: s.projection, rewardBaseline: s.rewardBaseline, plasticityDiagnostics: s.plasticityDiagnostics} : {}),
+  ...(s.actuator ? {actuator:s.actuator} : {})});
 
 // Emit factual transition/decision records for a separate Python implementation.
 // The recorder receives copies only; none of its outputs returns to a learner.

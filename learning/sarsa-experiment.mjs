@@ -26,7 +26,7 @@ export function billSarsaWork(state, pricing) {
   state.charge.operationsBilled = state.work.scalarOperations;
   state.charge.outstandingEnergy += due; state.charge.incurredEnergy += due;
 }
-function chargeForStep(state, pricing) {
+export function chargeForStep(state, pricing) {
   billSarsaWork(state, pricing);
   // Numeric values have fixed size in the declared encoding; changes in
   // array/object shape occur at decisions, reset/freeze or terminal events.

@@ -1,5 +1,7 @@
 # Task and action authority after the sparse-policy screen
 
+Continuation: the opt-in environment and controls below have now been implemented and the [separate action-authority diagnostic passed](CUE_ACTION_AUTHORITY_RESULTS.md), including exact cold replay and independent arithmetic. This is no learned-skill result. The original not-yet-implemented statements below record the earlier design decision; current learning/retention qualification and later recursive stages remain open.
+
 This is a post-result source audit and next-design decision, not another qualification result. The original fixed screen and every subsequent failed bank remain closed. It does not establish the cause of their failure or show that the environment is unlearnable.
 
 The [phase source](../learning/continual-regimes.mjs) changes resource layouts at phase entry, shifts renewal centers during B, and lowers the renewal multiplier in C. Within B it moves renewal centers without moving existing food. All entry operations preserve existing energy. The [engine](../engine.mjs) applies the multiplier to **regrowth**, while consuming any food patch transfers its amount directly into body energy. The tasks contain no learned odor-to-quality associations or differing food valences. Lower renewal does not imply that C immediately has low inventory. This restates source behavior, not a new environmental experiment.

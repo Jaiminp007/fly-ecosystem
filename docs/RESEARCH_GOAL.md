@@ -1,5 +1,7 @@
 # Revised research goal
 
+Latest: [cue/action authority passed](CUE_ACTION_AUTHORITY_RESULTS.md) its separately fixed 128-world nonlearning diagnostic and both audits. It demonstrates useful cue/action headroom, with substantial energy loss and mortality still present. The cue environment and test substrate now exist. The next obligation is a separate fixed learning/retention protocol; autonomous revisions and copied-improvement/search-productivity remain later, unachieved stages. [Plain-language progress](PROGRESS.md).
+
 Latest: [a sparse dopamine-gated direct policy](MUSHROOM_POLICY_RESULTS.md) was tested as a different mechanism and failed its fresh development bank. The confirmation reserve remains closed; no biological or RSI claim follows its motivation. [Source/task reassessment](EMBODIED_TASK_REASSESSMENT.md) identifies the next obligation as a new prospective cue-learning/action-authority design with unchanged honest energy, survival, acquisition and retention standards, plus transfer back to the original task. The later persistent-revision and copied-improvement/search-productivity stages remain required.
 
 Latest progress: [bounded replay development](RETRACE_RESULTS.md) also failed its fixed gate. Its full cold physical replay and corrected independent arithmetic audit passed; its sixteen confirmation histories remain unopened. Continuing embodied qualification is still required before persistent autonomous algorithm revisions or copied-improvement/search-productivity experiments can establish the goal.
