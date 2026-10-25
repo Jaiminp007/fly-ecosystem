@@ -1,0 +1,971 @@
+{
+  "schema": 1,
+  "phase": "development",
+  "histories": 8,
+  "comparisons": [
+    {
+      "id": "B-acquisition",
+      "terms": [
+        [
+          "B:B",
+          1
+        ],
+        [
+          "B:A",
+          -1
+        ]
+      ],
+      "mean": 0.007721515947104116,
+      "pOneSided": 0.375,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0,
+        0.000030467524509858457,
+        0.16760160924651146,
+        -0.10585987566477661,
+        -3.676470594626835e-8,
+        0,
+        0,
+        -3.676470583524605e-8
+      ],
+      "se": 0.02632884050058169,
+      "lower": -0.09938126635515653,
+      "upper": 0.11482429824936476,
+      "developmentPass": true,
+      "confirmationPass": false
+    },
+    {
+      "id": "C-acquisition",
+      "terms": [
+        [
+          "C:C",
+          1
+        ],
+        [
+          "C:B",
+          -1
+        ]
+      ],
+      "mean": -0.020629436503165594,
+      "pOneSided": 0.78125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        3.6764705724223745e-8,
+        0.000008371936274675917,
+        -0.0001636575850963995,
+        -0.1648886150774833,
+        0,
+        0,
+        0,
+        0.000008371936274564895
+      ],
+      "se": 0.02060846441160701,
+      "lower": -0.10446236782467466,
+      "upper": 0.06320349481834348,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-incumbent",
+      "main": "incumbent",
+      "mean": -0.8938529097461689,
+      "pOneSided": 1,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.5317252347120558,
+        -0.9160738832989495,
+        -1.5388104486535426,
+        -1.2772698587416969,
+        -0.2626349082406705,
+        -0.9216798652279721,
+        -0.3615561092667008,
+        -1.3410729698277635
+      ],
+      "se": 0.16782033224754014,
+      "lower": -1.57652727629126,
+      "upper": -0.21117854320107787,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-accept",
+      "main": "accept",
+      "mean": 0.008728025158925234,
+      "pOneSided": 0.46875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0.09030829635116788,
+        -0.0004709775010098838,
+        0.7441576464807298,
+        0.2454392990895542,
+        -0.0787938376088988,
+        -0.9299526605891657,
+        -0.0004665036764635033,
+        -0.0003970612745121116
+      ],
+      "se": 0.16325802486526997,
+      "lower": -0.6553873845514171,
+      "upper": 0.6728434348692676,
+      "developmentPass": true,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-refuse",
+      "main": "refuse",
+      "mean": 0.13933080022514766,
+      "pOneSided": 0.125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0.0903035769884184,
+        -0.00047188926571095635,
+        0.7814567274889015,
+        0.24542986894249452,
+        -0.0008105073529378615,
+        -0.00037576470587907806,
+        -0.0004841470588132779,
+        -0.0004014632352919989
+      ],
+      "se": 0.09671035684348936,
+      "lower": -0.2540761291515312,
+      "upper": 0.5327377296018265,
+      "developmentPass": true,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-slowAccept",
+      "main": "slowAccept",
+      "mean": -2.488319661082002,
+      "pOneSided": 1,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -2.7358461235342943,
+        -2.9798202858076834,
+        -1.7226387945341912,
+        -2.8903536339571687,
+        -1.4228802648567367,
+        -1.6029046583111537,
+        -4.164353323663072,
+        -2.387760203991718
+      ],
+      "se": 0.3215215665711034,
+      "lower": -3.7962334808791898,
+      "upper": -1.1804058412848146,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-tasteReflex",
+      "main": "tasteReflex",
+      "mean": -0.10456938688849071,
+      "pOneSided": 0.78125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.31036667118135597,
+        -0.11140065267643706,
+        0.6438269626862763,
+        0.21021371054105487,
+        -0.1941893733796718,
+        -0.39626077171782015,
+        -0.18226145208595312,
+        -0.4961168472940187
+      ],
+      "se": 0.13052406453038215,
+      "lower": -0.6355267022436765,
+      "upper": 0.42638792846669504,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-cueBlind",
+      "main": "cueBlind",
+      "mean": -0.10467668538969299,
+      "pOneSided": 0.77734375,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.7447022077973315,
+        -0.18806082074617336,
+        0.6427576401988802,
+        -0.25634106610138474,
+        -0.00038754098810045434,
+        0.00010747549019640701,
+        -0.24909631978367486,
+        -0.04169064338995554
+      ],
+      "se": 0.13659938539809102,
+      "lower": -0.6603477274392324,
+      "upper": 0.45099435665984644,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-shuffled",
+      "main": "shuffled",
+      "mean": -0.08196237727831601,
+      "pOneSided": 0.671875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0.09104475836096526,
+        -0.945675338589254,
+        0.6518361978488656,
+        0.11734852869280132,
+        -0.00036533088236012645,
+        -0.45874385088121983,
+        -0.000004754901951287138,
+        -0.11113922787437502
+      ],
+      "se": 0.1642247714873222,
+      "lower": -0.7500104042644103,
+      "upper": 0.5860856497077783,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-fastOnly",
+      "main": "fastOnly",
+      "mean": -0.06832616289211302,
+      "pOneSided": 0.8359375,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0.07616365282055426,
+        -0.44373687705848397,
+        -0.11790642770023396,
+        -0.06126358502226026,
+        -0.00028362745098320374,
+        0.0000601470588179609,
+        0.00024986519608205526,
+        0.00010754901960297047
+      ],
+      "se": 0.05716687858375175,
+      "lower": -0.300874639598486,
+      "upper": 0.16422231381425995,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-linear",
+      "main": "linear",
+      "mean": -0.3710626688036536,
+      "pOneSided": 0.98828125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0.09102823875312538,
+        -0.7826171143221501,
+        -0.058189082287995575,
+        -1.16388748185242,
+        -0.34092453892185404,
+        -0.27216275109501,
+        -0.37866227298064814,
+        -0.06308634772227606
+      ],
+      "se": 0.1472948211389371,
+      "lower": -0.9702415487982156,
+      "upper": 0.2281162111909084,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-frozen",
+      "main": "frozen",
+      "mean": -0.1663066472971657,
+      "pOneSided": 0.88671875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.28345479068647705,
+        -0.5169379658993307,
+        0.5242797655606779,
+        -0.5027161205987909,
+        -0.38179139329477607,
+        -0.16965270715962788,
+        -0.00021626531861329568,
+        0.000036299019612329175
+      ],
+      "se": 0.12162939898700055,
+      "lower": -0.6610814567298757,
+      "upper": 0.32846816213554425,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "sequence-reset",
+      "main": "reset",
+      "mean": -0.1748833150925302,
+      "pOneSided": 0.85546875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.8745402496704457,
+        -0.00007435985395431999,
+        0.7601852780963014,
+        -1.1767129868878001,
+        -0.000277794850305213,
+        0.0000865686274522659,
+        -0.10779515144659513,
+        0.00006217524510532257
+      ],
+      "se": 0.21104765272627024,
+      "lower": -1.0334015929804392,
+      "upper": 0.6836349627953788,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "A-initial-skill",
+      "terms": [
+        [
+          "A:A",
+          1
+        ],
+        [
+          "A:reset",
+          -1
+        ]
+      ],
+      "mean": -0.0004748097470974738,
+      "pOneSided": 0.75,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.000016630514705795463,
+        -0.00013062438725486292,
+        -0.1359991491229411,
+        0.13573384148929613,
+        -0.000012519607843208824,
+        -0.000012519607843208824,
+        -0.0032175392156839067,
+        -0.00014333700980384556
+      ],
+      "se": 0.02567935228451561,
+      "lower": -0.10493554653232626,
+      "upper": 0.10398592703813131,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "B-initial-skill",
+      "terms": [
+        [
+          "B:B",
+          1
+        ],
+        [
+          "B:reset",
+          -1
+        ]
+      ],
+      "mean": -0.00750658797659616,
+      "pOneSided": 0.98828125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.00005339460784314909,
+        -0.000031299019607744505,
+        -0.003301028799014727,
+        -0.05341750467061601,
+        -0.000047171568627546456,
+        -0.000025039215686306626,
+        -0.0032112794117660215,
+        0.000034013480392225404
+      ],
+      "se": 0.006578992333656544,
+      "lower": -0.03426919393580241,
+      "upper": 0.019256017982610094,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "A-retention",
+      "terms": [
+        [
+          "A:C",
+          1
+        ],
+        [
+          "A:A",
+          -0.95
+        ],
+        [
+          "A:reset",
+          -0.05
+        ]
+      ],
+      "mean": -0.028341278228949426,
+      "pOneSided": 0.921875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.000009240226715653832,
+        0.0000018407169116718691,
+        -0.006808329392421583,
+        -0.2198730381671148,
+        -6.259803921812579e-7,
+        -6.259803921361551e-7,
+        -0.00016087696078426889,
+        0.00012067015931353786
+      ],
+      "se": 0.027374624061666852,
+      "lower": -0.1396981912467542,
+      "upper": 0.08301563478885535,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "B-retention",
+      "terms": [
+        [
+          "B:C",
+          1
+        ],
+        [
+          "B:B",
+          -0.95
+        ],
+        [
+          "B:reset",
+          -0.05
+        ]
+      ],
+      "mean": -0.022068654424747303,
+      "pOneSided": 0.9921875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.000002669730392167169,
+        -0.00000993688725514641,
+        -0.15549679796391344,
+        -0.020877393745339215,
+        -0.000002321813725447708,
+        -0.0000012519607843763936,
+        -0.00016056397058824418,
+        0.0000017006740196112702
+      ],
+      "se": 0.01923489276316474,
+      "lower": -0.10031404970430954,
+      "upper": 0.056176740854814944,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "transfer-reset",
+      "terms": [
+        [
+          "transfer:C",
+          1
+        ],
+        [
+          "transfer:reset",
+          -1
+        ]
+      ],
+      "mean": 0.030749826663217253,
+      "pOneSided": 0.296875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.2093017684502223,
+        -0.0017044982248704266,
+        -0.0670140689808314,
+        0.11443815865113455,
+        0.16845062054838808,
+        0.25348356053372184,
+        -0.004813789215689812,
+        -0.007539601555892561
+      ],
+      "se": 0.05115491940648461,
+      "lower": -0.17734267162820444,
+      "upper": 0.23884232495463892,
+      "developmentPass": true,
+      "confirmationPass": false
+    },
+    {
+      "id": "transfer-accept",
+      "terms": [
+        [
+          "transfer:C",
+          1
+        ],
+        [
+          "transfer:accept",
+          -1
+        ]
+      ],
+      "mean": -3.9146387444491575,
+      "pOneSided": 1,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -2.804823857057558,
+        -4.619255645916151,
+        -5.292604354997528,
+        -3.794796730941081,
+        -4.315169537955383,
+        -1.3899937228407453,
+        -2.357778802525183,
+        -6.742687303359629
+      ],
+      "se": 0.6064718566984458,
+      "lower": -6.381698516374412,
+      "upper": -1.4475789725239032,
+      "developmentPass": false,
+      "confirmationPass": false
+    },
+    {
+      "id": "null-equivalence",
+      "null": true,
+      "mean": 0.22415391269272078,
+      "pOneSided": 0.00390625,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        0.042674717301181886,
+        0.07994120032783769,
+        0.45351653271599446,
+        0.7310044729423879,
+        0.1664227205529727,
+        0.23494976837727677,
+        0.00028135352715707995,
+        0.08444053579695776
+      ],
+      "se": 0.0882695646194224,
+      "lower": -0.1850586838426423,
+      "upper": 0.6333665092280838,
+      "developmentPass": true,
+      "confirmationPass": false
+    },
+    {
+      "id": "trace-contribution",
+      "main": "lambda0",
+      "optional": true,
+      "mean": 0.034276200151738934,
+      "pOneSided": 0.421875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "effects": [
+        -0.27150277383245225,
+        0.0001024416166330866,
+        0.7822033990575363,
+        0.10113248345180637,
+        -0.0003568014705876976,
+        0.00029770833333486735,
+        -0.302442018489657,
+        -0.03522483745270222
+      ],
+      "se": 0.11795103553440586,
+      "lower": -0.4455354376182031,
+      "upper": 0.5140878379216809,
+      "developmentPass": true,
+      "confirmationPass": false
+    }
+  ],
+  "survival": [
+    {
+      "control": "lambda0",
+      "effects": [
+        -0.041666666666666664,
+        0,
+        0.08333333333333333,
+        -0.041666666666666664,
+        0,
+        0,
+        -0.08333333333333333,
+        -0.041666666666666664
+      ],
+      "mean": -0.015625,
+      "ci95": [
+        -0.0569988024372035,
+        0.025748802437203497
+      ],
+      "passed": false
+    },
+    {
+      "control": "frozen",
+      "effects": [
+        -0.041666666666666664,
+        -0.041666666666666664,
+        0.041666666666666664,
+        -0.041666666666666664,
+        -0.041666666666666664,
+        -0.041666666666666664,
+        0,
+        0
+      ],
+      "mean": -0.020833333333333332,
+      "ci95": [
+        -0.04716551725570519,
+        0.005498850589038526
+      ],
+      "passed": false
+    },
+    {
+      "control": "reset",
+      "effects": [
+        -0.041666666666666664,
+        0,
+        0.041666666666666664,
+        -0.08333333333333334,
+        0,
+        0,
+        -0.041666666666666664,
+        0
+      ],
+      "mean": -0.015625,
+      "ci95": [
+        -0.047537499400566036,
+        0.016287499400566036
+      ],
+      "passed": false
+    },
+    {
+      "control": "cueBlind",
+      "effects": [
+        -0.125,
+        -0.041666666666666664,
+        0.041666666666666664,
+        0,
+        0,
+        0,
+        -0.041666666666666664,
+        -0.041666666666666664
+      ],
+      "mean": -0.026041666666666664,
+      "ci95": [
+        -0.06741546910387017,
+        0.01533213577053684
+      ],
+      "passed": false
+    },
+    {
+      "control": "shuffled",
+      "effects": [
+        0.041666666666666664,
+        -0.08333333333333333,
+        0,
+        0,
+        0,
+        -0.041666666666666664,
+        0,
+        -0.08333333333333333
+      ],
+      "mean": -0.020833333333333332,
+      "ci95": [
+        -0.058072664963254375,
+        0.016405998296587707
+      ],
+      "passed": false
+    },
+    {
+      "control": "fastOnly",
+      "effects": [
+        0,
+        -0.041666666666666664,
+        0.041666666666666664,
+        -0.041666666666666664,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": -0.005208333333333333,
+      "ci95": [
+        -0.027532528400567302,
+        0.017115861733900638
+      ],
+      "passed": false
+    },
+    {
+      "control": "linear",
+      "effects": [
+        0.041666666666666664,
+        -0.041666666666666664,
+        -0.04166666666666667,
+        -0.041666666666666664,
+        -0.041666666666666664,
+        -0.041666666666666664,
+        -0.08333333333333333,
+        -0.041666666666666664
+      ],
+      "mean": -0.036458333333333336,
+      "ci95": [
+        -0.06552827726965221,
+        -0.007388389397014458
+      ],
+      "passed": false
+    },
+    {
+      "control": "incumbent",
+      "effects": [
+        -0.125,
+        -0.08333333333333333,
+        -0.08333333333333333,
+        -0.20833333333333334,
+        -0.20833333333333334,
+        -0.20833333333333334,
+        -0.125,
+        -0.16666666666666666
+      ],
+      "mean": -0.15104166666666669,
+      "ci95": [
+        -0.1964121800335392,
+        -0.10567115329979418
+      ],
+      "passed": false
+    },
+    {
+      "control": "accept",
+      "effects": [
+        0.041666666666666664,
+        0,
+        0.041666666666666664,
+        0.041666666666666664,
+        -0.041666666666666664,
+        -0.041666666666666664,
+        0,
+        0
+      ],
+      "mean": 0.005208333333333335,
+      "ci95": [
+        -0.02386161060298555,
+        0.03427827726965222
+      ],
+      "passed": true
+    },
+    {
+      "control": "refuse",
+      "effects": [
+        0.041666666666666664,
+        0,
+        0.08333333333333333,
+        0.041666666666666664,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0.020833333333333332,
+      "ci95": [
+        -0.005498850589038526,
+        0.04716551725570519
+      ],
+      "passed": true
+    },
+    {
+      "control": "slowAccept",
+      "effects": [
+        -0.3333333333333333,
+        -0.4166666666666667,
+        -0.25,
+        -0.375,
+        -0.25,
+        -0.2916666666666667,
+        -0.375,
+        -0.4166666666666667
+      ],
+      "mean": -0.3385416666666667,
+      "ci95": [
+        -0.39574223769429184,
+        -0.2813410956390415
+      ],
+      "passed": false
+    },
+    {
+      "control": "tasteReflex",
+      "effects": [
+        -0.08333333333333334,
+        -0.08333333333333333,
+        0.041666666666666664,
+        0,
+        -0.041666666666666664,
+        -0.08333333333333333,
+        -0.041666666666666664,
+        -0.08333333333333333
+      ],
+      "mean": -0.046875,
+      "ci95": [
+        -0.08609802322083729,
+        -0.007651976779162704
+      ],
+      "passed": false
+    }
+  ],
+  "pressure": [
+    {
+      "seed": 3777889590,
+      "aCells": 741,
+      "bCells": 920,
+      "reusedA": 697,
+      "reusedB": 706,
+      "aReuse": 0.9406207827260459,
+      "bReuse": 0.7673913043478261,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 4093582258,
+      "aCells": 1066,
+      "bCells": 955,
+      "reusedA": 898,
+      "reusedB": 576,
+      "aReuse": 0.8424015009380863,
+      "bReuse": 0.6031413612565445,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 3283174157,
+      "aCells": 859,
+      "bCells": 979,
+      "reusedA": 739,
+      "reusedB": 620,
+      "aReuse": 0.860302677532014,
+      "bReuse": 0.6332992849846782,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 723125794,
+      "aCells": 1078,
+      "bCells": 1260,
+      "reusedA": 1010,
+      "reusedB": 785,
+      "aReuse": 0.9369202226345084,
+      "bReuse": 0.623015873015873,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 7988114,
+      "aCells": 1057,
+      "bCells": 1048,
+      "reusedA": 986,
+      "reusedB": 842,
+      "aReuse": 0.9328287606433302,
+      "bReuse": 0.8034351145038168,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 2478041482,
+      "aCells": 960,
+      "bCells": 755,
+      "reusedA": 772,
+      "reusedB": 658,
+      "aReuse": 0.8041666666666667,
+      "bReuse": 0.871523178807947,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 3465113618,
+      "aCells": 781,
+      "bCells": 1153,
+      "reusedA": 745,
+      "reusedB": 876,
+      "aReuse": 0.9539052496798975,
+      "bReuse": 0.7597571552471812,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    },
+    {
+      "seed": 2094616765,
+      "aCells": 1113,
+      "bCells": 1019,
+      "reusedA": 921,
+      "reusedB": 679,
+      "aReuse": 0.8274932614555256,
+      "bReuse": 0.6663395485770363,
+      "bodiesOverReceiptCapacity": 24,
+      "founders": 24,
+      "passed": true
+    }
+  ],
+  "activity": [
+    {
+      "seed": 3777889590,
+      "updates": 4329,
+      "fraction": 1,
+      "absoluteTransfer": 13.99265258137229,
+      "passed": true
+    },
+    {
+      "seed": 4093582258,
+      "updates": 4279,
+      "fraction": 1,
+      "absoluteTransfer": 15.845425743411177,
+      "passed": true
+    },
+    {
+      "seed": 3283174157,
+      "updates": 4263,
+      "fraction": 1,
+      "absoluteTransfer": 14.96349732851791,
+      "passed": true
+    },
+    {
+      "seed": 723125794,
+      "updates": 4330,
+      "fraction": 1,
+      "absoluteTransfer": 14.273719882938398,
+      "passed": true
+    },
+    {
+      "seed": 7988114,
+      "updates": 4264,
+      "fraction": 1,
+      "absoluteTransfer": 13.170948929223869,
+      "passed": true
+    },
+    {
+      "seed": 2478041482,
+      "updates": 4215,
+      "fraction": 1,
+      "absoluteTransfer": 13.886136756475151,
+      "passed": true
+    },
+    {
+      "seed": 3465113618,
+      "updates": 4351,
+      "fraction": 1,
+      "absoluteTransfer": 12.281290668288122,
+      "passed": true
+    },
+    {
+      "seed": 2094616765,
+      "updates": 4247,
+      "fraction": 1,
+      "absoluteTransfer": 13.906062298965185,
+      "passed": true
+    }
+  ],
+  "promising": false,
+  "qualified": false,
+  "boundary": "One human-proposed fixed circuit on a fixed cue environment. Passing conditioning is not autonomous algorithm revision or RSI. Original-ecology transfer gates cannot be replaced with a conditioning-only claim.",
+  "protocolSha256": "83062f1accfaf965fe988043232e7762785a2c95c11499b5bb35256fc9009483",
+  "rowSha256": [
+    "0e8b0b18912dedfac5f5d59e903644c75c96a0748bdb4dfaab16bf110315b54b",
+    "1ad181cd3fb9ea0b75542154139cfa450f584fba8b2ff23f3b125ac7c4f51413",
+    "b291c0ca5d6405ba35a08f19e47139b2ade64e72080b79d0685a7609a2da423b",
+    "3210d94406bbb826486db87653dd6c0a2f4569d594ce32ccd664901911283f9c",
+    "57acb1713a1f69e67e730982cb56be4e6d69dabc1be7fce508f34aa85c802415",
+    "2be4853b41608b86f1c349c128bba17815e23ad17dcc4429d8e9e2a555afbb4b",
+    "f6e77b398517ce86a048ff4f65e73b5f9ffce1e34a40fb0df9b830eea800103a",
+    "2db512560efb7ba82f9a10276a5c1f080b986765f7ee760d77bd85d66e40989b"
+  ]
+}

@@ -111,18 +111,21 @@ export class CueExperiment {
       if(decision){this.flushLedger(fly.id);const observation=this.observation(fly,raw,tick), own={agentId:fly.id,tick,energy:fly.energy-s.charge.outstandingEnergy,observation};
         if(learned(this.arm))s.actuator.heldAction=api.choose(s,own);else {s.actuator.heldAction=this.fixedChoice(s,fly,observation);s.decisions++;s.lastDecisionTick=tick;
           this.emit({program:'fixed',type:'decision',arm:this.arm,agentId:fly.id,tick,observation,choice:s.actuator.heldAction,sensedValence:fly.sensedValence,rngState:s.rngState});}
-        s.actuator.decisions++;
+      s.actuator.decisions++;
+        if(learned(this.arm))this.emit({program:'observation-receipt',type:'own',arm:this.arm,agentId:fly.id,tick,observation,physicalEnergy:fly.energy,observedEnergy:own.energy,outstandingEnergy:own.energy===fly.energy?0:fly.energy-own.energy});
       }
       // Arithmetic/transcendental operations in motorPrimitive: six for
       // approach, nine for avoidance. Constants/assignments are unpriced.
       if(this.arm!=='incumbent'){const work=s.actuator.heldAction>0?6:9;s.actuator.ticks++;s.actuator.scalarOperations+=work;s.work.scalarOperations+=work;}
       const bill=this.arm==='incumbent'?{energyCost:0}:chargeForStep(s,this.pricing);
       return {...bill,afterController:outputs=>{if(this.arm!=='incumbent'){const action=motorPrimitive(raw,s.actuator.heldAction,this.arm==='slowAccept');for(let j=0;j<5;j++)outputs[j]=action[j];}},
-        afterStep:r=>{const old=this.receipts[fly.id];if(old){old.finalEnergy=r.finalEnergy;old.cost+=r.cost;old.paidExtra+=r.paidExtra;old.beneficialEaten+=r.beneficialEaten;old.harmfulEaten+=r.harmfulEaten;old.toxinDamage+=r.toxinDamage;old.steps++;}
-          else this.receipts[fly.id]={agentId:fly.id,tick,steps:1,initialEnergy:r.initialEnergy,finalEnergy:r.finalEnergy,cost:r.cost,paidExtra:r.paidExtra,beneficialEaten:r.beneficialEaten,harmfulEaten:r.harmfulEaten,toxinDamage:r.toxinDamage};}};
+        afterStep:r=>{const old=this.receipts[fly.id];if(old){old.finalEnergy=r.finalEnergy;old.cost+=r.cost;old.paidExtra+=r.paidExtra;old.beneficialEaten+=r.beneficialEaten;old.harmfulEaten+=r.harmfulEaten;old.toxinDamage+=r.toxinDamage;old.steps++;old.storageByteSeconds+=s.charge.storageBytes*.1;}
+          else this.receipts[fly.id]={agentId:fly.id,tick,steps:1,action:s.actuator.heldAction,initialEnergy:r.initialEnergy,finalEnergy:r.finalEnergy,cost:r.cost,paidExtra:r.paidExtra,beneficialEaten:r.beneficialEaten,harmfulEaten:r.harmfulEaten,toxinDamage:r.toxinDamage,storageByteSeconds:s.charge.storageBytes*.1};}};
     });
     for(const fly of before){const s=this.learners[fly.id],alive=this.world.flies.includes(fly);
-      if(learned(this.arm))api.observe(s,{agentId:fly.id,tick:this.world.tick,energy:(alive?fly.energy:0)-s.charge.outstandingEnergy,terminal:!alive});else{s.lastObservedTick=this.world.tick;s.dead=!alive;}
+      if(learned(this.arm)){const own={agentId:fly.id,tick:this.world.tick,energy:(alive?fly.energy:0)-s.charge.outstandingEnergy,terminal:!alive};
+        if(!alive)this.emit({program:'observation-receipt',type:'terminal',arm:this.arm,...own,physicalEnergy:0,outstandingEnergy:s.charge.outstandingEnergy});api.observe(s,own);
+      }else{s.lastObservedTick=this.world.tick;s.dead=!alive;}
       if(!alive){if(this.arm!=='incumbent')billSarsaWork(s,this.pricing);this.flushLedger(fly.id,fly.energy);}
       const transitions=s.recent.filter(tr=>tr.experience>previous[fly.id]);for(const tr of transitions)this.pressureRecord(fly.id,tr);
       const decision=learned(this.arm)&&s.lastDecisionTick===this.world.tick?s.history.at(-1):null;
@@ -148,7 +151,8 @@ export function pressureSummary(run){const ds=Object.values(run.pressure), count
   const reuseA=ds.reduce((s,d)=>s+d.A.filter(i=>d.B.includes(i)||d.C.includes(i)).length,0),reuseB=ds.reduce((s,d)=>s+d.B.filter(i=>d.C.includes(i)).length,0);
   return {aCells:a,bCells:b,reusedA:reuseA,reusedB:reuseB,aReuse:a?reuseA/a:0,bReuse:b?reuseB/b:0,bodiesOverReceiptCapacity:ds.filter(d=>d.transitions>16).length,founders:run.founderIds.length};}
 export function simulateCueArm(p,h,arm,emit=()=>{}){const run=new CueExperiment({history:h,arm,reference:p.reference,pricing:p.pricing,emit});
-  emit({program:run.eventProgram(),type:'start',arm,seed:h.seed,learners:Object.values(run.learners).map(learnerSummary)});
+  emit({program:run.eventProgram(),type:'start',arm,seed:h.seed,learners:Object.values(run.learners).map(learnerSummary),initialEnergy:run.world.initialEnergy,
+    initialFoodInventory:run.world.food.reduce((s,p)=>s+p.amount,0)});
   run.advance(1792);for(const id of Object.keys(run.receipts))run.flushLedger(id);
   const learners=Object.values(run.learners).map(learnerSummary);emit({program:run.eventProgram(),type:'end',arm,learners});
   return {row:{arm,endpoint:run.endpoint(),learners,phases:run.phaseRows,finalSha256:digest(run.checkpoint()),pressure:arm==='candidate'?pressureSummary(run):null},atC:run.atC};}
@@ -156,7 +160,9 @@ export function runCueProbe(atC,spec,resourceSeed,founders){
   if(!atC)return {...spec,resourceSeed,founders,survival:0,value:0,skippedAllDead:true};
   const run=CueExperiment.restore(atC),api=embodiedProgram(run.program).api,current=structuredClone(run.learners),source=spec.version==='C'?current:run.savedModels[spec.version];
   for(const [id,s] of Object.entries(current)){const model=spec.version==='reset'?api.create(s.agentId,s.rngState,s.config):structuredClone(source?.[id]||s);api.freeze(model);model.history=[];model.rngState=s.rngState;model.lastObservedTick=run.world.tick;model.lastDecisionTick=run.world.tick-7;
-    model.actuator={heldAction:1,ticks:0,decisions:0,scalarOperations:0};model.dead=!run.world.flies.some(f=>f.id===+id);model.charge={operationsBilled:model.work.scalarOperations,outstandingEnergy:0,incurredEnergy:0,paidEnergy:0,storageBytes:0};run.learners[id]=model;}
+    model.actuator={heldAction:1,ticks:0,decisions:0,scalarOperations:0};model.dead=!run.world.flies.some(f=>f.id===+id);model.charge={operationsBilled:model.work.scalarOperations,outstandingEnergy:0,incurredEnergy:0,paidEnergy:0,storageBytes:0};
+    if(spec.version==='accept'){const fixed=fixedState(s.agentId,s.rngState);fixed.actuator={heldAction:1,ticks:0,decisions:0,scalarOperations:0};fixed.dead=model.dead;fixed.lastObservedTick=run.world.tick;fixed.lastDecisionTick=run.world.tick-7;run.learners[id]=fixed;}
+    else run.learners[id]=model;}
   run.arm=spec.version==='accept'?'accept':'frozen';run.receipts={};run.phaseRows=[];run.savedModels={};run.atC=null;
   run.transfer=spec.family==='transfer';const phase=CONTINUAL_PHASES.find(v=>v.id===(run.transfer?'A':spec.family));
   run.phaseIndex=CONTINUAL_PHASES.indexOf(phase);run.phaseEnd=run.world.tick+256;

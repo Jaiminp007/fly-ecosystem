@@ -56,6 +56,9 @@ test('common-body skill and original-ecology probes are read-only and do not ref
     const a=runCueProbe(run.atC,{family,version:'C'},114,4),b=runCueProbe(run.atC,{family,version:'reset'},114,4);
     assert.equal(a.startWorldSha256,b.startWorldSha256);assert.equal(a.founders,4);assert.ok(a.acquisitionDisabled&&a.learnedWeightsUnchanged);
   }
+  const accept=runCueProbe(run.atC,{family:'transfer',version:'accept'},114,4),reset=runCueProbe(run.atC,{family:'transfer',version:'reset'},114,4);
+  assert.equal(accept.startWorldSha256,reset.startWorldSha256);
+  assert.ok(accept.endpoint.encodedBytes<reset.endpoint.encodedBytes,'A fixed transfer control must not carry an unused learned circuit');
   assert.equal(digest(run.checkpoint()),before);
 });
 

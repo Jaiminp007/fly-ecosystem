@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "passed": true,
+  "phase": "development",
+  "protocolSha256": "83062f1accfaf965fe988043232e7762785a2c95c11499b5bb35256fc9009483",
+  "resultsSha256": "3945a41159cb92cddfcf70d63036431b8a1fc75732d5042471c73006aad8df1c",
+  "physicalReceipts": 522935,
+  "observedDecisions": 343319,
+  "factualTransitions": 320703,
+  "decisions": 343319,
+  "learnerBodies": 1920,
+  "limits": "Independent inference/plasticity, own-reward and physical ledger reconstruction; storage-time charges use recorded byte receipts. Exact full cold replay is separate.",
+  "warnings": []
+}

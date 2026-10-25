@@ -1,0 +1,494 @@
+{
+  "schema": 1,
+  "scope": "Post-hoc description only; no new worlds, fitting, gate changes or counterfactual outcomes.",
+  "histories": [
+    {
+      "seed": 3777889590,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 787,
+          "noCue": 41,
+          "foodContact": 694,
+          "good": 112.13941046606926,
+          "harm": 105.7203652115811,
+          "positiveCueDecisions": 791,
+          "negativeCueDecisions": 704,
+          "meanApproachProbabilityPositiveCue": 0.5063384709829626,
+          "meanApproachProbabilityNegativeCue": 0.5038499153560453,
+          "descriptiveDiscrimination": 0.0024885556269172993
+        },
+        {
+          "phase": "B",
+          "completed": 1529,
+          "approach": 768,
+          "noCue": 38,
+          "foodContact": 666,
+          "good": 141.73173686535475,
+          "harm": 157.01454306652252,
+          "positiveCueDecisions": 692,
+          "negativeCueDecisions": 799,
+          "meanApproachProbabilityPositiveCue": 0.5054579780123211,
+          "meanApproachProbabilityNegativeCue": 0.4968574551852083,
+          "descriptiveDiscrimination": 0.008600522827112766
+        },
+        {
+          "phase": "C",
+          "completed": 1172,
+          "approach": 566,
+          "noCue": 0,
+          "foodContact": 486,
+          "good": 109.4992695739713,
+          "harm": 102.9720391585524,
+          "positiveCueDecisions": 628,
+          "negativeCueDecisions": 544,
+          "meanApproachProbabilityPositiveCue": 0.5044212152616293,
+          "meanApproachProbabilityNegativeCue": 0.502553200627959,
+          "descriptiveDiscrimination": 0.0018680146336702563
+        },
+        {
+          "phase": "return-A",
+          "completed": 92,
+          "approach": 42,
+          "noCue": 0,
+          "foodContact": 38,
+          "good": 13.703496288844038,
+          "harm": 9.152912957413289,
+          "positiveCueDecisions": 60,
+          "negativeCueDecisions": 32,
+          "meanApproachProbabilityPositiveCue": 0.5039451735996754,
+          "meanApproachProbabilityNegativeCue": 0.5094065138891356,
+          "descriptiveDiscrimination": -0.005461340289460215
+        }
+      ]
+    },
+    {
+      "seed": 4093582258,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 743,
+          "noCue": 9,
+          "foodContact": 677,
+          "good": 133.091758645534,
+          "harm": 125.98384929720321,
+          "positiveCueDecisions": 816,
+          "negativeCueDecisions": 711,
+          "meanApproachProbabilityPositiveCue": 0.5049995623243103,
+          "meanApproachProbabilityNegativeCue": 0.5007833705381276,
+          "descriptiveDiscrimination": 0.00421619178618271
+        },
+        {
+          "phase": "B",
+          "completed": 1525,
+          "approach": 762,
+          "noCue": 0,
+          "foodContact": 675,
+          "good": 158.07633620220514,
+          "harm": 176.02173168653212,
+          "positiveCueDecisions": 689,
+          "negativeCueDecisions": 836,
+          "meanApproachProbabilityPositiveCue": 0.5074792781064225,
+          "meanApproachProbabilityNegativeCue": 0.5019888407110374,
+          "descriptiveDiscrimination": 0.005490437395385017
+        },
+        {
+          "phase": "C",
+          "completed": 1155,
+          "approach": 610,
+          "noCue": 0,
+          "foodContact": 530,
+          "good": 95.84357641654107,
+          "harm": 110.14433085639514,
+          "positiveCueDecisions": 516,
+          "negativeCueDecisions": 639,
+          "meanApproachProbabilityPositiveCue": 0.5087096723330315,
+          "meanApproachProbabilityNegativeCue": 0.5054600700227616,
+          "descriptiveDiscrimination": 0.003249602310269939
+        },
+        {
+          "phase": "return-A",
+          "completed": 63,
+          "approach": 26,
+          "noCue": 0,
+          "foodContact": 22,
+          "good": 3.421839146385656,
+          "harm": 1.0871125662532117,
+          "positiveCueDecisions": 21,
+          "negativeCueDecisions": 42,
+          "meanApproachProbabilityPositiveCue": 0.5158489492302281,
+          "meanApproachProbabilityNegativeCue": 0.514752949369124,
+          "descriptiveDiscrimination": 0.001095999861104091
+        }
+      ]
+    },
+    {
+      "seed": 3283174157,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 765,
+          "noCue": 123,
+          "foodContact": 664,
+          "good": 128.10573794226582,
+          "harm": 132.73173678857864,
+          "positiveCueDecisions": 673,
+          "negativeCueDecisions": 740,
+          "meanApproachProbabilityPositiveCue": 0.5001408682460449,
+          "meanApproachProbabilityNegativeCue": 0.49788876097855994,
+          "descriptiveDiscrimination": 0.0022521072674849263
+        },
+        {
+          "phase": "B",
+          "completed": 1527,
+          "approach": 735,
+          "noCue": 2,
+          "foodContact": 649,
+          "good": 163.36998866267066,
+          "harm": 174.45152089028423,
+          "positiveCueDecisions": 811,
+          "negativeCueDecisions": 714,
+          "meanApproachProbabilityPositiveCue": 0.5020850096351107,
+          "meanApproachProbabilityNegativeCue": 0.49997469515593446,
+          "descriptiveDiscrimination": 0.0021103144791762563
+        },
+        {
+          "phase": "C",
+          "completed": 1087,
+          "approach": 504,
+          "noCue": 0,
+          "foodContact": 437,
+          "good": 101.9099488032746,
+          "harm": 92.71655351024606,
+          "positiveCueDecisions": 563,
+          "negativeCueDecisions": 524,
+          "meanApproachProbabilityPositiveCue": 0.5011101762078605,
+          "meanApproachProbabilityNegativeCue": 0.4989176442723798,
+          "descriptiveDiscrimination": 0.0021925319354806905
+        },
+        {
+          "phase": "return-A",
+          "completed": 113,
+          "approach": 59,
+          "noCue": 0,
+          "foodContact": 52,
+          "good": 34.62412250112125,
+          "harm": 20.117056419366662,
+          "positiveCueDecisions": 58,
+          "negativeCueDecisions": 55,
+          "meanApproachProbabilityPositiveCue": 0.5165083212590781,
+          "meanApproachProbabilityNegativeCue": 0.5015663573237157,
+          "descriptiveDiscrimination": 0.014941963935362401
+        }
+      ]
+    },
+    {
+      "seed": 723125794,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 754,
+          "noCue": 7,
+          "foodContact": 679,
+          "good": 129.4125848021496,
+          "harm": 111.22650564768841,
+          "positiveCueDecisions": 834,
+          "negativeCueDecisions": 695,
+          "meanApproachProbabilityPositiveCue": 0.5043033487514278,
+          "meanApproachProbabilityNegativeCue": 0.49622142858660145,
+          "descriptiveDiscrimination": 0.00808192016482634
+        },
+        {
+          "phase": "B",
+          "completed": 1536,
+          "approach": 763,
+          "noCue": 0,
+          "foodContact": 698,
+          "good": 162.42281996383875,
+          "harm": 132.6391713292675,
+          "positiveCueDecisions": 796,
+          "negativeCueDecisions": 740,
+          "meanApproachProbabilityPositiveCue": 0.5042255210402636,
+          "meanApproachProbabilityNegativeCue": 0.49807776826525607,
+          "descriptiveDiscrimination": 0.0061477527750075645
+        },
+        {
+          "phase": "C",
+          "completed": 1145,
+          "approach": 579,
+          "noCue": 0,
+          "foodContact": 524,
+          "good": 85.15697438345147,
+          "harm": 99.30054458039464,
+          "positiveCueDecisions": 518,
+          "negativeCueDecisions": 627,
+          "meanApproachProbabilityPositiveCue": 0.5059986249222508,
+          "meanApproachProbabilityNegativeCue": 0.5031865060314641,
+          "descriptiveDiscrimination": 0.0028121188907866967
+        },
+        {
+          "phase": "return-A",
+          "completed": 113,
+          "approach": 53,
+          "noCue": 0,
+          "foodContact": 48,
+          "good": 3.6204608499844144,
+          "harm": 16.11921875430004,
+          "positiveCueDecisions": 36,
+          "negativeCueDecisions": 77,
+          "meanApproachProbabilityPositiveCue": 0.5078770557186033,
+          "meanApproachProbabilityNegativeCue": 0.5089376396025992,
+          "descriptiveDiscrimination": -0.0010605838839958803
+        }
+      ]
+    },
+    {
+      "seed": 7988114,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 776,
+          "noCue": 0,
+          "foodContact": 698,
+          "good": 110.43156551001894,
+          "harm": 147.39762740354684,
+          "positiveCueDecisions": 676,
+          "negativeCueDecisions": 860,
+          "meanApproachProbabilityPositiveCue": 0.49808187581803887,
+          "meanApproachProbabilityNegativeCue": 0.49326746768603136,
+          "descriptiveDiscrimination": 0.004814408132007508
+        },
+        {
+          "phase": "B",
+          "completed": 1536,
+          "approach": 741,
+          "noCue": 0,
+          "foodContact": 645,
+          "good": 152.9139500518091,
+          "harm": 132.1981595556466,
+          "positiveCueDecisions": 828,
+          "negativeCueDecisions": 708,
+          "meanApproachProbabilityPositiveCue": 0.4946670612845681,
+          "meanApproachProbabilityNegativeCue": 0.49751577883037973,
+          "descriptiveDiscrimination": -0.0028487175458116187
+        },
+        {
+          "phase": "C",
+          "completed": 1128,
+          "approach": 560,
+          "noCue": 0,
+          "foodContact": 511,
+          "good": 133.2705894029429,
+          "harm": 126.01457689586653,
+          "positiveCueDecisions": 577,
+          "negativeCueDecisions": 551,
+          "meanApproachProbabilityPositiveCue": 0.49907073431047766,
+          "meanApproachProbabilityNegativeCue": 0.5007338412633016,
+          "descriptiveDiscrimination": -0.0016631069528239006
+        },
+        {
+          "phase": "return-A",
+          "completed": 64,
+          "approach": 35,
+          "noCue": 0,
+          "foodContact": 31,
+          "good": 8.295542680625454,
+          "harm": 8.15800292758533,
+          "positiveCueDecisions": 43,
+          "negativeCueDecisions": 21,
+          "meanApproachProbabilityPositiveCue": 0.5043145110746435,
+          "meanApproachProbabilityNegativeCue": 0.4993213136956314,
+          "descriptiveDiscrimination": 0.00499319737901216
+        }
+      ]
+    },
+    {
+      "seed": 2478041482,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 758,
+          "noCue": 7,
+          "foodContact": 686,
+          "good": 134.3294356289275,
+          "harm": 139.5405611987575,
+          "positiveCueDecisions": 776,
+          "negativeCueDecisions": 753,
+          "meanApproachProbabilityPositiveCue": 0.5046409793279379,
+          "meanApproachProbabilityNegativeCue": 0.49876193092323684,
+          "descriptiveDiscrimination": 0.005879048404701104
+        },
+        {
+          "phase": "B",
+          "completed": 1536,
+          "approach": 744,
+          "noCue": 0,
+          "foodContact": 673,
+          "good": 153.36049835606835,
+          "harm": 135.88854540763825,
+          "positiveCueDecisions": 752,
+          "negativeCueDecisions": 784,
+          "meanApproachProbabilityPositiveCue": 0.5040190678852604,
+          "meanApproachProbabilityNegativeCue": 0.5010654614352914,
+          "descriptiveDiscrimination": 0.002953606449969004
+        },
+        {
+          "phase": "C",
+          "completed": 1113,
+          "approach": 569,
+          "noCue": 0,
+          "foodContact": 515,
+          "good": 149.97150806330146,
+          "harm": 150.51599680432827,
+          "positiveCueDecisions": 564,
+          "negativeCueDecisions": 549,
+          "meanApproachProbabilityPositiveCue": 0.5058776749769008,
+          "meanApproachProbabilityNegativeCue": 0.504836928266999,
+          "descriptiveDiscrimination": 0.0010407467099018408
+        },
+        {
+          "phase": "return-A",
+          "completed": 30,
+          "approach": 14,
+          "noCue": 0,
+          "foodContact": 12,
+          "good": 0.8158280193711944,
+          "harm": 4.060180740915881,
+          "positiveCueDecisions": 16,
+          "negativeCueDecisions": 14,
+          "meanApproachProbabilityPositiveCue": 0.505187541724578,
+          "meanApproachProbabilityNegativeCue": 0.5020008961887032,
+          "descriptiveDiscrimination": 0.003186645535874777
+        }
+      ]
+    },
+    {
+      "seed": 3465113618,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 790,
+          "noCue": 34,
+          "foodContact": 703,
+          "good": 118.03491350847632,
+          "harm": 84.23558526398331,
+          "positiveCueDecisions": 757,
+          "negativeCueDecisions": 745,
+          "meanApproachProbabilityPositiveCue": 0.5006735675307107,
+          "meanApproachProbabilityNegativeCue": 0.5017416839149604,
+          "descriptiveDiscrimination": -0.001068116384249751
+        },
+        {
+          "phase": "B",
+          "completed": 1533,
+          "approach": 751,
+          "noCue": 0,
+          "foodContact": 684,
+          "good": 171.08078839436556,
+          "harm": 121.46022474443531,
+          "positiveCueDecisions": 863,
+          "negativeCueDecisions": 670,
+          "meanApproachProbabilityPositiveCue": 0.5060018618259917,
+          "meanApproachProbabilityNegativeCue": 0.5008092930804476,
+          "descriptiveDiscrimination": 0.0051925687455440794
+        },
+        {
+          "phase": "C",
+          "completed": 1201,
+          "approach": 621,
+          "noCue": 0,
+          "foodContact": 550,
+          "good": 95.10155958851624,
+          "harm": 131.93722678382318,
+          "positiveCueDecisions": 498,
+          "negativeCueDecisions": 703,
+          "meanApproachProbabilityPositiveCue": 0.500231182011689,
+          "meanApproachProbabilityNegativeCue": 0.5027956477986604,
+          "descriptiveDiscrimination": -0.002564465786971337
+        },
+        {
+          "phase": "return-A",
+          "completed": 81,
+          "approach": 46,
+          "noCue": 0,
+          "foodContact": 43,
+          "good": 11.822754556264115,
+          "harm": 12.303491747077077,
+          "positiveCueDecisions": 55,
+          "negativeCueDecisions": 26,
+          "meanApproachProbabilityPositiveCue": 0.5128324533875824,
+          "meanApproachProbabilityNegativeCue": 0.5142913100322157,
+          "descriptiveDiscrimination": -0.0014588566446332996
+        }
+      ]
+    },
+    {
+      "seed": 2094616765,
+      "phases": [
+        {
+          "phase": "A",
+          "completed": 1536,
+          "approach": 784,
+          "noCue": 0,
+          "foodContact": 706,
+          "good": 128.29719467047465,
+          "harm": 148.79071911282134,
+          "positiveCueDecisions": 675,
+          "negativeCueDecisions": 861,
+          "meanApproachProbabilityPositiveCue": 0.505082613994105,
+          "meanApproachProbabilityNegativeCue": 0.4945250051193834,
+          "descriptiveDiscrimination": 0.010557608874721625
+        },
+        {
+          "phase": "B",
+          "completed": 1536,
+          "approach": 776,
+          "noCue": 0,
+          "foodContact": 686,
+          "good": 145.40743520837648,
+          "harm": 150.4692140207275,
+          "positiveCueDecisions": 568,
+          "negativeCueDecisions": 968,
+          "meanApproachProbabilityPositiveCue": 0.5049711938382209,
+          "meanApproachProbabilityNegativeCue": 0.49413779409066416,
+          "descriptiveDiscrimination": 0.010833399747556705
+        },
+        {
+          "phase": "C",
+          "completed": 1101,
+          "approach": 541,
+          "noCue": 0,
+          "foodContact": 479,
+          "good": 58.36980753559793,
+          "harm": 74.64011863397455,
+          "positiveCueDecisions": 488,
+          "negativeCueDecisions": 613,
+          "meanApproachProbabilityPositiveCue": 0.5037907276214408,
+          "meanApproachProbabilityNegativeCue": 0.4949439252064175,
+          "descriptiveDiscrimination": 0.008846802415023336
+        },
+        {
+          "phase": "return-A",
+          "completed": 74,
+          "approach": 31,
+          "noCue": 0,
+          "foodContact": 27,
+          "good": 3.306252938626348,
+          "harm": 2.001618652574655,
+          "positiveCueDecisions": 43,
+          "negativeCueDecisions": 31,
+          "meanApproachProbabilityPositiveCue": 0.5013972393801266,
+          "meanApproachProbabilityNegativeCue": 0.49475748557138066,
+          "descriptiveDiscrimination": 0.00663975380874593
+        }
+      ]
+    }
+  ]
+}
