@@ -94,3 +94,30 @@ here; no second run under this plan. If the motor line fails, the plan's
 ELSEWHERE branch (observational-disambiguation sensing) is next.
 No PASS/RSI claim of any kind attaches to this measurement study (spent-bank
 reuse, predeclared non-qualifying).
+
+## Addendum 2026-10-28 — the concrete recommended intervention (no new worlds)
+
+Code-path audit (`taste-energy.mjs` `tasteEnergyFeatures` + `progressUpdate`)
+grounds a single recommendation, replacing the two-example hedge above:
+
+**M-ACTOR: rotation-damped slow-direction anchor on the ACTOR readout
+(`weights.actor`), tasted in a V3-Dev-pattern dev gate before any qual.**
+Mechanism hypothesis H1m (associational, to be instrumented in the follow-up
+plan, not asserted): with the taste readout saturated-correct (E4), A and B
+contact decisions both route to motor block 1 (contact + prediction ≥ .5);
+B-phase `progressUpdate` steps then overwrite the shared block-1 A-cruise
+policy — the motor locus R1 found. A V3-style rotation pull on the actor
+(rather than taste) protects the A-phase cruise direction while leaving
+magnitudes free; greedy cruise (`baseProbability` vs .5) is the
+decision-relevant threshold, so the follow-up plan must FIRST read back
+actor-side cruise margins at atA/atC (decision-relevance check V3 skipped)
+and only then gate on behavioral retention.
+
+Why this is new, not a retest: V6 `motorConsolidationRate` tested slow-target
+rehearsal (VOLUME); V3 tested rotation-damped anchoring on the TASTE readout
+(wrong stage, E4/E6). Directional protection of the motor readout has never
+been tried. V3-Dev's pattern (dev bank, conjunctive go/no-go, no qual spent
+on NOGO) is the mandatory shape: single-bank R1 (n=8) plus E2 bank variance
+(≈0.56 swing) forbid jumping to qualification.
+Falsifier: actor cruise margins already saturated AND block-visit logs show
+A/B disjoint blocks ⇒ H1m dead, fall through to ELSEWHERE (sensing line).

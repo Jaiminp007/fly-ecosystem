@@ -144,7 +144,10 @@ published COMPLETE. Taste reinstatement moves retention ~1e-6 (inert —
 readout saturated-correct everywhere, E4 + saturation mechanism); motor
 reinstatement restores near-atA levels 7/8. Frozen fraction rule fired
 numerically but is misspecified (non-monotone denominators); the audit's
-absolute analysis carries the verdict. Decision: recommend a MOTOR-side
-intervention line under a separately frozen plan; taste protection stays
-CLOSED; H2 needs a fresh-bank follow-up (not launched). No qualification
-use, no PASS/RSI claim.
+absolute analysis carries the verdict. Decision (sharpened 2026-10-28, RESULTS_V1 addendum): recommend ONE concrete
+intervention — **M-ACTOR: rotation-damped slow-direction anchor on
+`weights.actor`**, dev-gated V3-Dev-style (actor cruise-margin readback first,
+then behavioral go/no-go; no qual on NOGO). New vs V6 (volume) and V3 (wrong
+stage); H1m block-sharing hypothesis + falsifier recorded. Taste protection
+stays CLOSED; H2 needs a fresh-bank follow-up (not launched). No
+qualification use, no PASS/RSI claim.
