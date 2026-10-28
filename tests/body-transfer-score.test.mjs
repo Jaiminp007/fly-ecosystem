@@ -16,9 +16,11 @@ const PASS_PROBES={'A:A':6,'A:B':5,'A:current':6,'A:reset':4,'B:A':5,'B:B':6,'B:
   'early-A:current':5,'early-A:reset':4,'early-B:current':5,'early-B:reset':4};
 const PASS_DIRECT={'A:current':6,'A:reset':4,'B:current':6,'B:reset':4,'transfer:current':4,
   'transfer:reset':4,'transfer:acceptCruise':3,'transfer:acceptStationary':2};
-const row=(seed,arms=PASS_ARMS,probesN=PASS_PROBES,probesP=null,direct=PASS_DIRECT,nondeg=3)=>({history:{seed},
-  N:bodyBlock(arms,probesN),P:bodyBlock(arms,probesP??probesN),
-  direct:Object.fromEntries(Object.entries(direct).map(([k,v])=>[k,probe(v)])),nondeg:{P:nondeg}});
+const row=(seed,arms=PASS_ARMS,probesN=PASS_PROBES,probesP=null,direct=PASS_DIRECT,nondegQ=150)=>({history:{seed},
+  N:bodyBlock(arms,probesN),Q:bodyBlock(arms,probesN),P:bodyBlock(arms,probesP??probesN),
+  direct:Object.fromEntries(Object.entries(direct).map(([k,v])=>[k,probe(v)])),
+  directP:Object.fromEntries(Object.entries(direct).map(([k,v])=>[k,probe(v)])),
+  nondeg:{P:3,Q:nondegQ,Qmoves:0}});
 const eight=(fn)=>Array.from({length:8},(_,i)=>fn(i));
 
 test('settled readback subtracts unsettled per-founder cost',()=>{
@@ -26,10 +28,16 @@ test('settled readback subtracts unsettled per-founder cost',()=>{
   assert.equal(settledValue(10,100,100),10);
 });
 
-test('all-pass fixtures clear N, P and direct flags',()=>{
+test('all-pass fixtures clear N, Q, P and Q-direct flags',()=>{
   const s=scoreBodyTransfer(eight(i=>row(1000+i)));
-  assert.ok(s.nPass&&s.pPass&&s.dPass);
-  assert.ok(s.g.N.g1.pass&&s.g.P.g5.pass&&s.g6skill.B.pass&&s.g6direct.pass);
+  assert.ok(s.nPass&&s.qPass&&s.pPass&&s.dPass);
+  assert.ok(s.g.N.g1.pass&&s.g.Q.g5.pass&&s.g.P.g5.pass&&s.g6skill.B.pass&&s.g6direct.pass);
+});
+
+test('Q retention failure clears qPass only',()=>{
+  const bad={...PASS_PROBES,'A:current':5.0};
+  const s=scoreBodyTransfer(eight(i=>{const r=row(2100+i);if(i===0)r.Q=bodyBlock(PASS_ARMS,bad);return r;}));
+  assert.equal(s.g.Q.g5.pass,false);assert.equal(s.qPass,false);assert.ok(s.nPass&&s.pPass&&s.dPass);
 });
 
 test('N retention failure clears nPass only',()=>{
@@ -56,17 +64,18 @@ test('wrong history count is rejected',()=>{
 });
 
 test('bank draws 72 unique fresh seeds outside the exclusion union',()=>{
-  const p=bodyTransferBank('evidence/body-transfer/test-bank-01/protocol.json');
-  assert.equal(p.experiment,'body-transfer-optionA-v1');
+  const p=bodyTransferBank('evidence/body-transfer/test-bank-02/protocol.json');
+  assert.equal(p.experiment,'body-transfer-optionA-v2');
   assert.equal(p.histories.length,8);
   const flat=p.histories.flatMap(h=>[h.seed,h.cueSeed,...h.resourceSeeds,h.probeSeeds.A,h.probeSeeds.B,h.probeSeeds.transfer]);
   assert.equal(new Set(flat).size,72);
-  assert.ok(!flat.includes(41)&&!flat.some(s=>s>=355001&&s<=355009));
-  assert.ok(p.excludedSeeds.includes(41)&&p.excludedSeeds.includes(355001));
+  assert.ok(!flat.includes(41)&&!flat.some(s=>s>=355001&&s<=355009)&&!flat.some(s=>s>=366001&&s<=366009));
+  assert.ok(p.excludedSeeds.includes(41)&&p.excludedSeeds.includes(355001)&&p.excludedSeeds.includes(366001));
 });
 
 test('source manifest covers plan, adapter and scorer',()=>{
   const sources=bodyTransferSources();
   for(const name of ['scripts/body-transfer.mjs','learning/taste-experiment.mjs',
-    'learning/pursuit-authority.mjs','docs/BODY_TRANSFER_PLAN_V1.md'])assert.ok(sources[name]);
+    'learning/pursuit-authority.mjs','learning/cue-foraging.mjs','docs/BODY_TRANSFER_PLAN_V1.md',
+    'docs/BODY_TRANSFER_PLAN_V2.md','tests/body-transfer-v2.test.mjs'])assert.ok(sources[name]);
 });

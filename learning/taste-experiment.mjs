@@ -21,7 +21,7 @@ export class TasteExperiment{
   constructor({history,arm='candidate',reference=VALUE_REFERENCE,pricing={operationEnergy:5e-6/17,byteEnergyPerSecond:1e-5/(17*8)},learnerOptions={},cruiseSpeed=0,body='N',emit=null}){
     assert.ok(TASTE_ARMS.includes(arm));assert.ok(validSeed(history.seed)&&validSeed(history.cueSeed)&&history.resourceSeeds.length===4&&history.resourceSeeds.every(validSeed));
     assert.ok(reference.founders>=2&&Number.isSafeInteger(reference.founders));assert.ok(pricing.operationEnergy>0&&pricing.byteEnergyPerSecond>0);
-    assert.ok([0,1].includes(cruiseSpeed));assert.ok(['N','P'].includes(body));assert.ok(arm!=='nativeFullCruise'||body==='N');
+    assert.ok([0,1].includes(cruiseSpeed));assert.ok(['N','P','Q'].includes(body));assert.ok(arm!=='nativeFullCruise'||body==='N');
     this.cruiseSpeed=cruiseSpeed;this.body=body;
     this.history=structuredClone(history);this.arm=arm;this.program=fixed(arm)?'fixed':'taste';this.reference=structuredClone(reference);this.pricing={...pricing};this.learnerOptions={...learnerOptions};
     this.world=new World({seed:history.seed,founders:reference.founders,capacity:240,reproduction:false,mutation:false,learning:false,controller:'episodic-actor',
@@ -67,6 +67,10 @@ export class TasteExperiment{
         const motor=pursuitMotor(raw,(action===0||action===2)?1:-1);
         outputs=motor.outputs;if(action>=2)outputs[1]=-1;
         state.work.scalarOperations+=motor.operations+2;
+      }else if(this.body==='Q'){
+        const motor=pursuitMotor(raw,(action===0||action===2)?1:-1);
+        outputs=motor.outputs;outputs[1]=action>=2?-1:0;
+        state.work.scalarOperations+=motor.operations+2;
       }else{
         outputs=tickMotor(state,raw,action);
         if(action<2)outputs[1]=this.arm==='nativeFullCruise'?1:(this.cruiseSpeed??0);
@@ -111,7 +115,7 @@ export class TasteExperiment{
     run.world=World.restore(cp.world);run.atA=structuredClone(cp.atA);run.atB=structuredClone(cp.atB??null);run.atC=structuredClone(cp.atC);Object.defineProperty(run,'emit',{value:emit,writable:true,enumerable:false});
     assert.ok(TASTE_ARMS.includes(run.arm));assert.equal(run.program,fixed(run.arm)?'fixed':'taste');assert.equal(run.world.config.reproduction,false);assert.equal(run.world.config.mutation,false);
     assert.equal(run.world.config.learning,false);assert.equal(run.world.config.episodicParameters.memoryLearning,false);assert.equal(run.world.config.episodicParameters.neuralLearning,false);
-    if(run.body===undefined)run.body='N';assert.ok(['N','P'].includes(run.body));
+    if(run.body===undefined)run.body='N';assert.ok(['N','P','Q'].includes(run.body));
     assert.deepEqual(Object.keys(run.learners).sort(),run.founderIds.map(String).sort());assert.equal(run.founderIds.length,run.reference.founders);
     for(const id of run.founderIds){const state=run.learners[id];assert.equal(state.agentId,id);assert.equal(state.dead,!run.world.flies.some(f=>f.id===id));if(!state.dead)assert.equal(state.lastObservedTick,run.world.tick);
       if(run.program==='taste')run.learners[id]=restoreTasteEnergyBody(state);
@@ -123,7 +127,7 @@ export class TasteExperiment{
 
 export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=256,founders=24,body=null}){
   assert.ok(['A','B','C','transfer'].includes(family)&&['A','B','C','current','reset','acceptCruise','acceptStationary','nativeFullCruise'].includes(version));assert.ok(validSeed(seed)&&ticks>=1&&ticks<=256);
-  if(body!==null)assert.ok(['N','P'].includes(body));
+  if(body!==null)assert.ok(['N','P','Q'].includes(body));
   if(!anchor)return {family,version,seed,founders,body:body??'N',survivors:0,value:0,skippedAllDead:true};
   const run=TasteExperiment.restore(anchor);assert.equal(run.program,'taste');assert.equal(founders,run.founderIds.length);
   if(body!==null)run.body=body;

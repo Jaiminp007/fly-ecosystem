@@ -1,6 +1,8 @@
-// Frozen Option A body-transfer study (docs/BODY_TRANSFER_PLAN_V1.md).
-// Single authorized attempt. No tuning knobs, no variants, no exploratory scope.
-// Worlds: 104 mains x 1792 ticks + 336 probes x 256 ticks = 440 executions.
+// Frozen Option A body-transfer study v2 (docs/BODY_TRANSFER_PLAN_V2.md).
+// Gated new body Q (translation-preserving pursuit); V1 harsh pursuit P retained
+// descriptively in-bank as a mechanism control. Single authorized attempt.
+// No tuning knobs, no variants, no exploratory scope.
+// Worlds: 152 mains x 1792 ticks + 536 probes x 256 ticks = 688 executions.
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync,readdirSync,existsSync,statSync} from 'node:fs';
 import {dirname,resolve,relative,join,sep} from 'node:path';
@@ -8,6 +10,7 @@ import {fileURLToPath} from 'node:url';
 import {randomBytes} from 'node:crypto';
 import {digest} from '../learning/intervention-study.mjs';
 import {encodedStateBytes} from '../learning/sarsa-experiment.mjs';
+import {motorPrimitive} from '../learning/cue-foraging.mjs';
 import {TasteExperiment,runTasteProbe} from '../learning/taste-experiment.mjs';
 import {runTastePressureBattery} from '../learning/taste-pressure.mjs';
 
@@ -17,16 +20,20 @@ const read=file=>JSON.parse(readFileSync(file,'utf8'));
 const writeOver=(file,value)=>{mkdirSync(dirname(file),{recursive:true});writeFileSync(file,JSON.stringify(value,null,2)+'\n');};
 const mean=xs=>xs.reduce((n,v)=>n+v,0)/xs.length;
 
-export const BODY_TRANSFER_EXPERIMENT='body-transfer-optionA-v1';
+export const BODY_TRANSFER_EXPERIMENT='body-transfer-optionA-v2';
 export const OPERATION_ENERGY=5e-6/17, BYTE_ENERGY_PER_SECOND=1e-5/(17*8);
 export const BT_TICKS=1792, BT_FOUNDERS=24, BT_HISTORIES=8;
+export const BT_BODIES=Object.freeze(['N','Q','P']);
+export const BT_GATED=Object.freeze(['N','Q']);
+export const BT_Q_EXPOSURE_MIN=100;
 export const BT_ARMS=Object.freeze(['candidate','unlearned','frozen','reset','acceptCruise','acceptStationary']);
 export const BT_DIRECT_SPECS=Object.freeze([
   ['A','current'],['A','reset'],['B','current'],['B','reset'],
   ['transfer','current'],['transfer','reset'],['transfer','acceptCruise'],['transfer','acceptStationary']
 ].map(([family,version])=>Object.freeze({family,version})));
 export const BT_MAIN_OP_CAP=1_000_000_000, BT_PROBE_OP_CAP=100_000_000, BT_BYTE_CAP=65_536;
-export const BT_AGG_OP_CAP=137_600_000_000;
+export const BT_AGG_OP_CAP=240_000_000_000;
+export const BT_EXPECT_MAINS=152, BT_EXPECT_PROBES=536;
 export const BT_ROW_WALL_SECONDS=600, BT_ROW_CPU_SECONDS=600, BT_OUTPUT_BYTES=8*1024*1024*1024;
 export const BT_LEARNER_OPTIONS=Object.freeze({feedingRule:'greedy',tasteRepresentation:'orthogonal',tasteRate:1,
   motorRepresentation:'ecology',holdTicks:1,motorRule:'progress',renewalRate:.1,capacity:32,recent:8,
@@ -97,15 +104,16 @@ export function bodyTransferSources(){
     if(/\.m?js$/.test(name))for(const m of bytes.toString().matchAll(/(?:from|import)\s+['"](\.[^'"]+)['"]/g))visit(resolve(dirname(path),m[1]));
   };
   for(const name of ['scripts/body-transfer.mjs','learning/taste-experiment.mjs','learning/taste-energy.mjs',
-    'learning/pursuit-authority.mjs','learning/taste-pressure.mjs','tests/body-transfer.test.mjs',
-    'tests/body-transfer-score.test.mjs','tests/taste-experiment.test.mjs','tests/taste-energy.test.mjs','docs/BODY_TRANSFER_PLAN_V1.md'])visit(resolve(root,name));
+    'learning/pursuit-authority.mjs','learning/taste-pressure.mjs','learning/cue-foraging.mjs','tests/body-transfer.test.mjs',
+    'tests/body-transfer-v2.test.mjs',
+    'tests/body-transfer-score.test.mjs','tests/taste-experiment.test.mjs','tests/taste-energy.test.mjs','docs/BODY_TRANSFER_PLAN_V1.md','docs/BODY_TRANSFER_PLAN_V2.md'])visit(resolve(root,name));
   return found;
 }
 export const settledValue=(V,pendingEnd,pendingStart)=>V-OPERATION_ENERGY*(pendingEnd-pendingStart)/BT_FOUNDERS;
 const pendingOf=endpoint=>endpoint.scalarOperations-(endpoint.operationsBilled??0);
 function anchorAliveCounts(output){
   const alive={};
-  for(const body of ['N','P'])for(const file of readdirSync(join(output,'anchors',body))){
+  for(const body of BT_BODIES)for(const file of readdirSync(join(output,'anchors',body))){
     if(!file.endsWith('.json'))continue;
     const a=read(join(output,'anchors',body,file));
     alive[`${body}/${file.slice(0,-5)}`]=Object.values(a.state.learners).filter(l=>!l.dead).length;
@@ -121,25 +129,31 @@ function correctedGate7(output,rows){
   const alive=anchorAliveCounts(output);
   const residuals=[];
   let revivalViolations=0;
-  const nondegCounts=rows.map(r=>r.nondeg.P??0);
+  const nondegP=rows.map(r=>r.nondeg.P??0);
+  const nondegQ=rows.map(r=>r.nondeg.Q??0);
+  const qMoves=rows.map(r=>r.nondeg.Qmoves??0);
   for(const row of rows){
     const seed=row.history.seed;
-    for(const body of ['N','P']){
+    for(const body of BT_BODIES){
       for(const arm of BT_ARMS)residuals.push(Math.abs(row[body].arms[arm].endpoint.accountingResidual));
       for(const [k,probe] of Object.entries(row[body].probes)){
         residuals.push(Math.abs(probe.endpoint.accountingResidual));
         if(!probe.skippedAllDead&&probe.survivors>alive[probeAnchor(body,seed,k)])revivalViolations++;
       }
     }
-    for(const [k,probe] of Object.entries(row.direct)){
+    for(const slot of ['direct','directP'])for(const [k,probe] of Object.entries(row[slot])){
       residuals.push(Math.abs(probe.endpoint.accountingResidual));
       if(!probe.skippedAllDead&&probe.survivors>alive[`N/${seed}-C`])revivalViolations++;
     }
+    residuals.push(Math.abs(row.shared.endpoint.accountingResidual));
   }
   let outputBytes=0;
   walk(output,file=>{outputBytes+=statSync(file).size;},Number.MAX_SAFE_INTEGER);
-  return {maxResidual:Math.max(...residuals),revivalViolations,nondegMin:Math.min(...nondegCounts),outputBytes,
-    pass:Math.max(...residuals)<1e-7&&revivalViolations===0&&Math.min(...nondegCounts)>=1&&outputBytes<BT_OUTPUT_BYTES};
+  return {maxResidual:Math.max(...residuals),revivalViolations,
+    nondegPMin:Math.min(...nondegP),nondegQMin:Math.min(...nondegQ),qMovesMax:Math.max(...qMoves),outputBytes,
+    nondegMin:Math.min(...nondegP),
+    pass:Math.max(...residuals)<1e-7&&revivalViolations===0&&Math.min(...nondegP)>=1&&
+      Math.min(...nondegQ)>=BT_Q_EXPOSURE_MIN&&Math.max(...qMoves)===0&&outputBytes<BT_OUTPUT_BYTES};
 }
 
 function checkMainIntegrity(endpoint,label){
@@ -176,8 +190,8 @@ function runProbe(anchor,{family,version,seed,body=null}){
 export function scoreBodyTransfer(rows){
   assert.equal(rows.length,BT_HISTORIES);
   const perHistory=rows.map(row=>{
-    const out={seed:row.history.seed,bodies:{},direct:{},gates:{}};
-    for(const body of ['N','P']){
+    const out={seed:row.history.seed,bodies:{},direct:{},directP:{},gates:{}};
+    for(const body of BT_BODIES){
       const A=row[body].arms,cand=A.candidate.endpoint;
       const V=a=>A[a].endpoint.budgetAdjustedEnergyPerFounder;
       const Vs=a=>settledValue(V(a),pendingOf(A[a].endpoint),0);
@@ -201,21 +215,26 @@ export function scoreBodyTransfer(rows){
         survA:psurv('A:current')-psurv('A:A'),survB:psurv('B:current')-psurv('B:B')};
     }
     for(const f of ['A','B']){
-      const KN=row.N.probes[`${f}:current`].value-row.N.probes[`${f}:reset`].value;
-      const KX=row.direct[`${f}:current`].value-row.direct[`${f}:reset`].value;
-      const KNsurv=row.N.probes[`${f}:current`].survivors-row.N.probes[`${f}:reset`].survivors;
-      const KXsurv=row.direct[`${f}:current`].survivors-row.direct[`${f}:reset`].survivors;
-      const KXNsurv=row.direct[`${f}:current`].survivors-row.N.probes[`${f}:current`].survivors;
-      const Td=row.direct['transfer:current'].value-row.direct['transfer:reset'].value;
-      const Tdsurv=row.direct['transfer:current'].survivors-row.direct['transfer:reset'].survivors;
-      out.direct[f]={KN,KX,diff:KX-KN,KNsurv,KXsurv,KXNsurv};
-      if(f==='A')out.direct.transfer={T:Td,surv:Tdsurv};
+      for(const [slot,key] of [['direct','Q'],['directP','P']]){
+        const D=row[slot][`${f}:current`].value-row[slot][`${f}:reset`].value;
+        const KN=row.N.probes[`${f}:current`].value-row.N.probes[`${f}:reset`].value;
+        const entry={KN,KX:D,diff:D-KN,
+          KNsurv:row.N.probes[`${f}:current`].survivors-row.N.probes[`${f}:reset`].survivors,
+          KXsurv:row[slot][`${f}:current`].survivors-row[slot][`${f}:reset`].survivors,
+          KXNsurv:row[slot][`${f}:current`].survivors-row.N.probes[`${f}:current`].survivors};
+        if(slot==='direct')out.direct[f]=entry;else out.directP[f]=entry;
+      }
+      if(f==='A')for(const slot of ['direct','directP']){
+        const T=row[slot]['transfer:current'].value-row[slot]['transfer:reset'].value;
+        const S=row[slot]['transfer:current'].survivors-row[slot]['transfer:reset'].survivors;
+        if(slot==='direct')out.direct.transfer={T,surv:S};else out.directP.transfer={T,surv:S};
+      }
     }
     return out;
   });
   const col=(f)=>perHistory.map(h=>f(h));
   const g={};
-  for(const body of ['N','P']){
+  for(const body of BT_BODIES){
     const L=col(h=>h.bodies[body].L),Ls=col(h=>h.bodies[body].Ls);
     const F=col(h=>h.bodies[body].F),Fs=col(h=>h.bodies[body].Fs);
     const Z=col(h=>h.bodies[body].Z),Zs=col(h=>h.bodies[body].Zs);
@@ -238,28 +257,41 @@ export function scoreBodyTransfer(rows){
         pass:mean(S('transfer'))>=-0.25&&S('transfer').every(v=>v>=-0.5)&&S('survTransfer').reduce((a,b)=>a+b,0)>=-2},
     };
   }
-  const dT=col(h=>h.direct.transfer.T);
-  const g6direct={mean:mean(dT),everyMin:Math.min(...dT),survivors:col(h=>h.direct.transfer.surv).reduce((a,b)=>a+b,0),
-    pass:mean(dT)>=-0.25&&dT.every(v=>v>=-0.5)&&col(h=>h.direct.transfer.surv).reduce((a,b)=>a+b,0)>=-2};
-  const g6skill={};
-  for(const f of ['A','B']){
-    const KX=col(h=>h.direct[f].KX),D=col(h=>h.direct[f].diff);
-    g6skill[f]={meanKX:mean(KX),countKX:KX.filter(v=>v>0).length,meanDiff:mean(D),everyDiffMin:Math.min(...D),
-      survKX:col(h=>h.direct[f].KXsurv).reduce((a,b)=>a+b,0),survKXN:col(h=>h.direct[f].KXNsurv).reduce((a,b)=>a+b,0),
-      pass:mean(KX)>0&&KX.filter(v=>v>0).length>=(f==='A'?5:6)&&mean(D)>=-0.25&&D.every(v=>v>=-0.5)&&col(h=>h.direct[f].KXsurv).reduce((a,b)=>a+b,0)>=-2&&col(h=>h.direct[f].KXNsurv).reduce((a,b)=>a+b,0)>=-2};
-  }
-  const attenuation={meanLP:mean(col(h=>h.bodies.P.L)),meanLN:mean(col(h=>h.bodies.N.L))};
+  const passOf=slot=>{
+    const dT=col(h=>h[slot].transfer.T);
+    const g6directSlot={mean:mean(dT),everyMin:Math.min(...dT),survivors:col(h=>h[slot].transfer.surv).reduce((a,b)=>a+b,0),
+      pass:mean(dT)>=-0.25&&dT.every(v=>v>=-0.5)&&col(h=>h[slot].transfer.surv).reduce((a,b)=>a+b,0)>=-2};
+    const g6skillSlot={};
+    for(const f of ['A','B']){
+      const KX=col(h=>h[slot][f].KX),D=col(h=>h[slot][f].diff);
+      g6skillSlot[f]={meanKX:mean(KX),countKX:KX.filter(v=>v>0).length,meanDiff:mean(D),everyDiffMin:Math.min(...D),
+        survKX:col(h=>h[slot][f].KXsurv).reduce((a,b)=>a+b,0),survKXN:col(h=>h[slot][f].KXNsurv).reduce((a,b)=>a+b,0),
+        pass:mean(KX)>0&&KX.filter(v=>v>0).length>=(f==='A'?5:6)&&mean(D)>=-0.25&&D.every(v=>v>=-0.5)&&col(h=>h[slot][f].KXsurv).reduce((a,b)=>a+b,0)>=-2&&col(h=>h[slot][f].KXNsurv).reduce((a,b)=>a+b,0)>=-2};
+    }
+    return {g6directSlot,g6skillSlot};
+  };
+  const {g6directSlot:g6direct,g6skillSlot:g6skill}=passOf('direct');
+  const {g6directSlot:g6directP,g6skillSlot:g6skillP}=passOf('directP');
+  const attenuation={meanLP:mean(col(h=>h.bodies.P.L)),meanLN:mean(col(h=>h.bodies.N.L)),meanLQ:mean(col(h=>h.bodies.Q.L))};
   attenuation.diff=attenuation.meanLP-attenuation.meanLN;
+  attenuation.diffQ=attenuation.meanLQ-attenuation.meanLN;
+  attenuation.diffQP=attenuation.meanLQ-attenuation.meanLP;
+  const transportContrast={};
+  for(const f of ['A','B']){
+    const DQ=col(h=>h.direct[f].diff),DP=col(h=>h.directP[f].diff);
+    transportContrast[f]={meanQ:mean(DQ),meanP:mean(DP),meanQP:mean(DQ.map((v,i)=>v-DP[i])),minQP:Math.min(...DQ.map((v,i)=>v-DP[i]))};
+  }
   const nPass=['g1','g2','g3','g4','g5'].every(k=>g.N[k].pass)&&g.N.g6transfer.pass;
+  const qPass=['g1','g2','g3','g4','g5'].every(k=>g.Q[k].pass)&&g.Q.g6transfer.pass;
   const pPass=['g1','g2','g3','g4','g5'].every(k=>g.P[k].pass)&&g.P.g6transfer.pass;
   const dPass=g6direct.pass&&g6skill.A.pass&&g6skill.B.pass;
-  return {perHistory,g,g6direct,g6skill,attenuation,nPass,pPass,dPass};
+  return {perHistory,g,g6direct,g6skill,g6directP,g6skillP,attenuation,transportContrast,nPass,qPass,pPass,dPass};
 }
 
 export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
   if(rescore){
     const saved=read(join(output,'attempt.json'));
-    assert.equal(saved.kind,'body-transfer-attempt-v1');
+    assert.equal(saved.kind,'body-transfer-attempt-v2');
     assert.equal(saved.bankSha256,digest(readFileSync(bankPath)),'Rescore bank mismatch');
     const now=bodyTransferSources();
     const changed=Object.keys(now).filter(k=>now[k]!==saved.sourceSha256[k]);
@@ -268,24 +300,25 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
     for(const file of readdirSync(join(output,'rows')))if(file.endsWith('.json'))rows.push(read(join(output,'rows',file)));
     assert.equal(rows.length,BT_HISTORIES);
     for(const row of rows){
-      for(const body of ['N','P']){
+      for(const body of BT_BODIES){
         assert.equal(Object.keys(row[body].arms).length,BT_ARMS.length);
         assert.equal(Object.keys(row[body].probes).length,16);
       }
       assert.equal(Object.keys(row.direct).length,BT_DIRECT_SPECS.length);
+      assert.equal(Object.keys(row.directP).length,BT_DIRECT_SPECS.length);
     }
     const score=scoreBodyTransfer(rows);
     const gate7=correctedGate7(output,rows);
     let verdict='INVALID';
     if(gate7.pass){
       if(!score.nPass)verdict='FAIL-source';
-      else if(!(score.pPass&&score.dPass))verdict='FAIL-body';
+      else if(!(score.qPass&&score.dPass))verdict='FAIL-body';
       else verdict='PASS';
     }
     const prev=read(join(output,'results.json'));
     write(join(output,'results-superseded.json'),prev);
     const result={...prev,sourceSha256:now,score,gate7,verdict,
-      rescored:{at:new Date().toISOString(),reason:'Instrument gate-7 revival check used atC as the reference for early-A/early-B probes restored from atA/atB; corrected to per-source-anchor references. No executions, no bank contact, no protocol/gate changes.',priorVerdict:prev.verdict,priorViolations:prev.gate7.revivalViolations,changedFiles:changed}};
+      rescored:{at:new Date().toISOString(),reason:'Analytic rescore only: no executions, no bank contact, no protocol/gate changes.',priorVerdict:prev.verdict,priorViolations:prev.gate7.revivalViolations,changedFiles:changed}};
     writeOver(join(output,'results.json'),result);
     console.log(JSON.stringify({verdict,rescored:true,gate7}));
     return result;
@@ -301,45 +334,63 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
     assert.ok(Number.isInteger(h.probeSeeds.A)&&Number.isInteger(h.probeSeeds.B)&&Number.isInteger(h.probeSeeds.transfer));
   }
   const sources=bodyTransferSources();
-  let savedAttempt=null,priorFailure=null,seededOps=0;
+  const bodyComplete=(row,body)=>row[body]&&Object.keys(row[body].arms??{}).length===BT_ARMS.length&&
+    Object.keys(row[body].probes??{}).length===16&&['A','B','C'].every(s=>existsSync(join(output,'anchors',body,`${row.history.seed}-${s}.json`)));
+  const sharedComplete=row=>row.shared&&row.direct&&Object.keys(row.direct).length===BT_DIRECT_SPECS.length&&
+    row.directP&&Object.keys(row.directP).length===BT_DIRECT_SPECS.length;
+  const scanPreload=()=>{
+    const L={mains:0,probes:0,worldTicks:0,founderSlots:0,scalarOperations:0};
+    for(const file of readdirSync(join(output,'rows')))if(file.endsWith('.json'))rows.push(read(join(output,'rows',file)));
+    for(const row of rows){
+      for(const body of BT_BODIES)if(bodyComplete(row,body)){
+        L.mains+=BT_ARMS.length;L.probes+=17;L.worldTicks+=BT_ARMS.length*BT_TICKS+17*256;
+        for(const arm of BT_ARMS)L.scalarOperations+=row[body].arms[arm].endpoint.scalarOperations;
+        for(const k of Object.keys(row[body].probes))L.scalarOperations+=row[body].probes[k].endpoint.additionalScalarOperations;
+      }
+      if(sharedComplete(row)){
+        L.mains+=1;L.probes+=16;L.worldTicks+=BT_TICKS+16*256;
+        L.scalarOperations+=row.shared.endpoint.scalarOperations;
+        for(const slot of ['direct','directP'])for(const k of Object.keys(row[slot]))L.scalarOperations+=row[slot][k].endpoint.additionalScalarOperations;
+      }
+    }
+    L.founderSlots=L.worldTicks*BT_FOUNDERS;
+    return {ledger:L,burned:L.scalarOperations,runtimes:{},redone:[],approximate:true};
+  };
+  const preload=(resume&&existsSync(join(output,'ledger.json')))
+    ?{ledger:read(join(output,'ledger.json')).ledger,burned:read(join(output,'ledger.json')).burned,
+      runtimes:read(join(output,'ledger.json')).runtimes,redone:read(join(output,'ledger.json')).redone??[],approximate:false}
+    :resume?scanPreload()
+    :{ledger:{mains:0,probes:0,worldTicks:0,founderSlots:0,scalarOperations:0},burned:0,runtimes:{},redone:[],approximate:false};
+  let savedAttempt=null;
   const rows=[];
-  const ledger={mains:0,probes:0,worldTicks:0,founderSlots:0,scalarOperations:0};
-  let burned=0;
-  const runtimes={};
-  const redoneHistories=[];
+  const ledger=preload.ledger;
+  let burned=preload.burned;
+  const runtimes=preload.runtimes;
+  const redoneSections=preload.redone;
   if(resume){
     savedAttempt=read(join(output,'attempt.json'));
-    assert.equal(savedAttempt.kind,'body-transfer-attempt-v1');
+    assert.equal(savedAttempt.kind,'body-transfer-attempt-v2');
     assert.equal(savedAttempt.bankSha256,digest(readFileSync(bankPath)),'Resume bank mismatch');
     const changedFiles=Object.keys(sources).filter(k=>sources[k]!==savedAttempt.sourceSha256[k]);
     assert.ok(changedFiles.length===1&&changedFiles[0]==='scripts/body-transfer.mjs',
       `Resume refuses: instrument files beyond the repaired runner changed: ${changedFiles.join(',')}`);
     savedAttempt.instrumentRepair={changedFiles,at:new Date().toISOString(),
-      reason:'EEXIST wx-flag bugfix + resume plumbing only; learner flags, protocol, gates, pricing and caps untouched (reviewable via git diff)'};
-    priorFailure=read(join(output,'failure.json'));
-    assert.ok(priorFailure.runtimes['row-N'].wall<BT_ROW_WALL_SECONDS&&priorFailure.runtimes['row-N'].cpuS<BT_ROW_CPU_SECONDS,'Prior row breached caps; collection invalid');
-    runtimes['row-N']=priorFailure.runtimes['row-N'];
-    for(const file of readdirSync(join(output,'rows')))if(file.endsWith('.json'))rows.push(read(join(output,'rows',file)));
-    assert.equal(rows.length,BT_HISTORIES,'Resume needs all 8 N rows present');
+      reason:'Resume after interruption: sections complete on disk are skipped after verification; missing sections are recomputed deterministically from frozen history seeds. Learner flags, protocol, gates, pricing and caps untouched.'};
+    if(rows.length===0)for(const file of readdirSync(join(output,'rows')))if(file.endsWith('.json'))rows.push(read(join(output,'rows',file)));
+    assert.ok(rows.length>0&&rows.length<=BT_HISTORIES,'Resume needs at least one saved row and no more than 8');
     for(const row of rows){
-      assert.equal(Object.keys(row.N.arms).length,BT_ARMS.length,`N arms incomplete for ${row.history.seed}`);
-      assert.equal(Object.keys(row.N.probes).length,16,`N probes incomplete for ${row.history.seed}`);
-      for(const suffix of ['A','B','C'])assert.ok(existsSync(join(output,'anchors','N',`${row.history.seed}-${suffix}.json`)),`N anchor missing for ${row.history.seed}`);
-      ledger.mains+=BT_ARMS.length;ledger.probes+=17;
-      ledger.worldTicks+=BT_ARMS.length*BT_TICKS+17*256;
-      for(const arm of BT_ARMS)ledger.scalarOperations+=row.N.arms[arm].endpoint.scalarOperations;
-      for(const k of Object.keys(row.N.probes))ledger.scalarOperations+=row.N.probes[k].endpoint.additionalScalarOperations;
+      assert.ok(BT_BODIES.every(b=>!row[b]||bodyComplete(row,b)||Object.keys(row[b].arms??{}).length===0),
+        `Partial body section for ${row.history.seed}; recomputed wholesale below`);
     }
-    ledger.founderSlots=ledger.worldTicks*BT_FOUNDERS;
-    seededOps=ledger.scalarOperations;
-    burned=priorFailure.ledger.scalarOperations;
   }else{
   for(const name of Object.keys(sources)){const target=join(output,'sources',name);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,readFileSync(join(root,name)),{flag:'wx'});}
   write(join(output,'protocol.json'),p);
-  const attempt={schema:1,kind:'body-transfer-attempt-v1',createdAt:new Date().toISOString(),
+  const attempt={schema:1,kind:'body-transfer-attempt-v2',createdAt:new Date().toISOString(),
     bankSha256:digest(readFileSync(bankPath)),sourceSha256:sources,ticks:BT_TICKS,founders:BT_FOUNDERS,
     learnerOptions:{...BT_LEARNER_OPTIONS},pricing:{...BT_PRICING},cruiseSpeed:0,
-    armsN:[...BT_ARMS],armsP:[...BT_ARMS],sharedArm:'nativeFullCruise',
+    armsN:[...BT_ARMS],armsQ:[...BT_ARMS],armsP:[...BT_ARMS],sharedArm:'nativeFullCruise',
+    gatedBodies:[...BT_GATED],descriptiveBodies:['P'],
+    directBatteries:{gated:{anchor:'N',body:'Q',slot:'direct'},descriptive:{anchor:'N',body:'P',slot:'directP'}},
     caps:{mainScalarOperations:BT_MAIN_OP_CAP,probeAdditionalScalarOperations:BT_PROBE_OP_CAP,
       bytesPerFounder:BT_BYTE_CAP,aggregateScalarOperations:BT_AGG_OP_CAP,
       rowWallSeconds:BT_ROW_WALL_SECONDS,rowCpuSeconds:BT_ROW_CPU_SECONDS,outputBytes:BT_OUTPUT_BYTES},
@@ -348,8 +399,9 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
   }
   const attemptRead=resume?savedAttempt:read(join(output,'attempt.json'));
   const attempt=attemptRead;
+  const checkpointLedger=()=>writeOver(join(output,'ledger.json'),{ledger,burned,runtimes,redone:redoneSections});
   const note=(mains,probes,ticks,ops)=>{ledger.mains+=mains;ledger.probes+=probes;ledger.worldTicks+=(mains+probes)*ticks;
-    ledger.founderSlots+=(mains*BT_TICKS+probes*256)*BT_FOUNDERS;ledger.scalarOperations+=ops;};
+    ledger.founderSlots+=(mains*BT_TICKS+probes*256)*BT_FOUNDERS;ledger.scalarOperations+=ops;burned+=ops;};
   const timed=(label,fn)=>{
     const began=performance.now(),cpu=process.cpuUsage();const out=fn();
     const wall=(performance.now()-began)/1000,used=process.cpuUsage(cpu),cpuS=(used.user+used.system)/1e6;
@@ -358,19 +410,25 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
   };
   let totalBurned=0;
   try{
-    const phases=resume?[['row-P',['P']]]:[['row-N',['N']],['row-P',['P']]];
-    for(const [label,bodies] of phases){
+    for(const [label,body] of [['row-N','N'],['row-Q','Q'],['row-P','P']]){
       const {out,wall,cpuS}=timed(label,()=>{
         const made=[];
         for(const history of p.histories){
           const row=rows.find(r=>r.history.seed===history.seed)??{history,nondeg:{}};
-          if(bodies[0]==='P'&&row.P&&Object.keys(row.P.arms??{}).length===BT_ARMS.length&&Object.keys(row.P.probes??{}).length===16){
-            console.log(JSON.stringify({stage:'skip',row:label,seed:history.seed,reason:'P complete on disk'}));continue;
+          if(bodyComplete(row,body)){
+            console.log(JSON.stringify({stage:'skip',row:label,seed:history.seed,reason:`${body} complete on disk`}));continue;
           }
-          if(resume&&bodies[0]==='P')redoneHistories.push(history.seed);
-          const arms={},body=bodies[0];
-          let nondegCount=0;
-          const emit=body==='P'?e=>{if(e.type==='decision'&&(e.action===0||e.action===1)&&e.outputs[1]===-1)nondegCount++;}:null;
+          redoneSections.push(`${history.seed}:${body}`);
+          const arms={};
+          let pStops=0,qExposure=0,qMoves=0;
+          const emit=body==='P'
+            ?e=>{if(e.type==='decision'&&(e.action===0||e.action===1)&&e.outputs[1]===-1)pStops++;}
+            :body==='Q'
+            ?e=>{if(e.type==='decision'&&(e.action===0||e.action===1)){
+                if(e.outputs[1]!==0)qMoves++;
+                else{const s=e.action===0?1:-1;
+                  if(Math.abs(e.outputs[0]-motorPrimitive(e.own.raw,s)[0])>1e-6)qExposure++;}}}
+            :null;
           for(const arm of BT_ARMS){
             const {run,endpoint}=runMain(history,arm,body,arm==='candidate'?emit:null);
             arms[arm]={endpoint};
@@ -384,7 +442,8 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
             console.log(JSON.stringify({stage:'world',row:label,seed:history.seed,body,arm,
               energy:endpoint.budgetAdjustedEnergyPerFounder,survivors:endpoint.survivors}));
           }
-          if(body==='P')row.nondeg.P=nondegCount;
+          if(body==='P')row.nondeg.P=pStops;
+          if(body==='Q'){row.nondeg.Q=qExposure;row.nondeg.Qmoves=qMoves;}
           const atC=read(join(output,'anchors',body,`${history.seed}-C.json`));
           const pressure=runTastePressureBattery(atC,history,{founders:BT_FOUNDERS,ticks:256});
           for(const [k,probe] of Object.entries(pressure.probes)){row[body].probes[k]=probe;note(0,1,256,probe.endpoint.additionalScalarOperations);}
@@ -398,41 +457,47 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
           }
           if(!rows.includes(row))rows.push(row);
           writeOver(join(output,'rows',`${history.seed}.json`),row);
+          checkpointLedger();
           made.push(row);
         }
         return made;
       });
-      runtimes[label]={wall,cpuS};
+      runtimes[label]={wall,cpuS};checkpointLedger();
     }
     const sharedDirect=timed('row-shared-direct',()=>{
       for(const history of p.histories){
         const row=rows.find(r=>r.history.seed===history.seed);
-        if(row.direct&&Object.keys(row.direct).length===BT_DIRECT_SPECS.length){
-          console.log(JSON.stringify({stage:'skip',row:'row-shared-direct',seed:history.seed,reason:'direct complete on disk'}));continue;
+        if(sharedComplete(row)){
+          console.log(JSON.stringify({stage:'skip',row:'row-shared-direct',seed:history.seed,reason:'shared+direct complete on disk'}));continue;
         }
+        redoneSections.push(`${history.seed}:shared-direct`);
         const {endpoint}=runMain(history,'nativeFullCruise','N');
         row.shared={endpoint};note(1,0,BT_TICKS,endpoint.scalarOperations);
         const atC=read(join(output,'anchors','N',`${history.seed}-C.json`));
-        const direct={};
-        for(const {family,version} of BT_DIRECT_SPECS){
-          const probe=runProbe(atC,{family,version,seed:history.probeSeeds[family],body:'P'});
-          const key=`${family}:${version}`;direct[key]=probe;
-          assert.equal(probe.startWorldSha256,row.N.probes[key].startWorldSha256,`${key}: native/direct start hash mismatch`);
-          note(0,1,256,probe.endpoint.additionalScalarOperations);
+        for(const [slot,body] of [['direct','Q'],['directP','P']]){
+          const battery={};
+          for(const {family,version} of BT_DIRECT_SPECS){
+            const probe=runProbe(atC,{family,version,seed:history.probeSeeds[family],body});
+            const key=`${family}:${version}`;battery[key]=probe;
+            assert.equal(probe.startWorldSha256,row.N.probes[key].startWorldSha256,`${body}/${key}: native/direct start hash mismatch`);
+            note(0,1,256,probe.endpoint.additionalScalarOperations);
+          }
+          row[slot]=battery;
         }
-        row.direct=direct;
         writeOver(join(output,'rows',`${history.seed}.json`),row);
-        console.log(JSON.stringify({stage:'direct',seed:history.seed,energy:direct['transfer:current'].value}));
+        checkpointLedger();
+        console.log(JSON.stringify({stage:'direct',seed:history.seed,
+          qEnergy:row.direct['transfer:current'].value,pEnergy:row.directP['transfer:current'].value}));
       }
     });
     runtimes['row-shared-direct']={wall:sharedDirect.wall,cpuS:sharedDirect.cpuS};
     assert.deepEqual(bodyTransferSources(),sources,'Sources changed during attempt');
-    assert.ok(ledger.mains===104&&ledger.probes===336,`Execution count mismatch: ${ledger.mains} mains, ${ledger.probes} probes`);
-    totalBurned=burned+(ledger.scalarOperations-seededOps);
+    assert.ok(ledger.mains===BT_EXPECT_MAINS&&ledger.probes===BT_EXPECT_PROBES,`Execution count mismatch: ${ledger.mains} mains, ${ledger.probes} probes`);
+    totalBurned=burned;
     assert.ok(totalBurned<=BT_AGG_OP_CAP,`Aggregate op ceiling breached: ${totalBurned}`);
     const totalWall=Object.values(runtimes).reduce((n,r)=>n+r.wall,0);
     const totalCpu=Object.values(runtimes).reduce((n,r)=>n+r.cpuS,0);
-    assert.ok(totalWall<3*BT_ROW_WALL_SECONDS&&totalCpu<3*BT_ROW_CPU_SECONDS,'Aggregate runtime ceiling breached');
+    assert.ok(totalWall<4*BT_ROW_WALL_SECONDS&&totalCpu<4*BT_ROW_CPU_SECONDS,'Aggregate runtime ceiling breached');
   }catch(error){
     writeOver(join(output,'failure.json'),{at:new Date().toISOString(),error:String(error&&error.stack||error),ledger,runtimes,completedRows:rows.length});
     throw error;
@@ -442,16 +507,16 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
   let verdict='INVALID';
   if(gate7.pass){
     if(!score.nPass)verdict='FAIL-source';
-    else if(!(score.pPass&&score.dPass))verdict='FAIL-body';
+    else if(!(score.qPass&&score.dPass))verdict='FAIL-body';
     else verdict='PASS';
   }
-  const result={schema:1,kind:'body-transfer-result-v1',bankSha256:attempt.bankSha256,sourceSha256:sources,
+  const result={schema:1,kind:'body-transfer-result-v2',bankSha256:attempt.bankSha256,sourceSha256:sources,
     histories:rows.length,ticks:BT_TICKS,ledger,runtimes,verdict,gate7,score,
     compute:{totalScalarOperationsBurned:totalBurned,uniqueScalarOperations:ledger.scalarOperations},
-    resume:resume?{resumed:true,reason:'First process died on EEXIST: row files used wx exclusive flag; repaired to writeOver and resumed with bank/source verification. 23 executions for one history ran unsaved and were deterministically redone; all other executions ran exactly once.',priorLedger:priorFailure.ledger,priorRuntimes:priorFailure.runtimes,redoneHistories,instrumentRepair:{changedFiles:['scripts/body-transfer.mjs'],originalRunnerSha:savedAttempt.sourceSha256['scripts/body-transfer.mjs'],repairedRunnerSha:sources['scripts/body-transfer.mjs']},shamOpsExcludedFromUniqueLedger:true}:{resumed:false},
+    resume:resume?{resumed:true,ledgerApproximate:preload.approximate,reason:'Resume after interruption: sections complete on disk were skipped after verification; missing sections were recomputed deterministically from frozen history seeds.',redoneSections,instrumentRepair:{changedFiles:['scripts/body-transfer.mjs'],originalRunnerSha:savedAttempt.sourceSha256['scripts/body-transfer.mjs'],repairedRunnerSha:sources['scripts/body-transfer.mjs']}}:{resumed:false},
     scope:attempt.scope};
   write(join(output,'results.json'),result);
-  console.log(JSON.stringify({verdict,attenuation:score.attenuation,gate7:{maxResidual:gate7.maxResidual,revivalViolations,nondegMin:gate7.nondegMin,outputBytes}}));
+  console.log(JSON.stringify({verdict,attenuation:score.attenuation,transportContrast:score.transportContrast,gate7:{maxResidual:gate7.maxResidual,revivalViolations,nondegPMin:gate7.nondegPMin,nondegQMin:gate7.nondegQMin,qMovesMax:gate7.qMovesMax,outputBytes:gate7.outputBytes}}));
   return result;
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){

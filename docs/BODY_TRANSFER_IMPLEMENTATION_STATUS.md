@@ -1,10 +1,26 @@
-# Body-transfer implementation status (Option A, frozen plan v1)
+# Body-transfer implementation status (Option A, frozen plans v1 + v2)
 
-Authoritative plan: `docs/BODY_TRANSFER_PLAN_V1.md` (Astra, gpt-6-astra, 2026-10-28).
-Rule: plan + this file are reread after every compaction; existing artifacts inspected
-before continuing. Never duplicate executions or regenerate banks.
+Authoritative plans: `docs/BODY_TRANSFER_PLAN_V1.md` (COMPLETE, FAIL-source)
+and `docs/BODY_TRANSFER_PLAN_V2.md` (FROZEN 2026-10-28, active).
+Rule: plans + this file are reread after every compaction; existing artifacts
+inspected before continuing. Never duplicate executions or regenerate banks.
 
-## Completed work
+## V2 active work (translation-preserving pursuit Q + harsh-P control)
+- [x] 2026-10-28: V2 goal created. V1 post-mortem: harsh P converted
+  15,446-17,521 cruise decisions/history into stationary stops (~36-41% of all
+  live decisions); P lifetime -3.42 vs N; direct transport gaps -0.24/-0.99
+  mean, floors -1.07/-2.84. Base-rate table: 8 prior fresh-eval aRet means
+  +0.006..+0.642, so V1 N (-0.076) is plausibly bank luck. Frozen plan V2
+  written (`docs/BODY_TRANSFER_PLAN_V2.md`): Q = V1 pursuit turn law with
+  cruise move always 0 (identical translation to native), same 7 gates on
+  N+Q, P retained descriptively, fresh 72-seed bank, 688-execution budget.
+- [ ] Harness Q path + synthetic tests (fresh seed range, disjoint from V1).
+- [ ] Runner V2 mode (N/Q gated, P descriptive, N->P + N->Q direct, Q exposure
+  + translation assertions) + scorer tests. Full `npm test` green.
+- [ ] Implementation freeze (flag verification vs v2 qualification artifact,
+  source hashes incl. V2 plan). Then draw ONE V2 bank. Then single attempt.
+
+## V1 completed work (preserved record)
 - [x] 2026-10-28: Retrieved frozen plan `docs/BODY_TRANSFER_PLAN_V1.md` from Astra thread
   (child thread completed; pursuit turn-before-translate actuator selected; 7 gates;
   104 mains + 336 probes = 440 executions; 72-seed fresh bank; V/Vsettled readback).
