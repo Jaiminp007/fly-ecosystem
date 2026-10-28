@@ -5,22 +5,24 @@ import {CONTINUAL_PHASES,enterContinualPhase,updateContinualResources} from './c
 import {makeCueCodebook,enterCuePhase,updateCueResources} from './cue-foraging.mjs';
 import {contactObservation} from './contact-observation.mjs';
 import {tickMotor} from './tick-actor-critic.mjs';
+import {pursuitMotor} from './pursuit-authority.mjs';
 import {chargeForStep,billSarsaWork,encodedStateBytes} from './sarsa-experiment.mjs';
 import {createTasteEnergyBody,chooseTasteEnergyAction,observeTasteEnergyBody,freezeTasteEnergyBody,resetTasteEnergyBody,compactTasteEnergyBody,restoreTasteEnergyBody} from './taste-energy.mjs';
 import {VALUE_REFERENCE} from './value-development.mjs';
 
-export const TASTE_ARMS=Object.freeze(['candidate','unlearned','frozen','reset','noTaste','noNormalization','blind','acceptCruise','acceptStationary']);
-const fixed=arm=>['acceptCruise','acceptStationary'].includes(arm);
+export const TASTE_ARMS=Object.freeze(['candidate','unlearned','frozen','reset','noTaste','noNormalization','blind','acceptCruise','acceptStationary','nativeFullCruise']);
+const fixed=arm=>['acceptCruise','acceptStationary','nativeFullCruise'].includes(arm);
 const canonical=value=>JSON.parse(JSON.stringify(value));
 const validSeed=value=>Number.isInteger(value)&&value>0&&value<=0xffffffff;
 const fixedBody=(agentId,seed,tick=0)=>({agentId,rngState:seed,dead:false,lastDecisionTick:tick,lastObservedTick:tick,decisions:tick,
   work:{scalarOperations:0,liveUpdates:0,replayUpdates:0},charge:{operationsBilled:0,outstandingEnergy:0,incurredEnergy:0,paidEnergy:0,storageBytes:0}});
 
 export class TasteExperiment{
-  constructor({history,arm='candidate',reference=VALUE_REFERENCE,pricing={operationEnergy:5e-6/17,byteEnergyPerSecond:1e-5/(17*8)},learnerOptions={},cruiseSpeed=0,emit=null}){
+  constructor({history,arm='candidate',reference=VALUE_REFERENCE,pricing={operationEnergy:5e-6/17,byteEnergyPerSecond:1e-5/(17*8)},learnerOptions={},cruiseSpeed=0,body='N',emit=null}){
     assert.ok(TASTE_ARMS.includes(arm));assert.ok(validSeed(history.seed)&&validSeed(history.cueSeed)&&history.resourceSeeds.length===4&&history.resourceSeeds.every(validSeed));
     assert.ok(reference.founders>=2&&Number.isSafeInteger(reference.founders));assert.ok(pricing.operationEnergy>0&&pricing.byteEnergyPerSecond>0);
-    assert.ok([0,1].includes(cruiseSpeed));this.cruiseSpeed=cruiseSpeed;
+    assert.ok([0,1].includes(cruiseSpeed));assert.ok(['N','P'].includes(body));assert.ok(arm!=='nativeFullCruise'||body==='N');
+    this.cruiseSpeed=cruiseSpeed;this.body=body;
     this.history=structuredClone(history);this.arm=arm;this.program=fixed(arm)?'fixed':'taste';this.reference=structuredClone(reference);this.pricing={...pricing};this.learnerOptions={...learnerOptions};
     this.world=new World({seed:history.seed,founders:reference.founders,capacity:240,reproduction:false,mutation:false,learning:false,controller:'episodic-actor',
       actorParameters:reference.actorParameters,episodicParameters:{...reference.parameters,actuator:'move',memoryLearning:false,neuralLearning:false},
@@ -57,10 +59,18 @@ export class TasteExperiment{
         own={agentId:fly.id,tick,energy:fly.energy-state.charge.outstandingEnergy,raw,...observation};
         action=chooseTasteEnergyAction(state,own,e=>this.record({type:'update',event:e}));
       }else{
-        state.work.scalarOperations++;action=this.arm==='acceptCruise'?0:2;state.decisions++;state.lastDecisionTick=tick;
+        state.work.scalarOperations++;action=this.arm==='acceptStationary'?2:0;state.decisions++;state.lastDecisionTick=tick;
       }
       stats.decisions++;stats.actions[action]++;
-      const outputs=tickMotor(state,raw,action);if(action<2)outputs[1]=this.cruiseSpeed??0;
+      let outputs;
+      if(this.body==='P'){
+        const motor=pursuitMotor(raw,(action===0||action===2)?1:-1);
+        outputs=motor.outputs;if(action>=2)outputs[1]=-1;
+        state.work.scalarOperations+=motor.operations+2;
+      }else{
+        outputs=tickMotor(state,raw,action);
+        if(action<2)outputs[1]=this.arm==='nativeFullCruise'?1:(this.cruiseSpeed??0);
+      }
       const bill=chargeForStep(state,this.pricing);
       this.record({type:'decision',own,action,outputs,requestedExtra:bill.energyCost});
       return {...bill,afterController:native=>native.splice(0,5,...outputs),afterStep:receipt=>{
@@ -91,7 +101,7 @@ export class TasteExperiment{
     return {tick:this.world.tick,founders:this.founderIds.length,survivors:this.world.flies.length,physicalEnergy:energy,
       startingEnergy:this.startingEnergy,startingDebt:this.startingDebt,outstandingEnergy:debt,
       budgetAdjustedEnergyPerFounder:(energy-this.startingEnergy-(debt-this.startingDebt))/this.founderIds.length,
-      scalarOperations:operations,additionalScalarOperations:operations-this.startingOperations,incurredEnergy:states.reduce((n,s)=>n+s.charge.incurredEnergy,0),
+      scalarOperations:operations,additionalScalarOperations:operations-this.startingOperations,operationsBilled:states.reduce((n,s)=>n+(s.charge.operationsBilled??0),0),incurredEnergy:states.reduce((n,s)=>n+s.charge.incurredEnergy,0),
       paidEnergy:states.reduce((n,s)=>n+s.charge.paidEnergy,0),learnerEncodedBytes:states.reduce((n,s)=>n+encodedStateBytes(s),0),
       accountingResidual:this.world.metrics().accountingError,foodInventory:this.world.food.reduce((n,p)=>n+p.amount,0),totals:structuredClone(this.world.totals)};
   }
@@ -101,6 +111,7 @@ export class TasteExperiment{
     run.world=World.restore(cp.world);run.atA=structuredClone(cp.atA);run.atB=structuredClone(cp.atB??null);run.atC=structuredClone(cp.atC);Object.defineProperty(run,'emit',{value:emit,writable:true,enumerable:false});
     assert.ok(TASTE_ARMS.includes(run.arm));assert.equal(run.program,fixed(run.arm)?'fixed':'taste');assert.equal(run.world.config.reproduction,false);assert.equal(run.world.config.mutation,false);
     assert.equal(run.world.config.learning,false);assert.equal(run.world.config.episodicParameters.memoryLearning,false);assert.equal(run.world.config.episodicParameters.neuralLearning,false);
+    if(run.body===undefined)run.body='N';assert.ok(['N','P'].includes(run.body));
     assert.deepEqual(Object.keys(run.learners).sort(),run.founderIds.map(String).sort());assert.equal(run.founderIds.length,run.reference.founders);
     for(const id of run.founderIds){const state=run.learners[id];assert.equal(state.agentId,id);assert.equal(state.dead,!run.world.flies.some(f=>f.id===id));if(!state.dead)assert.equal(state.lastObservedTick,run.world.tick);
       if(run.program==='taste')run.learners[id]=restoreTasteEnergyBody(state);
@@ -110,10 +121,12 @@ export class TasteExperiment{
   }
 }
 
-export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=256,founders=24}){
-  assert.ok(['A','B','C','transfer'].includes(family)&&['A','B','C','current','reset','acceptCruise','acceptStationary'].includes(version));assert.ok(validSeed(seed)&&ticks>=1&&ticks<=256);
-  if(!anchor)return {family,version,seed,founders,survivors:0,value:0,skippedAllDead:true};
+export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=256,founders=24,body=null}){
+  assert.ok(['A','B','C','transfer'].includes(family)&&['A','B','C','current','reset','acceptCruise','acceptStationary','nativeFullCruise'].includes(version));assert.ok(validSeed(seed)&&ticks>=1&&ticks<=256);
+  if(body!==null)assert.ok(['N','P'].includes(body));
+  if(!anchor)return {family,version,seed,founders,body:body??'N',survivors:0,value:0,skippedAllDead:true};
   const run=TasteExperiment.restore(anchor);assert.equal(run.program,'taste');assert.equal(founders,run.founderIds.length);
+  if(body!==null)run.body=body;
   const models=['A','B','C'].includes(version)?run.savedModels[version]:null;if(['A','B','C'].includes(version))assert.ok(models);
   for(const id of run.founderIds){const state=run.learners[id];if(fixed(version)){
       const replacement=fixedBody(id,state.feedRngState,state.lastObservedTick);replacement.dead=state.dead;replacement.charge={...state.charge,operationsBilled:0,storageBytes:0};run.learners[id]=replacement;
@@ -127,5 +140,5 @@ export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=25
   run.startingOperations=Object.values(run.learners).reduce((n,s)=>n+s.work.scalarOperations,0);
   const startWorldSha256=digest(run.world.checkpoint()),before=digest(Object.values(run.learners).map(s=>s.weights??null)),skippedAllDead=run.world.flies.length===0;
   run.advance(ticks);assert.equal(digest(Object.values(run.learners).map(s=>s.weights??null)),before);
-  const endpoint=run.endpoint();return {family,version,seed,founders,survivors:endpoint.survivors,value:endpoint.budgetAdjustedEnergyPerFounder,skippedAllDead,startWorldSha256,endpoint,statistics:run.statistics};
+  const endpoint=run.endpoint();return {family,version,seed,founders,body:run.body,survivors:endpoint.survivors,value:endpoint.budgetAdjustedEnergyPerFounder,skippedAllDead,startWorldSha256,endpoint,statistics:run.statistics};
 }
