@@ -1,6 +1,8 @@
 # Plain-language progress tracker
 
-Newest: [PROGRAM CLOSED — V35 no-claimant → evict BANKED 1/2 → definitive negative synthesis: 8 first-accepts/7 lines, one 2/2 successive unproductive (rate-split), combinations 0/3, gain 0/2; level solved (+0.02..+0.15 attenuation breaks), retention detail (±0.1) the universal killer, bank-dependence the rule; claim WITHHELD, all negatives preserved](RSI_TASTE_NEGATIVE_SYNTHESIS_V2.md). V35 80 worlds. Cumulative 5128 worlds.
+Newest: [Body-transfer study V1 (Option A, pursuit body): FAIL-source — native Gen1-R4 source fails to requalify on fresh 72-seed bank (N-g5 A-retention −0.0755, needs >0); 440 executions, gate 7 passes after per-anchor revival correction (0/320), no body attribution per refusal criterion 1; P/below and direct-skill numbers descriptive only; two preserved instrument incidents (EEXIST resume, revival-reference rescore); 72 seeds spent, family closes here](BODY_TRANSFER_RESULTS_V1.md). Cumulative 5128 + 440 worlds.
+
+Prior: [PROGRAM CLOSED — V35 no-claimant → evict BANKED 1/2 → definitive negative synthesis: 8 first-accepts/7 lines, one 2/2 successive unproductive (rate-split), combinations 0/3, gain 0/2; level solved (+0.02..+0.15 attenuation breaks), retention detail (±0.1) the universal killer, bank-dependence the rule; claim WITHHELD, all negatives preserved](RSI_TASTE_NEGATIVE_SYNTHESIS_V2.md). V35 80 worlds. Cumulative 5128 worlds.
 
 Prior: [RSI gen7 fresh eval: g=2 REJECTED (exact-zero vs unlearned, B-ret negative) — successive 0/2, plasticity scheduling exhausted](RSI_TASTE_GEN7_EVAL.md). Cumulative 2096 worlds.
 

@@ -51,24 +51,20 @@ before continuing. Never duplicate executions or regenerate banks.
 - Direct N->P probe: same seed => identical `startWorldSha256` across bodies.
 
 ## Blockers
-- 2026-10-28 INCIDENT (infrastructure, preserved): first attempt-01 process died at
-  the first history of row-P with EEXIST — row/anchor files used `wx` exclusive
-  writes but rows legitimately accumulate N -> P -> direct. N phase complete and
-  intact (8 rows, 48 mains + 136 probes, row-N 209s/217s within caps); 23 P
-  executions for one history ran unsaved (6 mains + 17 probes, anchors only).
-  failure.json + partial rows + stdout log preserved. Repair: writeOver for
-  progressive artifacts + `--resume` with bank/source verification (only the
-  runner file may differ) + skip-complete phases. No world runs twice except the
-  23 unsaved deterministic redos; ledger counts unique completions, compute
-  record counts all burned ops. Full disclosure in results + audit.
+- None open. Two preserved incidents, both fully documented in
+  `docs/BODY_TRANSFER_RESULTS_V1.md`: (1) EEXIST halt + verified resume;
+  (2) gate-7 revival-reference bug + analytic `--rescore` (original INVALID
+  preserved in `results-superseded.json`). Originals kept: `failure.json`,
+  partial-row history in git-ignored evidence, both instrument diffs in git.
 
 ## Artifact paths
 - Plan: `docs/BODY_TRANSFER_PLAN_V1.md` (untracked, to commit).
 - Harness: `learning/taste-experiment.mjs` (modified, to commit).
 - Tests: `tests/body-transfer.test.mjs` (untracked, to commit).
-- Runner/scorer: `scripts/body-transfer.mjs` WRITTEN + synthetic-verified (to commit).
-- Scorer fixtures: `tests/body-transfer-score.test.mjs` 7/7 green (to commit).
-- Bank: NOT DRAWN. Attempt: NOT RUN. Results: NOT PUBLISHED.
+- Runner/scorer: `scripts/body-transfer.mjs` committed (resume + rescore paths).
+- Scorer fixtures: `tests/body-transfer-score.test.mjs` 8/8 green (committed).
+- Bank: DRAWN d21fb50a… (committed record). Attempt: COMPLETE (resumed + rescored).
+  Results: PUBLISHED `docs/BODY_TRANSFER_RESULTS_V1.md`. Audit: `audit.json` (26/26 match).
 
 ## Source/bank hashes
 - Plan-design basis hashes: see plan §Fresh-bank (taste-energy 24b91847…,
@@ -83,13 +79,15 @@ before continuing. Never duplicate executions or regenerate banks.
   75 handoff sources. Drawn once 2026-10-28 post-freeze; never regenerate.
 
 ## Execution ledger
-- Worlds run for the study: 48 mains + 136 probes saved (row-N complete); 6+17
-  ran unsaved (lost, to be redone). Unique-completion target: 104 + 336.
+- Worlds run for the study: 104 mains + 336 probes = 440 unique completions
+  (ledger exact); 16.04e9 ops burned of 137.6e9 cap; runtimes within caps.
+- Pre-freeze synthetic worlds only (2-founder, <=5 ticks, seeds 355001-355009).
 - Pre-freeze synthetic worlds only (2-founder, <=5 ticks, seeds 355001-355009).
 
 ## Spent seeds
 - 355001-355009 (synthetic harness checks; must remain excluded via test-file scan).
 
 ## Next action
-1. Resume attempt-01 with --resume (P phase + shared-direct), then audit.
-2. Publish `docs/BODY_TRANSFER_RESULTS_V1.md`, update PROGRESS.
+1. DONE 2026-10-28: attempt-01 complete (resume), analytic rescore to
+   FAIL-source, independent 26-value audit (all match), results published,
+   PROGRESS updated. Family closes; no second attempt, no Option B.
