@@ -9,6 +9,15 @@ mechanism, ELSEWHERE/H2 branches) +
 `docs/MOTOR_ANCHOR_RESULTS_V1_DEV.md` (DEV-NOGO, D1 gap preserved) — neither
 re-litigated here.
 
+## D1-FIX V4 (2026-10-28)
+
+Recomputation attempt-04 executed (ZERO worlds/seeds) → **GO: D1 REPAIR
+ACCEPTED**. All V3 formulas pass on the frozen attempt-03 ledger
+(caps/G1/G2pos/G3/G4 true; G2neg+G5 carried with stated trust chains).
+Attempts 01–03 stand as computed negatives. Margin-gated follow-ups may now
+be PROPOSED under their own frozen plans. Full record:
+`docs/MARGIN_READBACK_RESULTS_V4.md`.
+
 ## D1-FIX V3 (2026-10-28)
 
 Attempt-03 executed (18 exec, within caps) → computed NO-GO

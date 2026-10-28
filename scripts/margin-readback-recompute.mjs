@@ -3,15 +3,14 @@
 // V3 formulas against the frozen attempt-03 ledger. Any mismatch throws.
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {dirname,resolve} from 'node:path';
+import {resolve} from 'node:path';
 import {BT_PRICING} from './body-transfer.mjs';
 
 const sha=file=>createHash('sha256').update(readFileSync(file)).digest('hex');
 const load=p=>JSON.parse(readFileSync(p,'utf8'));
 const assert=(c,m)=>{if(!c)throw new Error('V4-FAIL: '+m);};
 
-const root=resolve(dirname(new URL(import.meta.url).pathname),'..');
-const A3=n=>resolve(root,'evidence/margin-readback/attempt-03',n);
+const A3=n=>resolve('evidence/margin-readback/attempt-03',n);
 const attempt=load(A3('attempt.json'));
 assert(attempt.plan==='docs/MARGIN_READBACK_PLAN_V3.md','attempt-03 plan ref');
 const synth=load(A3('synthetic.json')),spent=load(A3('spent-bank.json')),ledger=load(A3('ledger.json'));
@@ -46,9 +45,9 @@ clauses.G5_carried=true; // recorded triage: 515 tests, 6 pre-existing (RESULTS_
 const go=clauses.caps&&clauses.G1&&clauses.G2pos&&clauses.G3&&clauses.G4&&clauses.G2neg_carried&&clauses.G5_carried;
 assert(go,'conjunctive go');
 const out={kind:'margin-readback-recomputation',plan:'docs/MARGIN_READBACK_PLAN_V4.md',evidence:'evidence/margin-readback/attempt-03',
-  sources:{'scripts/margin-readback-check.mjs':sha(resolve(root,'scripts/margin-readback-check.mjs')),'learning/taste-energy.mjs':sha(resolve(root,'learning/taste-energy.mjs')),'learning/taste-experiment.mjs':sha(resolve(root,'learning/taste-experiment.mjs'))},
+  sources:{'scripts/margin-readback-check.mjs':sha(resolve('scripts/margin-readback-check.mjs')),'learning/taste-energy.mjs':sha(resolve('learning/taste-energy.mjs')),'learning/taste-experiment.mjs':sha(resolve('learning/taste-experiment.mjs'))},
   clauses,go,
   acceptance:go?'D1 probe-margin readback ACCEPTED: decision-path motor-margin emission proven on synthetic (1024/1024 shaped, billed exactly, behavior-identical), zero-weight constancy proven (min===max, |mean-0.25|<=1e-9), fixed-program negative proven (zero events, stream observed), spent-bank readback proven (5 keys, digest unchanged). Margin-gated follow-ups may now be PROPOSED under their own frozen plans.':'REJECTED'};
-mkdirSync(resolve(root,'evidence/margin-readback/attempt-04'),{recursive:true});
-writeFileSync(resolve(root,'evidence/margin-readback/attempt-04/recomputation.json'),JSON.stringify(out,null,2)+'\n');
+mkdirSync(resolve('evidence/margin-readback/attempt-04'),{recursive:true});
+writeFileSync(resolve('evidence/margin-readback/attempt-04/recomputation.json'),JSON.stringify(out,null,2)+'\n');
 console.log(JSON.stringify({go,clauses:Object.keys(clauses)}));
