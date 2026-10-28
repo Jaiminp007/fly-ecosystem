@@ -120,3 +120,17 @@ inspected before continuing. Never duplicate executions or regenerate banks.
 1. DONE 2026-10-28: attempt-01 complete (resume), analytic rescore to
    FAIL-source, independent 26-value audit (all match), results published,
    PROGRESS updated. Family closes; no second attempt, no Option B.
+
+## V2 follow-up: retention-interference diagnostic (2026-10-28, analytic only)
+- Dissected frozen V2 anchors read-only (zero executions, zero seeds spent):
+  recent-buffer A-cue washout total on all 16 history×body cells; taste drift
+  magnitude 5.2-8.4 L2, drift direction cos(A->B,A->C) ~+0.77, tasteScale frozen
+  0.250, critic norm 0.000 at atA (anomaly flagged, not pursued) — ALL uniform
+  pass-vs-fail; N and Q mechanistically identical. Retention detail (±0.1) sits
+  below every macroscopic handle the program ever turned. See
+  docs/RETENTION_DIAGNOSTIC_V2.md (frozen). World count unchanged (5128+440+688).
+- Proposed next lines (none executed/banked/predeclared; need new goal + frozen
+  plan): (1) bigger-ruler multi-bank protocol, (2) directional anchoring via
+  untested two-timescale machinery, (3) Option B new sense (localResourceSense
+  amount channel, currently unimported).
+- Diagnostic committed locally; NOT pushed to PR #3 (kept as V1+V2 ship).
