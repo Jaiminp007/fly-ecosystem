@@ -1,0 +1,61 @@
+{
+  "history": 2789221780,
+  "anchorDigestBefore": "e0811f93645452feffc2189fde48dd093013a6a0936f6a920789a00894a649c6",
+  "anchorDigestAfter": "e0811f93645452feffc2189fde48dd093013a6a0936f6a920789a00894a649c6",
+  "survivors": {
+    "A:A": 15,
+    "A:B": 16,
+    "A:current": 15,
+    "A:reset": 11,
+    "B:A": 13,
+    "B:B": 18,
+    "B:current": 16,
+    "B:reset": 13,
+    "transfer:current": 19,
+    "transfer:reset": 19,
+    "transfer:acceptCruise": 19,
+    "transfer:acceptStationary": 16
+  },
+  "perProbe": {
+    "A:A": {
+      "n": 0,
+      "events": 4795,
+      "bad": 4795,
+      "meanMargin": null,
+      "nearFrac": null,
+      "blocks": {}
+    },
+    "A:B": {
+      "n": 0,
+      "events": 4774,
+      "bad": 4774,
+      "meanMargin": null,
+      "nearFrac": null,
+      "blocks": {}
+    },
+    "A:current": {
+      "n": 0,
+      "events": 4779,
+      "bad": 4779,
+      "meanMargin": null,
+      "nearFrac": null,
+      "blocks": {}
+    },
+    "A:reset": {
+      "n": 0,
+      "events": 4200,
+      "bad": 4200,
+      "meanMargin": null,
+      "nearFrac": null,
+      "blocks": {}
+    },
+    "sham": {
+      "n": 0,
+      "events": 4795,
+      "bad": 4795,
+      "meanMargin": null,
+      "nearFrac": null,
+      "blocks": {}
+    }
+  }
+}

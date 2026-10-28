@@ -1,0 +1,34 @@
+{
+  "kind": "margin-readback-attempt",
+  "plan": "docs/MARGIN_READBACK_PLAN_V1.md",
+  "singleAttempt": true,
+  "sources": {
+    "learning/taste-energy.mjs": "53681ea706db5bb104eeea6ee0556522565b55c946cdeaf2572f6669f176c3f9",
+    "learning/taste-experiment.mjs": "3ed5524d11122c13d3862b0adcbd083a03495cfbd0383650e27a091e663f22f2",
+    "scripts/margin-readback-check.mjs": "e99841197fd12e95fc052b00dc64147e32a683ae62753aba6bdd9b893c150274"
+  },
+  "fixtureSeeds": [
+    380001,
+    380002,
+    380003,
+    380004,
+    380005,
+    380006,
+    380007,
+    380008,
+    380009
+  ],
+  "spentBank": {
+    "protocol": "evidence/body-transfer/v2/fresh-01/protocol.json",
+    "history": 2789221780,
+    "label": "MEASUREMENT"
+  },
+  "verdict": {
+    "G1_synthEmit": false,
+    "G2_synthNegative": true,
+    "G3_synthBilling": false,
+    "G4_spentEmit": false,
+    "go": false
+  },
+  "wallMs": 6035
+}

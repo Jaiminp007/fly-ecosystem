@@ -9,6 +9,18 @@ mechanism, ELSEWHERE/H2 branches) +
 `docs/MOTOR_ANCHOR_RESULTS_V1_DEV.md` (DEV-NOGO, D1 gap preserved) — neither
 re-litigated here.
 
+## D1-FIX V1 (2026-10-28)
+
+Attempt-01 executed (17 exec, within caps) → verdict NO-GO per frozen bars
+(G1 ✗ key bug, G2 ✓, G3 ✗ value-clause vs billing spec, G4 ✗ phi-16
+collector assumption). Read-only correction from ledgered artifacts: the
+instrument met spec exactly — 1024 emissions = 4×256 decisions, billing
+100352 = 1024×(2+96) EXACT, value delta = billed-energy cost to ~5e-9,
+spent anchor digest unchanged. Bar/script defects, not a repair failure.
+V1 CLOSED as a negative; corrected V2 authorized (fresh synth seeds +
+different spent row, never duplicate the 2789221780 battery).
+Full record: `docs/MARGIN_READBACK_RESULTS_V1.md`.
+
 ## Adjudication (read-only, zero new worlds, 2026-10-28)
 
 Three candidates per the goal:

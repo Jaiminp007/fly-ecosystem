@@ -137,6 +137,7 @@ export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=25
     }else{if(models)state.weights=structuredClone(models[id]);if(version==='reset')resetTasteEnergyBody(state);compactTasteEnergyBody(state);state.charge.storageBytes=0;}
   }
   run.arm=fixed(version)?version:'frozen';run.program=fixed(version)?'fixed':'taste';run.probe=true;run.transfer=family==='transfer';run.finished=false;run.atA=null;run.atB=null;run.atC=null;
+  if(emit!=null)for(const id of run.founderIds)run.learners[id].config.marginReadback=true;
   run.phaseRows=[];run.statistics={};run.savedModels={};run.phaseEnd=run.world.tick+ticks;
   const phase=CONTINUAL_PHASES.find(p=>p.id===(run.transfer?'A':family));
   if(run.transfer){run.world.config.cueForaging=false;run.resource=enterContinualPhase(run.world,phase,seed);}else run.resource=enterCuePhase(run.world,phase,seed,run.codebook);
