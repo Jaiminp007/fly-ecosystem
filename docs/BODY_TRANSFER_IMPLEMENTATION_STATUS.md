@@ -20,10 +20,16 @@ inspected before continuing. Never duplicate executions or regenerate banks.
 - [x] 2026-10-28: Harness + runner + scorer + 12 new tests committed
   (`6f3d51f`); learner flags zero-mismatch vs v2qual artifact (Gen1 R=4).
   Full suite 485 tests: 473 pass, 4 pre-existing env/closure fails, 8 skipped.
-- [x] 2026-10-28: ONE V2 bank drawn `evidence/body-transfer/v2/fresh-01/`
-  (sha `47b44c62…`, 8 histories / 72 seeds, 19,943 excluded, 1,362 evidence
-  registries, 75 handoff sources; no overlap with V1 bank/test-banks or any
-  synthetic literal; committed force-add like V1). Next: single attempt.
+- [x] 2026-10-28: attempt-01 executed FROZEN under `6f3d51f` — 152 mains +
+  536 probes = 409,600 world-ticks exactly as planned; burned 23.3e9 ≤ 240e9;
+  final log line crashed post-write (bare variable ref). Repaired `f5999a9`,
+  `--resume` verified bank + 1-file rule, 0 new executions, rescored identical.
+- [x] 2026-10-28: independent Python audit — gate values exact, 0/384 revival
+  violations, exposures P≥15,495 / Q≥24,621, QmovesMax 0, bank SHA match.
+- [x] 2026-10-28: `docs/BODY_TRANSFER_RESULTS_V2.md` published — **FAIL-body**
+  (N requalifies 7/7; Q g5 A-ret −0.13 3/8 + direct floors −1.69/−0.85; Q
+  recovers +1.02/+0.58 transport vs P descriptively). V1 + V2 families CLOSED.
+  No Option B, no RSI reopen under this goal.
 - [ ] Implementation freeze (flag verification vs v2 qualification artifact,
   source hashes incl. V2 plan). Then draw ONE V2 bank. Then single attempt.
 

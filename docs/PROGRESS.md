@@ -1,6 +1,6 @@
 # Plain-language progress tracker
 
-Newest: [Body-transfer study V1 (Option A, pursuit body): FAIL-source — native Gen1-R4 source fails to requalify on fresh 72-seed bank (N-g5 A-retention −0.0755, needs >0); 440 executions, gate 7 passes after per-anchor revival correction (0/320), no body attribution per refusal criterion 1; P/below and direct-skill numbers descriptive only; two preserved instrument incidents (EEXIST resume, revival-reference rescore); 72 seeds spent, family closes here](BODY_TRANSFER_RESULTS_V1.md). Cumulative 5128 + 440 worlds.
+Newest: [Body-transfer study V2 (translation-preserving pursuit body Q + harsh P control): FAIL-body — N source requalifies 7/7 on fresh 72-seed bank, Q fails gate 5 (A-ret −0.13, 3/8) and direct skill floors (−1.69/−0.85); Q recovers +1.02/+0.58 transport vs P descriptively but heading coupling still breaks tails; gate 7 passes (0/384 revivals, Q exposure min 24,621, zero nonzero cruise translations); 688 executions, audited; V1 + V2 families CLOSED, no Option B / RSI reopen under this goal](BODY_TRANSFER_RESULTS_V2.md). Cumulative 5128 + 440 + 688 worlds.
 
 Prior: [PROGRAM CLOSED — V35 no-claimant → evict BANKED 1/2 → definitive negative synthesis: 8 first-accepts/7 lines, one 2/2 successive unproductive (rate-split), combinations 0/3, gain 0/2; level solved (+0.02..+0.15 attenuation breaks), retention detail (±0.1) the universal killer, bank-dependence the rule; claim WITHHELD, all negatives preserved](RSI_TASTE_NEGATIVE_SYNTHESIS_V2.md). V35 80 worlds. Cumulative 5128 worlds.
 
