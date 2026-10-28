@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "closed": true,
+  "protocolSha256": "83062f1accfaf965fe988043232e7762785a2c95c11499b5bb35256fc9009483",
+  "reasons": [
+    "Development failed: 5 of 20 required development checks and 2 of 12 survival guards passed.",
+    "The transfer-accept comparator carries and pays for unused learned state in the frozen implementation; this was identified and documented before scoring. It cannot support qualification."
+  ],
+  "reservedHistories": 16,
+  "reservedWorlds": 448,
+  "confirmationHistoriesRun": 0,
+  "noRetestOfUnchangedCandidate": true,
+  "nextRequirement": "Keep all original failures and sources. Do not tune, resample, extend, replace this bank or run its reserve. A substantively different proposed learning mechanism requires its own prospective hypothesis, fixed design and fresh history bank."
+}

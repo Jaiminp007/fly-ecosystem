@@ -12,3 +12,8 @@ __pycache__/
 evidence/extinction/checkpoint.json
 
 evidence/challenge-release/*world.json
+
+# Full research history travels in verified, compressed handoff chunks.
+# Existing tracked reports and explicitly selected review artifacts remain tracked.
+/evidence/
+/handoff/runtime-snapshot/

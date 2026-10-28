@@ -1,0 +1,270 @@
+{
+  "reference": "evidence/algorithm-upgrade/38de8132-b429-46d6-a025-2e31de80e865",
+  "worldsSha256": "3d6922f2d8129e65f9f6f59ce2c23a1a3048957d3389a88b825e31c64ba62278",
+  "rows": [
+    {
+      "seed": 3857854759,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 89,
+      "combined": 224
+    },
+    {
+      "seed": 3857854759,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 89,
+      "combined": 224
+    },
+    {
+      "seed": 3857862678,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 62,
+      "combined": 224
+    },
+    {
+      "seed": 3857862678,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 62,
+      "combined": 224
+    },
+    {
+      "seed": 3857870597,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 111,
+      "combined": 224
+    },
+    {
+      "seed": 3857870597,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 111,
+      "combined": 224
+    },
+    {
+      "seed": 3857878516,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 83,
+      "combined": 224
+    },
+    {
+      "seed": 3857878516,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 83,
+      "combined": 224
+    },
+    {
+      "seed": 3857886435,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 108,
+      "combined": 224
+    },
+    {
+      "seed": 3857886435,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 108,
+      "combined": 224
+    },
+    {
+      "seed": 3857894354,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 87,
+      "combined": 224
+    },
+    {
+      "seed": 3857894354,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 86,
+      "combined": 224
+    },
+    {
+      "seed": 3857902273,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 112,
+      "combined": 224
+    },
+    {
+      "seed": 3857902273,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 112,
+      "combined": 224
+    },
+    {
+      "seed": 3857910192,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 77,
+      "combined": 224
+    },
+    {
+      "seed": 3857910192,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 77,
+      "combined": 224
+    },
+    {
+      "seed": 3857918111,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 103,
+      "combined": 224
+    },
+    {
+      "seed": 3857918111,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 103,
+      "combined": 224
+    },
+    {
+      "seed": 3857926030,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 86,
+      "combined": 224
+    },
+    {
+      "seed": 3857926030,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 87,
+      "combined": 224
+    },
+    {
+      "seed": 3857933949,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 112,
+      "combined": 224
+    },
+    {
+      "seed": 3857933949,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 112,
+      "combined": 224
+    },
+    {
+      "seed": 3857941868,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 84,
+      "combined": 224
+    },
+    {
+      "seed": 3857941868,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 84,
+      "combined": 224
+    },
+    {
+      "seed": 3857949787,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 109,
+      "combined": 224
+    },
+    {
+      "seed": 3857949787,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 109,
+      "combined": 224
+    },
+    {
+      "seed": 3857957706,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 87,
+      "combined": 224
+    },
+    {
+      "seed": 3857957706,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 87,
+      "combined": 224
+    },
+    {
+      "seed": 3857965625,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 112,
+      "combined": 224
+    },
+    {
+      "seed": 3857965625,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 112,
+      "combined": 224
+    },
+    {
+      "seed": 3857973544,
+      "agentId": 1,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 90,
+      "combined": 224
+    },
+    {
+      "seed": 3857973544,
+      "agentId": 2,
+      "priorWindows": 112,
+      "newWindows": 112,
+      "duplicates": 90,
+      "combined": 224
+    }
+  ],
+  "summary": {
+    "founderTaskPairs": 32,
+    "newTaskTrainingWindows": 3584,
+    "duplicateLearnerExamples": 3024,
+    "duplicateLearnerFraction": 0.84375,
+    "maximumCombinedExamples": 224,
+    "forecastCapacity": 256
+  }
+}

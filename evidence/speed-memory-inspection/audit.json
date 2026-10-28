@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-23T17:49:30.535Z",
+  "directory": "evidence/episodic-credit/072d24fd-1d0f-4181-a09b-418becf4b1ba",
+  "seedPairs": 30,
+  "disjointSeeds": true,
+  "controls": [
+    "frozen",
+    "neural",
+    "noMemory"
+  ],
+  "comparisonsRecomputed": true,
+  "archivedSourcesVerified": true,
+  "factualForkCases": 60,
+  "allFactualForksExact": true,
+  "browserGeometryVerified": true,
+  "passed": false
+}

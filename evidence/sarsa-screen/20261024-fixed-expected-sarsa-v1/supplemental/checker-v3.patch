@@ -1,0 +1,148 @@
+--- v2/audit-sarsa-screen.py
++++ v3/audit-sarsa-screen.py
+@@ -95,75 +95,76 @@
+ def audit_trace(path, seed):
+     states = {}
+     transitions = decisions = bodies = 0
+-    for line in path.open(encoding='utf8'):
+-        e = json.loads(line)
+-        arm = e['arm']
+-        if e['type'] == 'start':
+-            assert e['seed'] == seed
+-            states[arm] = {}
+-            for original in e['learners']:
+-                s = dict(original)
+-                s.update(weights=np.zeros((2, 40)), eligibility=np.zeros((2, 40)), history=[], recent=[], older=[], operations=0)
+-                expected = (seed ^ ((s['agentId'] * 2654435761) & 0xffffffff)) & 0xffffffff or 1
+-                assert s['rngState'] == expected
+-                assert s['retentionRngState'] == ((expected ^ 0x9e3779b9) or 1)
+-                assert s['replayRngState'] == ((expected ^ 0xa511e9b3) or 1)
+-                close(original['weights'], s['weights'], 'initial weights')
+-                states[arm][s['agentId']] = s
+-        elif e['type'] == 'intervention':
+-            for s in states[arm].values():
+-                s['eligibility'].fill(0)
+-                if e['action'] == 'freeze':
+-                    s['acquisition'] = False
+-                else:
+-                    s['weights'].fill(0)
+-                    s['history'], s['recent'], s['older'], s['olderSeen'] = [], [], [], 0
+-        elif e['type'] == 'experience':
+-            s = states[arm][e['agentId']]
+-            decision = e['decision']
+-            records = e.get('transitions', [e['transition']] if e.get('transition') else [])
+-            phi = features(s, decision['observation']) if decision else None
+-            before = [tr for tr in records if not decision or tr['tick'] < e['tick']]
+-            after = [tr for tr in records if decision and tr['tick'] == e['tick']]
+-            for tr in before:
+-                assert 0 < tr['duration'] <= 8
+-                close(tr['nextPhi'], np.zeros(40) if tr['terminal'] else phi, 'next-history features')
+-                if s.get('lastDecisionPhi') is not None:
+-                    close(tr['phi'], s['lastDecisionPhi'], 'factual prior features')
+-                update(s, tr)
+-                transitions += 1
+-            if decision:
+-                q = values(s, phi)
+-                first, second = draw(s, 'rngState'), draw(s, 'rngState')
+-                selected = (-1 if second < .5 else 1) if first < .1 or q[0] == q[1] else (1 if q[1] > q[0] else -1)
+-                assert selected == decision['choice'], 'independent policy choice'
+-                s['lastDecisionPhi'] = phi
+-                s['history'] = (s['history'] + [decision])[-3:]
+-                s['decisions'] += 1
+-                decisions += 1
+-            for tr in after:
+-                assert tr['terminal'] and tr['duration'] == 1
+-                close(tr['phi'], phi, 'terminal decision features')
+-                close(tr['nextPhi'], np.zeros(40), 'terminal zero bootstrap')
+-                update(s, tr)
+-                transitions += 1
+-        elif e['type'] == 'end':
+-            for original in e['learners']:
+-                s = states[arm][original['agentId']]
+-                close(original['weights'], s['weights'], 'final weights')
+-                close(original['eligibility'], s['eligibility'], 'final eligibility')
+-                for key in ['rngState', 'retentionRngState', 'replayRngState', 'olderSeen', 'decisions', 'transitions', 'acquisition']:
+-                    assert original[key] == s[key], (arm, key)
+-                assert original['work']['scalarOperations'] == s['operations']
+-                assert original['work']['liveUpdates'] == original['work']['replayUpdates'] == s['transitions']
+-                assert original['recentExperiences'] == [v['experience'] for v in s['recent']]
+-                assert original['olderExperiences'] == [v['experience'] for v in s['older']]
+-                charge = original['charge']
+-                assert charge['outstandingEnergy'] >= 0
+-                close(charge['incurredEnergy'] - charge['paidEnergy'], charge['outstandingEnergy'], 'paid/debt ledger')
+-                bodies += 1
+-        else:
+-            raise AssertionError(e['type'])
++    with path.open(encoding='utf8') as stream:
++        for line in stream:
++            e = json.loads(line)
++            arm = e['arm']
++            if e['type'] == 'start':
++                assert e['seed'] == seed
++                states[arm] = {}
++                for original in e['learners']:
++                    s = dict(original)
++                    s.update(weights=np.zeros((2, 40)), eligibility=np.zeros((2, 40)), history=[], recent=[], older=[], operations=0)
++                    expected = (seed ^ ((s['agentId'] * 2654435761) & 0xffffffff)) & 0xffffffff or 1
++                    assert s['rngState'] == expected
++                    assert s['retentionRngState'] == ((expected ^ 0x9e3779b9) or 1)
++                    assert s['replayRngState'] == ((expected ^ 0xa511e9b3) or 1)
++                    close(original['weights'], s['weights'], 'initial weights')
++                    states[arm][s['agentId']] = s
++            elif e['type'] == 'intervention':
++                for s in states[arm].values():
++                    s['eligibility'].fill(0)
++                    if e['action'] == 'freeze':
++                        s['acquisition'] = False
++                    else:
++                        s['weights'].fill(0)
++                        s['history'], s['recent'], s['older'], s['olderSeen'] = [], [], [], 0
++            elif e['type'] == 'experience':
++                s = states[arm][e['agentId']]
++                decision = e['decision']
++                records = e.get('transitions', [e['transition']] if e.get('transition') else [])
++                phi = features(s, decision['observation']) if decision else None
++                before = [tr for tr in records if not decision or tr['tick'] < e['tick']]
++                after = [tr for tr in records if decision and tr['tick'] == e['tick']]
++                for tr in before:
++                    assert 0 < tr['duration'] <= 8
++                    close(tr['nextPhi'], np.zeros(40) if tr['terminal'] else phi, 'next-history features')
++                    if s.get('lastDecisionPhi') is not None:
++                        close(tr['phi'], s['lastDecisionPhi'], 'factual prior features')
++                    update(s, tr)
++                    transitions += 1
++                if decision:
++                    q = values(s, phi)
++                    first, second = draw(s, 'rngState'), draw(s, 'rngState')
++                    selected = (-1 if second < .5 else 1) if first < .1 or q[0] == q[1] else (1 if q[1] > q[0] else -1)
++                    assert selected == decision['choice'], 'independent policy choice'
++                    s['lastDecisionPhi'] = phi
++                    s['history'] = (s['history'] + [decision])[-3:]
++                    s['decisions'] += 1
++                    decisions += 1
++                for tr in after:
++                    assert tr['terminal'] and tr['duration'] == 1
++                    close(tr['phi'], phi, 'terminal decision features')
++                    close(tr['nextPhi'], np.zeros(40), 'terminal zero bootstrap')
++                    update(s, tr)
++                    transitions += 1
++            elif e['type'] == 'end':
++                for original in e['learners']:
++                    s = states[arm][original['agentId']]
++                    close(original['weights'], s['weights'], 'final weights')
++                    close(original['eligibility'], s['eligibility'], 'final eligibility')
++                    for key in ['rngState', 'retentionRngState', 'replayRngState', 'olderSeen', 'decisions', 'transitions', 'acquisition']:
++                        assert original[key] == s[key], (arm, key)
++                    assert original['work']['scalarOperations'] == s['operations']
++                    assert original['work']['liveUpdates'] == original['work']['replayUpdates'] == s['transitions']
++                    assert original['recentExperiences'] == [v['experience'] for v in s['recent']]
++                    assert original['olderExperiences'] == [v['experience'] for v in s['older']]
++                    charge = original['charge']
++                    assert charge['outstandingEnergy'] >= 0
++                    close(charge['incurredEnergy'] - charge['paidEnergy'], charge['outstandingEnergy'], 'paid/debt ledger')
++                    bodies += 1
++            else:
++                raise AssertionError(e['type'])
+     return {'factualTransitions': transitions, 'decisions': decisions, 'learnerBodies': bodies}
+ 
+ 

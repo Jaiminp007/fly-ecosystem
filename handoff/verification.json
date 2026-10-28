@@ -1,0 +1,28 @@
+{
+  "nodeTests": {
+    "tests": 138,
+    "pass": 138,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "pythonAdapter": "python3 -m unittest connectome.test_controller_adapter: 1 test, OK",
+  "archiveRestore": {
+    "restoredAndVerifiedFiles": 1316,
+    "destination": "/private/tmp/afterwing-handoff-restore-20261024"
+  },
+  "archive": {
+    "fileCount": 1316,
+    "partCount": 12,
+    "uncompressedBytes": 2184951905,
+    "compressedBytes": 291217905
+  },
+  "credentialScan": "Earlier packaging scan reported 1557 files checked and zero matches for the configured OpenAI/GitHub/private-key/AWS credential patterns; pattern scanning is not an exhaustive secret guarantee.",
+  "whitespaceCheck": "git diff --cached --check flags Markdown hard-break spaces in verbatim Astra recommendation/transcript and a final blank line in its response. Preserved original consultation text.",
+  "research": "Paused at user request. No new performance experiment launched for packaging.",
+  "limitations": [
+    "Archive restoration verified on original machine into a separate directory. Cross-machine bitwise physical replay remains unverified.",
+    "SARSA runner, frozen performance protocol, and embodied qualification are unfinished.",
+    "No RSI demonstrated."
+  ]
+}

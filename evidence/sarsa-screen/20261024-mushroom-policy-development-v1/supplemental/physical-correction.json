@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "originalRawObjectAuditFailed": true,
+  "strictFailureLogSha256": "44f54db5e601e3be9d4af549968fc60ebe84a060ef20d8e344d4e141d4d1c387",
+  "originalRunnerSha256": "aec520ffb425bd41d7cf2391caa76d7976de5470fb51033dacbaf0202a32699d",
+  "supplementalAuditorSha256": "4709a8037787f0c2ff09313e7e5d1acab88da367775ebf54c3e9f41cbdc3328d",
+  "updatedRootRunnerSha256": "ede288c9fdf4863b19cbb83a3741d3ba66ab11aec19994ae42536c5b15d9acc5",
+  "signedZeroEntries": 195,
+  "physicalAuditSha256": "7e74657c7c8eaf04ac420a71b09b0ccd36fc5ba547458dfdb86280428f40883a",
+  "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+  "resultsSha256": "7faad4f394dcb03f2860a155ef14ee3dc8707bc7e1905a01cd378f3488362074",
+  "allOriginalSourcesVerifiedUnchanged": true,
+  "physicalNumericToleranceUsed": false,
+  "correction": "Raw Object.is-sensitive deep equality distinguishes -0 from JSON-stored 0. Supplemental replay requires exact serialized rows and factual trace hashes for every history; no other representable value or outcome may change. No learner source, protocol, outcome or gate was changed.",
+  "taskSourceHashes": {
+    "engine.mjs": "139f4cd722bf40654b3fba9e388dd9cb335b0d40760f05182aa4d01de8d503b0",
+    "learning/continual-regimes.mjs": "afda88397a380586a3ba20c4a5ae4f611207c40d1d60a909ba8baa7f4487b44b",
+    "learning/trace-actor.mjs": "d0d63f3e2315d130c037a40b36259d75617157ce9df689e713d682e48e5f7241"
+  }
+}

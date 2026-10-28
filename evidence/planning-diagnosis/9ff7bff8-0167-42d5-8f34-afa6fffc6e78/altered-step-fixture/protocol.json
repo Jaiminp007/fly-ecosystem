@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-24T01:41:05.394Z",
+  "experiment": "failed-factored-plan-error-decomposition",
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/factored-prediction/cab9ade1-38d0-451a-a903-d785ec789278",
+  "referenceSha256": "bc8c6c25e379a4ac089c39aafb94662b0cd3371b1b5a11480cfa343b62699f70",
+  "sourceSha256": "248b4dd71a0ca799afb14b8aeee453fe6d285982ce81e7badccf3197e4310272",
+  "seeds": [
+    1430674274,
+    1430682193,
+    1430690112,
+    1430698031,
+    1430705950,
+    1430713869,
+    1430721788,
+    1430729707,
+    1430737626,
+    1430745545,
+    1430753464,
+    1430761383
+  ],
+  "environments": {
+    "stable": {
+      "nutrient": 0.4,
+      "ecology": "baseline",
+      "challenges": "off",
+      "seasonal": false
+    },
+    "relocation": {
+      "nutrient": 0.4,
+      "ecology": "relocation",
+      "challenges": "off",
+      "seasonal": false
+    }
+  },
+  "discount": 0.99,
+  "horizon": 8,
+  "stages": [
+    "heldActions",
+    "actualActionSchedule",
+    "teacherForced",
+    "actualReward",
+    "energy"
+  ],
+  "interpretation": "Fixed reused failure diagnosis, not policy selection or qualification. Every predictor is reconstructed from only its own prior factual transitions and frozen during forks. Actual future action schedules, sensory states, and rewards are privileged diagnostic inputs and cannot be deployed as predictors. Stage gaps form an additive numerical decomposition, not independent causal estimates. No fork outcomes train any model. No live policy, difficulty or qualification gate changes."
+}

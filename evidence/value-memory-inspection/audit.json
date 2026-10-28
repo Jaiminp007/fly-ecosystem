@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-23T18:13:47.842Z",
+  "directory": "evidence/episodic-credit/e47816bf-0161-4444-a4cb-51f578b86ca3",
+  "seedPairs": 30,
+  "priorCampaignsChecked": 5,
+  "disjointSeeds": true,
+  "requiredControls": [
+    "frozen",
+    "neural",
+    "noMemory",
+    "observedWindow"
+  ],
+  "comparisonsRecomputed": true,
+  "archivedSourcesVerified": true,
+  "calibrationSamplesRecomputed": 40,
+  "baselineReplaysExact": true,
+  "browserGeometryVerified": true,
+  "passed": false
+}

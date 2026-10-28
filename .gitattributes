@@ -1,0 +1,9 @@
+# Source and evidence hashes must survive checkout on Windows.
+* text=auto eol=lf
+handoff/**/archives/* -text
+# New study records include exact Windows-native checker output bytes.
+evidence/sarsa-screen/** -text whitespace=cr-at-eol
+# Unified patches require their literal context prefixes, including blank lines.
+evidence/sarsa-screen/**/*.patch -whitespace
+evidence/cue-authority/** -text whitespace=cr-at-eol
+evidence/cue-learning/** -text whitespace=cr-at-eol

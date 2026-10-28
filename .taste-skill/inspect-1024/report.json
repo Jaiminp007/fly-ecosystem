@@ -1,0 +1,424 @@
+{
+ "url": "http://127.0.0.1:8767",
+ "at": "2026-10-23T03:23:57.010Z",
+ "allow": [
+  "few-pictures",
+  "still-page",
+  "no-footage",
+  "eyebrow"
+ ],
+ "viewports": [
+  {
+   "width": 1024,
+   "height": 768,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.89,
+    1,
+    0.78
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1024,
+     "h": 768
+    },
+    "page": {
+     "height": 1969,
+     "screens": 2.6,
+     "words": 397,
+     "img": 0,
+     "video": 0,
+     "canvas": 3,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 18,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "chars": 26,
+     "lines": 1,
+     "size": 34.8,
+     "vw": 3.4,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.05,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.52,
+     "top": 103,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "A world of learning flies.",
+     "words": 5,
+     "lines": 1,
+     "size": 34.8,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "A world of learning flies.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 34.8,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "weight": 650,
+      "tracking": -0.05,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 103,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Agents that keep improving themselves.",
+      "words": 5,
+      "chars": 38,
+      "lines": 2,
+      "size": 26,
+      "vw": 2.5,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 128,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "50",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 2.5,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 1080,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "3656 / 3630",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 26,
+      "vw": 2.5,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 1080,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "193",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 26,
+      "vw": 2.5,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.15,
+      "top": 1080,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "419.1",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 26,
+      "vw": 2.5,
+      "font": "Libre Franklin",
+      "weight": 550,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.15,
+      "top": 1080,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "Read the world.",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 26,
+      "vw": 2.5,
+      "font": "Source Serif 4",
+      "weight": 650,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 1709,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.99,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      16,
+      20,
+      26,
+      35
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 8.6
+     },
+     "measureChars": 56,
+     "max": {
+      "size": 34.8,
+      "vw": 3.4,
+      "font": "Libre Franklin",
+      "text": "A world of learning flies."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e9eeec",
+     "bodyBgHsl": {
+      "h": 156,
+      "s": 0.13,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f9fbf9",
+       "top": 362,
+       "hsl": {
+        "h": 120,
+        "s": 0.2,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#142c2c",
+       "top": 544,
+       "hsl": {
+        "h": 180,
+        "s": 0.38,
+        "l": 0.13
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#586b64",
+       "share": 0.44
+      },
+      {
+       "color": "#354f46",
+       "share": 0.25
+      },
+      {
+       "color": "#213838",
+       "share": 0.22
+      },
+      {
+       "color": "#f0f6f1",
+       "share": 0.02
+      },
+      {
+       "color": "#176559",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#edf2ef",
+      "hsl": {
+       "h": 144,
+       "s": 0.16,
+       "l": 0.94
+      },
+      "fg": "#213838"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 14,
+     "inHero": 4,
+     "radius": 6,
+     "height": 40,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New habitat +",
+      "Run",
+      "Agent",
+      "Agent 3608 · G188"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 2,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 9,
+     "boxRadius": 9,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 76,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [],
+ "images": [
+  {
+   "viewport": "tablet",
+   "width": 1024,
+   "fold": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect-1024/tablet-fold.jpg",
+   "pages": [
+    "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/.taste-skill/inspect-1024/tablet-page-01.jpg"
+   ]
+  }
+ ]
+}

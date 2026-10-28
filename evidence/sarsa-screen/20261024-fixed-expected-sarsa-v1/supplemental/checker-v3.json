@@ -1,0 +1,6 @@
+{
+  "source": "evidence/sarsa-screen/20261024-fixed-expected-sarsa-v1/supplemental/audit-sarsa-screen-v3.py",
+  "sha256": "a2cae9e698012f3ff71ee04880c0aabef41f99c60b11f938c1c60ab594ca976b",
+  "previousCheckerSha256": "dc52d2f611dd06a0849e97a4c25a8ae04b8da7c81930ca9fa15c6fc5da42dcc0",
+  "correction": "Use an explicit context manager to close each factual trace file. V2 completed numerical assertions but refused its warning-free gate due to sixteen unclosed-file ResourceWarnings. No arithmetic/statistical threshold, raw data, protocol or scientific result changed."
+}

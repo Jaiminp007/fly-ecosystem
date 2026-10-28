@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-24T01:18:52.894Z",
+  "experiment": "offline-own-experience-transition-probe",
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7",
+  "referenceSha256": "b62892d806827fe36053e61383031a2df7826e5c0678358561591b7e40561762",
+  "outcomesSha256": "52370282a45196e2589dd70bc05c4a0b24390009d8ad6465bd27ba8718d842df",
+  "archivedSourceSha256": {
+    "engine.mjs": "dfa91a1c3cf36c9767920e05a08af4ea7f0ac91c819b68aeedb746736408f87b",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "ddba20e421a1f9498ab7765ccd4866cdd3b74e1da9cb437e2a5aa103c8310ca6",
+    "learning/episodic.mjs": "f45d2a2c47d4b3d634c0ed3440fc9f7198a2ec66592aff3329704aeb90f9e012",
+    "learning/episodic-actor.mjs": "1f12c882902306887123e8bc9c11003571f6794490ff49ecb46e6cc23c952e4e",
+    "learning/joint-episodic.mjs": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/neural-memory-interaction.mjs": "285a4581b47338d0473265747cdb4d47d38c8fa00ae4c02d0194dbb69f4f5dfd"
+  },
+  "sourceSha256": {
+    "learning/predictive-model.mjs": "8de1267f266cfeb6db3e17d2900079ca922a39eb906e4b03ae31bdaecda1dbad",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/predictive-transition-probe.mjs": "dfdd7da70b6db40052784757466783195d79fe7676672e7f640d62cfb1a768d2"
+  },
+  "seeds": [
+    1425182348,
+    1425190267,
+    1425198186,
+    1425206105,
+    1425214024,
+    1425221943
+  ],
+  "environments": {
+    "stable": {
+      "nutrient": 0.4,
+      "ecology": "baseline",
+      "challenges": "off",
+      "seasonal": false
+    },
+    "relocation": {
+      "nutrient": 0.4,
+      "ecology": "relocation",
+      "challenges": "off",
+      "seasonal": false
+    }
+  },
+  "learningRate": 0.2,
+  "holdoutFromTick": 900,
+  "horizonTicks": 1800,
+  "modelArms": [
+    "online",
+    "actionErased",
+    "frozenAtHoldout",
+    "resetAtHoldout",
+    "zero"
+  ],
+  "planningTicks": [
+    600,
+    1200,
+    1700
+  ],
+  "planningHorizon": 8,
+  "decisionRule": "Predictive-screen signal requires negative upper interval bounds for holdout reward MSE of online minus actionErased AND online minus last-reward persistence in BOTH environments. This does not qualify a policy. No parameter search or sample extension.",
+  "interpretation": "Each founder owns its own action-conditioned model, trained only on its actual completed consecutive observation/action/reward transitions. Next-observation targets are residuals from the current observation. Query predictions before updating from that transition; evaluate the chronological second half. The historical controller generates the trajectory unchanged. Rewards are actual own net energy increments, not counterfactual/oracle labels. Targets are stored separately from predictor inputs. Action-erased models share shape/rate; freeze/reset controls isolate acquisition history. Plans are learned fixed-action open-loop forecasts and never affect worlds or train the model. Historical seeds are reused exploratory data, not untouched policy qualification. No model metabolic price or world checkpoint integration is claimed."
+}

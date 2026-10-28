@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-23T20:04:38.982Z",
+  "referenceDirectory": "evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25",
+  "sourceSha256": {
+    "engine.mjs": "527baa44932d741fd97eb6a7b3b05852beb8fde182a346fd7c572284f687431b",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "ddba20e421a1f9498ab7765ccd4866cdd3b74e1da9cb437e2a5aa103c8310ca6",
+    "learning/episodic.mjs": "9b37328a41f898f16a692e92f35fb15c7a8a3804d53b0c7684851254bf7f4ed9",
+    "learning/episodic-actor.mjs": "4ca3fb512a4433c2bd46a3360818477e3575b351e9c22d7ccf4d857a414e248e",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/diagnose-cruise-horizons.mjs": "bde2e2307c947e23a28371343ef78e251aa9857962b00ea6cab39429d7ef019b"
+  },
+  "seeds": [
+    3265863333,
+    3265871252,
+    3265879171,
+    3265887090,
+    3265895009,
+    3265902928,
+    3265910847,
+    3265918766,
+    3265926685,
+    3265934604,
+    3265942523,
+    3265950442,
+    3265958361,
+    3265966280,
+    3265974199,
+    3265982118,
+    3265990037,
+    3265997956,
+    3266005875,
+    3266013794
+  ],
+  "snapshotTicks": [
+    400,
+    904,
+    1400
+  ],
+  "agentsPerSnapshot": 2,
+  "shortHorizon": 8,
+  "mediumHorizon": 128,
+  "longHorizon": 256,
+  "interpretation": "Post-hoc same-seed counterfactual diagnosis, not independent policy confirmation. Fork a recorded world before a decision and force the first target-agent speed choice by its exploration RNG. Restore the same future target decision RNG after that first choice in both forks; other initial RNG streams remain identical. Later dynamics and population can diverge. Normal learning continues in each diagnostic fork. No fork outcome enters the baseline or trains a live agent. Compare short and longer target-agent energy effects; limited-horizon effects do not establish optimal long-run actions."
+}

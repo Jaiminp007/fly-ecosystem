@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "passed": true,
+  "protocolSha256": "0467f37ff30c77f553ce3c9f707d7f22ececed210f3be5c50e63b827f5e26a49",
+  "resultsSha256": "3a4f54f9b6ef1f9725d761f1e18f0adea4149120d8fdbb946f9be0f35e078ea1",
+  "decisions": 576190,
+  "physicalReceipts": 576190,
+  "bodySteps": 4600158,
+  "bodies": 3072,
+  "physicalEquality": "Requires separate exact Node cold replay; arithmetic tolerances do not replace it.",
+  "warnings": []
+}

@@ -4,18 +4,19 @@ import {join} from 'node:path';
 import {World, DT, INPUTS, OUTPUTS, validateConfig} from '../engine.mjs';
 import {CheckpointStore} from '../persistence.mjs';
 import {telemetry} from '../telemetry.mjs';
+import {compactControllerView} from './controller-adapter.mjs';
 
 const ID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
-const CONFIG_KEYS = new Set(['seed', 'founders', 'capacity', 'learning', 'mutation', 'nutrient', 'seasonal', 'challenges']);
-const EDITABLE = new Set(['capacity', 'learning', 'mutation', 'nutrient', 'seasonal']);
+const CONFIG_KEYS = new Set(['seed', 'founders', 'capacity', 'learning', 'mutation', 'nutrient', 'seasonal', 'challenges', 'ecology', 'signalMode', 'controller', 'actorParameters', 'episodicParameters', 'reproduction']);
+export const EDITABLE = new Set(['capacity', 'learning', 'mutation', 'nutrient', 'seasonal', 'ecology', 'signalMode']);
 
-function configObject(config, keys) {
+export function configObject(config, keys) {
   if (!config || typeof config !== 'object' || Array.isArray(config)) throw Error('Configuration must be an object');
   for (const key of Object.keys(config)) if (!keys.has(key)) throw Error(`Unsupported setting: ${key}`);
   return config;
 }
 
-function nameOf(name) {
+export function nameOf(name) {
   if (typeof name !== 'string' || !name.trim() || name.trim().length > 80) throw Error('Name must contain 1–80 characters');
   return name.trim();
 }
@@ -75,12 +76,39 @@ export class EcosystemManager {
   state(id) {
     const entry = this.get(id);
     return {...entry.world.snapshot(), ecosystem: this.metadata(entry), telemetry: telemetry(entry.world),
+      eventCount: entry.world.events.length, eventHasMore: entry.world.events.length > 100,
       interface: {inputs: INPUTS, outputs: OUTPUTS}};
+  }
+
+  frame(id, {sinceTick = 0, sinceEvent = 0} = {}) {
+    const entry = this.get(id);
+    const frame = entry.world.frame({sinceTick,sinceEvent});
+    return {...frame,
+      eventCount: entry.world.events.length,
+      ecosystem: this.metadata(entry), telemetry: telemetry(entry.world),
+      interface: {inputs: INPUTS, outputs: OUTPUTS}};
+  }
+
+  eventPage(id, {offset = 0, limit = 100} = {}) {
+    if (!Number.isSafeInteger(offset) || offset < 0 || !Number.isSafeInteger(limit) || limit < 1 || limit > 200)
+      throw Error('Invalid event page');
+    const items = this.get(id).world.events;
+    const end = Math.max(0, items.length - offset);
+    const start = Math.max(0, end - limit);
+    return {total: items.length, offset, limit, hasMore: start > 0, items: items.slice(start,end)};
+  }
+
+  lineage(id, {offset = 0, limit = 100} = {}) {
+    if (!Number.isSafeInteger(offset) || offset < 0 || !Number.isSafeInteger(limit) || limit < 1 || limit > 500)
+      throw Error('Invalid lineage page');
+    const items = this.get(id).world.lineage;
+    return {total: items.length, offset, limit, items: items.slice(offset, offset + limit)};
   }
 
   inspect(id, agentId) {
     if (!Number.isSafeInteger(agentId) || agentId < 1) throw Error('Invalid agent ID');
-    return this.get(id).world.inspect(agentId);
+    const detail = this.get(id).world.inspect(agentId);
+    return detail.genome ? {...detail, controllerView: compactControllerView(detail,{inputs:INPUTS,outputs:OUTPUTS})} : detail;
   }
 
   serialize(entry, savedAt = new Date().toISOString()) {
@@ -194,7 +222,7 @@ export class EcosystemManager {
           if (next.capacity < world.flies.length) throw Error('Capacity must cover the living population');
           if (next.capacity > world.config.capacity) world.capacityReached = false;
           world.config = next;
-          world.record('intervention', `Settings changed: ${JSON.stringify(changes)}`);
+          world.record('intervention', `Settings changed: ${JSON.stringify(changes)}`,{changes});
           break;
         }
         case 'checkpoint':
@@ -221,7 +249,7 @@ export class EcosystemManager {
 
   advanceRealtime(seconds, budgetMs = 8) {
     const active = [...this.experiments.values()].filter(entry => !entry.paused && !entry.pending);
-    if (!active.length) return;
+    if (!active.length) return false;
     for (const entry of active) entry.owed = Math.min(100, entry.owed + Math.min(seconds, .25) * entry.speed / DT);
     const deadline = performance.now() + budgetMs;
     let idle = 0;
@@ -237,6 +265,7 @@ export class EcosystemManager {
         entry.error = `Simulation failed: ${error.message}`;
       }
     }
+    return active.some(entry => !entry.paused && !entry.pending && entry.owed >= 1);
   }
 
   async flush() {

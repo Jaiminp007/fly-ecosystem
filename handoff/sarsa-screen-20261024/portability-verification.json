@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "manifestSha256": "77bc69695a6deb6e3de819deba82633c277c7a49c078fb2d014e617e26116b83",
+  "files": 255,
+  "chunks": 14,
+  "uncompressedBytes": 974596855,
+  "compressedBytes": 335752077,
+  "separateDirectoryRestore": {
+    "restoredAndVerifiedFiles": 255,
+    "destination": "C:\\Users\\nisar\\fly-ecosystem\\runs\\sarsa-portable-restore-check"
+  },
+  "separateDirectoryVerification": {
+    "failedCount": 0
+  },
+  "workspaceVerification": {
+    "failedCount": 0
+  },
+  "scope": "All new raw artifacts and retained execution/test/failure logs, with exact hashes; original handoff archive untouched. Verification metadata is separate from the archive it verifies."
+}

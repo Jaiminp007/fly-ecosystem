@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-23T19:30:56.650Z",
+  "worlds": 744,
+  "developmentPairs": 12,
+  "heldoutPairs": 30,
+  "maxAccountingResidual": 2.6998350222129375e-9,
+  "passed": false,
+  "checks": [
+    "seed separation and counts",
+    "matched inherited founder hashes",
+    "energy accounting and horizon",
+    "all held-out comparisons recomputed",
+    "development comparisons, eligibility and ranking recomputed",
+    "cue component gates recomputed",
+    "archived source and reference hashes",
+    "locked selection preserved",
+    "incumbent comparison gate recomputed",
+    "cue accuracy and retention intervals recomputed from raw trials"
+  ],
+  "limitations": [
+    "No replay of every study world in this audit",
+    "Same-body retention diagnostic is exploratory, not a promotion gate"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "passed": true,
+  "phase": "development",
+  "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+  "resultsSha256": "7faad4f394dcb03f2860a155ef14ee3dc8707bc7e1905a01cd378f3488362074",
+  "histories": 8,
+  "factualTransitions": 225792,
+  "decisions": 258047,
+  "learnerBodies": 1152,
+  "reflexDecisions": 43008,
+  "comparisons": 13,
+  "plasticityHistoriesPassed": 8,
+  "survivalGuardsPassed": 9,
+  "scope": "Independent sparse sensory projection, winner selection, stochastic policy/score gradient, dopamine/baseline/fast decay/slow consolidation, traces/RNG/work; old linear learner, fixed reflex, debt/endpoints and all inference. Physical replay is separate.",
+  "warnings": []
+}

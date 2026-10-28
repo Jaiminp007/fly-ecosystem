@@ -1,0 +1,51 @@
+{
+  "at": "2026-10-24T01:00:06.899Z",
+  "experiment": "posthoc-matched-retrieval",
+  "inputPath": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/action-horizon-diagnosis/results.json",
+  "inputSha256": "60d9706644dc58e9c73216e45a4b2a90c5a2eedee4884d374f80ca38fcb05a38",
+  "referenceSha256": "27225b1683bdcbfaef10b10cbae44cda7a618b4e949f1a99d7a590cadfa6ed16",
+  "outcomesSha256": "3f6de596bb506de4381d28bbf9d577721eb1cf969306d246f8e33cedeaa53a05",
+  "sourceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/action-horizon-diagnosis/sources",
+  "archivedWorldSourceSha256": {
+    "engine.mjs": "527baa44932d741fd97eb6a7b3b05852beb8fde182a346fd7c572284f687431b",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "ddba20e421a1f9498ab7765ccd4866cdd3b74e1da9cb437e2a5aa103c8310ca6",
+    "learning/episodic.mjs": "9b37328a41f898f16a692e92f35fb15c7a8a3804d53b0c7684851254bf7f4ed9",
+    "learning/episodic-actor.mjs": "4ca3fb512a4433c2bd46a3360818477e3575b351e9c22d7ccf4d857a414e248e",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/diagnose-cruise-horizons.mjs": "bde2e2307c947e23a28371343ef78e251aa9857962b00ea6cab39429d7ef019b"
+  },
+  "sourceSha256": {
+    "learning/matched-retrieval.mjs": "f060ea7f364a1e23ef8a3c95ec3ccc8c09bd686a76262f46456d3d61d28549c6",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/diagnose-matched-retrieval.mjs": "e8ca76f02cdb5d545dc4144579cab192d8477c2f372f37664e8228b5aae49089"
+  },
+  "seeds": [
+    3265863333,
+    3265871252,
+    3265879171,
+    3265887090,
+    3265895009,
+    3265902928,
+    3265910847,
+    3265918766,
+    3265926685,
+    3265934604,
+    3265942523,
+    3265950442,
+    3265958361,
+    3265966280,
+    3265974199,
+    3265982118,
+    3265990037,
+    3265997956,
+    3266005875,
+    3266013794
+  ],
+  "geometry": {
+    "bandwidth": 0.25,
+    "maxPairDistance": 0.6
+  },
+  "decision": "No estimator selection, integration or policy qualification from this reused sample. A positive paired gain interval motivates a separately specified prospective experiment. A nonpositive/uncertain interval does not justify deploying this estimator or resampling these cases.",
+  "interpretation": "Offline comparison at original factual memories. Match the existing negative/positive nearest-neighbor sets by shared query and pair-context distances. Use only their past reward/value targets. Compute predictions BEFORE joining recorded counterfactual effects. Fixed geometry reuses the incumbent bandwidth and retrieval radius; no fitting to future outcomes. Raw and matched predictions are compared on the same available cases with seed-level aggregation. The effects are finite-horizon target-agent energy changes, not unbiased Q labels or an optimal long-run policy. No new forks, live controls, learning updates, difficulty promotion or RSI claim. A live implementation would additionally price the declared two record reads per checked cross-action pair and verify checkpoints/retention before qualification."
+}

@@ -1,0 +1,1091 @@
+{
+  "schema": 1,
+  "format": "ordered split gzip-compressed tar",
+  "files": [
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/decision.json",
+      "bytes": 1325,
+      "sha256": "3cba6020998092d615884c6078c57181b276cf209fb5a6558c2f00c4789d51b4"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numeric-audit.json",
+      "bytes": 726,
+      "sha256": "4c1393b503c0bc119db3fb94ef4d1a600da3c41a201f15b2090792efc2099e53"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/1038175585.jsonl",
+      "bytes": 50713868,
+      "sha256": "a9e0052323a16468424f98f965d4b7581a09b55166056a90d01fb39d4a0bd894"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/1212944273.jsonl",
+      "bytes": 50804536,
+      "sha256": "9e73be445ed686132d6329085166d09726518fa1324866229763d931dd7a42b7"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/195567839.jsonl",
+      "bytes": 50768453,
+      "sha256": "e5a7a0b7d43b5405aeed0254b6674592855cfeddebf852df7c4d98e01bae7327"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/263905784.jsonl",
+      "bytes": 50543881,
+      "sha256": "4ed08f9c87352af6b48aaab9f52b6df84eb65f06a5f9fc825e7c0ed565524ca7"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/311386242.jsonl",
+      "bytes": 51159452,
+      "sha256": "bcb6e21a66ee4aa1ff447a978a701c71a25ed64f12f9c8f8a0a12dc3d7d20233"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/3944223327.jsonl",
+      "bytes": 50141914,
+      "sha256": "dc7d17687ed32581dc415bc2d0ab696bb0ef15cb28f67c8587704567319d9592"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/846735184.jsonl",
+      "bytes": 50340975,
+      "sha256": "182a5b34860a4a6a5d8d5d62e4131b0ee2ecd35d62cb1176b9a9ed3bca0930fc"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/numerics/948796197.jsonl",
+      "bytes": 50256810,
+      "sha256": "52c12f13675c4c5cc62d7ba1ca73b46a6e5ab450804d0d96aa47cb97d375cb5f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/physical-audit.json",
+      "bytes": 460,
+      "sha256": "ee7dd73d770a0170832b1e83fea72a734dcc9fc2dc5f8f41e10ea3f39bf988c0"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/results.json",
+      "bytes": 17573,
+      "sha256": "d2833ece6584535343f9b44c4b7fb865723a4a0df7322fd55548c5d430b161e1"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/1038175585.json",
+      "bytes": 1371883,
+      "sha256": "1bf270721c7af271facf43efc306aed0c42958dddbf919b43308a884f343f27c"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/1212944273.json",
+      "bytes": 1374007,
+      "sha256": "deb2ace2852704d8eb9aa54cd8ae85a6892babfd86318a45ed6f386c7e43261b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/195567839.json",
+      "bytes": 1372616,
+      "sha256": "1377afd4a4c840240e4cc3f9c4b85d645584d08d573257ffcc926fcf8bf2f141"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/263905784.json",
+      "bytes": 1368869,
+      "sha256": "9c3e4b1032e04807fafc46336fe64d4a4ca5106b690a55e65726a1592730428d"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/311386242.json",
+      "bytes": 1376461,
+      "sha256": "689d02313776fa6aef676962647cdca789976544969056261385f30fad28dcdc"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/3944223327.json",
+      "bytes": 1361309,
+      "sha256": "4fb9bb6f19d2cee3ba12192709d2a48ae080739b014f77a15f22b9fb8aeac48c"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/846735184.json",
+      "bytes": 1363225,
+      "sha256": "41c027a7c30556599719ef7f1bd3ffc0c8e461da2d7b45a99aec45dc97c1c862"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/development/rows/948796197.json",
+      "bytes": 1365960,
+      "sha256": "9de6b403c6aaad709e732d677d1c2e2a9d875ef710cda32700c13f39b53fd621"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/atomic-json.test.mjs",
+      "bytes": 1807,
+      "sha256": "d7ffcbac1bff972fb91838e96f6303367b6315a7870b8c7bb2088e483c89741f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/autonomy.test.mjs",
+      "bytes": 3077,
+      "sha256": "224f765280f3bcc2524de96d944aee808ba616789e27aea28965b4d262454354"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/behavior-policy.test.mjs",
+      "bytes": 2003,
+      "sha256": "c5ea441ed00016f2daf4a4b4a6c38aac4be151985b274e065a2f0523b246d62d"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/challenges.test.mjs",
+      "bytes": 3882,
+      "sha256": "4eecc07a6e62f4615fb50c3984cf59d2dd54b8910211c7a994acffeda543b459"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/continual-regimes.test.mjs",
+      "bytes": 2341,
+      "sha256": "b73ce28fc1f18dfca86d64cee073b8a13b4eb893046e163ead1557c1bfa89fef"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/continual.test.mjs",
+      "bytes": 798,
+      "sha256": "42e9b0fb6ce66e374b073708a8bd54eaa6be222138d87f408bd5556d394b1d28"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/embodied-control.test.mjs",
+      "bytes": 2458,
+      "sha256": "71c773f83a2aeea3bcb593ac357b35d92f036516d86e332201ceb191232a7588"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/engine.test.mjs",
+      "bytes": 3799,
+      "sha256": "bd60315a3960455498b5a0e8d56b175fe22371c161f4eae0fa4580a7917e9d42"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/episodic-body.test.mjs",
+      "bytes": 13884,
+      "sha256": "97d0c1e02e12fafc228170a0b50f290ebfab006de7f4794e75bbd7c6239e38a4"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/episodic-context-value.test.mjs",
+      "bytes": 5168,
+      "sha256": "5e0ea74be95b68e329f3012e44cb8e4cec1d379a891bbdf0152870879e1cb459"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/episodic-prior.test.mjs",
+      "bytes": 6141,
+      "sha256": "4c2d0ca80ded2bc150381cc9694a49522f970117dd032cf669832853a243e9db"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/episodic-risk.test.mjs",
+      "bytes": 5664,
+      "sha256": "68f2a6e82f21f3216d45897fa64174695275f58865c938fed5d2c3c5c158a107"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/episodic.test.mjs",
+      "bytes": 8291,
+      "sha256": "b07a7964c57f2b204ab499f84ea42cf84dc682f33d5130a9d8cce99761c4c813"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/factored-prediction.test.mjs",
+      "bytes": 2095,
+      "sha256": "7cbc4a7766e3765c5b41dce3c99499005f9e73488a90cb10a6872d6ac7d1a584"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/intervention-study.test.mjs",
+      "bytes": 4672,
+      "sha256": "1473fb65d27a9eda23d89c671aa72a132814aafd09cfb73a5f547a8b7f7379e0"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/joint-episodic.test.mjs",
+      "bytes": 6365,
+      "sha256": "2818e78cf80ca36566ec1d8058ed0224761b49e487b3bc1cec5c6b99e5d3cfaf"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/kernel-learner.test.mjs",
+      "bytes": 3352,
+      "sha256": "490133577730ef8a514173e319c52fa07db9411f9802fae30e517d4158e1f661"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/matched-retrieval.test.mjs",
+      "bytes": 2441,
+      "sha256": "feafe4f9463af502593e49ce6b4321c343a1081347abbe02faf6810c780ac780"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/normalized-traces.test.mjs",
+      "bytes": 3474,
+      "sha256": "6120ab1953a2fb65f5d620eb539925ca579dd81db3c430c3a2391a04cd5af767"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/option-outcome.test.mjs",
+      "bytes": 2419,
+      "sha256": "b127a445953c35487c65c97be8bc488e61012589f07a200a10eb38aef209b1e5"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/own-body-integration.test.mjs",
+      "bytes": 3054,
+      "sha256": "ba2d6b581848ee7ee2a26e42a68fccee17ecdd9f51ae0241941073f54a1edee3"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/own-experience-learner.test.mjs",
+      "bytes": 2753,
+      "sha256": "ad97333455f5d95617293dcbc0ccfe44dbef89bb7dfc90793c00220055e6e8ff"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/persistence.test.mjs",
+      "bytes": 1450,
+      "sha256": "284227903d1840571b32c10ded77b721d1d5cfe489eb3937db9567e9b6d0bffa"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/platform-training.test.mjs",
+      "bytes": 2550,
+      "sha256": "035e128c75e17222c7ed89447483797362c2eeddf71ad769c0d5358109e11e66"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/platform.test.mjs",
+      "bytes": 11410,
+      "sha256": "3569b286eff8eb3e64db1498d095e0af7903ea5514f766112e6f817bdeba68eb"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/policy-aware-outcome.test.mjs",
+      "bytes": 4569,
+      "sha256": "38bbb183bb50eb6b9d38283a16152df3ea106a61097a4b4622595ad915b33809"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/portable-evidence-loader.test.mjs",
+      "bytes": 1527,
+      "sha256": "88cfd8d40017104b3efc68cbb94acc7f6d5b4e58ae8cf83f8a6df697b41482bc"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/predictive-model.test.mjs",
+      "bytes": 3110,
+      "sha256": "50bcbaeb81732763343a3136f9256be8860cf8ce7bc8a2ab67e5c8449117e0c6"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/reproductive-measurement.test.mjs",
+      "bytes": 2024,
+      "sha256": "2662857d9a3ad3e006682e83825c7dddd7cb32336b3ddecca8176f964f0dab85"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/resource-sense.test.mjs",
+      "bytes": 2597,
+      "sha256": "0f82d71525430d46769f838f60ec7ea466bf98b3384de03f1400b16977388079"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/retrace-sarsa.test.mjs",
+      "bytes": 7400,
+      "sha256": "b1d4363797a33c2113d37c1ac05bb77e5d09a881a3a8c80b48d37fec5e83d935"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/revision-search.test.mjs",
+      "bytes": 2930,
+      "sha256": "8215a699a11afac000762d550b366da4b1be8e7767c79bf1e37cf64ba456a0e3"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/sarsa-body.test.mjs",
+      "bytes": 2946,
+      "sha256": "d2f165958cb0146da35780a34170e8faf9e9a6251667aa03d07a36fd2fa31ab8"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/sarsa-development.test.mjs",
+      "bytes": 5612,
+      "sha256": "475540e0b7413338d7626183abfc2af344e559d9a86c29dde746b39d306e439b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/sarsa-experiment.test.mjs",
+      "bytes": 3660,
+      "sha256": "1cc5c586988c70514c281878fecd295d574821dea7e61bb4458f134a1ac92d8f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/sarsa-screen.test.mjs",
+      "bytes": 4647,
+      "sha256": "86910e35385f13166ecadc9819f036a62019211451b9e64db2156b35bb64d082"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/self-modifying.test.mjs",
+      "bytes": 4125,
+      "sha256": "3b112502a8fcf5f3f7b3c72bd7bbf056554b7e957a7e56692bd4f428415876ec"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/server.test.mjs",
+      "bytes": 4373,
+      "sha256": "0b1408901aded05511c152f7b7fb35c014aac4b65f08f528e9c3fd44ac534abc"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/tile-audit.test.mjs",
+      "bytes": 2336,
+      "sha256": "e6b405196512fa0f9f2466549a54ea9657b3bc167eb95aed0c9dc68d71f82a92"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/tile-sarsa.test.mjs",
+      "bytes": 4724,
+      "sha256": "25500b68b47f4e5e67712a32b44bad20e412a3fa6b513dbc10290b36fc5a268c"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/trace-actor.test.mjs",
+      "bytes": 3679,
+      "sha256": "9c5373a84f5299b589b0e1b46541ff94acd794c6eb9bc4f89be747f379997d61"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/worker-manager.test.mjs",
+      "bytes": 6328,
+      "sha256": "03ddfb92a8a845d4af90293d08b50840c46774dac8c188fd337b923f75ed1f81"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/engineering/worker-world.test.mjs",
+      "bytes": 2350,
+      "sha256": "b12f367f2936eec2df7eb247ee291fd219c2e6ebb8a281d5e7309e5f1f3f40e1"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/evidence-manifest.json",
+      "bytes": 294555,
+      "sha256": "7f2c8ec7858d4c3b0aa51b7e97a0806b310748f64c68b17f3317520dbeb7baf4"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/protocol.json",
+      "bytes": 67491,
+      "sha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/action-support/d789acc5-cb2d-433b-ab1a-f3a961a8f364/protocol.json",
+      "bytes": 2218,
+      "sha256": "b84c59b0dfc26bb46476063deccbe299d3dc7249929a70e4721c5f91ffb667b1"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/algorithm-upgrade/38de8132-b429-46d6-a025-2e31de80e865/protocol.json",
+      "bytes": 13503,
+      "sha256": "5b78c1f1b2361b6ca8890dbafc8a0133a91b289c7596a30b4ca923f47f8e1ec2"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/behavior-policy/6ca3c055-a45d-4948-9680-c0837fd2e9d6/protocol.json",
+      "bytes": 2342,
+      "sha256": "e3697473cdbedd8f43001d8f1cc5f77afe2bf1d6e8b75d833188003bc00221e3"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/context-learning/6a35e952-fb72-4716-af61-9ff7ed23e07c/protocol.json",
+      "bytes": 3030,
+      "sha256": "4e48ffc37ac1cff56a9cc1f65f97b873014f5410f00fb64b740016a9fa88ba4c"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/context-learning/86d4a9ff-3797-4a26-89e4-0d9740a36fc7/protocol.json",
+      "bytes": 1843,
+      "sha256": "271d5c4363edbc1d5ad1b2dabe1b84e0557e50537aafba8312044c7416a5bfce"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/context-learning/d5d94f5a-019e-44f9-917f-823fe0ab56e6/protocol.json",
+      "bytes": 3672,
+      "sha256": "787b9b6469b488bcad78c024e0963f677d787a04c2994ec798c22bd217445e1b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/continual-learning/7de7e41e-57bf-4581-9ec6-c59eb1b88d79/protocol.json",
+      "bytes": 2276,
+      "sha256": "00ef9c7e51d43c115fc6f7141279e95a869e36ff251bf694bff2ab5b2409b562"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/cruise-memory-inspection/live-observation/protocol.json",
+      "bytes": 1470,
+      "sha256": "6323689ed0722a4f88c38dcad339d6f97df62ad1ed8c8aeeed165b7a1f68d3da"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/ecology-confirmation/4c790e7c-a814-4f06-b36a-8e8d95128579/protocol.json",
+      "bytes": 2898,
+      "sha256": "9d01e3af9d7ffc13edb655614767924ab498479405741ad455a6cb229a5b72c7"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-adaptation/4dc8f483-9c0c-45a1-a98e-de169d325e2b/protocol.json",
+      "bytes": 10391,
+      "sha256": "1a5ce26140c285d813814279d74d1feec5bd8799e274d67184426a232c020263"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-body/8b19d187-3bb3-4c45-a9cc-d9f01ff7d447/protocol.json",
+      "bytes": 2818,
+      "sha256": "83aa3014b2c8dfbd245ce9406377329a08d503feb328fd78215e7a27fe00e437"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-body/ee41ec59-eef4-4261-a4e9-42d7aa8bba61/protocol.json",
+      "bytes": 4452,
+      "sha256": "cd94496a2f0a56d70ebb9291b5dedd614b3b3e43aea6978af8252c50d2bcbcbd"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/action-horizon-diagnosis/protocol.json",
+      "bytes": 1940,
+      "sha256": "3f86e2bd9a956f9b16cf6eea3a0173f5a2da1adf827bf84215f45d8c99e9a0ad"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/adaptation-diagnosis/protocol.json",
+      "bytes": 1521,
+      "sha256": "5e985c56a99d9675dd6001d3fe354e94e319b2c22b4c53cda897e6c0f8cf433e"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/death-credit-diagnosis/protocol.json",
+      "bytes": 1536,
+      "sha256": "1785ba38d73e511f473b4913b56d24665ad1d2460e2c41478a42da49b0757342"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25/protocol.json",
+      "bytes": 6312,
+      "sha256": "c193b054a4354e81e2ddb280e8f12a8c33a3286611234fecd0b72bbf220c15e2"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-confirmation/b3ee4b6f-557e-455f-b98b-513c19fc7173/motor-baselines/protocol.json",
+      "bytes": 3812,
+      "sha256": "71610df9abdcb5c6cdf889db1305699276edc226b8e2e6ccb1a4b20998ecd208"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-confirmation/b3ee4b6f-557e-455f-b98b-513c19fc7173/protocol.json",
+      "bytes": 6173,
+      "sha256": "31c16151df7fa747bcae25978bcf34a9c2e77b24129a9456a198bf524c59d3a7"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-context-replication/e1744294-b5a1-4a0e-b113-c08332990792/protocol.json",
+      "bytes": 5890,
+      "sha256": "a96a0fef2764b7529e428ad8f80aa1fbd66e7f426d9909499150abdb24f19602"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-context-value/b6d3bd05-5838-47a4-ba56-cd12e0c4cc59/protocol.json",
+      "bytes": 9732,
+      "sha256": "f802e526fe38be54f670e8c562455d5abbab1b8fb9b00dcfd76760c79e1cf491"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/072d24fd-1d0f-4181-a09b-418becf4b1ba/horizon-diagnosis/protocol.json",
+      "bytes": 1751,
+      "sha256": "9c4230937546679e82f9d24fe27843421f277e64fb2693237f4a3aa2266f7ace"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/072d24fd-1d0f-4181-a09b-418becf4b1ba/horizon-diagnosis-initial/protocol.json",
+      "bytes": 1751,
+      "sha256": "c6d03639d31aeb5bdf4e9b319d4e5f237afa38f2f53c8cb45439c8480b9eba08"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/072d24fd-1d0f-4181-a09b-418becf4b1ba/horizon-diagnosis-invalid-boundary/protocol.json",
+      "bytes": 1751,
+      "sha256": "c16b7d17136403d510ae9193186c52f8df2a75b5fa000b850e42bdb3e1346e17"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/072d24fd-1d0f-4181-a09b-418becf4b1ba/protocol.json",
+      "bytes": 7798,
+      "sha256": "bae2ac196d013bd0f0c9ddbd946d1bb0a58607030c893819bee2a715b7a65afd"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/37bf0467-36b8-45a5-b7c9-5f1cc2f5bc5c/protocol.json",
+      "bytes": 6193,
+      "sha256": "1b61646876b69ddc5c39eff59ad2821e59175e30d195d50d3252c566106021cf"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/3cee78f1-91cf-456c-9a4d-87d113643852/protocol.json",
+      "bytes": 8489,
+      "sha256": "b3ffd8d4d647d168e352a89da50076dc91aea0e178b88dd76707aaddb0bb6ba6"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/accf4ed9-962c-4053-86d7-84803187789d/protocol.json",
+      "bytes": 6842,
+      "sha256": "4cbee5ae839d1178a67fd7ed45bec8d9a9fbe65a484b5e8accffa4a94504391e"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/e47816bf-0161-4444-a4cb-51f578b86ca3/cost-diagnosis/protocol.json",
+      "bytes": 4548,
+      "sha256": "7dd903ea5931feee2094340ff358399143f2f008a7fee9dab32deb1ab6efa8ae"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/e47816bf-0161-4444-a4cb-51f578b86ca3/protocol.json",
+      "bytes": 8227,
+      "sha256": "ab98273cd6858bf6b597cb0573bde62393528ee2a5c808db47266bf6e9f6108f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-credit/e47816bf-0161-4444-a4cb-51f578b86ca3/value-diagnosis/protocol.json",
+      "bytes": 1694,
+      "sha256": "c73268396415bf3d3c0d90cd09df31f10b11b20f094ce76c593929372d0ee775"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-joint/ec24a07d-b3be-4a7d-839a-3a17e9f4f3ac/protocol.json",
+      "bytes": 8915,
+      "sha256": "bca42bf7d9e642b7c777d441951814270e5cea5369a3261576094c97b2070df8"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-retention/0658bde9-3fe6-4172-aebc-9920de93d0f5/protocol.json",
+      "bytes": 3341,
+      "sha256": "bb5938b940d1e59a9cf8e2c269dbb31aa897ff808c6cada672609491bc0e18ff"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-retention/3b598126-9414-406c-b14d-5ec5915ba6a5/protocol.json",
+      "bytes": 2864,
+      "sha256": "50aec89fe5ae4688bf8f42aa839527217a7372e524670de42467d8845cb91428"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/episodic-risk/335d12d4-477d-483f-8e06-5dfe474b4c16/protocol.json",
+      "bytes": 10423,
+      "sha256": "67b71983ac0df1088d4944767fe7159470dcd25d9c98a5b808b42741d971e491"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/factored-prediction/7e1e3e15-3266-4820-a1db-4d950a676f13/protocol.json",
+      "bytes": 10377,
+      "sha256": "613e9f129a2c11ad5617064f8877da632798cf2e2e0f5e86eb2b70b0ce379197"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/factored-prediction/cab9ade1-38d0-451a-a903-d785ec789278/protocol.json",
+      "bytes": 10570,
+      "sha256": "e92d65a51a3d15693ca486a6839f0eb0817946388d5af56a169b98116852783e"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/food-aliasing/4a123140-a722-482d-b54e-63016ad0403b/altered-evidence-fixture/protocol.json",
+      "bytes": 2818,
+      "sha256": "c0d3cac1e064cb4b6d980bc49185052da52347286d4b32a4625c80546810d4df"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/food-aliasing/4a123140-a722-482d-b54e-63016ad0403b/protocol.json",
+      "bytes": 2818,
+      "sha256": "c0d3cac1e064cb4b6d980bc49185052da52347286d4b32a4625c80546810d4df"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/food-aliasing/65f8a624-2a2f-4648-a09a-9bbb9c5f3723/protocol.json",
+      "bytes": 2818,
+      "sha256": "db06a27d4936b7d6347a87a85271202b4bd6c89df33c2724b99eff4a9e900e34"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/forecast-capacity/ad88c158-4888-414f-9f19-a0837b9980b2/protocol.json",
+      "bytes": 1123,
+      "sha256": "c8c5ca52491dd2510d6be978f6fb5736969686caa6e1c270466dc8e54118bbb6"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/forecast-capacity/f1592535-e14c-4699-809f-11a066d2510c/protocol.json",
+      "bytes": 1142,
+      "sha256": "29872f1b44578d53906053abe21c703384169d2587715ace88b98d38b8aa2cb9"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/intervention-study/20261024-assignment-history-horizon-v1/protocol.json",
+      "bytes": 17661,
+      "sha256": "6c2c24dbf7170f2e8dc68b81cc330405b681e42d9b5af1e8416357c23af06c8e"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/kernel-action-diagnosis/ea26472b-e3ab-4070-980f-5b1029ac29ac/protocol.json",
+      "bytes": 1362,
+      "sha256": "b459917e81d6f5e34dc7e42bdbeea2565b2ebe85afcb913cde40dc076ed32a8d"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/matched-retrieval/9e3ae52a-48d8-44a3-b8a1-034000559b76/protocol.json",
+      "bytes": 3352,
+      "sha256": "64352ab5f33e1bcc480b6f1b69d0cac733c63b433f9768921c4ad0cabecea677"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7/protocol.json",
+      "bytes": 10735,
+      "sha256": "b62892d806827fe36053e61383031a2df7826e5c0678358561591b7e40561762"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/normalized-traces/e201e06b-af66-4419-899f-f163175d950d/protocol.json",
+      "bytes": 10954,
+      "sha256": "7f0ef59181e30ec94db1574a077121c0ac40c89b186bd68b1c678ea255b03969"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/option-noise/6fe07798-981b-46be-9252-cbba7e44e6ab/altered-evidence-fixture/protocol.json",
+      "bytes": 2600,
+      "sha256": "cc172b2122dac9f3768f76d405414c6f35ccd511a480b501d80d9b388c0ac7ce"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/option-noise/6fe07798-981b-46be-9252-cbba7e44e6ab/protocol.json",
+      "bytes": 2600,
+      "sha256": "cc172b2122dac9f3768f76d405414c6f35ccd511a480b501d80d9b388c0ac7ce"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/option-outcome/ae62a9d3-1415-4234-bd99-210ad26e4caf/altered-effect-fixture/protocol.json",
+      "bytes": 10392,
+      "sha256": "8399950520620c61d208a091aa82523835bfc9738e1cd5553981cc8446aec784"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/option-outcome/ae62a9d3-1415-4234-bd99-210ad26e4caf/protocol.json",
+      "bytes": 10392,
+      "sha256": "8399950520620c61d208a091aa82523835bfc9738e1cd5553981cc8446aec784"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/planning-diagnosis/9ff7bff8-0167-42d5-8f34-afa6fffc6e78/altered-step-fixture/protocol.json",
+      "bytes": 1600,
+      "sha256": "535f3e21a2db0b555c1e2094e03755eead4d70870d73143540e00312c9c99739"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/planning-diagnosis/9ff7bff8-0167-42d5-8f34-afa6fffc6e78/protocol.json",
+      "bytes": 1600,
+      "sha256": "535f3e21a2db0b555c1e2094e03755eead4d70870d73143540e00312c9c99739"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/pooled-prior/79cc240f-daad-45dc-83f0-269f14b7b9b7/protocol.json",
+      "bytes": 11729,
+      "sha256": "dc6ac67a93fad40751817d7b44e6f10fa8df01859f024921993281f0cca87e53"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/pooled-prior/9b0d32fd-6b6e-4a1b-a9d4-200aab956b33/protocol.json",
+      "bytes": 11543,
+      "sha256": "8a61488594f0d2e838a9f706a8244a5675626119f108397d9500101807983f07"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/pooled-prior/d8eacda2-4afa-4090-bcb8-846e403e2b97/protocol.json",
+      "bytes": 12422,
+      "sha256": "20d732e66b4c9a5db93f14894324b580d9f85d28e3110a9942a51059c6afdb46"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/predictive-transitions/42cec198-2c7c-41d1-9f68-16cb4694eaa3/protocol.json",
+      "bytes": 3401,
+      "sha256": "8c44aef227c4ed393ba3b419cd74d82a1633b0d19e6dffd9592bc6169f043796"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/recursive-search/092e609c-4734-4cf5-8367-0482e4258694/protocol.json",
+      "bytes": 18748,
+      "sha256": "9b1a447af433f81277087b2a63576ac40042163124c30b0df8c10293af8a6000"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/reproductive-learning/2431e637-243f-4dd7-975c-a43a8cc75c3d/protocol.json",
+      "bytes": 12401,
+      "sha256": "0b7c5aa974daa09f7e99ba20d1d1c11f502af9716da76915f09b98bec18c833e"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/resource-outcome/3c9b3c4b-5881-49ec-9337-52f33149c608/altered-evidence-fixture/protocol.json",
+      "bytes": 11294,
+      "sha256": "ada89cf4b09ec7b76dc3a3af4d53f447c57c88d794525647a8c0da02b2fd7305"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/resource-outcome/3c9b3c4b-5881-49ec-9337-52f33149c608/protocol.json",
+      "bytes": 11294,
+      "sha256": "ada89cf4b09ec7b76dc3a3af4d53f447c57c88d794525647a8c0da02b2fd7305"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/resource-pressure/67c2e7f8-51a6-4e2f-bfbe-37d2241f031e/protocol.json",
+      "bytes": 1676,
+      "sha256": "ace6dc8611b7c074103ec710c83d7d0070ba3cbe82a2ed7e54ae4629f073cd76"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/sarsa-screen/20261024-fixed-expected-sarsa-v1/protocol.json",
+      "bytes": 59847,
+      "sha256": "4d692980b32e6966b1a32917153a81619f15a8984a77a7d5621449d160256044"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/sarsa-screen/20261024-local-tiles-development-v1/protocol.json",
+      "bytes": 63196,
+      "sha256": "6bb4ee33e6ee39f7dd1a52e70ddbb91589a2b06d0d31b61e963a3fb4e1f5874b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/self-modification/a5f74db8-2b02-4ae5-a8dd-17c8c416c2d3/protocol.json",
+      "bytes": 12678,
+      "sha256": "eba1873576f88e4512202c8e8534d0495a7af6157ca47d324336ced2b8cd1ea5"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/registries/evidence/trace-saturation/e5fd5416-9062-402b-b4fc-8c6fac62a98c/protocol.json",
+      "bytes": 2239,
+      "sha256": "d26a2daa3c0de6af3cd34616fa0a613e62aeebb9dac477710d4169f1b37fc493"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/challenges.mjs",
+      "bytes": 1390,
+      "sha256": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/engine.mjs",
+      "bytes": 31808,
+      "sha256": "139f4cd722bf40654b3fba9e388dd9cb335b0d40760f05182aa4d01de8d503b0"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/algorithm-upgrade.mjs",
+      "bytes": 5186,
+      "sha256": "037c7806fe7b5b82703e3ce06df046e5b92c0ed7e572e20d243cc0212ae8ffad"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/behavior-policy.mjs",
+      "bytes": 2655,
+      "sha256": "163ba254ded8290e0b960848b60be82d7c6b908742800b18de9c220fa82c8fdb"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/context-tasks.mjs",
+      "bytes": 8089,
+      "sha256": "8fbbb23c7a212725b9fbf73ab23831f9e2e6463610b6542f75b8abe11b050bf4"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/continual-regimes.mjs",
+      "bytes": 3378,
+      "sha256": "afda88397a380586a3ba20c4a5ae4f611207c40d1d60a909ba8baa7f4487b44b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/continual.mjs",
+      "bytes": 4506,
+      "sha256": "f321b12668680f433ae235ff8b84c92a33c8f99e74528f6b0e1e6df0d4b11ce2"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/curriculum.mjs",
+      "bytes": 4644,
+      "sha256": "4455893552f3fc64bc6d6415fbea00841e29cdad825a25419fc13eb4e9739502"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/embodied-control.mjs",
+      "bytes": 1685,
+      "sha256": "7f92aac55d8bd74ad34c4a17a06e84961bd82fcc3aecd17da98774e81543d3ec"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/embodied-programs.mjs",
+      "bytes": 2894,
+      "sha256": "e8016733e2d81aad96b9d098b9964f2509d85f7d57183af9fc33ba93e3469d76"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/episodic-actor.mjs",
+      "bytes": 18915,
+      "sha256": "7a13b41e36df0887451a74ff7deab16bd1b055a45c1ec60aaad5bf1ea57bd86d"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/episodic.mjs",
+      "bytes": 13122,
+      "sha256": "6c63d91ee48db88f08f1af29bfe0ae692bf5974e02c1f0625ea2f966bdcbca23"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/intervention-study.mjs",
+      "bytes": 11628,
+      "sha256": "b96923467d82e3f90c0015fc64656b279695c5512079105e8273c3767b9b5460"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/joint-episodic.mjs",
+      "bytes": 10033,
+      "sha256": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/kernel-learner.mjs",
+      "bytes": 8039,
+      "sha256": "86333639c66af3965a8447a8f0be4ca39073ea9321842737da31812f4880f536"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/matched-retrieval.mjs",
+      "bytes": 2682,
+      "sha256": "f060ea7f364a1e23ef8a3c95ec3ccc8c09bd686a76262f46456d3d61d28549c6"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/option-outcome.mjs",
+      "bytes": 5340,
+      "sha256": "3aa611af6d55e309137739b73efe743bfec4dfc279c8a302fe909bd5c674794f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/own-experience-learner.mjs",
+      "bytes": 7355,
+      "sha256": "25754e181c3c588438663f90806f4f268dfbb3586c47573557fe3a1446e3db37"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/policy-aware-outcome.mjs",
+      "bytes": 13177,
+      "sha256": "740c1f00a1eb8acaf67cf7a018337eec924c6f93c57b718dc873248f9821e8d6"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/predictive-model.mjs",
+      "bytes": 5857,
+      "sha256": "df3667b11a6e254d2ac56309b69905ba3a8f62c34fc8e201b804f068699e4d7b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/projection-actor.mjs",
+      "bytes": 1213,
+      "sha256": "cdce982f1adf34e883d05d7727a022c953f144f9ba35b794099d09710b9e773f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/replay-development.mjs",
+      "bytes": 6860,
+      "sha256": "1bf449346fa7d416260ea08a45a2a7bc6c00654f4cd98edd900c32c86667378f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/reproductive-measurement.mjs",
+      "bytes": 3656,
+      "sha256": "c806cce6cf6874fd5f9aa905b1daf4db0d2a78e555e4cde3da2c4de8c4ae6633"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/resource-sense.mjs",
+      "bytes": 1141,
+      "sha256": "79ab9167380dfac69484e288d0f5bc5c519667d0b4a8428501f2fd168a490ae4"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/retrace-sarsa-body.mjs",
+      "bytes": 7351,
+      "sha256": "a7cd49c9030b0892467d08ef4284fc82c3d5848e18da623e892f30e10996cb8b"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/revision-search.mjs",
+      "bytes": 9815,
+      "sha256": "4777e25d12adeda9c2a22e17ae72ddc86da818f45216cd29871c5f9ea461273f"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/sarsa-body.mjs",
+      "bytes": 9005,
+      "sha256": "6cb9d316875978b5b97bc41147a871ff8e14770d0617534797e76556110c6ce4"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/sarsa-development.mjs",
+      "bytes": 7236,
+      "sha256": "c4a05a71a9197666ac5239fa2de886a9cdacda80c4c60a95f55085279bb98fd0"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/sarsa-experiment.mjs",
+      "bytes": 12005,
+      "sha256": "959ee53a99393db10770c8f125b23936b306b59aca7ccb496da7a8c329ab74e6"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/sarsa-screen.mjs",
+      "bytes": 9043,
+      "sha256": "6ac3203d369ee6b0a2f15b7505802c1120809c353eb246383b85d950e59e4cab"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/self-modifying-tasks.mjs",
+      "bytes": 5211,
+      "sha256": "0b06be944e4b335fb067b568009b9e52cac8b2853d33b36f4b4eb8b797a2c29c"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/self-modifying.mjs",
+      "bytes": 9838,
+      "sha256": "4aa2d6c010b2d8a4a153cbc637eaaa71d23601a5a2f445968cfce17841a816c2"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/tasks.mjs",
+      "bytes": 4374,
+      "sha256": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/tile-sarsa-body.mjs",
+      "bytes": 9484,
+      "sha256": "6fc476e5fd49fac8d9af48564a3eaae7f7427adbae761a9e0ee350a9ab9d48fb"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/learning/trace-actor.mjs",
+      "bytes": 7716,
+      "sha256": "d0d63f3e2315d130c037a40b36259d75617157ce9df689e713d682e48e5f7241"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/scripts/audit-replay-development.py",
+      "bytes": 9459,
+      "sha256": "3bf8bac3306c47addb4ab592c3191ad0b08079c0e19b028818fd60540b231ec1"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/scripts/audit-sarsa-development.py",
+      "bytes": 8316,
+      "sha256": "02e328f014f1dc203fe53d5d8aec273da3d225696cd19a9aa54ccb8635c7de6a"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/scripts/audit-sarsa-screen.py",
+      "bytes": 19250,
+      "sha256": "978c23b354476c5f09aa79b37ee41fd7bd6c5d6d01429078539623da2815ebf5"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/scripts/replay-development.mjs",
+      "bytes": 15930,
+      "sha256": "304547061ca7d449d099501532bf8f12d295c9c277569f60d4c15822dfe81505"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/scripts/sarsa-development.mjs",
+      "bytes": 14364,
+      "sha256": "9d4f345b66b2c63b19715e21f31fce8f893d462e0e5ff955a15e5a0e30d8c838"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/sources/scripts/sarsa-screen.mjs",
+      "bytes": 12523,
+      "sha256": "d25f3301dcdc3c83b810818bb61ab02ae2e4a78c163bdc39c745e9e7d696edbf"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/supplemental/checker-correction.json",
+      "bytes": 2190,
+      "sha256": "c2a0a5032c4d7701a01a8c31ea2a0a83b3c9df104c57b7379126893e384005fc"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/supplemental/checker-v2/audit-replay-development.py",
+      "bytes": 9438,
+      "sha256": "b9d5b99da54becfe37634dc321cd079f0ffde7bcac0ceed96eb85f42b6582282"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/supplemental/checker-v2/audit-sarsa-development.py",
+      "bytes": 8316,
+      "sha256": "02e328f014f1dc203fe53d5d8aec273da3d225696cd19a9aa54ccb8635c7de6a"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/supplemental/checker-v2/audit-sarsa-screen.py",
+      "bytes": 19324,
+      "sha256": "61a248b8d60b22aa065a5de5f9ecd59d53c059a7b53c3079ecaabd0ca545d800"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/supplemental/checker-v2/retrace-sarsa.test.mjs",
+      "bytes": 7447,
+      "sha256": "d147db0fa1e1e8ea343e3fbb7caebec4c7e84b09272e010ac9f2629b7ef6b990"
+    },
+    {
+      "path": "evidence/sarsa-screen/20261024-retrace-development-v2/supplemental/report-replay-development.py",
+      "bytes": 9601,
+      "sha256": "d2be39a57a9dccfe4f224e37616a1001402d92ad5ea7524291806d6eecc0b9e8"
+    },
+    {
+      "path": "runs/resume-baseline-tests.log",
+      "bytes": 73094,
+      "sha256": "f70afbf2781354b6ee8001d7c14a8a078eddb8086f76eafe8f0b5faf835b185e"
+    },
+    {
+      "path": "runs/resume-complete-tests.log",
+      "bytes": 74880,
+      "sha256": "e034489eea324bc7d6fb5368b638cd049900d89d2fe49f154445192c6734917c"
+    },
+    {
+      "path": "runs/resume-final-tests.log",
+      "bytes": 73298,
+      "sha256": "30b6eee3f6afc1b7325d1ee8eab03ad3a4df52284d84fdb9cdc921f874479b00"
+    },
+    {
+      "path": "runs/resume-post-recorder-tests.log",
+      "bytes": 77586,
+      "sha256": "8a3b9b9e541d54bb0d210a89b10bb5c2c593a4120344091e20f17f97c7a283a0"
+    },
+    {
+      "path": "runs/resume-screen-tests.log",
+      "bytes": 73290,
+      "sha256": "0bddd1a2e65284835f50788153632b89f997098033a7913f61efbd4addf3f477"
+    },
+    {
+      "path": "runs/resume-verified-tests.log",
+      "bytes": 74854,
+      "sha256": "5a8fad24274869aea7ed446b389f7408b87f984345ca0a7484b1cbafdc3a6e82"
+    },
+    {
+      "path": "runs/sarsa-screen-cold-audit.log",
+      "bytes": 2048,
+      "sha256": "7e5abbdcee912384c664a7c259e1733dcc7021a80c44d203ea3d94304dda8397"
+    },
+    {
+      "path": "runs/sarsa-screen-collection.log",
+      "bytes": 5748,
+      "sha256": "abeb0c310b82f3334a3329077933a097d850241e7074e71bf143d6257791ca96"
+    },
+    {
+      "path": "runs/sarsa-screen-intervention-portability-cold-audit.log",
+      "bytes": 464804,
+      "sha256": "bc616a827a502cfcc5462df97512134eadf36ab05482f44b357c26ee66ccae6f"
+    },
+    {
+      "path": "runs/sarsa-screen-intervention-portability-node22-case.log",
+      "bytes": 8688,
+      "sha256": "25d6800b4a3dc8410511179a083ad6a6aa0a1502184d18857b7e430653c2ff11"
+    },
+    {
+      "path": "runs/sarsa-screen-intervention-portability-node26-case.log",
+      "bytes": 8778,
+      "sha256": "12c006ad1dec53fdaf262f39360147368388ca4433e4920ffa257260ea9f4dbe"
+    },
+    {
+      "path": "runs/sarsa-screen-numeric-audit.log",
+      "bytes": 4202,
+      "sha256": "bf8950f79938e00deb9bdc9a41894f27f677f2847e9f5ece21891514e78d7623"
+    },
+    {
+      "path": "runs/sarsa-screen-numeric-v2-audit.log",
+      "bytes": 10390,
+      "sha256": "8b416ccffd4b16b142a4da5627aa8619ca2886fad0468249289483de02ed2046"
+    },
+    {
+      "path": "runs/sarsa-screen-numeric-v3-audit.log",
+      "bytes": 4518,
+      "sha256": "2104afbbc27832061045f54e440ffb23d36101eb0970694b984cfb29930fc2a7"
+    },
+    {
+      "path": "runs/sarsa-screen-recapture.log",
+      "bytes": 2720,
+      "sha256": "ed6d5f7281b91014d40bf0e0481a81914b27aeb4a81bf996d7b84f253e350472"
+    },
+    {
+      "path": "runs/sarsa-screen-recorder-regression.log",
+      "bytes": 1026,
+      "sha256": "72b5c7aa248f1775c32c0f9ac99a5ebe2d3cc507affe15b12a8bd93b1f38f09c"
+    },
+    {
+      "path": "runs/sarsa-screen-retrace-adapter.log",
+      "bytes": 894,
+      "sha256": "78f64cae873bdd27305fdd7e45d6eb8d362aa9cd832fc16b19ab53a360738f3d"
+    },
+    {
+      "path": "runs/sarsa-screen-retrace-focused.log",
+      "bytes": 1388,
+      "sha256": "ed72c512cdd3ba28e3d9072ebd7573ee43593b59991b306a79ba84f7e8776625"
+    },
+    {
+      "path": "runs/sarsa-screen-retrace-numeric.log",
+      "bytes": 2278,
+      "sha256": "88e09bbd1752048199f60d38fd226f48dfaaf8fa449e258ee962ff1bcac202ac"
+    },
+    {
+      "path": "runs/sarsa-screen-retrace-physical.log",
+      "bytes": 1032,
+      "sha256": "5d5e76cd198f4e4dfad0e1c3e7ac4d46977e80a5e947621ca071393320eb3989"
+    },
+    {
+      "path": "runs/sarsa-screen-retrace-report.log",
+      "bytes": 2550,
+      "sha256": "a75063f762fd6e169c612f26e5409149a329783d5f7b67eacbfeda6073a4df1a"
+    },
+    {
+      "path": "runs/sarsa-screen-retrace-tests.log",
+      "bytes": 81830,
+      "sha256": "e67c87f3e4455dc3940a7de94ebb69f95a78d8d9c1bd407583265945f96791c3"
+    },
+    {
+      "path": "runs/sarsa-screen-score.log",
+      "bytes": 1944,
+      "sha256": "466c969731ad7191c49be0d2b9a4f9b0f98380d44acfb204565062d80a7cde0c"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-development-collection.log",
+      "bytes": 2622,
+      "sha256": "e9ffa9a269edf55032f6b3b808b0542a1bf1756c3c407fd7613906ba59997a9b"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-development-numeric-audit.log",
+      "bytes": 2070,
+      "sha256": "d43eb05f90e9ad90fa92de1f26860f2c44704dd0fb7da897994405aad33d8c40"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-development-physical-audit.log",
+      "bytes": 1040,
+      "sha256": "a1dc5409d7b08219622c50321f5b538b6ed2e711b7eb042269f8a5f8eb63e063"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-development-score.log",
+      "bytes": 18402,
+      "sha256": "ea508092d886dba095ce0465156be8e5afae7642c2467636b98346654fb6d170"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-final-tests.log",
+      "bytes": 79022,
+      "sha256": "97407fc471feb14ed07086ba4a8a1a90cd093bf9844a5ae9056dcbb525de89d9"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-framework-tests.log",
+      "bytes": 824,
+      "sha256": "ec763680d7508ccf9e9761654cfc7b354b509faa6d8e2a4ee481294f15029123"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-prefreeze-tests.log",
+      "bytes": 78570,
+      "sha256": "c024670a21a5e9cfe32405b70d3e08a87ddccbdfa33df69a4925d65253e00389"
+    },
+    {
+      "path": "runs/sarsa-screen-tile-targeted-tests.log",
+      "bytes": 1752,
+      "sha256": "d55665ff9542ee484b20389e066a1bf428c8cb6a460b94fae3096f93f9d0e79d"
+    },
+    {
+      "path": "runs/sarsa-screen-windows-regression.log",
+      "bytes": 1300,
+      "sha256": "4063c4f3dd0ca278fdcc83285874cd2db04f7b4c99947c2652cbc78cf970091b"
+    },
+    {
+      "path": "runs/resumed-intervention-numeric-audit.json",
+      "bytes": 481,
+      "sha256": "375bafcef36de8d9a275312cbd891148637b5b93d151ff3affba5f850fa36a7f"
+    }
+  ],
+  "chunks": [
+    {
+      "path": "handoff/retrace-20261024/archives/research-evidence.tar.gz.part-000",
+      "bytes": 25165824,
+      "sha256": "c9007781d22ceb2c63e2b9835aa4cf107066fd2091b9e31247d0add96f9495ce"
+    },
+    {
+      "path": "handoff/retrace-20261024/archives/research-evidence.tar.gz.part-001",
+      "bytes": 25165824,
+      "sha256": "80f9901005bfcfdd7708b8a9bbcf0759bcf24b67ddda70fb8a4ec827945a0263"
+    },
+    {
+      "path": "handoff/retrace-20261024/archives/research-evidence.tar.gz.part-002",
+      "bytes": 25165824,
+      "sha256": "34b9b9cedd9451a5c13f097c3f8dec1f81e4a2ac9127c038ce60e7697e8d2f99"
+    },
+    {
+      "path": "handoff/retrace-20261024/archives/research-evidence.tar.gz.part-003",
+      "bytes": 25165824,
+      "sha256": "ca49ab88549f18e74dd19a052dbc5f808e53591744c1960cebbe77ea0014c074"
+    },
+    {
+      "path": "handoff/retrace-20261024/archives/research-evidence.tar.gz.part-004",
+      "bytes": 25165824,
+      "sha256": "3ba5cb7ca65e2523be5e5a8571d2cb77a93cf35fb0aa28add3c7ef1f4233fc38"
+    },
+    {
+      "path": "handoff/retrace-20261024/archives/research-evidence.tar.gz.part-005",
+      "bytes": 12816768,
+      "sha256": "4d6bb58a4f9b620de57e6ec8ab1d728598dc28213db71c779625959f8fa265f9"
+    }
+  ],
+  "uncompressedBytes": 418380844,
+  "compressedBytes": 138645888,
+  "scope": "Complete new fixed Expected SARSA screen, including protocol, frozen sources, seed exclusion inputs, factual traces, results, audits and actual continuation/test logs. Original handoff archives remain unchanged."
+}

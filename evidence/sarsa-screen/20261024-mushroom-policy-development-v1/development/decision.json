@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "phase": "development",
+  "passed": false,
+  "qualified": false,
+  "requiredContrastsPassed": 8,
+  "requiredContrasts": 12,
+  "failedEnergyContrasts": [
+    "sequence-incumbent",
+    "A-retention",
+    "B-retention",
+    "sequence-linear"
+  ],
+  "survivalGuardsPassed": 9,
+  "survivalGuards": 9,
+  "plasticityHistoriesPassed": 8,
+  "histories": 8,
+  "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+  "resultsSha256": "7faad4f394dcb03f2860a155ef14ee3dc8707bc7e1905a01cd378f3488362074",
+  "physicalAuditSha256": "7e74657c7c8eaf04ac420a71b09b0ccd36fc5ba547458dfdb86280428f40883a",
+  "numericAuditSha256": "66a243d96514f60ca2223df2b137d20110855673a3ee5e8a10a5c83bf83da6d5",
+  "boundary": "Development is not qualification. No post-result tuning, replacement, resampling or extension on this bank. Even qualification of the fixed screen would not establish autonomous persistent revision, copied-improvement superiority, subsequent search gains, ecological readiness or RSI."
+}

@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "passed": false,
+  "developmentPassed": false,
+  "qualified": false,
+  "requiredPositiveMeans": 10,
+  "requiredContrasts": 12,
+  "failedEnergyContrasts": [
+    "B-retention",
+    "sequence-linear"
+  ],
+  "survivalGuardsPassed": 1,
+  "survivalGuards": 9,
+  "multiStepHistoriesPassed": 8,
+  "histories": 8,
+  "confirmationExists": false,
+  "protocolSha256": "742f0543d268a694e4202a455d76ac14a1fbb83297fbdf734afe8aa473705220",
+  "resultsSha256": "d2833ece6584535343f9b44c4b7fb865723a4a0df7322fd55548c5d430b161e1",
+  "physicalAuditSha256": "ee7dd73d770a0170832b1e83fea72a734dcc9fc2dc5f8f41e10ea3f39bf988c0",
+  "numericAuditSha256": "4c1393b503c0bc119db3fb94ef4d1a600da3c41a201f15b2090792efc2099e53",
+  "checkerCorrectionSha256": "c2a0a5032c4d7701a01a8c31ea2a0a83b3c9df104c57b7379126893e384005fc",
+  "nextObligation": "Preserve the failed hypothesis and exclude every registered seed including the unused reserve. Continuing embodied distinct-task learning and per-skill retention remain unqualified. Diagnose limitations before proposing another prospectively fixed fresh hypothesis; persistent autonomous revision and copied-improvement/search-productivity studies still require a qualified substrate.",
+  "boundary": "No confirmation, tuning, extension, reselection, promotion, or RSI claim on this bank."
+}

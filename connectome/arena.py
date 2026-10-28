@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / 'vendor'))
 import numpy as np
 from stonkfly.neural.brain import MemoryBrain
 from stonkfly.neural.common import DATA, annotations
+from controller_adapter import controller_view
 
 MODEL = 'afterwing-malecns-arena-v4'
 MIGRATABLE_MODELS = {'afterwing-malecns-arena-v2', 'afterwing-malecns-arena-v3'}
@@ -202,6 +203,7 @@ class Arena:
                 'simulated_per_wall':self.tick*DT/self.wall_seconds if self.wall_seconds else 0,
                 'flies':self.flies,'food':self.food,'lineage':self.lineage,'events':self.events[-20:],
                 'brains':{str(k):v.audit for k,v in self.controllers.items()},
+                'controller_views':{str(f['id']):controller_view(f,self.controllers[f['id']].audit) for f in self.flies},
                 'assumptions':['Full MaleCNS graph with approximate spiking dynamics',
                     'Engineered retinal panorama plus LC9 object detector, motor readouts and body physics',
                     'Both reproductive roles use the same male anatomical template',

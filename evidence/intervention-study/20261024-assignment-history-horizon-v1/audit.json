@@ -1,0 +1,13 @@
+{
+  "completedAt": "2026-10-24T05:10:48.700Z",
+  "worldsColdReplayed": 48,
+  "scheduledCases": 1536,
+  "forkWorldSteps": 786432,
+  "modelsRebuilt": 64,
+  "exactAllPhysicalRows": true,
+  "exactAllModelStates": true,
+  "exactSelection": true,
+  "exactScoresAndGates": true,
+  "alteredOutcomeChangesScores": true,
+  "scope": "Archived physical sources, initial worlds and every action branch cold replayed; all development fits and seed-level scores replayed. This is reproducibility evidence, not another independent scientific sample."
+}

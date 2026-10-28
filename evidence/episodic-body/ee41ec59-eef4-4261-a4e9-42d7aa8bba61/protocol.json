@@ -1,0 +1,135 @@
+{
+  "id": "ee41ec59-eef4-4261-a4e9-42d7aa8bba61",
+  "at": "2026-10-23T07:00:23.954Z",
+  "referencePath": "evidence/episodic-body/8b19d187-3bb3-4c45-a9cc-d9f01ff7d447/results.json",
+  "developmentSeeds": [
+    2333725063,
+    2333732982,
+    2333740901,
+    2333748820,
+    2333756739,
+    2333764658,
+    2333772577,
+    2333780496,
+    2333788415,
+    2333796334
+  ],
+  "heldoutSeeds": [
+    3997297753,
+    3997305672,
+    3997313591,
+    3997321510,
+    3997329429,
+    3997337348,
+    3997345267,
+    3997353186,
+    3997361105,
+    3997369024,
+    3997376943,
+    3997384862,
+    3997392781,
+    3997400700,
+    3997408619,
+    3997416538,
+    3997424457,
+    3997432376,
+    3997440295,
+    3997448214,
+    3997456133,
+    3997464052,
+    3997471971,
+    3997479890,
+    3997487809,
+    3997495728,
+    3997503647,
+    3997511566,
+    3997519485,
+    3997527404
+  ],
+  "sourceSha256": {
+    "engine.mjs": "1e3d6125d065df524be75d9d5322861b16124f88507ae0a8e4c20646f5ff0a78",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "270ffb9b0ec38cdb7f70f63c8cf8a0c562579dc470747d4274a8da317f58481b",
+    "learning/episodic-actor.mjs": "d105d545678e31fbd46879ec4f1bffecd0888365a2a1c6c6431fbbee1030255e",
+    "learning/context-tasks.mjs": "883bd1241124235a226d1d77471200a235b33817d0b065f43bbb138d8cd19cd3",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/episodic-feature-study.mjs": "c6cd87582d6242c05f75eab50074c43ef9247303015e0557cee73a4462158478"
+  },
+  "actorParameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "environment": {
+    "nutrient": 0.4,
+    "ecology": "baseline",
+    "challenges": "off",
+    "seasonal": false
+  },
+  "horizonTicks": 1800,
+  "founders": 24,
+  "episodicParameters": {
+    "capacity": 128,
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir",
+    "featureMode": "slow",
+    "decisionTicks": 4,
+    "creditTicks": 16,
+    "discount": 0.95,
+    "turnGain": 0.25,
+    "memoryEnergyPerRecordSecond": 0.00001,
+    "lookupEnergyPerRecord": 0.000005
+  },
+  "candidates": [
+    "slow",
+    "fast",
+    "current",
+    "mixed"
+  ],
+  "featureDefinitions": {
+    "slow": "Normalized slow sensory traces",
+    "fast": "Normalized fast sensory traces",
+    "current": "Normalized current observations",
+    "mixed": "Normalize 75% current observations + 25% slow traces"
+  },
+  "contextTask": {
+    "version": 2,
+    "cueTicks": 1,
+    "trainTrialsPerContext": 256,
+    "mixedTrainingTrials": 512,
+    "testTrialsPerContext": 96,
+    "trainDelay": [
+      30,
+      70
+    ],
+    "testDelay": [
+      80,
+      130
+    ],
+    "trainAmplitude": [
+      0.7,
+      1
+    ],
+    "testAmplitude": [
+      0.45,
+      0.7
+    ],
+    "noise": 0.01,
+    "cueChannels": [
+      1,
+      2
+    ],
+    "contextChannels": [
+      12,
+      13
+    ],
+    "interpretation": "The same left/right sensory cue requires opposite actions in two explicitly observed contexts. Cue and context disappear before the choice. Train A, train B without clearing acquired state, then measure forgetting. A later mixed-training phase separately diagnoses representational capacity; it cannot rescue a failed sequential-retention claim. Version 2 presents cues once to avoid saturating traces across the amplitude range."
+  },
+  "selection": "Reject modes whose development memory-subcomponent A/B retention averages fall below .8 or lose more than .05 on A. Prefer modes with no mean population loss versus the frozen body control, then highest net energy. If none satisfy the development population constraint, lock the best memory-capable mode for a clearly labelled exploratory test; final guards remain unchanged.",
+  "gates": "Held-out energy lower 95% difference > 0 and no mean population loss versus both learning-disabled body and existing neural controller; memory subcomponent A/B accuracy lower bound >= .8 and A retention change lower bound >= -.05.",
+  "interpretation": "Tests representation choices after a failed embodied development study. The memory-subcomponent cue task and the continuous whole-body task are distinct evaluations. Held-out seeds are reserved until representation selection is locked. No live habitat is modified."
+}

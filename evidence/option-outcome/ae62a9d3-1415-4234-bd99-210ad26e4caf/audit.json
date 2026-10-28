@@ -1,0 +1,215 @@
+{
+  "at": "2026-10-24T01:49:24.306Z",
+  "auditorSha256": "9bf0a2437376f94451c1625940359024bb55d4821d3815b926969ed741944531",
+  "worlds": 24,
+  "cases": 96,
+  "completeWindows": 129588,
+  "terminalPartials": 2,
+  "actionPassed": false,
+  "replay": [
+    {
+      "seed": 467961412,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467961412,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467969331,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467969331,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467977250,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467977250,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467985169,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467985169,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467993088,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 467993088,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468001007,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468001007,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468008926,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468008926,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468016845,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468016845,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468024764,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468024764,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468032683,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468032683,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468040602,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468040602,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468048521,
+      "environment": "stable",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    },
+    {
+      "seed": 468048521,
+      "environment": "relocation",
+      "exactWorld": true,
+      "allAcquiredModels": true,
+      "allForecastScores": true,
+      "checkedCases": 4
+    }
+  ],
+  "checks": [
+    "source/reference/fresh-seed registry hashes",
+    "independent FIFO history, targets and kernel forecasts",
+    "every baseline world, every acquired founder model, every chronological score",
+    "every finite-window action fork, factual reason normalization and checkpoint hash",
+    "seed-level intervals, support, fallback rules and fixed gate"
+  ],
+  "limitations": [
+    "Forecast comparisons are conditional on sufficient candidate support.",
+    "Fixed short action tests are not ecological survival or continual retention qualification.",
+    "No model-computation energy cost or live controller integration."
+  ]
+}

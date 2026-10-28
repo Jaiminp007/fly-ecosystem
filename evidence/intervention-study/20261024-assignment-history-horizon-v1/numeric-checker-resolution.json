@@ -1,0 +1,13 @@
+{
+  "scope": "Supplemental post-hoc auditor correction; original checker, all earlier reports/process output, frozen models, scientific scores and gates preserved. No cause is assigned to the warning messages.",
+  "v2WarningCounts": {
+    "divide by zero encountered in matmul": 72,
+    "overflow encountered in matmul": 72,
+    "invalid value encountered in matmul": 72
+  },
+  "v3CheckerSha256": "ffa026e0ce9c20920a7cf45351773e0e4163b756ca400d830ebc384d54ed1e1d",
+  "v3ReportSha256": "345144affc1e07e8d0e307fe7df23a973b035f0b0efb81718a7a94b7fb38c3c8",
+  "v3WarningFree": true,
+  "v3ChecksPassed": true,
+  "method": "Explicit finite Einstein-summation inverse products, finite elementwise prediction/statistical reductions and independent SciPy batch solves; full-script warning capture."
+}

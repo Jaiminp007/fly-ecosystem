@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-24T03:43:51.292Z",
+  "experiment": "post-hoc-kernel-action-ranking",
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/option-outcome/ae62a9d3-1415-4234-bd99-210ad26e4caf",
+  "referenceSha256": "9d329b52a50e13ef444fe8ffb8896fb6e259302e603c816c5f1c0dff16aedc6b",
+  "sourceSha256": {
+    "learning/kernel-learner.mjs": "86333639c66af3965a8447a8f0be4ca39073ea9321842737da31812f4880f536",
+    "learning/self-modifying-tasks.mjs": "0b06be944e4b335fb067b568009b9e52cac8b2853d33b36f4b4eb8b797a2c29c",
+    "learning/self-modifying.mjs": "4aa2d6c010b2d8a4a153cbc637eaaa71d23601a5a2f445968cfce17841a816c2",
+    "scripts/diagnose-kernel-actions.mjs": "2e361a834bb5103299e3c2b0cea97655d44d43d08c851b663202ac6bc3e39fdc"
+  },
+  "programs": [
+    {
+      "kernel": "rbf",
+      "update": "gradient"
+    },
+    {
+      "kernel": "laplacian",
+      "update": "ridge"
+    }
+  ],
+  "interpretation": "Exploratory reuse of old audited physical action forks. Each predictor receives only the target founder's factual windows completed by the query tick, and never receives future action-fork labels. Unexecuted slow/fast queries use the same recorded sensory observation. Physical effect labels score rankings only. No new sample, qualification gate, promotion, or rescue of the old failed study."
+}

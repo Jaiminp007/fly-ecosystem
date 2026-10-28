@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-24T01:20:15.813Z",
+  "worlds": 20,
+  "seeds": 10,
+  "checks": [
+    "historical source/input/analysis hashes",
+    "all recorded final world hashes match historical controls",
+    "trace counts and ordering invariants",
+    "all per-channel saturation intervals and change counts recomputed"
+  ],
+  "limitation": "Recomputes recorded counts and hash correspondence; does not independently rerun every original sensory stream. The analysis driver replayed and verified every final world hash. Parallel EMA was not used for control."
+}

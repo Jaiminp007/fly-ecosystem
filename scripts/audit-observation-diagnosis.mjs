@@ -1,0 +1,59 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
+const directory=resolve(process.argv[2]||''),load=async path=>JSON.parse(await readFile(path,'utf8')),r=await load(join(directory,'results.json')),p=await load(join(directory,'protocol.json')),hash=x=>createHash('sha256').update(x).digest('hex');
+const noise=p.experiment==='fixed-option-future-motor-noise-diagnosis';assert.ok(noise||p.experiment==='constructed-food-availability-sensory-aliases');assert.deepEqual(r.protocol,p);assert.equal(hash(await readFile(join(directory,'diagnose-source.mjs'))),p.sourceSha256);
+const bytes=await readFile(join(p.referenceDirectory,'results.json'));assert.equal(hash(bytes),p.referenceSha256);const original=JSON.parse(bytes),op=original.protocol,ref=await load(join(p.referenceDirectory,'reference-protocol.json'));
+assert.deepEqual(p.seeds,op.seeds);assert.deepEqual(p.environments,op.environments);assert.equal(p.horizon,op.modelConfig.horizon);assert.deepEqual(p.worldSourceSha256,op.worldSourceSha256);for(const[file,sha]of Object.entries(p.worldSourceSha256))assert.equal(hash(await readFile(join(p.worldSources,file))),sha);
+assert.equal(r.qualificationRecomputed,false);assert.equal(r.integrationSupported,false);assert.equal(r.ecologicalQualification,false);if(noise){assert.equal(p.futureStreams,8);assert.equal(r.originalActionGatePassed,original.actionPassed);}else assert.deepEqual(p.scales,[.5,1,2]);
+const near=(a,b)=>assert.ok(Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<1e-8,`Numeric mismatch ${a} / ${b}`),mean=a=>a.reduce((s,x)=>s+x,0)/a.length,variance=a=>{const m=mean(a);return a.reduce((s,x)=>s+(x-m)**2,0)/(a.length-1);},sign=x=>Math.abs(x)<1e-9?0:Math.sign(x),same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function interval(values){const n=values.length,m=mean(values),t=n>=30?2.045:n>=20?2.093:n>=10?2.262:3.182,half=t*Math.sqrt(variance(values)/n);return{mean:m,ci95:[m-half,m+half],n};}
+const checkInterval=(stored,values)=>{const c=interval(values);near(stored.mean,c.mean);near(stored.ci95[0],c.ci95[0]);near(stored.ci95[1],c.ci95[1]);assert.equal(stored.n,c.n);};
+assert.equal(r.rows.length,original.rows.length);assert.equal(new Set(r.rows.map(row=>row.seed+':'+row.environment)).size,r.rows.length);let cases=0;
+for(const row of r.rows){
+  const orig=original.rows.find(o=>o.seed===row.seed&&o.environment===row.environment);assert.ok(orig&&row.exactBaseline);assert.equal(row.cases.length,orig.plans.length);
+  for(const c of row.cases){cases++;const old=orig.plans.find(o=>o.tick===c.tick&&o.agentId===c.agentId);assert.ok(old);assert.deepEqual(c.query,old.query);assert.equal(c.usedForTraining,false);assert.equal(c.usedForControl,false);
+    if(noise){
+      const expected=Array.from({length:p.futureStreams},(_,index)=>parseInt(hash(`option-noise:${row.seed}:${row.environment}:${c.tick}:${c.agentId}:${index}`).slice(0,8),16)||1);assert.deepEqual(c.streams,expected);assert.equal(new Set(expected).size,p.futureStreams);assert.deepEqual(c.pairs.map(pair=>pair.actorSeed),[null,...expected]);
+      for(const pair of c.pairs){near(pair.difference,pair.effects.fast.energyChange-pair.effects.slow.energyChange);for(const effect of Object.values(pair.effects)){assert.equal(effect.firstActions.length,5);assert.equal(effect.futureActions.length,p.horizon-1);assert.ok(Number.isInteger(effect.originalActorState)&&effect.originalActorState>0&&effect.originalActorState<=0xffffffff);}}
+      for(const id of ['slow','fast']){near(c.pairs[0].effects[id].energyChange,old.effects[id].energyChange);assert.equal(c.pairs[0].effects[id].alive,old.effects[id].alive);}
+      const repeated=c.pairs.slice(1).map(pair=>pair.difference),expectedDifference=mean(repeated);near(c.factualDifference,old.actualDifference);near(c.factualDifference,c.pairs[0].difference);near(c.expectedDifference,expectedDifference);near(c.withinVariance,variance(repeated));near(c.range[0],Math.min(...repeated));near(c.range[1],Math.max(...repeated));assert.equal(c.factualSignAgreement,sign(c.factualDifference)===sign(expectedDifference));near(c.reversalRate,mean(repeated.map(x=>sign(x)!==sign(c.factualDifference)?1:0)));near(c.policyDifference,old.policyDifference);near(c.incumbentDifference,old.incumbentDifference);near(c.modelGainOnFactual,old.gain);near(c.modelGainOnMean,sign(c.policyDifference)*expectedDifference/2);near(c.incumbentGainOnMean,sign(c.incumbentDifference)*expectedDifference/2);near(c.oracleMeanGain,Math.abs(expectedDifference)/2);near(c.clairvoyantNoiseGain,mean(repeated.map(Math.abs))/2);
+    }else{
+      assert.deepEqual(c.variants.map(v=>v.scale),p.scales);
+      for(const v of c.variants){near(v.initialEnergyAfter-v.initialEnergyBefore,v.addedEnergy);near(v.difference,v.effects.fast.energyChange-v.effects.slow.energyChange);for(const effect of Object.values(v.effects)){assert.equal(effect.sameObservation,same(effect.firstObservation,c.query));assert.ok(Math.abs(effect.accountingResidual)<1e-8);}assert.equal(v.sameInitialTargetObservationAndMotors,Object.values(v.effects).every(e=>e.sameObservation&&e.sameOtherMotors));if(v.scale===1){assert.ok(v.sameInitialTargetObservationAndMotors);for(const id of ['slow','fast'])near(v.effects[id].energyChange,old.effects[id].energyChange);}}
+      const low=c.variants.find(v=>v.scale===.5),high=c.variants.find(v=>v.scale===2),preserved=low.sameInitialTargetObservationAndMotors&&high.sameInitialTargetObservationAndMotors;assert.equal(c.bothPreserved,preserved);assert.equal(c.oppositePreferences,preserved&&sign(low.difference)*sign(high.difference)===-1);
+    }
+  }
+}
+for(const[env,s]of Object.entries(r.summaries)){
+  const selected=r.rows.filter(row=>row.environment===env),all=selected.flatMap(row=>row.cases);assert.equal(s.cases,all.length);
+  if(noise){const within=mean(all.map(c=>c.withinVariance)),between=variance(all.map(c=>c.expectedDifference));near(s.meanWithinVariance,within);near(s.meanWithinSD,mean(all.map(c=>Math.sqrt(c.withinVariance))));near(s.observedBetweenMeanVariance,between);near(s.estimatedBetweenCaseVariance,Math.max(0,between-within/p.futureStreams));near(s.factualSignAgreement,mean(all.map(c=>+c.factualSignAgreement)));near(s.meanReversalRate,mean(all.map(c=>c.reversalRate)));near(s.fractionRangesSpanZero,mean(all.map(c=>c.range[0]<0&&c.range[1]>0?1:0)));for(const key of ['modelGainOnFactual','modelGainOnMean','incumbentGainOnMean','oracleMeanGain','clairvoyantNoiseGain'])checkInterval(s[key],selected.map(row=>mean(row.cases.map(c=>c[key]))));
+  }else{const kept=all.filter(c=>c.bothPreserved),flips=kept.filter(c=>c.oppositePreferences);assert.equal(s.preserved,kept.length);assert.equal(s.oppositePreferences,flips.length);if(kept.length){near(s.oppositeFractionAmongPreserved,flips.length/kept.length);near(s.meanEffectChangeAmongPreserved,mean(kept.map(c=>c.variants.find(v=>v.scale===2).difference-c.variants.find(v=>v.scale===.5).difference)));}else{assert.equal(s.oppositeFractionAmongPreserved,null);assert.equal(s.meanEffectChangeAmongPreserved,null);}near(s.maxAbsoluteAccountingResidual,Math.max(...all.flatMap(c=>c.variants.flatMap(v=>Object.values(v.effects).map(e=>Math.abs(e.accountingResidual))))));}
+}
+// Independently replay every intervention/stream for the first fixed seed in
+// BOTH environments. Other case arithmetic is audited above, not re-executed.
+const {World}=await import(pathToFileURL(join(p.worldSources,'engine.mjs')).href),advance=s=>{let x=s;x^=x<<13;x^=x>>>17;x^=x<<5;return x>>>0;},forced={};for(let s=1;s<1_000_000&&Object.keys(forced).length<2;s++){const a=advance(s),b=advance(a);if(a/4294967296<ref.parameters.exploration)forced[b/4294967296<.5?-1:1]??=s;}
+const replay=[];let replayedCases=0,replayedForks=0;
+for(const row of r.rows.filter(row=>row.seed===p.seeds[0])){
+  const orig=original.rows.find(o=>o.seed===row.seed&&o.environment===row.environment),world=new World({seed:row.seed,founders:ref.founders,capacity:240,reproduction:false,mutation:false,...p.environments[row.environment],controller:'episodic-actor',learning:true,actorParameters:{...ref.actorParameters},episodicParameters:{...ref.parameters,memoryLearning:true,neuralLearning:true}});
+  for(let tick=0;tick<op.horizonTicks;tick++){
+    if(!world.step())break;
+    for(const c of row.cases.filter(c=>c.tick===world.tick)){
+      replayedCases++;const initial=world.checkpoint(),natural=World.restore(initial),target=natural.flies.find(f=>f.id===c.agentId);natural.step();assert.deepEqual(target.lastInputs,c.query);
+      for(const variant of noise?c.pairs:c.variants){
+        let start=initial;
+        if(!noise){const modified=World.restore(initial),before=modified.energy();let delta=0;for(const food of modified.food){delta+=food.amount*(variant.scale-1);food.amount*=variant.scale;food.capacity*=variant.scale;food.regrowth*=variant.scale;}modified.totals.externalEnergy+=delta;near(variant.addedEnergy,delta);near(variant.initialEnergyBefore,before);near(variant.initialEnergyAfter,modified.energy());assert.deepEqual(modified.flies,world.flies);assert.equal(hash(JSON.stringify(world.flies.find(f=>f.id===c.agentId))),c.internalStateSha256);start=modified.checkpoint();}
+        for(const choice of [-1,1]){
+          replayedForks++;const fork=World.restore(start),f=fork.flies.find(f=>f.id===c.agentId),energy=f.energy;f.brain.episodic.memory.rngState=forced[choice];fork.step();assert.equal(f.brain.episodic.lastDecision.choice,choice);const effect=variant.effects[choice<0?'slow':'fast'];assert.deepEqual(f.lastActions,effect.firstActions);if(noise){assert.deepEqual(f.lastInputs,c.query);assert.deepEqual(f.lastActions,target.lastActions.map((v,i)=>i===1?2*(choice<0?ref.parameters.slowSpeed:ref.parameters.fastSpeed)-1:v));assert.equal(f.brain.actor.rngState,effect.originalActorState);}else{assert.deepEqual(f.lastInputs,effect.firstObservation);assert.equal(effect.sameOtherMotors,f.lastActions.every((v,i)=>i===1||v===target.lastActions[i]));}
+          f.brain.episodic.memory.rngState=target.brain.episodic.memory.rngState;if(noise&&variant.actorSeed!==null)f.brain.actor.rngState=variant.actorSeed;
+          for(let j=1;j<p.horizon;j++){fork.step();if(noise)assert.deepEqual(f.lastActions,effect.futureActions[j-1]);}
+          near(effect.energyChange,(fork.flies.find(f=>f.id===c.agentId)?.energy||0)-energy);assert.equal(effect.alive,fork.flies.includes(f));assert.equal(effect.endingSha256,hash(JSON.stringify(fork.checkpoint())));if(!noise)near(effect.accountingResidual,fork.energy()+fork.totals.dissipated-fork.initialEnergy-fork.totals.externalEnergy);
+        }
+      }
+    }
+  }
+  assert.equal(hash(JSON.stringify(world.checkpoint())),orig.worldSha256);replay.push({seed:row.seed,environment:row.environment,exactBaseline:true,cases:row.cases.length});console.log(JSON.stringify({directory,replayedWorlds:replay.length}));
+}
+const source=await readFile(new URL(import.meta.url));await writeFile(join(directory,'audit-source.mjs'),source);const audit={at:new Date().toISOString(),auditorSha256:hash(source),kind:p.experiment,arithmeticWorlds:r.rows.length,arithmeticCases:cases,replayedWorlds:replay.length,replayedCases,replayedForks,replay,checks:['source and reference hashes','all case and summary arithmetic','initial-state invariants, intervention energy and/or predeclared stream seeds','all selected physical forks and complete baseline hashes','original failed qualification remains unchanged'],limitations:['Only the first fixed seed in both environments was independently physically replayed.','Diagnostic reuse does not qualify a policy or establish natural-distribution irreducible error.']};await writeFile(join(directory,'audit.json'),JSON.stringify(audit,null,2)+'\n');console.log(JSON.stringify(audit,null,2));

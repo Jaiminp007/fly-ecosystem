@@ -16,10 +16,19 @@ The dashboard binds to loopback on port 8767. `PLATFORM_PORT` selects another
 port; `PLATFORM_RUNS_DIR` selects the checkpoint directory, defaulting to
 `runs/platform/`. This first version is a local research workspace.
 
+`PLATFORM_WORLD_WORKERS=1 npm run start:platform` selects a persistent worker
+per habitat. This optional backend keeps simulation and checkpoint writes off
+the HTTP thread while preserving the same checkpoint format and controls.
+Both modes recover habitats paused. `/healthz` reports the selected runtime;
+worker habitat metadata also reports owed/discarded ticks and save duration.
+See [runtime verification and recovery evidence](RUNTIME_WORKERS.md).
+
 Create a named habitat with a seed, founder count, capacity and resource renewal.
 Choose the repeating challenge schedule or original habitat, and independently
-enable lifetime learning, inherited mutation and seasonal resources. Habitats
-start paused. Run, pause, step one second or advance ten artificial seconds.
+enable lifetime learning, inherited mutation and seasonal resources. Ecology can
+use fixed food centers or seeded relocations; signals can be normal, disabled or
+scrambled. Habitats start paused. Run, pause, step one second or advance ten
+artificial seconds.
 Select an agent from the list or habitat canvas to inspect its network, traits,
 learned weight changes, parents and offspring count. Recently dead agents retain
 ancestry metadata; their full lifetime networks are not archived.
@@ -32,14 +41,21 @@ signal, recent feeding and time. Five outputs govern turning, movement, feeding,
 mating and signaling. Resource availability, moving fertility, scarcity and a
 stress region provide environmental changes.
 
+The relocation profile uses a separate seed-derived RNG to schedule irregular
+food renewal center changes; its state is checkpointed without consuming the
+base world RNG stream. Signal ablations change the signal input/output path.
+Disabled signals have no emission cost. Scrambling rotates neighboring signal
+values by tick and agent identity; it is a control, not a biological model.
+
 Eligible opposite-sex pairs transfer energy to children. Children inherit body
 traits and network genes; mutation can change weights, add/remove connections and
 add/remove hidden neurons. Acquired weight changes and recurrent activity start
 fresh in each child. The founder food-seeking reflex is engineered scaffolding.
 
 One habitat can contain many agents, and one platform process can manage up to
-16 independent habitats. Active habitats share a wall-time compute budget in
-rotation. Requested speed is a target, not guaranteed achieved speed. Extinction
+16 independent habitats. In the default backend active habitats share a wall-time
+compute budget in rotation; the optional worker backend executes independent
+worlds concurrently. Requested speed is a target, not guaranteed achieved speed. Extinction
 is terminal; capacity pauses rather than silently discarding births. Increasing
 capacity is a recorded intervention. Configuration updates use the engine's
 shared validator and must cover both original founders and living population.
@@ -77,7 +93,10 @@ All writes require JSON and accept only local, same-origin requests. Routes are:
 | GET | `/healthz` | Persistence/simulation error status and habitat count |
 | GET / POST | `/api/ecosystems` | List habitats / create `{name, config}` |
 | GET | `/api/ecosystems/:id` | Snapshot, runtime metadata and telemetry |
+| GET | `/api/ecosystems/:id/frame?sinceTick=&sinceEvent=` | Current world frame and newer events/history samples |
 | GET | `/api/ecosystems/:id/agents/:agentId` | Agent genome and acquired state, or archived ancestry |
+| GET | `/api/ecosystems/:id/lineage?offset=&limit=` | Paginated ancestry metadata |
+| GET | `/api/ecosystems/:id/events?offset=&limit=` | Paginated retained event history |
 | POST | `/api/ecosystems/:id/control` | Run, pause, step, speed, configure, checkpoint or restore |
 | POST | `/api/ecosystems/:id/fork` | Independent branch using `{name}` |
 | GET | `/api/ecosystems/:id/checkpoints` | Retained manual snapshot names |
@@ -88,6 +107,8 @@ seconds). Speed accepts `value` 1, 5 or 10. Configure accepts a `config` contain
 capacity, nutrient, learning, mutation or seasonal settings. Restore accepts a
 `name` from the retained checkpoint list. Creating a habitat additionally accepts
 seed, founders and challenges (`off` or `cycle`).
+Creation and configuration also accept ecology (`baseline` or `relocation`) and
+signal mode (`normal`, `disabled` or `scrambled`).
 
 ## Validation
 
@@ -104,6 +125,23 @@ The [first matched campaign](../evidence/platform-training/summary.md) records
 822 births over three seed pairs. Learned changes are active, but results remain
 mixed. Full checkpoints and subsequent live counts remain under ignored `runs/`.
 
+The delayed-cue harness (`npm run evaluate:memory`) compares ten matched
+fixed-genome seeds on separate training and held-out cue/delay distributions.
+Its current learned-minus-frozen interval includes zero; useful memory is not
+demonstrated. See [memory-task results](../evidence/memory-task/summary.md).
+
+`npm run evaluate:ecology` compares stable food renewal centers with seeded
+relocations across ten matched seed pairs. `npm run evaluate:signals` compares
+normal, disabled and scrambled signals. Both publish all seed rows and source
+hashes under `evidence/`. These population, feeding and survival outcomes do not
+establish cooperation or isolate neural learning.
+
+`npm run profile:platform` measures local compact tick time and serialized frame,
+snapshot and checkpoint size at three populations. The MaleCNS scale reference
+uses its existing recorded memory assay and is not rerun by this command. See
+the [controller view contract](../platform/CONTROLLER_VIEW.md) for each model's distinct
+readouts.
+
 ```sh
 npm test
 node --check platform/manager.mjs
@@ -111,7 +149,7 @@ node --check platform/server.mjs
 node --check platform/web/app.js
 ```
 
-All 24 automated tests passed in the implementation environment, including six
+All 27 automated tests passed in the implementation environment, including six
 platform tests for world/branch isolation, inherited offspring with fresh acquired
 state, exact checkpoint continuation, concurrent controls, fair scheduling,
 recoverable configuration changes, corrupt recovery preservation, persistence
@@ -162,3 +200,14 @@ survival on that schedule does not demonstrate this milestone.
 Human-inspired tasks are useful design targets. Human-level cognition,
 consciousness and a biologically faithful human brain are separate claims that
 require their own evidence.
+
+## Experimental autonomous-learning track
+
+A separate `trace-actor` controller now provides engineered sensory traces and
+reward-trained readouts. Creation accepts `controller: "trace-actor"`, validated
+`actorParameters`, and `reproduction: false` for controlled within-life studies.
+Existing habitats retain the `hebbian` controller. The web learning lab runs
+checkpointed cue and ecological parameter searches in a child process, with
+independent evaluation gates and published failures. The earlier inconclusive
+memory report above concerns the original controller; new trace-actor results
+must be read separately. See [AUTONOMY.md](AUTONOMY.md) and the campaign evidence.

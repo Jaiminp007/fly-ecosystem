@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "passed": true,
+  "protocolSha256": "4d692980b32e6966b1a32917153a81619f15a8984a77a7d5621449d160256044",
+  "resultsSha256": "169be3d8947b02174d29181113a56183a64fb29213693859b3a84bdd4ffebad5",
+  "mainWorlds": 112,
+  "probes": 144,
+  "coverage": "Every registered history, arm, founder, phase checkpoint, factual update, probe, endpoint, contrast and gate cold-replayed from captured sources.",
+  "runtime": {
+    "wallSeconds": 244.7099541,
+    "cpuMicroseconds": {
+      "user": 241625000,
+      "system": 8875000
+    },
+    "node": "v22.19.0",
+    "platform": "win32"
+  }
+}

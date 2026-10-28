@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-23T19:13:48.656Z",
+  "sourceSha256": {
+    "engine.mjs": "2bf1672d903299144d2ef7e1d118fe045532633648479413b8ed8dcc7a9ee48a",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "dab563aceb0bb6484cb7956359c6478803de13b7ad7af00e70b05382b595a31f",
+    "learning/episodic-actor.mjs": "2b450fd733ecab3642fbd736016910e594e8143b7265c8b730106ba284f0bd60",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/diagnose-cruise-relocation.mjs": "c6fa9d2cc73afa01282c08994b9057905b7f796fe848830089025b80e66ca2bb"
+  },
+  "seeds": [
+    3265863333,
+    3265871252,
+    3265879171,
+    3265887090,
+    3265895009,
+    3265902928,
+    3265910847,
+    3265918766,
+    3265926685,
+    3265934604
+  ],
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/episodic-confirmation/2e3dcc99-51c7-402a-bd2b-305aff52ee25",
+  "postShiftWindowTicks": 200,
+  "scope": "Post-hoc exact replays, not fresh confirmation. Phase is measured since latest resource-renewal relocation. Retrieved-record source decision ticks are derived from monotonic experience IDs and aligned decision windows; no terminal records are read from living agents. Old records are not necessarily wrong: old-neighbor fractions are descriptive, not proof of a failure cause."
+}

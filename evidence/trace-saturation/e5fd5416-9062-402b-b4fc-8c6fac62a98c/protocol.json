@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-24T01:06:33.458Z",
+  "experiment": "sensory-trace-saturation-diagnostic",
+  "referenceDirectory": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/neural-memory-interaction/be518e8d-b6cd-471d-945d-ab399c101bf7",
+  "referenceProtocolSha256": "b62892d806827fe36053e61383031a2df7826e5c0678358561591b7e40561762",
+  "referenceOutcomesSha256": "52370282a45196e2589dd70bc05c4a0b24390009d8ad6465bd27ba8718d842df",
+  "sourceSha256": {
+    "engine.mjs": "dfa91a1c3cf36c9767920e05a08af4ea7f0ac91c819b68aeedb746736408f87b",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "ddba20e421a1f9498ab7765ccd4866cdd3b74e1da9cb437e2a5aa103c8310ca6",
+    "learning/episodic.mjs": "f45d2a2c47d4b3d634c0ed3440fc9f7198a2ec66592aff3329704aeb90f9e012",
+    "learning/episodic-actor.mjs": "1f12c882902306887123e8bc9c11003571f6794490ff49ecb46e6cc23c952e4e",
+    "learning/joint-episodic.mjs": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/neural-memory-interaction.mjs": "285a4581b47338d0473265747cdb4d47d38c8fa00ae4c02d0194dbb69f4f5dfd"
+  },
+  "seeds": [
+    1425182348,
+    1425190267,
+    1425198186,
+    1425206105,
+    1425214024,
+    1425221943,
+    1425229862,
+    1425237781,
+    1425245700,
+    1425253619
+  ],
+  "environments": {
+    "stable": {
+      "nutrient": 0.4,
+      "ecology": "baseline",
+      "challenges": "off",
+      "seasonal": false
+    },
+    "relocation": {
+      "nutrient": 0.4,
+      "ecology": "relocation",
+      "challenges": "off",
+      "seasonal": false
+    }
+  },
+  "changeThreshold": 0.05,
+  "interpretation": "Replays the first fixed historical seeds; no new qualification or policy tuning. Count actual trace clipping and flat responses despite changed observations. A parallel exponential average is computed from the SAME recorded input stream as a proposed alternative; it is never fed to the historical world. It does not establish useful learning, prospective survival, or that clipping caused earlier failures. Full final checkpoint hashes must reproduce."
+}

@@ -1,0 +1,8 @@
+[
+  {"id":"move-local-8","actuator":"move","featureMode":"local","moveGain":2,"decisionTicks":8,"creditTicks":8},
+  {"id":"move-local-16","actuator":"move","featureMode":"local","moveGain":2,"decisionTicks":16,"creditTicks":16},
+  {"id":"move-local-small","actuator":"move","featureMode":"local","moveGain":1,"decisionTicks":8,"creditTicks":8},
+  {"id":"move-mixed-8","actuator":"move","featureMode":"mixed","moveGain":2,"decisionTicks":8,"creditTicks":8},
+  {"id":"move-local-delayed","actuator":"move","featureMode":"local","moveGain":2,"decisionTicks":8,"creditTicks":32},
+  {"id":"move-memory-only","actuator":"move","featureMode":"local","moveGain":2,"decisionTicks":8,"creditTicks":8,"neuralLearning":false}
+]

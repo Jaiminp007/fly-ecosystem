@@ -1,0 +1,22 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import {interval95} from '../learning/tasks.mjs';
+
+const directory=resolve(process.argv[2]||''),read=async name=>JSON.parse(await readFile(join(directory,name))),r=await read('results.json'),p=await read('protocol.json'),rows=await read('heldout.json'),memory=await read('memory.json'),parent=await read('reference-study.json'),parentRows=await read('parent-heldout.json');
+assert.equal(p.experiment,'independent-context-policy-replication');assert.equal(p.seedCount,100);assert.equal(rows.length,100);assert.deepEqual(rows.map(x=>x.seed),p.heldoutSeeds);assert.equal(new Set(p.heldoutSeeds).size,100);
+assert.deepEqual(r.protocol,p);assert.deepEqual(r.locked,p.locked);assert.deepEqual(p.locked,await read('locked-selection.json'));assert.deepEqual(p.locked.parameters,parent.locked.parameters);assert.equal(p.locked.id,parent.locked.id);assert.equal(p.referencePassed,parent.passed);
+for(const key of ['environments','gates','actorParameters','requiredControls','founders','horizonTicks','incumbent'])assert.deepEqual(p[key],parent.protocol[key]);
+const parentSeeds=new Set([...(parent.protocol.developmentSeeds||[]),...parent.protocol.heldoutSeeds]);assert.ok(p.heldoutSeeds.every(seed=>!parentSeeds.has(seed)));
+let worlds=0,maxAccountingResidual=0;for(const row of rows)for(const arms of Object.values(row.environments)){assert.equal(new Set(Object.values(arms).map(a=>a.founderHash)).size,1);for(const a of Object.values(arms)){worlds++;assert.equal(a.ticks,p.horizonTicks);assert.ok(Math.abs(a.accountingResidual)<1e-6);maxAccountingResidual=Math.max(maxAccountingResidual,Math.abs(a.accountingResidual));}}
+const compare=(data,control)=>Object.fromEntries(Object.keys(p.environments).map(e=>[e,Object.fromEntries(['energy','population'].map(k=>[k,interval95(data.map(row=>row.environments[e].learned[k]-row.environments[e][control][k]))]))]));
+for(const control of Object.keys(r.comparisons))assert.deepEqual(compare(rows,control),r.comparisons[control]);
+for(const control of Object.keys(parent.comparisons))assert.deepEqual(compare(parentRows,control),parent.comparisons[control]);
+for(const [key,fn]of Object.entries({aAfterB:x=>x.arms.learned.afterB.a,bAfterB:x=>x.arms.learned.afterB.b,aRetentionChange:x=>x.arms.learned.afterB.a-x.arms.learned.beforeB.a}))assert.deepEqual(interval95(memory.rows.map(fn)),memory.summary[key]);
+const c=r.comparisons,g=p.gates,s=memory.summary,habitatPassed=p.requiredControls.every(control=>Object.values(c[control]).every(v=>v.energy.ci95[0]>g.energyDifferenceLowerBound&&v.population.mean>=g.populationDifferenceMeanMinimum)),memoryPassed=s.aAfterB.ci95[0]>=g.memoryAccuracyLowerBound&&s.bAfterB.ci95[0]>=g.memoryAccuracyLowerBound&&s.aRetentionChange.ci95[0]>=g.retentionChangeLowerBound,incumbentPassed=c.incumbent.stable.energy.ci95[0]>g.stableIncumbentEnergyLowerBound&&c.incumbent.stable.population.mean>=0&&c.incumbent.relocation.energy.ci95[0]>g.relocationIncumbentEnergyLowerBound&&c.incumbent.relocation.population.mean>=0;
+assert.equal(habitatPassed,r.habitatPassed);assert.equal(memoryPassed,r.memoryPassed);assert.equal(incumbentPassed,r.incumbentPassed);assert.equal(habitatPassed&&memoryPassed&&incumbentPassed,r.passed);
+for(const[file,hash]of Object.entries(p.sourceSha256))assert.equal(createHash('sha256').update(await readFile(join(directory,'sources',file))).digest('hex'),hash);
+assert.equal(createHash('sha256').update(await readFile(join(directory,'reference-study.json'))).digest('hex'),p.referenceSha256);
+const audit={at:new Date().toISOString(),worlds,seedPairsPerEnvironment:rows.length,parentPassed:parent.passed,passed:r.passed,maxAccountingResidual,checks:['fixed independent 100-seed sample and no parent-seed overlap','locked policy/parameters, gates, environments and body settings preserved','matched founders and energy ledgers','all replication and archived parent comparisons recomputed','cue component intervals recomputed from raw scores','all gates recomputed without pooling','source/reference fingerprints'],limitations:['No replay of every world in this audit','Cue component is not whole-body continual retention','Original 30-seed failure remains a failure; no sample pooling or replacement']};
+await writeFile(join(directory,'audit.json'),JSON.stringify(audit,null,2)+'\n');console.log(JSON.stringify(audit,null,2));

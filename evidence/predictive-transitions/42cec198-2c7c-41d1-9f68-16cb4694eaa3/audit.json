@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-24T01:22:01.064Z",
+  "auditorSha256": "cfb7f6d9bd92d9a111c2bd05fed9c9ba5c0d92f11b9dfe64cb0081c0f339e72c",
+  "worlds": 12,
+  "seeds": 6,
+  "scoredTransitions": 259043,
+  "recordedPlans": 36,
+  "predictiveSignal": false,
+  "replays": [
+    {
+      "seed": 1425182348,
+      "environment": "stable",
+      "exactOriginalWorld": true,
+      "exactPredictorStates": true,
+      "matchingErrorTotals": true
+    },
+    {
+      "seed": 1425182348,
+      "environment": "relocation",
+      "exactOriginalWorld": true,
+      "exactPredictorStates": true,
+      "matchingErrorTotals": true
+    }
+  ],
+  "checks": [
+    "original world and all model/input source hashes",
+    "complete fixed seed/environment results",
+    "prediction bounds, loss arithmetic, acquisition and plan invariants",
+    "chronological holdout comparison intervals and fixed signal",
+    "independent online-learning loop reproduces every predictor state and loss total on one seed in both environments",
+    "historical worlds unchanged in independent replay"
+  ],
+  "limitations": [
+    "Small reused-seed offline predictive probe, not independent ecological policy qualification.",
+    "Only the specified predictor trajectories are independently replayed.",
+    "Hypothetical plans do not control agents; embodied model costs, world checkpoint integration and whole-body skill retention are unverified."
+  ]
+}

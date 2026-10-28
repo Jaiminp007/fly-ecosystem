@@ -1,0 +1,1155 @@
+{
+  "selected": {
+    "representation": "current",
+    "mode": "ipw-contrast"
+  },
+  "candidates": [
+    {
+      "representation": "current",
+      "mode": "ipw-contrast",
+      "worstGain": 0.006707874701232075,
+      "allGains": [
+        0.3979082897146291,
+        0.2150847299708335,
+        0.006707874701232075,
+        0.07194831826451209,
+        0.041349140177218247,
+        0.12450934318491247
+      ]
+    },
+    {
+      "representation": "history",
+      "mode": "explicit-exploration",
+      "worstGain": -0.02305164971395879,
+      "allGains": [
+        0.3966575111437882,
+        0.21383395139999262,
+        0.0054570961303911925,
+        0.007547528373335055,
+        -0.02305164971395879,
+        0.060108553293735434
+      ]
+    },
+    {
+      "representation": "current",
+      "mode": "dr-contrast",
+      "worstGain": -0.0269442861395931,
+      "allGains": [
+        0.38203949649762414,
+        0.19921593675382854,
+        -0.009160918515772887,
+        0.0036548919477007447,
+        -0.0269442861395931,
+        0.05621591686810112
+      ]
+    },
+    {
+      "representation": "history",
+      "mode": "dr-contrast",
+      "worstGain": -0.12519076341586066,
+      "allGains": [
+        0.26600965159753637,
+        0.08318609185374076,
+        -0.12519076341586066,
+        0.002008569131157323,
+        -0.02859060895613652,
+        0.0545695940515577
+      ]
+    },
+    {
+      "representation": "history",
+      "mode": "ipw-contrast",
+      "worstGain": -0.13249616129340946,
+      "allGains": [
+        0.25870425371998756,
+        0.07588069397619196,
+        -0.13249616129340946,
+        -0.05813491074582888,
+        -0.08873408883312273,
+        -0.005573885825428504
+      ]
+    },
+    {
+      "representation": "current",
+      "mode": "observational",
+      "worstGain": -0.1358574406308961,
+      "allGains": [
+        0.328717742130174,
+        0.1458941823863784,
+        -0.06248267288322301,
+        -0.10525826254360227,
+        -0.1358574406308961,
+        -0.05269723762320189
+      ]
+    },
+    {
+      "representation": "current",
+      "mode": "ipw",
+      "worstGain": -0.14396642001610888,
+      "allGains": [
+        0.24723399499728815,
+        0.06441043525349255,
+        -0.14396642001610888,
+        -0.0435761013282181,
+        -0.07417527941551194,
+        0.008984923592182281
+      ]
+    },
+    {
+      "representation": "current",
+      "mode": "explicit-exploration",
+      "worstGain": -0.14953797377859107,
+      "allGains": [
+        0.24166244123480596,
+        0.05883888149101035,
+        -0.14953797377859107,
+        0.03297537482948831,
+        0.0023761967421944696,
+        0.08553639974988869
+      ]
+    },
+    {
+      "representation": "history",
+      "mode": "ipw",
+      "worstGain": -0.1882071235573599,
+      "allGains": [
+        0.43913334346567573,
+        0.2563097837218801,
+        0.0479329284522787,
+        -0.15760794547006607,
+        -0.1882071235573599,
+        -0.10504692054966569
+      ]
+    },
+    {
+      "representation": "history",
+      "mode": "observational",
+      "worstGain": -0.1882071235573599,
+      "allGains": [
+        0.4402075123482317,
+        0.2573839526044361,
+        0.04900709733483466,
+        -0.15760794547006607,
+        -0.1882071235573599,
+        -0.10504692054966569
+      ]
+    }
+  ],
+  "at": "2026-10-24T04:44:32.541Z",
+  "protocolSha256": "6c2c24dbf7170f2e8dc68b81cc330405b681e42d9b5af1e8416357c23af06c8e",
+  "modelsSha256": "03d3fb90944b6caa41d68b5c655796f3644872c7c877a67a062af2dd9e80fa14",
+  "modelHashes": {
+    "stable:8:current:observational": "d4a1f64d60b5c6f1e51d69ae68194543c3ea76508c398340d94fda118b8ebeb9",
+    "stable:8:current:ipw": "acbc3ba4135eaa270489ef92f6d16720a57d8f2f98b4f3be8b26f08f11fb39de",
+    "stable:8:current:ipw-contrast": "2cdf7ac1458d135c538be591099f2c9760720ad4a87e1afa34ff6aac1eb44f3f",
+    "stable:8:current:dr-contrast": "c2bc1d9e29cf18eea7335be86cce129c32dede66889ff172b1233b6526980b5b",
+    "stable:8:current:uniform": "896274101cfa0479fe6b26610936acb28ce551175331b693db5331434b0cdacd",
+    "stable:8:current:paired": "73617c1964a6d9df658abf2aff5c3329744db65b74675847f70e8f3bb95b514c",
+    "stable:8:current:explicit-exploration": "d2962e4dc1e2f72be52a731ef10286f4923fdf42e2f2a784125894ff3857928e",
+    "stable:8:current:matched-uniform": "1c247b23496caefc07a95819b81bd6fd4859df6d50201da1838dcba89bc4129d",
+    "stable:8:history:observational": "6973d20356aca608d09597accead58f44475a4769f63351f320b89ac4ecc3e85",
+    "stable:8:history:ipw": "9926fe376646fa98388cda6874c282056150d1f4c7f781d31cb77dfdea2799f4",
+    "stable:8:history:ipw-contrast": "e46c2438f2ad42a5eab8e8f2bb3e189f4b5db71e35d4f9f1d71ede689aa33e44",
+    "stable:8:history:dr-contrast": "2ff658b574966bda8c5386fb3f4ab4e48e0546b5e4d9300ffd996e9222d3e4aa",
+    "stable:8:history:uniform": "ec19843161030e33b849c8a9890a3693884b53e0535783eb8b401bc61cfc31cb",
+    "stable:8:history:paired": "c143e270aacc78afbce130adcda14baba713be40c3dd4537bee05807e823abb5",
+    "stable:8:history:explicit-exploration": "bee7c5988f030c87d7f431ec84a77008e6f7aa7e954607b60d70a84edeef3588",
+    "stable:8:history:matched-uniform": "7076c25761e35cd84e24d3778a8947eb19ecd07a193a2148f4b94b6709787e92",
+    "stable:256:current:observational": "440abc7a34f254fc3810a231b8839aba3c6943cd50fbfc9c42fc66334b5331ed",
+    "stable:256:current:ipw": "45d18653a061597715492ee82b68d66ff60c9b817b935319f7d202d9c558fd2f",
+    "stable:256:current:ipw-contrast": "db701c0402b93670f28932a3a31d5e0e908113346566ba4a4083ba1a58910778",
+    "stable:256:current:dr-contrast": "e707bbbd38c709ec331ad2e410dad788b61ec5a0d4ecfbc27fa5cf27982e661f",
+    "stable:256:current:uniform": "d3ece17d71b5ce9c0d18f7c32425ef3a56bde9c6e01c786b9c9ae8a342f04756",
+    "stable:256:current:paired": "f1b40ea08f81eef6bdaa79c1bff29e4fbd8429d3201a061cf342092ced28e69f",
+    "stable:256:current:explicit-exploration": "3f31b59358ef7fc642057498ec4dc26fea70d17d4b8ce082418668eb8ea2559e",
+    "stable:256:current:matched-uniform": "0e3e820a0ed23700b58275649bd16e2ce20b8275138d1694d6fcc7490a4ab1e4",
+    "stable:256:history:observational": "6780e56f9b8b79712ea201dd017d142d6291bfbc34fb35646e7799953c8298ea",
+    "stable:256:history:ipw": "7f69419a788ac446c34ab80501c78ff1074fafc315290954ba5df606498df274",
+    "stable:256:history:ipw-contrast": "34be1ee564a6962048b5ce243f912dec25a44b2335db5918df2457cf9bd2ab40",
+    "stable:256:history:dr-contrast": "7f16a04b3f34a9208de23db9c8724dc6ebbcfbab2961611f949f7b0b039cd2cc",
+    "stable:256:history:uniform": "9abf949867f9262507360b7e08bf10fd45c3bdab8884878e144674738122e9a1",
+    "stable:256:history:paired": "c25552d3c0b242fbf8d2da6351bee6d4c14d53f293e92a6c0f85fbfe799df5f5",
+    "stable:256:history:explicit-exploration": "93824aec70d06b4f6ee38123de3b53b449c7ed6530e44ede02a440574608da66",
+    "stable:256:history:matched-uniform": "f814559982663acf3fd8b3a6f9f2393d144b784367582091c65906f61749e587",
+    "relocation:8:current:observational": "81b534cd0258b4116dd7460bf581cc2a1f45b2e3dcaf5bf4729c48b131a67a22",
+    "relocation:8:current:ipw": "f8c4e66b24596cf50eaecdf204c936ba14d68610e1d7104109fc1de05483c648",
+    "relocation:8:current:ipw-contrast": "c0db80f77f1fc629019336a12ac158970726d3d4767c99f8a6393ad97a7c106a",
+    "relocation:8:current:dr-contrast": "6de2b1fc1a89ca09710dee88418595f00312d6a280cde7026d083e853fe88b18",
+    "relocation:8:current:uniform": "8a86a15fcb389741caebcefc180df4a304579e33a24b98c2fa08b40738866339",
+    "relocation:8:current:paired": "fae5cef09d29a111d7a8f11ad090bd5c83339c258837d25da65d62c0781dd146",
+    "relocation:8:current:explicit-exploration": "6a863da8903c3416b1954e596745c6d0b69efe28af135189b1710550492d81c9",
+    "relocation:8:current:matched-uniform": "56380caa7357ac0fbb05b6cade327b17fc6dbb6695ff74cce63dd7b1f1fdafdb",
+    "relocation:8:history:observational": "ebbad90ce288a33d184e738e2939be16d53259fdb328cc0757d8189973f8083e",
+    "relocation:8:history:ipw": "5c1f858ce014cf43258e86934a5d5d31454bd5fff58e0d3945f9610983afea04",
+    "relocation:8:history:ipw-contrast": "16a6809b928330d1a8219112e7ea8ac09fe23dcdf7407a69ba4253ed44341983",
+    "relocation:8:history:dr-contrast": "2d3553c67ec8093f29481e848b524c071736c21814755a0b7bb271cdb2b6600b",
+    "relocation:8:history:uniform": "bc1708444454a3fc2068635529a4eb354673da10dadb98323704719e3b850905",
+    "relocation:8:history:paired": "0e809c65d640d912726b1204d3bec160141bb6e6561f096d7a097c678b3043e4",
+    "relocation:8:history:explicit-exploration": "cb457b9f08fe5682134b0e9a9fb46b6db0b420c5647c9658126753ca2af1df66",
+    "relocation:8:history:matched-uniform": "7903c2a2b4b28069313bbc937df09c626fa84ced36f375579b904489002340bb",
+    "relocation:256:current:observational": "2ff7e0a1b96f4fa5593f08fe96f0c5c6e508a69f559ba1d76b9e39d03e126523",
+    "relocation:256:current:ipw": "ea246860830bbc44241dffd642b91c40441be560f7c9837a98eeb1505933f7da",
+    "relocation:256:current:ipw-contrast": "4ce283b80de7daca171ea9b8ee19b01b6db614aea8ee404c39a54b7befdedd36",
+    "relocation:256:current:dr-contrast": "40d4e0f8b645a6d45828af2f84ab20a5c96ae3a04d20e086e01e13f00c22424d",
+    "relocation:256:current:uniform": "3f00eaee9100614e0ca879a13cde7c323373e491b59319403374cf0be08e476e",
+    "relocation:256:current:paired": "0a48ea06e93be9853b5a19ac5541247bf24c464606931023f83909d97dfde50a",
+    "relocation:256:current:explicit-exploration": "eeb3638cfeb9bed19f2e60dc674b013b266ce0730624e3b5d58974173b58d1a6",
+    "relocation:256:current:matched-uniform": "e2ce7d1f7d06c04773899b89e59305248f97b3f789bd6abca96b06b18de0e76a",
+    "relocation:256:history:observational": "30010e52c946f03d5510fd36d8d7c91b6bc75d8b730886c51a752d37945cb3e6",
+    "relocation:256:history:ipw": "338e7d6754e0b8996ecedf481bc0da1a4aaff635528be0cbb23e7857142007f8",
+    "relocation:256:history:ipw-contrast": "6f14b1d8c365eb1e8502a0570174389e7c0cc6a8f3c6f3386a3abdf35675a267",
+    "relocation:256:history:dr-contrast": "d24f9ae05208992c1a8f3e92b23d55acf4fbdff71117dd472e7219d8b4ebc06a",
+    "relocation:256:history:uniform": "a4a4fa3dd9200617aa81290d88b6c65ed163f086609b09812e7ea50db15328d6",
+    "relocation:256:history:paired": "3a00e0d86777ec868ddd65eb39006ffbb974090314cd7ca0f1aeb8c388597efa",
+    "relocation:256:history:explicit-exploration": "2ddc5003cb9915381a55429b15b029188a52617a2ccfcef3a484a73a23b6ef85",
+    "relocation:256:history:matched-uniform": "130a88d33f3aed03f54d89a62a561e3038a49afe0c372eccd35c6f1804aa3364"
+  },
+  "modelCosts": {
+    "stable:8:current:observational": {
+      "serializedBytes": 427025,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:current:ipw": {
+      "serializedBytes": 428738,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:current:ipw-contrast": {
+      "serializedBytes": 391024,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:current:dr-contrast": {
+      "serializedBytes": 824220,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "stable:8:current:uniform": {
+      "serializedBytes": 431447,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:current:paired": {
+      "serializedBytes": 432893,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:current:explicit-exploration": {
+      "serializedBytes": 21782,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:current:matched-uniform": {
+      "serializedBytes": 21722,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:observational": {
+      "serializedBytes": 534326,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:ipw": {
+      "serializedBytes": 535790,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:ipw-contrast": {
+      "serializedBytes": 455248,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:dr-contrast": {
+      "serializedBytes": 995724,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "stable:8:history:uniform": {
+      "serializedBytes": 533981,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:paired": {
+      "serializedBytes": 535375,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:explicit-exploration": {
+      "serializedBytes": 39652,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:8:history:matched-uniform": {
+      "serializedBytes": 39507,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:observational": {
+      "serializedBytes": 426966,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:ipw": {
+      "serializedBytes": 428689,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:ipw-contrast": {
+      "serializedBytes": 391026,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:dr-contrast": {
+      "serializedBytes": 824089,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "stable:256:current:uniform": {
+      "serializedBytes": 431412,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:paired": {
+      "serializedBytes": 432855,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:explicit-exploration": {
+      "serializedBytes": 21773,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:current:matched-uniform": {
+      "serializedBytes": 21713,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:observational": {
+      "serializedBytes": 534318,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:ipw": {
+      "serializedBytes": 535777,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:ipw-contrast": {
+      "serializedBytes": 455263,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:dr-contrast": {
+      "serializedBytes": 995699,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "stable:256:history:uniform": {
+      "serializedBytes": 533976,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:paired": {
+      "serializedBytes": 535340,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:explicit-exploration": {
+      "serializedBytes": 39648,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "stable:256:history:matched-uniform": {
+      "serializedBytes": 39504,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:observational": {
+      "serializedBytes": 433607,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:ipw": {
+      "serializedBytes": 434745,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:ipw-contrast": {
+      "serializedBytes": 395647,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:dr-contrast": {
+      "serializedBytes": 835429,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "relocation:8:current:uniform": {
+      "serializedBytes": 434046,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:paired": {
+      "serializedBytes": 434954,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:explicit-exploration": {
+      "serializedBytes": 22204,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:current:matched-uniform": {
+      "serializedBytes": 22023,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:observational": {
+      "serializedBytes": 539680,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:ipw": {
+      "serializedBytes": 541161,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:ipw-contrast": {
+      "serializedBytes": 465127,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:dr-contrast": {
+      "serializedBytes": 1010952,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "relocation:8:history:uniform": {
+      "serializedBytes": 539986,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:paired": {
+      "serializedBytes": 540525,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:explicit-exploration": {
+      "serializedBytes": 39759,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:8:history:matched-uniform": {
+      "serializedBytes": 39636,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:observational": {
+      "serializedBytes": 433527,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:ipw": {
+      "serializedBytes": 434659,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:ipw-contrast": {
+      "serializedBytes": 395608,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:dr-contrast": {
+      "serializedBytes": 835270,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 82560,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "relocation:256:current:uniform": {
+      "serializedBytes": 433918,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:paired": {
+      "serializedBytes": 434891,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 165120,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:explicit-exploration": {
+      "serializedBytes": 22182,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:current:matched-uniform": {
+      "serializedBytes": 22013,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 5060,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:observational": {
+      "serializedBytes": 539610,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:ipw": {
+      "serializedBytes": 541104,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:ipw-contrast": {
+      "serializedBytes": 465087,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:dr-contrast": {
+      "serializedBytes": 1010832,
+      "labels": 128,
+      "storedRecords": 256,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 330240,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        }
+      }
+    },
+    "relocation:256:history:uniform": {
+      "serializedBytes": 539883,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:paired": {
+      "serializedBytes": 540465,
+      "labels": 128,
+      "storedRecords": 128,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 660480,
+          "matrixProducts": 2089024,
+          "updates": 128
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:explicit-exploration": {
+      "serializedBytes": 39738,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    },
+    "relocation:256:history:matched-uniform": {
+      "serializedBytes": 39624,
+      "labels": 22,
+      "storedRecords": 22,
+      "trainingWork": {
+        "estimator": {
+          "kernelCoordinates": 20240,
+          "matrixProducts": 10417,
+          "updates": 22
+        },
+        "nuisance": null
+      }
+    }
+  },
+  "developmentRowHashes": [
+    {
+      "seed": 2661084926,
+      "environment": "stable",
+      "sha256": "b039e177ac6ba9afaf8b3ed3a1eb0a4956b7b2de345ce2061198acbb0cde9106"
+    },
+    {
+      "seed": 2661084926,
+      "environment": "relocation",
+      "sha256": "584fd2120788bb11e42dfc8323684373071b4ad639a2e8ee251a7373f4237d75"
+    },
+    {
+      "seed": 2839932290,
+      "environment": "stable",
+      "sha256": "cc30572f8de91f5718bc8a5ad42756d966b848129c23ab5eea09a46f1c7307a1"
+    },
+    {
+      "seed": 2839932290,
+      "environment": "relocation",
+      "sha256": "f3248251907ed6676163bab2665b7ce52e28794bfdd7a9226a969cff3b5fe3de"
+    },
+    {
+      "seed": 1473057300,
+      "environment": "stable",
+      "sha256": "bdddd71545367ffda693aa659730069a8936cf18d9d9607562d52e56a32ab240"
+    },
+    {
+      "seed": 1473057300,
+      "environment": "relocation",
+      "sha256": "3e88ab24c6c8e2953d50f69ee10ccaa0bbd811dd8e3e44140899b19d155ea22b"
+    },
+    {
+      "seed": 2450596403,
+      "environment": "stable",
+      "sha256": "6cb156f15f11c4b8668d7710bb4bf08f2de0f835d4d98fa8f6b45c35ee7ceed3"
+    },
+    {
+      "seed": 2450596403,
+      "environment": "relocation",
+      "sha256": "320535aeb216a7bd9e76a0c5171f62c7baa5542e34a2aa8b50e2751f8086d56a"
+    },
+    {
+      "seed": 1185308205,
+      "environment": "stable",
+      "sha256": "5e7f23e5d729c147f8854b59319705013b36ed9308239b07578b271a31c17cb1"
+    },
+    {
+      "seed": 1185308205,
+      "environment": "relocation",
+      "sha256": "a7b72cb7a7fee9e173c258f9e64564770df56386ab872bb9cb4a7294b0b504eb"
+    },
+    {
+      "seed": 1200018856,
+      "environment": "stable",
+      "sha256": "2b4ef8bb356e07619429ff1efbdb0cdc9eb6e769994b7f9d19aa6982f34559bc"
+    },
+    {
+      "seed": 1200018856,
+      "environment": "relocation",
+      "sha256": "80da8eb7fd2760d0f68fce049591adc705ecde9dc1c65cb003b217b60eb60973"
+    },
+    {
+      "seed": 4072181376,
+      "environment": "stable",
+      "sha256": "e57913c88b0c300942884376bb6fcb88af3f32250c24289b641d27aac8544db8"
+    },
+    {
+      "seed": 4072181376,
+      "environment": "relocation",
+      "sha256": "e9794ebfeb0ae38a75ea2033cc6701d4aea32dc991503991537ba9191302b29c"
+    },
+    {
+      "seed": 1050866792,
+      "environment": "stable",
+      "sha256": "6b544a222084b627a0e4055c7a729ac400be74c32cd04045b561e881bd8b72b4"
+    },
+    {
+      "seed": 1050866792,
+      "environment": "relocation",
+      "sha256": "8d7934dcf659a27500a4740f012830605ddbf4bd97a1fdd36854b2b7b193999c"
+    }
+  ]
+}

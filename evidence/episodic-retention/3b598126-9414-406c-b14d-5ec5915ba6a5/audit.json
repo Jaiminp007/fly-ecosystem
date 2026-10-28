@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-23T19:32:13.458Z",
+  "seedCount": 20,
+  "maxAccountingResidual": 3.668446879601106e-9,
+  "checks": [
+    "unique probe seeds and no adaptation-study overlap",
+    "matched end-B body hashes",
+    "all paired probe intervals recomputed",
+    "energy accounting across interventions",
+    "archived source hashes"
+  ],
+  "scope": "Audit of exploratory surviving-body memory interventions. No prespecified confirmatory retention or new-skill gate."
+}

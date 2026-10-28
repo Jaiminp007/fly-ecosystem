@@ -1,0 +1,88 @@
+{
+  "id": "8b19d187-3bb3-4c45-a9cc-d9f01ff7d447",
+  "at": "2026-10-23T06:52:10.566Z",
+  "sourceSha256": {
+    "engine.mjs": "1e3d6125d065df524be75d9d5322861b16124f88507ae0a8e4c20646f5ff0a78",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "f5ff1e8868a8996ba9499c41b8dc18b4e37bc6b47fa0cca39468005a9253d6dc",
+    "learning/episodic-actor.mjs": "e1d795f08cd456c41d140db138a681a8e7ff1f4caa1d1840e8d731610d1df818",
+    "scripts/episodic-body-study.mjs": "06d2657b85ef99854a695a0f1ff7a69f8fc5952e8edbb22893a4da58c08d2c91"
+  },
+  "actorParameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "episodicParameters": {
+    "capacity": 128,
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir",
+    "decisionTicks": 4,
+    "creditTicks": 16,
+    "discount": 0.95,
+    "turnGain": 0.25,
+    "memoryEnergyPerRecordSecond": 0.00001,
+    "lookupEnergyPerRecord": 0.000005
+  },
+  "seeds": [
+    2333725063,
+    2333732982,
+    2333740901,
+    2333748820,
+    2333756739,
+    2333764658,
+    2333772577,
+    2333780496,
+    2333788415,
+    2333796334
+  ],
+  "environment": {
+    "nutrient": 0.4,
+    "ecology": "baseline",
+    "challenges": "off",
+    "seasonal": false
+  },
+  "horizonTicks": 1800,
+  "founders": 24,
+  "reproduction": false,
+  "mutation": false,
+  "profiles": {
+    "neural": {
+      "controller": "trace-actor",
+      "learning": true
+    },
+    "neuralFrozen": {
+      "controller": "trace-actor",
+      "learning": false
+    },
+    "episodic": {
+      "controller": "episodic-actor",
+      "learning": true
+    },
+    "episodicFrozen": {
+      "controller": "episodic-actor",
+      "learning": false
+    },
+    "noCorrection": {
+      "controller": "episodic-actor",
+      "learning": true,
+      "episodicParameters": {
+        "turnGain": 0
+      }
+    },
+    "fifo": {
+      "controller": "episodic-actor",
+      "learning": true,
+      "episodicParameters": {
+        "replacement": "fifo"
+      }
+    }
+  },
+  "primary": "Episodic learning minus disabled-from-birth net energy per founder; mean ending population must not decrease.",
+  "secondary": "Compare with the neural controller, zero steering correction with memory still active, and FIFO retention.",
+  "interpretation": "Development transfer test of bounded episodic steering in the actual ecological engine. Stored features, actual correction actions and subsequent discounted rewards drive decisions. Memory storage and lookup incur explicit engineered energy charges. This is a new embodied algorithm, not evidence that the discrete task results transfer automatically or that RSI is achieved."
+}

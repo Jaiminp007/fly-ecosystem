@@ -1,0 +1,125 @@
+{
+  "id": "d5d94f5a-019e-44f9-917f-823fe0ab56e6",
+  "at": "2026-10-23T06:07:17.011Z",
+  "parentCueCampaign": "c2c746c3-0ada-401a-9826-272be9a2d2ec",
+  "parameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "sourceSha256": {
+    "engine.mjs": "d769817f8d1f66df3e52a3d92536b9ff344f4c48128e9418af467ff7a547d733",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "d30dfd75e65ba67390a487b6e7a58cca91e0babc9ad0a0eb42dd572b478782d1",
+    "learning/context-tasks.mjs": "dd2751d3bba592829e17a1cfad87cec404cf9d91b5860278f9a1560a69b5d4bc",
+    "learning/projection-actor.mjs": "cdce982f1adf34e883d05d7727a022c953f144f9ba35b794099d09710b9e773f",
+    "scripts/context-memory-study.mjs": "9a8e92520d23ebd80a24835fda2cb495a212e22c1a238b1d5076cdcb33042ffc"
+  },
+  "task": {
+    "version": 2,
+    "cueTicks": 1,
+    "trainTrialsPerContext": 256,
+    "mixedTrainingTrials": 512,
+    "testTrialsPerContext": 96,
+    "trainDelay": [
+      30,
+      70
+    ],
+    "testDelay": [
+      80,
+      130
+    ],
+    "trainAmplitude": [
+      0.7,
+      1
+    ],
+    "testAmplitude": [
+      0.45,
+      0.7
+    ],
+    "noise": 0.01,
+    "cueChannels": [
+      1,
+      2
+    ],
+    "contextChannels": [
+      12,
+      13
+    ],
+    "interpretation": "The same left/right sensory cue requires opposite actions in two explicitly observed contexts. Cue and context disappear before the choice. Train A, train B without clearing acquired state, then measure forgetting. A later mixed-training phase separately diagnoses representational capacity; it cannot rescue a failed sequential-retention claim. Version 2 presents cues once to avoid saturating traces across the amplitude range."
+  },
+  "candidates": [
+    32,
+    64,
+    128
+  ],
+  "memory": {
+    "neighbors": 8,
+    "bandwidth": 0.25,
+    "maxDistance": 0.6,
+    "exploration": 0.1,
+    "replacement": "reservoir"
+  },
+  "developmentSeeds": [
+    479910000,
+    479910001,
+    479910002,
+    479910003,
+    479910004,
+    479910005,
+    479910006,
+    479910007,
+    479910008,
+    479910009
+  ],
+  "heldoutSeeds": [
+    479990000,
+    479990001,
+    479990002,
+    479990003,
+    479990004,
+    479990005,
+    479990006,
+    479990007,
+    479990008,
+    479990009,
+    479990010,
+    479990011,
+    479990012,
+    479990013,
+    479990014,
+    479990015,
+    479990016,
+    479990017,
+    479990018,
+    479990019,
+    479990020,
+    479990021,
+    479990022,
+    479990023,
+    479990024,
+    479990025,
+    479990026,
+    479990027,
+    479990028,
+    479990029
+  ],
+  "selection": "Maximize mean per-seed minimum of A after B, B after B, and mixed accuracy; exact ties prefer smaller experience capacity. Lock capacity before held-out evaluation.",
+  "gates": {
+    "representationAccuracyLowerBound": 0.85,
+    "controlAdvantageLowerBound": 0.2,
+    "sequentialAccuracyLowerBound": 0.8,
+    "retentionLossLowerBound": -0.05
+  },
+  "comparators": [
+    "existing neural readout",
+    "fixed 16-feature nonlinear readout",
+    "same-capacity FIFO episodic memory"
+  ],
+  "interpretation": "Experimental discrete-action memory retrieval using actual stored observations/actions/rewards. No task mapping or correct-answer labels enter the memory. This is a fixed human-written memory algorithm and bounded capacity selection, not RSI. Task version 2 uses one cue observation so amplitude differences are not hidden by trace saturation.",
+  "references": [
+    "https://arxiv.org/abs/1606.04460",
+    "https://proceedings.mlr.press/v70/pritzel17a.html"
+  ]
+}

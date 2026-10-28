@@ -1,0 +1,16 @@
+{
+  "node": "v26.5.0",
+  "npm": "11.17.0",
+  "python": "3.9.6 (default, Jan  9 2026, 11:03:41) \n[Clang 17.0.0 (clang-1700.6.4.2)]",
+  "platform": "macOS-26.1-arm64-arm-64bit",
+  "numpy": "2.0.2",
+  "scipy": "1.13.1",
+  "baseCommit": "ddf1f909f59c2d19a3e9ca4e84c11d8cef910615",
+  "researchGoal": "paused",
+  "researchPerformance": "No RSI or embodied SARSA qualification demonstrated",
+  "archive": {
+    "uncompressedBytes": 2184951905,
+    "compressedBytes": 291217905
+  },
+  "evidenceFiles": 1316
+}

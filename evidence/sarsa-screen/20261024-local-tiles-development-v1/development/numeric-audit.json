@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "passed": true,
+  "phase": "development",
+  "protocolSha256": "6bb4ee33e6ee39f7dd1a52e70ddbb91589a2b06d0d31b61e963a3fb4e1f5874b",
+  "resultsSha256": "284b51ade99e6e433cc782543ca67653d2c27bef1b40210a5ba4e97af22c9397",
+  "histories": 8,
+  "factualTransitions": 182943,
+  "decisions": 214992,
+  "learnerBodies": 960,
+  "reflexDecisions": 43008,
+  "comparisons": 12,
+  "scope": "Independent hashed sparse features, factual updates/choices/traces/reservoir/replay/scalar work, fixed reflex, endpoints and all development/confirmation inference. Cold physical replay is separate.",
+  "warnings": []
+}

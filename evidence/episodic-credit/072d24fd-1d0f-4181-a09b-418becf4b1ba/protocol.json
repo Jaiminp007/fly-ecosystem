@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "createdAt": "2026-10-23T17:35:45.064Z",
+  "referencePath": "/Users/jaiminpatel/.t3/scratch/2026-10-21-clone-this-github-repo-start-d28b3a85/evidence/episodic-body/ee41ec59-eef4-4261-a4e9-42d7aa8bba61/results.json",
+  "referenceSha256": "f5d6643407f379c9c8039cd219daffa697005b8ac4db0da82368163bd952f5de",
+  "sourceSha256": {
+    "engine.mjs": "1e3d6125d065df524be75d9d5322861b16124f88507ae0a8e4c20646f5ff0a78",
+    "challenges.mjs": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e",
+    "learning/trace-actor.mjs": "774ebd08ed22717557979342b72ee16eb94c59f673f3b10a7d7f2d29a7793131",
+    "learning/episodic.mjs": "8e310756800dec0fa11f750726d5262328316797cd096c253f4a4147b79f45fc",
+    "learning/episodic-actor.mjs": "8d1bde8421e00c66976d11c9786148d64ed919787f78754d378c37a6b3e3b7f1",
+    "learning/context-tasks.mjs": "883bd1241124235a226d1d77471200a235b33817d0b065f43bbb138d8cd19cd3",
+    "learning/tasks.mjs": "8626bc98017380aca286f2c00a0efb723f28f960157c3c3132da70e01e947c57",
+    "scripts/episodic-credit-study.mjs": "04fadaba4c85a39f2943d8c2a5ada68ad00344879ed08e87b65a290257e568c8",
+    "learning/episodic-speed-candidates.json": "1630cbeb2b70fc2f719893ae33b24d9dff757b5c647c9ddb4773d2bb4e3ede76"
+  },
+  "developmentSeeds": [
+    2405698984,
+    2405706903,
+    2405714822,
+    2405722741,
+    2405730660,
+    2405738579,
+    2405746498,
+    2405754417,
+    2405762336,
+    2405770255
+  ],
+  "heldoutSeeds": [
+    2405778174,
+    2405786093,
+    2405794012,
+    2405801931,
+    2405809850,
+    2405817769,
+    2405825688,
+    2405833607,
+    2405841526,
+    2405849445,
+    2405857364,
+    2405865283,
+    2405873202,
+    2405881121,
+    2405889040,
+    2405896959,
+    2405904878,
+    2405912797,
+    2405920716,
+    2405928635,
+    2405936554,
+    2405944473,
+    2405952392,
+    2405960311,
+    2405968230,
+    2405976149,
+    2405984068,
+    2405991987,
+    2405999906,
+    2406007825
+  ],
+  "candidates": [
+    {
+      "id": "move-local-8",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      }
+    },
+    {
+      "id": "move-local-16",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 16,
+        "creditTicks": 16,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      }
+    },
+    {
+      "id": "move-local-small",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 1,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      }
+    },
+    {
+      "id": "move-mixed-8",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "mixed",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      }
+    },
+    {
+      "id": "move-local-delayed",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 32,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": true,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      }
+    },
+    {
+      "id": "move-memory-only",
+      "parameters": {
+        "capacity": 128,
+        "neighbors": 8,
+        "bandwidth": 0.25,
+        "maxDistance": 0.6,
+        "exploration": 0.1,
+        "replacement": "reservoir",
+        "featureMode": "local",
+        "decisionTicks": 8,
+        "creditTicks": 8,
+        "discount": 0.95,
+        "actuator": "move",
+        "turnGain": 0.25,
+        "moveGain": 2,
+        "memoryLearning": true,
+        "neuralLearning": false,
+        "memoryEnergyPerRecordSecond": 0.00001,
+        "lookupEnergyPerRecord": 0.000005
+      }
+    }
+  ],
+  "actorParameters": {
+    "learningScale": 4.148153974110893,
+    "traceRetention": 0.9920990378910495,
+    "eligibilityDecay": 0.7,
+    "exploration": 0.3
+  },
+  "environment": {
+    "nutrient": 0.4,
+    "ecology": "baseline",
+    "challenges": "off",
+    "seasonal": false
+  },
+  "horizonTicks": 1800,
+  "founders": 24,
+  "selection": "Prefer candidates with nonnegative mean ending-population differences versus matched global learning-off, existing neural, and matched memory-disabled controls. Rank those by the smallest mean energy difference against these controls. If none meet population guards, lock the best energy candidate for explicitly exploratory confirmation. No reselection on held-out data.",
+  "gates": {
+    "energyDifferenceLowerBound": 0,
+    "populationDifferenceMeanMinimum": 0,
+    "memoryAccuracyLowerBound": 0.8,
+    "retentionChangeLowerBound": -0.05
+  },
+  "controls": [
+    "matched learning-disabled from birth",
+    "previous episodic policy",
+    "existing learning neural controller",
+    "zero-correction with active memory",
+    "same-capacity FIFO",
+    "memory disabled while preserving the candidate neural-learning setting"
+  ],
+  "interpretation": "A bounded human-designed temporal-credit experiment, not self-modification or RSI. Rewards are observed food minus actual cost; no correct-action labels enter the habitat controller. Parameter selection retrains fresh agents; this is distinct from continual retention in one body. Context memory is evaluated separately. Fresh seed confirmation follows one locked selection. Reproduction and mutation are disabled to isolate acquired behavior. Failed confirmations remain final for this campaign.",
+  "experiment": "movement-speed",
+  "candidatePath": "learning/episodic-speed-candidates.json",
+  "hypothesis": "Previous turn-correction policies failed. Test whether controlling movement speed around fixed inherited steering offers a more useful learning interface. Preserve the motor sample RNG and disable neural plasticity for steering and movement. Compare memory on/off separately from the global learning-off control. Candidates include hybrid and memory-only acquisition; this is human-written experimental design, not agent-generated self-modification.",
+  "requiredControls": [
+    "frozen",
+    "neural",
+    "noMemory"
+  ]
+}

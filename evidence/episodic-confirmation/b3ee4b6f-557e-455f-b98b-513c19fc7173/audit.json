@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-23T18:54:29.745Z",
+  "reference": "evidence/episodic-confirmation/b3ee4b6f-557e-455f-b98b-513c19fc7173",
+  "seedPairs": 100,
+  "allIntervalsRecomputed": true,
+  "sourceArchivesVerified": true,
+  "freshSeedsVerified": true,
+  "allFoundersMatched": true,
+  "agentEnergyReconciled": true,
+  "memoryComponentRecomputed": true,
+  "staticMotorControlsVerified": true,
+  "gatePassed": true
+}

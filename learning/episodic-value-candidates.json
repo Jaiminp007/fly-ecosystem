@@ -1,0 +1,8 @@
+[
+  {"id":"value-mixed-99","actuator":"move","returnMode":"td","featureMode":"mixed","moveGain":2,"decisionTicks":8,"creditTicks":8,"discount":0.99},
+  {"id":"value-mixed-995","actuator":"move","returnMode":"td","featureMode":"mixed","moveGain":2,"decisionTicks":8,"creditTicks":8,"discount":0.995},
+  {"id":"value-local-995","actuator":"move","returnMode":"td","featureMode":"local","moveGain":2,"decisionTicks":8,"creditTicks":8,"discount":0.995},
+  {"id":"value-mixed-16","actuator":"move","returnMode":"td","featureMode":"mixed","moveGain":2,"decisionTicks":16,"creditTicks":16,"discount":0.995},
+  {"id":"value-local-16","actuator":"move","returnMode":"td","featureMode":"local","moveGain":2,"decisionTicks":16,"creditTicks":16,"discount":0.99},
+  {"id":"value-memory-only","actuator":"move","returnMode":"td","featureMode":"mixed","moveGain":2,"decisionTicks":8,"creditTicks":8,"discount":0.995,"neuralLearning":false}
+]

@@ -1,0 +1,691 @@
+{
+  "schema": 1,
+  "phase": "development",
+  "histories": [
+    1163789946,
+    1122698529,
+    3104627144,
+    2095595747,
+    2975533712,
+    2479087895,
+    243360808,
+    3431558968
+  ],
+  "comparisons": [
+    {
+      "id": "B-acquisition",
+      "optional": false,
+      "effects": [
+        -0.16680381257317345,
+        0.2174790624018974,
+        -0.13908791510839524,
+        0.5137016152896003,
+        0.27859076860659115,
+        0.20010162636516293,
+        0.20405784336281818,
+        0.11961996137540609
+      ],
+      "mean": 0.15345739371498843,
+      "pOneSided": 0.04296875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.07832670755175039,
+      "simultaneousLower": -0.13606246888344672,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "C-acquisition",
+      "optional": false,
+      "effects": [
+        0.0480045841754686,
+        0.29054371321883377,
+        -0.2055420221198192,
+        -0.004277699343267827,
+        0.06283361608342375,
+        -0.05392170144280817,
+        -0.147370835101166,
+        0.15610475438936966
+      ],
+      "mean": 0.018296801232504323,
+      "pOneSided": 0.375,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.05657646501746805,
+      "simultaneousLower": -0.19082740288829653,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "sequence-incumbent",
+      "optional": false,
+      "effects": [
+        -3.467385266831143,
+        -2.8899406478221294,
+        0.009074307845452267,
+        -1.9371063192881568,
+        -2.280844698950432,
+        1.173554093058062,
+        -4.4861444434718765,
+        -1.9140779485499788
+      ],
+      "mean": -1.974108865501275,
+      "pOneSided": 0.98828125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.6452961997067965,
+      "simultaneousLower": -4.359324239848119,
+      "developmentalPositive": false,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "sequence-fast",
+      "optional": false,
+      "effects": [
+        -1.500103016273119,
+        2.5213386159601328,
+        5.6189638138754585,
+        1.9194418034576302,
+        2.6439244195534,
+        5.146903378292119,
+        2.1953131399030497,
+        0.47293767466670467
+      ],
+      "mean": 2.377339978679422,
+      "pOneSided": 0.01171875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.8147581390530867,
+      "simultaneousLower": -0.6342594085890254,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "sequence-slow",
+      "optional": false,
+      "effects": [
+        6.645657652190275,
+        3.971932110440216,
+        9.003743774429784,
+        10.901457679841872,
+        9.209776992830967,
+        8.914579795796183,
+        8.333953079215377,
+        6.667096160904123
+      ],
+      "mean": 7.9560246557061,
+      "pOneSided": 0.00390625,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.7518813971584268,
+      "simultaneousLower": 5.176837254629614,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "A-initial-skill",
+      "optional": false,
+      "effects": [
+        0.08435566714117204,
+        0.07632253958480328,
+        -0.11231673298717215,
+        0.39815773941950283,
+        -0.0003224707642268676,
+        0.016417967685176338,
+        0.6490893304312806,
+        0.09143571160396391
+      ],
+      "mean": 0.1503924690143125,
+      "pOneSided": 0.0703125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.08794170010711395,
+      "simultaneousLower": -0.1746673953347979,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "B-initial-skill",
+      "optional": false,
+      "effects": [
+        0.09401087616257087,
+        0.47253897374248277,
+        -0.14762788287123385,
+        0.42193701116112425,
+        0.09255641930126535,
+        0.2937651486828843,
+        0.21833212763468146,
+        0.3664813723989466
+      ],
+      "mean": 0.22649925577659022,
+      "pOneSided": 0.015625,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.07299496367163867,
+      "simultaneousLower": -0.04331282382126231,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "A-retention",
+      "optional": false,
+      "effects": [
+        -0.356200963129202,
+        -0.6740616010064244,
+        -0.060320831845382755,
+        -0.15799098581618798,
+        0.5390647964870399,
+        -0.2458608563327529,
+        0.21416015290024115,
+        0.41530555809701397
+      ],
+      "mean": -0.04073809133070687,
+      "pOneSided": 0.6171875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.14429278759583314,
+      "simultaneousLower": -0.5740890943853121,
+      "developmentalPositive": false,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "B-retention",
+      "optional": false,
+      "effects": [
+        -0.3574206031822378,
+        -0.23542220199916597,
+        0.15383047927079246,
+        -0.4580623055486376,
+        -0.3091525898088524,
+        -0.6054934208476892,
+        -0.11983654319059879,
+        -0.3422517341174349
+      ],
+      "mean": -0.284226114927978,
+      "pOneSided": 0.9921875,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.08063107902882087,
+      "simultaneousLower": -0.5822636509263375,
+      "developmentalPositive": false,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "sequence-fast-only",
+      "optional": false,
+      "effects": [
+        -0.16346957475453294,
+        -0.5991892193750523,
+        2.4145675841676653,
+        -0.6491060490062157,
+        -0.8059104843806413,
+        3.9033629075107115,
+        -0.38781522809512126,
+        -1.7626537455113862
+      ],
+      "mean": 0.24372327381942838,
+      "pOneSided": 0.37109375,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.6722178059618117,
+      "simultaneousLower": -2.241002727074963,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "sequence-linear",
+      "optional": false,
+      "effects": [
+        -1.9980205155564654,
+        -2.4092052089363083,
+        -1.1846567358499271,
+        -1.9689314204709945,
+        1.9513745721683318,
+        0.5688561906259402,
+        -1.6147644732922313,
+        -1.4258325875200146
+      ],
+      "mean": -1.0101475223539587,
+      "pOneSided": 0.953125,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.529237947137869,
+      "simultaneousLower": -2.9663755131194094,
+      "developmentalPositive": false,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "sequence-reflex",
+      "optional": false,
+      "effects": [
+        -0.7814806180248759,
+        -1.8829429188347522,
+        4.653510627398921,
+        1.1470109718882409,
+        0.44774930230568977,
+        2.8950619199870182,
+        -0.333276210369851,
+        0.608773555310572
+      ],
+      "mean": 0.8443008287076204,
+      "pOneSided": 0.16015625,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.7378512654800945,
+      "simultaneousLower": -1.8830268437690783,
+      "developmentalPositive": true,
+      "confirmatoryPass": false
+    },
+    {
+      "id": "trace-contribution",
+      "optional": true,
+      "effects": [
+        -1.6485105184387585,
+        -3.406658802462971,
+        1.632023000276309,
+        -0.25995576941824083,
+        -0.11223855573562425,
+        3.834450560688339,
+        -3.0762097025159107,
+        -2.0024177896211395
+      ],
+      "mean": -0.6299396971534996,
+      "pOneSided": 0.75390625,
+      "n": 8,
+      "assumption": "symmetric independent seed-level paired effects",
+      "standardError": 0.8667235796654035,
+      "simultaneousLower": -3.8336195087906706,
+      "developmentalPositive": false,
+      "confirmatoryPass": false
+    }
+  ],
+  "survival": [
+    {
+      "control": "incumbent",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "descriptiveCi95": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "control": "fast",
+      "effects": [
+        0.04166666666666663,
+        0,
+        0,
+        0,
+        0,
+        0.04166666666666663,
+        0,
+        0
+      ],
+      "mean": 0.010416666666666657,
+      "descriptiveCi95": [
+        -0.005708436939065819,
+        0.026541770272399134
+      ],
+      "passed": true
+    },
+    {
+      "control": "slow",
+      "effects": [
+        0,
+        0,
+        0,
+        0.04166666666666663,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0.005208333333333329,
+      "descriptiveCi95": [
+        -0.007107417977045744,
+        0.0175240846437124
+      ],
+      "passed": true
+    },
+    {
+      "control": "frozen",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "descriptiveCi95": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "control": "reset",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "descriptiveCi95": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "control": "lambda0",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "descriptiveCi95": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "control": "fastOnly",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "descriptiveCi95": [
+        0,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "control": "linear",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0.04166666666666663,
+        0,
+        0,
+        0
+      ],
+      "mean": 0.005208333333333329,
+      "descriptiveCi95": [
+        -0.007107417977045744,
+        0.0175240846437124
+      ],
+      "passed": true
+    },
+    {
+      "control": "reflex",
+      "effects": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "descriptiveCi95": [
+        0,
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "plasticityActivity": [
+    {
+      "seed": 1163789946,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 27.190403446519042,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 1122698529,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 26.32975303194472,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 3104627144,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 26.61543704736397,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 2095595747,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 27.43855016193317,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 2975533712,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 27.4221948953178,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 2479087895,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 23.73210298630169,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 243360808,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 26.85246489270017,
+      "fraction": 1,
+      "passed": true
+    },
+    {
+      "seed": 3431558968,
+      "updates": 5352,
+      "nonzeroDopamine": 5352,
+      "transfers": 42816,
+      "absoluteTransfer": 28.367525154219116,
+      "fraction": 1,
+      "passed": true
+    }
+  ],
+  "promising": false,
+  "qualified": false,
+  "fastOnlyReferenceComparisons": [
+    {
+      "id": "B-acquisition",
+      "effects": [
+        0.4155693917337162,
+        -0.13861471694456373,
+        0.24348295656866048,
+        -0.21097413888401206,
+        0.2341161283946276,
+        -0.4185376437031607,
+        -0.09195796093298192,
+        0.12207612142007429
+      ],
+      "mean": 0.019395017206545018
+    },
+    {
+      "id": "C-acquisition",
+      "effects": [
+        -0.42113985981694624,
+        -0.23931051176535334,
+        -0.008364825495912775,
+        0.0008324441269089711,
+        0.3158610275584124,
+        -0.16177518981350136,
+        0.004957066754135653,
+        -0.015690780770275303
+      ],
+      "mean": -0.0655788286528165
+    },
+    {
+      "id": "sequence-incumbent",
+      "effects": [
+        -3.30391569207661,
+        -2.290751428447077,
+        -2.405493276322213,
+        -1.288000270281941,
+        -1.4749342145697906,
+        -2.7298088144526496,
+        -4.098329215376755,
+        -0.1514242030385926
+      ],
+      "mean": -2.217832139320704
+    },
+    {
+      "id": "sequence-fast",
+      "effects": [
+        -1.336633441518586,
+        3.120527835335185,
+        3.2043962297077933,
+        2.568547852463846,
+        3.4498349039340415,
+        1.243540470781408,
+        2.583128367998171,
+        2.235591420178091
+      ],
+      "mean": 2.1336167048599934
+    },
+    {
+      "id": "sequence-slow",
+      "effects": [
+        6.809127226944808,
+        4.571121329815268,
+        6.589176190262119,
+        11.550563728848088,
+        10.015687477211609,
+        5.011216888285471,
+        8.721768307310498,
+        8.429749906415509
+      ],
+      "mean": 7.712301381886672
+    },
+    {
+      "id": "A-initial-skill",
+      "effects": [
+        0.4481188831815359,
+        0.14741345404614026,
+        -0.0456836148705313,
+        0.43466125643988107,
+        -0.13114927063934578,
+        0.458626400560026,
+        0.03308273256418692,
+        -0.15702460454748257
+      ],
+      "mean": 0.14850565459180132
+    },
+    {
+      "id": "B-initial-skill",
+      "effects": [
+        0.3825860387140949,
+        0.2619533122983455,
+        0.35578128013766763,
+        -0.22495787887553798,
+        0.33923484574726626,
+        -0.44012498985287607,
+        -0.12840850126090686,
+        0.25938200568714365
+      ],
+      "mean": 0.10068076407439963
+    },
+    {
+      "id": "A-retention",
+      "effects": [
+        -0.32884327828477355,
+        0.6422312500553827,
+        0.010584491974639051,
+        -0.06830920130593666,
+        0.0997447100446224,
+        1.0647700189087823,
+        -0.5737477756266188,
+        0.17372724877996298
+      ],
+      "mean": 0.12751968306825753
+    },
+    {
+      "id": "B-retention",
+      "effects": [
+        -0.3810082626311898,
+        -0.5503220908565061,
+        -0.11902049314247423,
+        0.14859100380086687,
+        -0.06652196667502272,
+        0.7103164900508001,
+        0.12470198100167332,
+        -0.19747723409195714
+      ],
+      "mean": -0.04134257156797621
+    }
+  ],
+  "boundary": "One fixed sparse dopamine-gated direct policy with fast/slow synapses. Development is not qualification. No tuning, reselection, extension, biological-fidelity claim or RSI claim follows this screen.",
+  "protocolSha256": "3b3a46ae7fd632ecb3759a8fdf25baf7ecf34acf9b5d3b7927dc4e8c5ec03975",
+  "rowSha256": [
+    "2405ad0de4ce415cc3eaae354f76716a749f2a617dfe883bad9ec906beb6cc38",
+    "31170c3d2b5ca4c625ecb503973bf6415a58bfb20d33f340cdb02016cddfc6e5",
+    "c5caf9b13fa7ff67f810c184181b6a7268357e864d48250aa9d075272cba25d0",
+    "5d45ea768f7e7c9e3365d0588ad86ce28fa612194fb457e67a116a7ee8d30b89",
+    "90d507abb1f3a82b6b24ebd403293aa886a5a8700d82163275029f6a352de0ca",
+    "1903344e1545c785314e38506cf4c41534ef7a943147f1365d335a8515b454ce",
+    "50643df04ff01528218c92e169e89fc21a042052dad326e5aba8b1f0d5060dac",
+    "0acce94770c782082c1271c1f2ef5fd9b49625b8eb55961cc154b42825455678"
+  ]
+}

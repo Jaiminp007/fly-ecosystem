@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "stage": "After protocol freeze and collection start, before any scoring command or aggregate result",
+  "issue": "The frozen always-accept transfer probe carries the end-C learned state despite using no learned inference. It therefore pays storage on an unused circuit, which can inflate candidate-minus-accept energy.",
+  "affectedComparison": "transfer-accept",
+  "originalFrozenSourcesAndDataChanged": false,
+  "action": "Complete and audit the frozen bank as run. Do not use this comparator for qualification or promote this bank even if its recorded gates pass. Correct the working implementation and add a fixed-control storage regression; any future scientific qualification requires a new prospective protocol and fresh bank. Do not open this bank's confirmation reserve.",
+  "correction": "The working accept probe now uses fixedState with an actuator, counters and RNG, without weights, projection, traces, histories or unused receipts. Common physical starting bodies are preserved. Frozen source remains unchanged."
+}
