@@ -33,6 +33,14 @@ before continuing. Never duplicate executions or regenerate banks.
   drawn (seeds auto-excluded from the real bank by the union scan).
 - [x] 2026-10-28: Targeted suites 38/38 green (taste-experiment + taste-energy +
   body-transfer). Harness `startPending` probe field added for Vsettled.
+- [x] 2026-10-28: IMPLEMENTATION FREEZE. Gen1 flags verified against
+  `evidence/taste-qualification/20261027-v2/attempt-01-ecology/attempt.json`
+  (greedy/orthogonal/rate-1/ecology/hold-1/progress/renewal-.1/greedyInference/
+  no-warm-start/cruise-0/1792 ticks) + replayPasses 4. Design-basis hashes match
+  plan: taste-energy 24b91847…, pursuit-authority 0c2b55cf…, taste-pressure
+  a1604a8a…. taste-experiment 6ee9b1d4… (documented harness delta: body P/
+  nativeFullCruise/startPending/operationsBilled). Freeze commit holds all code.
+  Source manifest: 42 files incl. plan, adapter, scorer, both test files.
 - [x] 2026-10-28: Full `npm test`: 461/473 pass, 8 skipped, 4 fail PRE-EXISTING
   (verified failing on clean tree via stash: taste-energy-audit cold-replay x2,
   value-development Python-recompute + inference-closure x2). Unrelated to this study.
@@ -57,7 +65,10 @@ before continuing. Never duplicate executions or regenerate banks.
 - Plan-design basis hashes: see plan §Fresh-bank (taste-energy 24b91847…,
   taste-experiment 630d0e82…, taste-development 12ee7df7…,
   pursuit-authority 0c2b55cf…, taste-pressure a1604a8a…).
-- Post-harness source hashes: to record at implementation freeze.
+- Post-harness source hashes (freeze): script 3b8a7295…, taste-experiment
+  6ee9b1d4…, taste-energy 24b91847…, pursuit-authority 0c2b55cf…,
+  taste-pressure a1604a8a…, body-transfer.test 35f4f826…,
+  body-transfer-score.test 7b541746…, plan 04f66e61… (42-file manifest).
 - Bank hash: none (not drawn).
 
 ## Execution ledger
@@ -68,6 +79,5 @@ before continuing. Never duplicate executions or regenerate banks.
 - 355001-355009 (synthetic harness checks; must remain excluded via test-file scan).
 
 ## Next action
-1. Commit runner + scorer tests + harness `startPending` + this status.
-2. Freeze sources, draw the ONE real bank, run the single authorized attempt.
-3. Independent audit, publish `docs/BODY_TRANSFER_RESULTS_V1.md`, update PROGRESS.
+1. Draw the ONE real bank (single), record hash, commit. THEN run attempt-01.
+2. Independent audit, publish `docs/BODY_TRANSFER_RESULTS_V1.md`, update PROGRESS.

@@ -97,7 +97,7 @@ export function bodyTransferSources(){
   };
   for(const name of ['scripts/body-transfer.mjs','learning/taste-experiment.mjs','learning/taste-energy.mjs',
     'learning/pursuit-authority.mjs','learning/taste-pressure.mjs','tests/body-transfer.test.mjs',
-    'tests/taste-experiment.test.mjs','tests/taste-energy.test.mjs','docs/BODY_TRANSFER_PLAN_V1.md'])visit(resolve(root,name));
+    'tests/body-transfer-score.test.mjs','tests/taste-experiment.test.mjs','tests/taste-energy.test.mjs','docs/BODY_TRANSFER_PLAN_V1.md'])visit(resolve(root,name));
   return found;
 }
 export const settledValue=(V,pendingEnd,pendingStart)=>V-OPERATION_ENERGY*(pendingEnd-pendingStart)/BT_FOUNDERS;
