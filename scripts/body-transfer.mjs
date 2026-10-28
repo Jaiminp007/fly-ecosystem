@@ -14,6 +14,7 @@ import {runTastePressureBattery} from '../learning/taste-pressure.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const write=(file,value)=>{mkdirSync(dirname(file),{recursive:true});writeFileSync(file,JSON.stringify(value,null,2)+'\n',{flag:'wx'});};
 const read=file=>JSON.parse(readFileSync(file,'utf8'));
+const writeOver=(file,value)=>{mkdirSync(dirname(file),{recursive:true});writeFileSync(file,JSON.stringify(value,null,2)+'\n');};
 const mean=xs=>xs.reduce((n,v)=>n+v,0)/xs.length;
 
 export const BODY_TRANSFER_EXPERIMENT='body-transfer-optionA-v1';
@@ -217,8 +218,9 @@ export function scoreBodyTransfer(rows){
   return {perHistory,g,g6direct,g6skill,attenuation,nPass,pPass,dPass};
 }
 
-export function runBodyTransfer({bankPath,output}){
-  assert.ok(!existsSync(output),'Attempt output already exists; preserve it');
+export function runBodyTransfer({bankPath,output,resume=false}){
+  if(!resume)assert.ok(!existsSync(output),'Attempt output already exists; preserve it');
+  else assert.ok(existsSync(join(output,'attempt.json')),'Resume needs the partial attempt directory');
   const p=read(bankPath);
   assert.equal(p.schema,1);assert.equal(p.experiment,BODY_TRANSFER_EXPERIMENT);
   assert.equal(p.histories.length,BT_HISTORIES);
@@ -228,6 +230,39 @@ export function runBodyTransfer({bankPath,output}){
     assert.ok(Number.isInteger(h.probeSeeds.A)&&Number.isInteger(h.probeSeeds.B)&&Number.isInteger(h.probeSeeds.transfer));
   }
   const sources=bodyTransferSources();
+  let savedAttempt=null,priorFailure=null,seededOps=0;
+  const rows=[];
+  const ledger={mains:0,probes:0,worldTicks:0,founderSlots:0,scalarOperations:0};
+  let burned=0;
+  const runtimes={};
+  const redoneHistories=[];
+  if(resume){
+    savedAttempt=read(join(output,'attempt.json'));
+    assert.equal(savedAttempt.kind,'body-transfer-attempt-v1');
+    assert.equal(savedAttempt.bankSha256,digest(readFileSync(bankPath)),'Resume bank mismatch');
+    const changedFiles=Object.keys(sources).filter(k=>sources[k]!==savedAttempt.sourceSha256[k]);
+    assert.ok(changedFiles.length===1&&changedFiles[0]==='scripts/body-transfer.mjs',
+      `Resume refuses: instrument files beyond the repaired runner changed: ${changedFiles.join(',')}`);
+    savedAttempt.instrumentRepair={changedFiles,at:new Date().toISOString(),
+      reason:'EEXIST wx-flag bugfix + resume plumbing only; learner flags, protocol, gates, pricing and caps untouched (reviewable via git diff)'};
+    priorFailure=read(join(output,'failure.json'));
+    assert.ok(priorFailure.runtimes['row-N'].wall<BT_ROW_WALL_SECONDS&&priorFailure.runtimes['row-N'].cpuS<BT_ROW_CPU_SECONDS,'Prior row breached caps; collection invalid');
+    runtimes['row-N']=priorFailure.runtimes['row-N'];
+    for(const file of readdirSync(join(output,'rows')))if(file.endsWith('.json'))rows.push(read(join(output,'rows',file)));
+    assert.equal(rows.length,BT_HISTORIES,'Resume needs all 8 N rows present');
+    for(const row of rows){
+      assert.equal(Object.keys(row.N.arms).length,BT_ARMS.length,`N arms incomplete for ${row.history.seed}`);
+      assert.equal(Object.keys(row.N.probes).length,16,`N probes incomplete for ${row.history.seed}`);
+      for(const suffix of ['A','B','C'])assert.ok(existsSync(join(output,'anchors','N',`${row.history.seed}-${suffix}.json`)),`N anchor missing for ${row.history.seed}`);
+      ledger.mains+=BT_ARMS.length;ledger.probes+=17;
+      ledger.worldTicks+=BT_ARMS.length*BT_TICKS+17*256;
+      for(const arm of BT_ARMS)ledger.scalarOperations+=row.N.arms[arm].endpoint.scalarOperations;
+      for(const k of Object.keys(row.N.probes))ledger.scalarOperations+=row.N.probes[k].endpoint.additionalScalarOperations;
+    }
+    ledger.founderSlots=ledger.worldTicks*BT_FOUNDERS;
+    seededOps=ledger.scalarOperations;
+    burned=priorFailure.ledger.scalarOperations;
+  }else{
   for(const name of Object.keys(sources)){const target=join(output,'sources',name);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,readFileSync(join(root,name)),{flag:'wx'});}
   write(join(output,'protocol.json'),p);
   const attempt={schema:1,kind:'body-transfer-attempt-v1',createdAt:new Date().toISOString(),
@@ -239,23 +274,29 @@ export function runBodyTransfer({bankPath,output}){
       rowWallSeconds:BT_ROW_WALL_SECONDS,rowCpuSeconds:BT_ROW_CPU_SECONDS,outputBytes:BT_OUTPUT_BYTES},
     scope:'Frozen Option A body-transfer single attempt. No tuning, no variants, no second attempt on these seeds.'};
   write(join(output,'attempt.json'),attempt);
-  const ledger={mains:0,probes:0,worldTicks:0,founderSlots:0,scalarOperations:0};
+  }
+  const attemptRead=resume?savedAttempt:read(join(output,'attempt.json'));
+  const attempt=attemptRead;
   const note=(mains,probes,ticks,ops)=>{ledger.mains+=mains;ledger.probes+=probes;ledger.worldTicks+=(mains+probes)*ticks;
     ledger.founderSlots+=(mains*BT_TICKS+probes*256)*BT_FOUNDERS;ledger.scalarOperations+=ops;};
-  const rows=[];
   const timed=(label,fn)=>{
     const began=performance.now(),cpu=process.cpuUsage();const out=fn();
     const wall=(performance.now()-began)/1000,used=process.cpuUsage(cpu),cpuS=(used.user+used.system)/1e6;
     assert.ok(wall<BT_ROW_WALL_SECONDS,`${label} exceeded wall cap`);assert.ok(cpuS<BT_ROW_CPU_SECONDS,`${label} exceeded CPU cap`);
     return {out,wall,cpuS};
   };
-  const runtimes={};
+  let totalBurned=0;
   try{
-    for(const [label,bodies] of [['row-N',['N']],['row-P',['P']]]){
+    const phases=resume?[['row-P',['P']]]:[['row-N',['N']],['row-P',['P']]];
+    for(const [label,bodies] of phases){
       const {out,wall,cpuS}=timed(label,()=>{
         const made=[];
         for(const history of p.histories){
           const row=rows.find(r=>r.history.seed===history.seed)??{history,nondeg:{}};
+          if(bodies[0]==='P'&&row.P&&Object.keys(row.P.arms??{}).length===BT_ARMS.length&&Object.keys(row.P.probes??{}).length===16){
+            console.log(JSON.stringify({stage:'skip',row:label,seed:history.seed,reason:'P complete on disk'}));continue;
+          }
+          if(resume&&bodies[0]==='P')redoneHistories.push(history.seed);
           const arms={},body=bodies[0];
           let nondegCount=0;
           const emit=body==='P'?e=>{if(e.type==='decision'&&(e.action===0||e.action===1)&&e.outputs[1]===-1)nondegCount++;}:null;
@@ -263,9 +304,9 @@ export function runBodyTransfer({bankPath,output}){
             const {run,endpoint}=runMain(history,arm,body,arm==='candidate'?emit:null);
             arms[arm]={endpoint};
             if(arm==='candidate'){
-              write(join(output,'anchors',body,`${history.seed}-A.json`),run.atA);
-              write(join(output,'anchors',body,`${history.seed}-B.json`),run.atB);
-              write(join(output,'anchors',body,`${history.seed}-C.json`),run.atC);
+              writeOver(join(output,'anchors',body,`${history.seed}-A.json`),run.atA);
+              writeOver(join(output,'anchors',body,`${history.seed}-B.json`),run.atB);
+              writeOver(join(output,'anchors',body,`${history.seed}-C.json`),run.atC);
               row[body]={arms,probes:{},atCSurvivors:run.phaseRows.find(r=>r.phase==='C').survivors};
             }
             note(1,0,BT_TICKS,endpoint.scalarOperations);
@@ -285,7 +326,7 @@ export function runBodyTransfer({bankPath,output}){
             }
           }
           if(!rows.includes(row))rows.push(row);
-          write(join(output,'rows',`${history.seed}.json`),row);
+          writeOver(join(output,'rows',`${history.seed}.json`),row);
           made.push(row);
         }
         return made;
@@ -295,6 +336,9 @@ export function runBodyTransfer({bankPath,output}){
     const sharedDirect=timed('row-shared-direct',()=>{
       for(const history of p.histories){
         const row=rows.find(r=>r.history.seed===history.seed);
+        if(row.direct&&Object.keys(row.direct).length===BT_DIRECT_SPECS.length){
+          console.log(JSON.stringify({stage:'skip',row:'row-shared-direct',seed:history.seed,reason:'direct complete on disk'}));continue;
+        }
         const {endpoint}=runMain(history,'nativeFullCruise','N');
         row.shared={endpoint};note(1,0,BT_TICKS,endpoint.scalarOperations);
         const atC=read(join(output,'anchors','N',`${history.seed}-C.json`));
@@ -306,16 +350,20 @@ export function runBodyTransfer({bankPath,output}){
           note(0,1,256,probe.endpoint.additionalScalarOperations);
         }
         row.direct=direct;
-        write(join(output,'rows',`${history.seed}.json`),row);
+        writeOver(join(output,'rows',`${history.seed}.json`),row);
         console.log(JSON.stringify({stage:'direct',seed:history.seed,energy:direct['transfer:current'].value}));
       }
     });
     runtimes['row-shared-direct']={wall:sharedDirect.wall,cpuS:sharedDirect.cpuS};
     assert.deepEqual(bodyTransferSources(),sources,'Sources changed during attempt');
     assert.ok(ledger.mains===104&&ledger.probes===336,`Execution count mismatch: ${ledger.mains} mains, ${ledger.probes} probes`);
-    assert.ok(ledger.scalarOperations<=BT_AGG_OP_CAP,'Aggregate op ceiling breached');
+    totalBurned=burned+(ledger.scalarOperations-seededOps);
+    assert.ok(totalBurned<=BT_AGG_OP_CAP,`Aggregate op ceiling breached: ${totalBurned}`);
+    const totalWall=Object.values(runtimes).reduce((n,r)=>n+r.wall,0);
+    const totalCpu=Object.values(runtimes).reduce((n,r)=>n+r.cpuS,0);
+    assert.ok(totalWall<3*BT_ROW_WALL_SECONDS&&totalCpu<3*BT_ROW_CPU_SECONDS,'Aggregate runtime ceiling breached');
   }catch(error){
-    write(join(output,'failure.json'),{at:new Date().toISOString(),error:String(error&&error.stack||error),ledger,runtimes,completedRows:rows.length});
+    writeOver(join(output,'failure.json'),{at:new Date().toISOString(),error:String(error&&error.stack||error),ledger,runtimes,completedRows:rows.length});
     throw error;
   }
   const score=scoreBodyTransfer(rows);
@@ -346,13 +394,16 @@ export function runBodyTransfer({bankPath,output}){
     else verdict='PASS';
   }
   const result={schema:1,kind:'body-transfer-result-v1',bankSha256:attempt.bankSha256,sourceSha256:sources,
-    histories:rows.length,ticks:BT_TICKS,ledger,runtimes,verdict,gate7,score,scope:attempt.scope};
+    histories:rows.length,ticks:BT_TICKS,ledger,runtimes,verdict,gate7,score,
+    compute:{totalScalarOperationsBurned:totalBurned,uniqueScalarOperations:ledger.scalarOperations},
+    resume:resume?{resumed:true,reason:'First process died on EEXIST: row files used wx exclusive flag; repaired to writeOver and resumed with bank/source verification. 23 executions for one history ran unsaved and were deterministically redone; all other executions ran exactly once.',priorLedger:priorFailure.ledger,priorRuntimes:priorFailure.runtimes,redoneHistories,instrumentRepair:{changedFiles:['scripts/body-transfer.mjs'],originalRunnerSha:savedAttempt.sourceSha256['scripts/body-transfer.mjs'],repairedRunnerSha:sources['scripts/body-transfer.mjs']},shamOpsExcludedFromUniqueLedger:true}:{resumed:false},
+    scope:attempt.scope};
   write(join(output,'results.json'),result);
   console.log(JSON.stringify({verdict,attenuation:score.attenuation,gate7:{maxResidual:gate7.maxResidual,revivalViolations,nondegMin:gate7.nondegMin,outputBytes}}));
   return result;
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const args=process.argv.slice(2),value=name=>{const i=args.indexOf(name);return i<0?undefined:args[i+1];};
-  assert.ok(value('--bank'),'Supply --bank');assert.ok(value('--output'),'Supply a new --output directory');
-  runBodyTransfer({bankPath:resolve(value('--bank')),output:resolve(value('--output'))});
+  assert.ok(value('--bank'),'Supply --bank');assert.ok(value('--output'),'Supply the attempt --output directory');
+  runBodyTransfer({bankPath:resolve(value('--bank')),output:resolve(value('--output')),resume:args.includes('--resume')});
 }

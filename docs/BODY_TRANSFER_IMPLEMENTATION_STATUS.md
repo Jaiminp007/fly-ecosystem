@@ -51,7 +51,16 @@ before continuing. Never duplicate executions or regenerate banks.
 - Direct N->P probe: same seed => identical `startWorldSha256` across bodies.
 
 ## Blockers
-- None. Pre-existing audit failures documented above; do not touch those files.
+- 2026-10-28 INCIDENT (infrastructure, preserved): first attempt-01 process died at
+  the first history of row-P with EEXIST — row/anchor files used `wx` exclusive
+  writes but rows legitimately accumulate N -> P -> direct. N phase complete and
+  intact (8 rows, 48 mains + 136 probes, row-N 209s/217s within caps); 23 P
+  executions for one history ran unsaved (6 mains + 17 probes, anchors only).
+  failure.json + partial rows + stdout log preserved. Repair: writeOver for
+  progressive artifacts + `--resume` with bank/source verification (only the
+  runner file may differ) + skip-complete phases. No world runs twice except the
+  23 unsaved deterministic redos; ledger counts unique completions, compute
+  record counts all burned ops. Full disclosure in results + audit.
 
 ## Artifact paths
 - Plan: `docs/BODY_TRANSFER_PLAN_V1.md` (untracked, to commit).
@@ -74,12 +83,13 @@ before continuing. Never duplicate executions or regenerate banks.
   75 handoff sources. Drawn once 2026-10-28 post-freeze; never regenerate.
 
 ## Execution ledger
-- Worlds run for the study: 0 / 440. Study bank seeds spent: 72 (fresh-01).
+- Worlds run for the study: 48 mains + 136 probes saved (row-N complete); 6+17
+  ran unsaved (lost, to be redone). Unique-completion target: 104 + 336.
 - Pre-freeze synthetic worlds only (2-founder, <=5 ticks, seeds 355001-355009).
 
 ## Spent seeds
 - 355001-355009 (synthetic harness checks; must remain excluded via test-file scan).
 
 ## Next action
-1. Run the single authorized attempt-01 (440 executions) on fresh-01.
-2. Independent audit, publish `docs/BODY_TRANSFER_RESULTS_V1.md`, update PROGRESS.
+1. Resume attempt-01 with --resume (P phase + shared-direct), then audit.
+2. Publish `docs/BODY_TRANSFER_RESULTS_V1.md`, update PROGRESS.
