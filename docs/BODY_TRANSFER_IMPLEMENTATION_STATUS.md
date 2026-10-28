@@ -161,3 +161,15 @@ inspected before continuing. Never duplicate executions or regenerate banks.
   before, numbers shifted by the 6 new tests), 8 skipped.
 - Next: freeze record → Phase-D dev instrument (`scripts/body-transfer-dev.mjs`,
   new code under V3 plan) → ONE 32-seed dev bank → 276 executions → go/no-go.
+
+## V3 Phase D COMPLETE — DEV-NOGO, line CLOSED (2026-10-28)
+- Dev bank `evidence/body-transfer/v3-dev/fresh-01/protocol.json` (36 unique fresh
+  seeds): drawn once, single run, spent. No qual bank drawn, no qual seeds touched.
+- Attempt `evidence/body-transfer/v3-dev/attempt-01/`: 72 mains + 156 probes =
+  228 executions, 9.79e9 ops (caps 276/90e9). All rows/anchors/ledger complete
+  with inline integrity; count-constant correction (204->156, see results doc)
+  completed scoring analytically via --rescore, zero new worlds.
+- Verdict DEV-NOGO (audited from raw records, exact match): ΔA=-0.18, ΔB=-0.49,
+  ΔL=-0.33 (all fail), alignment up (only pass). Mechanism: anchor moves weights
+  below action-flip threshold (bit-identical energy across λ) except harmful flips.
+- V3 line CLOSED per frozen rule. Published docs/BODY_TRANSFER_RESULTS_V3_DEV.md.
