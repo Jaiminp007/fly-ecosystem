@@ -19,6 +19,10 @@ export const M_HISTORIES=4, M_LAMBDAS=Object.freeze([0,0.02,0.08]), M_ARMS=Objec
   ['candidate','unlearned','frozen','reset','acceptCruise','acceptStationary']);
 export const M_EXPECT_MAINS=72, M_EXPECT_PROBES=156;
 export const M_AGG_OP_CAP=90_000_000_000, M_MU=1e-3;
+// Spent synthetic fixture seeds (probe-emit plumbing check 2026-10-28: one
+// 8-tick synthetic main; anchor null, assert path only). Union-excluded from
+// all future banks via motorExtraTokens. No bank contact, no verdict impact.
+export const SPENT_FIXTURE_SEEDS=Object.freeze([379001,379002,379003,379004,379005,379006,379007,379008,379009]);
 const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(p,'utf8'));
 const write=(p,v)=>{mkdirSync(pathDirname(p),{recursive:true});writeFileSync(p,JSON.stringify(v));};
@@ -49,6 +53,7 @@ export function motorAnchorDevBank(path){
   if(existsSync(path)){const p=read(path);assert.equal(p.experiment,M_EXPERIMENT);return p;}
   const {excluded,registries,engineering,handoffSources}=bodyTransferExclusions();
   for(const t of motorExtraTokens())excluded.add(t);
+  for(const s of SPENT_FIXTURE_SEEDS)excluded.add(s);
   const used=new Set(excluded),fresh=()=>{let s;do{s=randomBytes(4).readUInt32BE();}while(!s||used.has(s));used.add(s);return s;};
   const histories=Array.from({length:M_HISTORIES},()=>({seed:fresh(),cueSeed:fresh(),
     resourceSeeds:Array.from({length:4},fresh),probeSeeds:{A:fresh(),B:fresh(),transfer:fresh()}}));

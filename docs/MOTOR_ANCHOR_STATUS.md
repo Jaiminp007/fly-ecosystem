@@ -47,7 +47,36 @@ margins already saturated ⇒ H1m dead → ELSEWHERE (sensing line).
   the modified tree (13); `body-transfer-dev.test.mjs` fails at file level
   pristine yet passes with the change (flaky, unrelated).
 
+## Verdict (executed 2026-10-28, audited, FROZEN)
+
+Single authorized attempt: `evidence/motor-anchor-dev/attempt-01/`.
+228 executions (72 mains + 156 probes), 168,960 world-ticks, 4,055,040
+founder-slots, 9,702,658,421 scalar ops (cap 90e9). Bank
+`fresh-01/protocol.json` (`fccc7e36…`), 36 unique fresh seeds.
+Best-λ (0.08) Δ vs control: dA −0.292 (bar +0.15 FAIL), dB +0.077 (pass),
+dL −0.631 (bar −0.20 FAIL), alignUp true (pass, near-definitional),
+margin bars no-data → fail-closed. **DEV-NOGO**, over-determined by the
+behavioral bars. Full record: `docs/MOTOR_ANCHOR_RESULTS_V1_DEV.md`.
+Audit: independent raw-row recompute matches on all estimands (<1e-9);
+anchors 12/12; snapshots match frozen sources; ledger exact.
+
+Two instrument notes (preserved, not repaired — single attempt spent):
+(a) probe-side margin collector recorded zero events in all 12 rows
+(D1 unanswered; diagnosing needs spent-bank steps or new-bank worlds —
+both forbidden); (b) one 8-tick synthetic plumbing main on seeds
+379001–379009 (anchor null) is ledgered as fixture verification and
+union-excluded via `evidence/motor-anchor-dev/fixture-seeds-01.json`.
+
+H1m premise descriptively SUPPORTED (block 1 shared ~10k visits/phase)
+yet directional protection still fails → M-ACTOR line exhausted.
+Taste-anchor (V3) null, motor-anchor harmful. Fall-through: ELSEWHERE
+sensing line or H2 body-structure — neither launched here.
+
 ## Expenditure ledger (motor-anchor study)
+
+- Worlds: 228 dev + 1 synthetic fixture main. Seeds: 36 dev (spent) +
+  9 synthetic fixture (spent, excluded) + unit-test literals (scanned).
+- Cumulative program total: 5128 + 440 + 688 + 228 + 100 + 228 + 1 = 6812.
 
 - Worlds: 0 new (plan + status only).
 - Seeds: 0 spent. No bank drawn.
