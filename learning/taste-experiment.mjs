@@ -139,6 +139,7 @@ export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=25
   run.startingEnergy=run.world.flies.reduce((n,f)=>n+f.energy,0);run.startingDebt=Object.values(run.learners).reduce((n,s)=>n+s.charge.outstandingEnergy,0);
   run.startingOperations=Object.values(run.learners).reduce((n,s)=>n+s.work.scalarOperations,0);
   const startWorldSha256=digest(run.world.checkpoint()),before=digest(Object.values(run.learners).map(s=>s.weights??null)),skippedAllDead=run.world.flies.length===0;
+  const startPending=Object.values(run.learners).reduce((n,s)=>n+(s.work.scalarOperations-(s.charge.operationsBilled??0)),0);
   run.advance(ticks);assert.equal(digest(Object.values(run.learners).map(s=>s.weights??null)),before);
-  const endpoint=run.endpoint();return {family,version,seed,founders,body:run.body,survivors:endpoint.survivors,value:endpoint.budgetAdjustedEnergyPerFounder,skippedAllDead,startWorldSha256,endpoint,statistics:run.statistics};
+  const endpoint=run.endpoint();return {family,version,seed,founders,body:run.body,survivors:endpoint.survivors,value:endpoint.budgetAdjustedEnergyPerFounder,skippedAllDead,startWorldSha256,startPending,endpoint,statistics:run.statistics};
 }
