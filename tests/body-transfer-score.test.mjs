@@ -1,7 +1,7 @@
 // Synthetic fixtures only (no worlds). Validates the frozen verdict engine.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {scoreBodyTransfer,settledValue,bodyTransferBank,bodyTransferSources,OPERATION_ENERGY} from '../scripts/body-transfer.mjs';
+import {scoreBodyTransfer,settledValue,bodyTransferBank,bodyTransferSources,probeAnchor,OPERATION_ENERGY} from '../scripts/body-transfer.mjs';
 
 const ep=(V,surv=24,ops=1000,billed=900)=>({budgetAdjustedEnergyPerFounder:V,survivors:surv,
   scalarOperations:ops,operationsBilled:billed,additionalScalarOperations:ops,accountingResidual:0,
@@ -45,6 +45,12 @@ test('tie semantics: exact zero is noninferior but never positive',()=>{
   assert.equal(s.g.N.g1.pass,false);
 });
 
+test('revival references point at each probe\'s own source anchor',()=>{
+  assert.equal(probeAnchor('N',7,'A:A'),'N/7-C');
+  assert.equal(probeAnchor('P',7,'transfer:reset'),'P/7-C');
+  assert.equal(probeAnchor('N',7,'early-A:current'),'N/7-A');
+  assert.equal(probeAnchor('P',7,'early-B:reset'),'P/7-B');
+});
 test('wrong history count is rejected',()=>{
   assert.throws(()=>scoreBodyTransfer(eight(i=>row(4000+i)).slice(0,7)));
 });

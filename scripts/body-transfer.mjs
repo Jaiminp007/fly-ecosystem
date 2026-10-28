@@ -103,6 +103,44 @@ export function bodyTransferSources(){
 }
 export const settledValue=(V,pendingEnd,pendingStart)=>V-OPERATION_ENERGY*(pendingEnd-pendingStart)/BT_FOUNDERS;
 const pendingOf=endpoint=>endpoint.scalarOperations-(endpoint.operationsBilled??0);
+function anchorAliveCounts(output){
+  const alive={};
+  for(const body of ['N','P'])for(const file of readdirSync(join(output,'anchors',body))){
+    if(!file.endsWith('.json'))continue;
+    const a=read(join(output,'anchors',body,file));
+    alive[`${body}/${file.slice(0,-5)}`]=Object.values(a.state.learners).filter(l=>!l.dead).length;
+  }
+  return alive;
+}
+export function probeAnchor(body,seed,key){
+  if(key.startsWith('early-A:'))return `${body}/${seed}-A`;
+  if(key.startsWith('early-B:'))return `${body}/${seed}-B`;
+  return `${body}/${seed}-C`;
+}
+function correctedGate7(output,rows){
+  const alive=anchorAliveCounts(output);
+  const residuals=[];
+  let revivalViolations=0;
+  const nondegCounts=rows.map(r=>r.nondeg.P??0);
+  for(const row of rows){
+    const seed=row.history.seed;
+    for(const body of ['N','P']){
+      for(const arm of BT_ARMS)residuals.push(Math.abs(row[body].arms[arm].endpoint.accountingResidual));
+      for(const [k,probe] of Object.entries(row[body].probes)){
+        residuals.push(Math.abs(probe.endpoint.accountingResidual));
+        if(!probe.skippedAllDead&&probe.survivors>alive[probeAnchor(body,seed,k)])revivalViolations++;
+      }
+    }
+    for(const [k,probe] of Object.entries(row.direct)){
+      residuals.push(Math.abs(probe.endpoint.accountingResidual));
+      if(!probe.skippedAllDead&&probe.survivors>alive[`N/${seed}-C`])revivalViolations++;
+    }
+  }
+  let outputBytes=0;
+  walk(output,file=>{outputBytes+=statSync(file).size;},Number.MAX_SAFE_INTEGER);
+  return {maxResidual:Math.max(...residuals),revivalViolations,nondegMin:Math.min(...nondegCounts),outputBytes,
+    pass:Math.max(...residuals)<1e-7&&revivalViolations===0&&Math.min(...nondegCounts)>=1&&outputBytes<BT_OUTPUT_BYTES};
+}
 
 function checkMainIntegrity(endpoint,label){
   assert.ok(Math.abs(endpoint.accountingResidual)<1e-7,`${label}: physical conservation failed`);
@@ -218,7 +256,40 @@ export function scoreBodyTransfer(rows){
   return {perHistory,g,g6direct,g6skill,attenuation,nPass,pPass,dPass};
 }
 
-export function runBodyTransfer({bankPath,output,resume=false}){
+export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
+  if(rescore){
+    const saved=read(join(output,'attempt.json'));
+    assert.equal(saved.kind,'body-transfer-attempt-v1');
+    assert.equal(saved.bankSha256,digest(readFileSync(bankPath)),'Rescore bank mismatch');
+    const now=bodyTransferSources();
+    const changed=Object.keys(now).filter(k=>now[k]!==saved.sourceSha256[k]);
+    assert.ok(changed.length===1&&changed[0]==='scripts/body-transfer.mjs',`Rescore refuses: unexpected source changes: ${changed.join(',')}`);
+    const rows=[];
+    for(const file of readdirSync(join(output,'rows')))if(file.endsWith('.json'))rows.push(read(join(output,'rows',file)));
+    assert.equal(rows.length,BT_HISTORIES);
+    for(const row of rows){
+      for(const body of ['N','P']){
+        assert.equal(Object.keys(row[body].arms).length,BT_ARMS.length);
+        assert.equal(Object.keys(row[body].probes).length,16);
+      }
+      assert.equal(Object.keys(row.direct).length,BT_DIRECT_SPECS.length);
+    }
+    const score=scoreBodyTransfer(rows);
+    const gate7=correctedGate7(output,rows);
+    let verdict='INVALID';
+    if(gate7.pass){
+      if(!score.nPass)verdict='FAIL-source';
+      else if(!(score.pPass&&score.dPass))verdict='FAIL-body';
+      else verdict='PASS';
+    }
+    const prev=read(join(output,'results.json'));
+    write(join(output,'results-superseded.json'),prev);
+    const result={...prev,sourceSha256:now,score,gate7,verdict,
+      rescored:{at:new Date().toISOString(),reason:'Instrument gate-7 revival check used atC as the reference for early-A/early-B probes restored from atA/atB; corrected to per-source-anchor references. No executions, no bank contact, no protocol/gate changes.',priorVerdict:prev.verdict,priorViolations:prev.gate7.revivalViolations,changedFiles:changed}};
+    writeOver(join(output,'results.json'),result);
+    console.log(JSON.stringify({verdict,rescored:true,gate7}));
+    return result;
+  }
   if(!resume)assert.ok(!existsSync(output),'Attempt output already exists; preserve it');
   else assert.ok(existsSync(join(output,'attempt.json')),'Resume needs the partial attempt directory');
   const p=read(bankPath);
@@ -367,26 +438,7 @@ export function runBodyTransfer({bankPath,output,resume=false}){
     throw error;
   }
   const score=scoreBodyTransfer(rows);
-  const residuals=[];
-  let revivalViolations=0;
-  const nondegCounts=rows.map(r=>r.nondeg.P??0);
-  for(const row of rows){
-    for(const body of ['N','P']){
-      for(const arm of BT_ARMS)residuals.push(Math.abs(row[body].arms[arm].endpoint.accountingResidual));
-      for(const [k,probe] of Object.entries(row[body].probes)){
-        residuals.push(Math.abs(probe.endpoint.accountingResidual));
-        if(!probe.skippedAllDead&&probe.survivors>row[body].atCSurvivors)revivalViolations++;
-      }
-    }
-    for(const [k,probe] of Object.entries(row.direct)){
-      residuals.push(Math.abs(probe.endpoint.accountingResidual));
-      if(!probe.skippedAllDead&&probe.survivors>row.N.atCSurvivors)revivalViolations++;
-    }
-  }
-  let outputBytes=0;
-  walk(output,file=>{outputBytes+=statSync(file).size;},Number.MAX_SAFE_INTEGER);
-  const gate7={maxResidual:Math.max(...residuals),revivalViolations,nondegMin:Math.min(...nondegCounts),outputBytes,
-    pass:Math.max(...residuals)<1e-7&&revivalViolations===0&&Math.min(...nondegCounts)>=1&&outputBytes<BT_OUTPUT_BYTES};
+  const gate7=correctedGate7(output,rows);
   let verdict='INVALID';
   if(gate7.pass){
     if(!score.nPass)verdict='FAIL-source';
@@ -405,5 +457,5 @@ export function runBodyTransfer({bankPath,output,resume=false}){
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const args=process.argv.slice(2),value=name=>{const i=args.indexOf(name);return i<0?undefined:args[i+1];};
   assert.ok(value('--bank'),'Supply --bank');assert.ok(value('--output'),'Supply the attempt --output directory');
-  runBodyTransfer({bankPath:resolve(value('--bank')),output:resolve(value('--output')),resume:args.includes('--resume')});
+  runBodyTransfer({bankPath:resolve(value('--bank')),output:resolve(value('--output')),resume:args.includes('--resume'),rescore:args.includes('--rescore')});
 }
