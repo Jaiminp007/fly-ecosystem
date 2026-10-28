@@ -1,5 +1,772 @@
 # Afterwing / Fly Ecosystem: complete paused research handoff
 
+Matched-RNG resource attribution: docs/GATE_REPLAY_RESOURCE_ATTRIBUTION_RESULTS.md. Two cases open with ~0.001-0.005-unit same-patch intake gaps; the third has no matched-position gap. Window deficits accrue after divergence. Observation only; audits pass.
+
+Nonfocal transfer paths: docs/GATE_REPLAY_NONFOCAL_PATH_RESULTS.md. Three
+selected cases retain identical physical RNG and rosters throughout despite
+later focal sensory and turn divergence. Resource attribution is complete in docs/GATE_REPLAY_RESOURCE_ATTRIBUTION_RESULTS.md.
+
+Focal transfer swaps: docs/GATE_REPLAY_TRANSFER_FOCAL_RESULTS.md. Four of eight
+outcome-selected focal gaps persist with no focal action changes; remaining
+cases implicate interacting focal and world effects. Audit and replay pass.
+
+Gate-replay transfer census: docs/GATE_REPLAY_TRANSFER_CENSUS_RESULTS.md.
+Reservoir's matched-native energy deficit corresponds mainly to lower food
+intake, not higher cost; focal diagnosis is predeclared, not qualification.
+
+Matched gate replay: docs/LEARNED_GATE_REPLAY_RESULTS.md. Fresh and reservoir
+show raw A pressure but each misses one 95% retention target and both fail
+original-ecology transfer; all 544 phases and factual replay audits pass.
+
+Frozen gate memory: docs/LEARNED_GATE_FROZEN_MEMORY_RESULTS.md. Estimated
+recorded transfer-buffer charge is small versus the reservoir transfer deficit;
+this is not a physical compaction experiment.
+
+Learned-gate retention components: docs/LEARNED_RETENTION_COMPONENT_RESULTS.md.
+On reused B probes, replacing saved with current gate lowers mean energy at
+both other-component settings; interactions remain. Audit passes.
+
+Learned contact gate: docs/LEARNED_CONTACT_DEVELOPMENT_RESULTS.md. Own-reward
+learning passes exploratory reset/cheap transfer and action exposure, but fails
+functional pressure and both descriptive 95% retention targets. Audits pass.
+
+A factual prediction comparison: docs/CONTACT_A_FACTUAL_PREDICTION_RESULTS.md.
+Stop-world B predictions shift upward on positive and downward on negative AA
+events on average; selected observational evidence, not a physical counterfactual.
+
+B-update sources: docs/CONTACT_B_UPDATE_SOURCES_RESULTS.md. Actual A-history
+replay supplies the largest negative mean shared A-cue logit increment; this
+is not a removal counterfactual or proof of physical improvement.
+
+Taste-component factorial: docs/CONTACT_TASTE_FACTORIAL_RESULTS.md. In stop
+worlds both components improve A on average, while B shows a large interaction;
+replay passes. Next reconstruct factual update and replay sources.
+
+Contact-stop factorial: docs/CONTACT_STOP_FACTORIAL_RESULTS.md. Saved B taste
+improves both A and B probe energy on stop worlds at A steering; contrast is
+outcome-informed and not a qualification. Investigate shared versus residual.
+
+Contact-stop development: docs/BALANCED_CONTACT_STOP_RESULTS.md. A matched
+compiled stop yields substantially more own B examples but fails A pressure
+and exploratory transfer consistency; replay and receipt checks pass.
+
+Moving-contact census: docs/BALANCED_B_MOVING_CONTACT_RESULTS.md. Among
+zero-B-example D survivors, 14/26 rbase and 15/28 blend accepted homogeneous
+contacts while moving. This is observational; a matched stopping witness is
+the next diagnostic, not a qualified acquired skill.
+
+Balanced B credit funnel: docs/BALANCED_B_CREDIT_FUNNEL_RESULTS.md. Zero-example
+survivors never reached stationary accepted homogeneous contact; next check
+homogeneous opportunities under all motor actions before choosing a witness.
+
+Balanced founder census: docs/BALANCED_PRESSURE_FOUNDER_RESULTS.md. Among D
+survivors, 26/60 rbase and 28/55 blend have no own B taste examples. Grouped
+outcomes are confounded, not independent causal estimates; inspect B access.
+
+Balanced factual replay: docs/SUPPORTED_BALANCED_REPLAY_RESULTS.md. Both arms
+clear exploratory transfer, but neither shows raw A pressure; audits pass and
+the original joint gate remains failed.
+
+Matched taste replay study: docs/SUPPORTED_TASTE_REPLAY_INTERVENTION_RESULTS.md.
+Fresh-only second updates fail exploratory transfer, raw pressure and B
+acquisition; mixed retains exploratory transfer but fails pressure. Audits pass.
+
+Supported pressure factorial: docs/SUPPORTED_PRESSURE_FACTORIAL_RESULTS.md.
+Both B-stage replacements improve mean A-probe energy rather than produce
+pressure; B effects interact. All 64 arms replay and qualification still fails.
+
+Supported taste decomposition: docs/SUPPORTED_TASTE_DECOMPOSITION_RESULTS.md.
+A failed invariance assertion is preserved; factual B-phase replay revisits A
+2,403 times and both shared and A-residual parameters change. Disk remains low.
+
+Supported steering work audit: docs/SUPPORTED_STEERING_WORK_RESULTS.md. All
+64 acquisition tapes match the declared per-decision and terminal schedule;
+this does not prove low-level or hardware-energy adequacy.
+
+Supported own-contact census: docs/SUPPORTED_OWN_CONTACT_RESULTS.md. Saved A/B
+taste loss ordering varies by observed trajectory; 11,844 factual examples
+and 58,377 pressure receipts are audited. Factorial remains disk-blocked.
+
+Supported pressure prefixes: docs/SUPPORTED_PRESSURE_PREFIX_RESULTS.md. Taste
+is the first differing A-probe output in 7/8 histories, but this does not
+attribute endpoint effects; the paid factorial still needs disk space.
+
+Supported factorial preparation: docs/SUPPORTED_PRESSURE_FACTORIAL_STATUS.md.
+Tests pass and the disk guard correctly blocks collection below 1 GiB; no
+factorial evidence exists yet. A short four-arm in-memory replay now passes;
+free space before the first full run.
+
+Supported pressure census: docs/SUPPORTED_PRESSURE_CENSUS_RESULTS.md. Both
+taste and steering models differ on recorded A-probe inputs; the census cannot
+attribute the pressure failure. A matched factorial requires more disk space.
+
+Supported steering physical study: docs/SUPPORTED_STEERING_PHYSICAL_RESULTS.md.
+Protect clears exploratory reset/cheap transfer (7/8) but fails raw A pressure;
+all 64 acquisition replays and ledger checks pass. Disk is critically low.
+
+Steering-bank crossover: docs/STEERING_BANK_CROSSOVER_RESULTS.md. C/D shared
+weights and absent banks interact strongly; a D-shared/C-bank mismatch loses
+substantial energy. The result does not qualify a checkpoint-based policy.
+
+Physical projection drift: docs/STEERING_PROJECTION_DRIFT_RESULTS.md. C-to-D
+drift is large and the absent bank changes for every D survivor. The recorded
+feature census is not a causal intervention; test shared/bank crossover next.
+
+Physical projection development: docs/STEERING_PROJECTION_PHYSICAL_RESULTS.md.
+Project fails transfer, raw pressure and 95% B retention despite its offline
+screen. Ledger and own-update readbacks pass; no qualification is claimed.
+
+Steering projection factual replay: docs/STEERING_PROJECTION_REPLAY_RESULTS.md.
+The fixed offline screen passes 8/8, independently reconstructed, but no
+counterfactual physical costs, actions or outcomes are demonstrated.
+
+Steering projection prototype: docs/STEERING_MEAN_PROJECTION_RESULTS.md. It is
+standalone and unvalidated in physical simulation; its mean-only protection can
+fail for individual inputs and after clipping. Test own-factual replay next.
+
+Transfer-stage diagnosis: docs/DECOUPLED_TRANSFER_STAGE_RESULTS.md. Mean
+transfer-energy decline appears by C; all 62 B/C absent banks match while
+shared weights differ, and all transfer decisions use the absent route.
+This is reused-world mechanism evidence, not qualification.
+
+Transfer steering diagnosis: docs/DECOUPLED_TRANSFER_COMPONENT_RESULTS.md.
+On reused D worlds, B steering beats D by +0.357410 energy/founder, 6/8,
+without survivor differences; this is not a reset or cheap-control pass.
+Localize the subsequent decline between C and D before revising the learner.
+
+Decoupled component diagnosis: docs/DECOUPLED_PRESSURE_COMPONENT_RESULTS.md.
+The A-energy pressure is mainly associated with steering in this reused-world
+factorial, but net-intake effects are conditional. All 64 arms replay; the
+original transfer failure and all qualification boundaries remain.
+
+Decoupled cue physical study: docs/DECOUPLED_CUE_DEVELOPMENT_RESULTS.md. The
+candidate has encouraging raw pressure contrasts but fails transfer (5/8 reset,
+4/8 cheap). The shared control clears exploratory transfer but fails pressure.
+Both independent readbacks pass; neither arm is qualified.
+
+Decoupled cue offline screen: docs/DECOUPLED_CUE_OFFLINE_RESULTS.md. The fixed
+joint screen passes 8/8 per corpus with better A loss; this is selected offline
+data, not qualification. Next: implement the fully paid matched physical plan.
+
+Cue-residual support: docs/CUE_RESIDUAL_SUPPORT_RESULTS.md. About four fifths
+of B cue evaluations have no own matching example; altered shared gradients,
+not direct residual learning, explain any prediction difference there.
+
+Cue-residual offline screen: docs/CUE_RESIDUAL_OFFLINE_RESULTS.md. It improves
+conflicting-cue B scores in 8/8, but only 4/8 on original cues; the fixed joint
+screen fails. Matched shadow control and 107,824-update audit pass.
+
+Recency replay screen: docs/RECENCY_REPLAY_OFFLINE_RESULTS.md. B loss improves
+7/8 only on conflict, but A loss rises in both corpora; the fixed joint
+offline gate fails. V1 leaked unused phase metadata into the function argument;
+corrected V2 is byte-identical but post-outcome, not independent confirmation.
+
+Conflict components: docs/CONFLICT_PRESSURE_COMPONENT_RESULTS.md. Saved B
+taste remains inversely separated despite factual examples; replay reservoirs
+are A-heavy for selected bodies, but per-body exposure explains much of the
+aggregate imbalance. Steering effects also matter. No qualifying pressure.
+
+Adjacent-conflict development: docs/ADJACENT_CONFLICT_RESULTS.md. The fixed
+separable conflicting cues fail transfer and functional-pressure requirements.
+Four histories were preserved and reused after bounded-memory recovery; the
+982,868-decision audit passes. No original benchmark or reserve was changed.
+
+Deterministic taste continuation: docs/DETERMINISTIC_TASTE_RESULTS.md. Fixed
+threshold versus matched sampling saves six end-B bodies but loses mean B
+energy and net intake; only three threshold founders reach D. The 367,184-
+decision readback passes. No pressure, transfer or qualification is established.
+
+Extended-B ledger/taste census: docs/EXTENDED_B_ENERGY_TASTE_RESULTS.md. B
+beneficial intake approximately cancels toxin damage while physical costs drain
+body energy; learner-paid cost is only a recorded subset. Contact cues show
+descriptive discrimination, not a causal rescue or qualification.
+
+Extended-B pressure test: docs/EXTENDED_B_PRESSURE_RESULTS.md. All eight
+observe worlds and six filter worlds became extinct in C; only three filter
+founders across two histories reached D. Missing probes fail, not imputed.
+Compressed traces and the 566,965-decision readback are preserved.
+
+Observe pressure crossover: docs/OBSERVE_PRESSURE_CROSSOVER_RESULTS.md. B
+steering improves A in 7/8 reused probes; the required transient interference
+is absent. The 117,272-decision readback passes. Do not weaken the pressure gate.
+
+Observe transfer components: docs/OBSERVE_TRANSFER_COMPONENT_RESULTS.md.
+Full steering beats matched native in 7/8 and retains the reused-history
+transfer signal against reset and cheap native. Removing either component
+reduces mean performance. Functional pressure remains unmet; no qualification.
+
+Target-taste acquisition: docs/TARGET_TASTE_DEVELOPMENT_RESULTS.md. The observe
+arm meets the reused-history exploratory transfer threshold (7/8 versus both
+controls), but fails functional pressure; the target-veto arm fails transfer
+and A retention. Neither is qualified; the corrected replay audit passes.
+
+Target-cue taste interface: docs/TARGET_TASTE_HEADROOM_RESULTS.md. V1 omitted
+veto-write charges and is preserved unpromoted; corrected V2 passes its 174,242-
+decision audit but still fails transfer consistency. This is frozen, not learning.
+
+Steering-target census: docs/STEERING_TARGET_CENSUS_RESULTS.md. Available
+midpoints often include harmful patches; A taste predicts their cue values
+offline, but steering never receives those target cues. Next investigate an
+explicitly paid target-cue/taste interface against equally equipped controls.
+
+Taste/steering crossover: docs/TASTE_STEERING_CROSSOVER_RESULTS.md. On reused
+filter D worlds the failed A/B pressure contrasts are mostly associated with
+steering-model changes, with material interactions and history concentration.
+The 116,206-decision readback passes; no qualification follows.
+
+Paid cue-filter study: docs/TASTE_CUE_FILTER_DEVELOPMENT_RESULTS.md. The filter
+has descriptive A/B retention above 100%, but pressure contrasts are negative
+and transfer wins only 5/8 against reset and 4/8 against cheap native. The
+949,628-decision readback passes; no qualification gate is established.
+
+Taste-contact provenance: docs/TASTE_CONTACT_PROVENANCE_RESULTS.md. All 1,508
+selected factual-label disagreements had opposite-valence overlap; a post-hoc
+same-contact-cue filter would retain 11,355/15,678 with zero observed mismatch.
+No trained intervention, cost, general guarantee or qualifying result follows.
+
+Taste checkpoint diagnostic: docs/TASTE_CHECKPOINT_DIAGNOSTIC_RESULTS.md.
+Among 56 selected D survivors, 191/1,788 retained factual labels disagree with
+their matched codebook cue valence. This is not a population error rate or a
+causal result; inspect physical contact and `lastFood` provenance next.
+
+Optimized residual-mask diagnostic: docs/RESIDUAL_PROOF_TRANSFER_RESULTS.md.
+It fails the unchanged transfer gate: versus optimized reset +0.224888 energy,
+6/8 wins and -1 survivor; versus cheap native +0.061959, 4/8 and -2 survivors.
+The 98,752-decision readback passes. The outcome-selected mask is not learning.
+
+Cue-aware native proof: docs/CUE_NATIVE_PROOF_RESULTS.md. It saves pair search
+on 6,514 proof-arm decisions and improves wall-only in 8/8, but transfer wins
+only 4/8 versus both optimized reset and cheap native, with -1 survivor versus
+cheap. The 84,698-decision readback passes; no learning gate is met.
+
+Frozen wall shortcut: docs/FROZEN_WALL_SHORTCUT_RESULTS.md. It wins 8/8 versus
+unshortened execution (+0.058883/founder, tied survival), but learned transfer
+still loses mean and one survivor versus cheap native (4/8 wins). The 70,441-
+decision audit passes; this is not qualified learning or fresh confirmation.
+
+Native-action certificate: docs/NATIVE_STEERING_CERTIFICATE_RESULTS.md. It
+never contradicts 28,090 recorded decisions, but the conservative declared
+cost estimate rises for both full and residual-only totals; not integrated.
+Wall-only/short-circuit alternatives require a separate fixed paid comparison.
+
+Focal crossover: docs/CUE_FOCAL_CONTROLLER_RESULTS.md. Both selected losses
+survive with a genuinely cheap native controller in either background and die
+with the paid learner. Commands and intake match through each costly death;
+declared controller cost explains the observed prefix energy gap. Diagnostic
+only: no learned transfer, fresh qualification or RSI has passed.
+
+Component mortality census: docs/CUE_COMPONENT_MORTALITY_CENSUS_RESULTS.md.
+Both residual-only losses versus cheap native executed native steering for
+their entire observed lifetimes; both depleted energy while cheap native
+survived. Others' behavior, costs and RNG differ, so causality remains open.
+
+Cue-shared component intervention: docs/CUE_SHARED_TRANSFER_COMPONENT_RESULTS.md.
+Residual-only beats matched native in 7/8 with tied survival, but the post-hoc
+cheap control is only 3/8 with -2 survivors. Shared-only is 4/8 and -1 versus
+cheap. Both fail transfer; masks are diagnostics, not acquired skills.
+
+Cue-shared exposure diagnosis: docs/CUE_SHARED_CAUSAL_CENSUS_RESULTS.md.
+All A/B/C decisions had cues; all 56 D survivors learned absent residuals
+and sampled both steering actions in D. Shared/residual margins oppose on
+3,266 available transfer decisions; this is not a causal outcome. A fixed,
+equally billed component-mask intervention is the next diagnostic.
+
+Cue-shared development FAILED: docs/CUE_SHARED_DEVELOPMENT_RESULTS.md.
+Transfer is 5/8 versus reset and 4/8 versus cheap native-full, with negative
+means and -1 survivor versus cheap native. A/B descriptive retention is
+95.017%/104.227%, but A interference and B acquisition contrasts are negative;
+no pressure, qualification or RSI claim follows. Three readbacks completed.
+
+New cue-shared steering candidate: docs/CUE_SHARED_STEERING_DESIGN.md. Actual
+observable cue selects one of 17 paid residual banks plus shared weights;
+cross-cue own TD is independently tested, with billed snapshot/reset copies.
+Fixed study: docs/CUE_SHARED_DEVELOPMENT_PLAN.md. No outcomes yet; no gate met.
+
+Frozen-memory compaction: docs/FROZEN_MEMORY_COMPACTION_RESULTS.md. Paying one
+declared operation per visited byte gains +0.01122/founder versus uncompacted
+in 8/8 with tied survival; transfer still wins only 4/8 against reset and cheap
+native-full, and loses mean energy versus cheap native. Not an acquired skill.
+
+Indexed physical transfer: docs/INCREMENTAL_TRANSFER_RESULTS.md. The selector
+itself gains +0.0090/founder versus filtered in 8/8 with tied survivors, but
+learned transfer still wins only 4/8 versus indexed reset and cheap native-full
+and loses mean energy versus cheap native. The full objective remains open.
+
+Single-traversal index: docs/INCREMENTAL_OVERLAP_RESULTS.md. Exact on 83,617
+replayed decisions, independently audited same-state declared savings about
+0.0511/C and 0.0112/transfer per founder. Opt-in physical integration passes
+16 focused checks; no embodied performance or qualification is established.
+
+Exact bucket index is NOT a cost win: docs/INDEXED_OVERLAP_RESULTS.md. It
+preserves 83,617 recommendations but its declared work and scratch byte-time
+cost +0.0143 energy/founder in C and +0.00435 in transfer on fixed states.
+Keep it standalone; no embodied optimization or qualification is established.
+
+Spatial workload census: docs/SPATIAL_INDEX_CENSUS_RESULTS.md. All 16 replayed
+C/transfer checkpoints match; 83,617 recommendations validate the proposed
+32-unit neighbor containment. The transfer gross ceiling is 0.0400 energy per
+founder before index costs, not a measured saving. Test exact paid indexing.
+
+Fixed 16-step own-return geometry test FAILED: docs/STEERING_TRAVEL_HORIZON_RESULTS.md.
+Geometry beats base in 2/8 C and 3/8 transfer histories. Independent readback
+checks 189,903 training and 81,617 evaluation returns; the labels include
+subsequent actual actions and are not counterfactual action values.
+
+Fixed own-founder geometry prediction FAILED: docs/STEERING_GEOMETRY_INFORMATION_RESULTS.md.
+Geometry beats base in 0/8 C and 4/8 transfer histories; its joint gate also
+requires 6/8 versus delayed in both. Independent readback covers 195,603
+training and 83,492 evaluation transitions. This is not a policy outcome.
+
+Transfer-policy census: docs/REPLAY_TRANSFER_POLICY_CENSUS.md. Replay current
+and reset both choose full speed on replay-current observed inputs; their
+behavioral difference is midpoint versus native steering, plus different paid
+state/work. This is a factual policy comparison, not causal outcome evidence.
+
+Replay steering development FAILED: docs/STEERING_REPLAY_DEVELOPMENT_RESULTS.md.
+Transfer is 4/8 positive against reset and cheap native-full, with negative
+mean against native-full; A retention is 91.63%, below 95%. Trace and ledger
+readback covers 906,176 decisions; post-outcome readback independently checks
+440,189 replay decisions, 280,288 updates, 128 checkpoint links and 176 probe
+starts. Surviving memories include A records; causality remains unresolved.
+
+Latest fixed A component diagnosis: docs/ODOR_ROUTED_A_COMPONENT_RESULTS.md.
+On matched D bodies, restoring A steering alone gains +0.0974 energy/founder and
+two survivors versus D/D; A taste alone gains +0.0063 but loses one survivor.
+These are outcome-selected total-world effects; A retention remains 88.45% and
+transfer remains failed. Independent readback covers 76,118 decision/receipts.
+
+Latest motor-freeze probes FAILED: docs/ODOR_ROUTED_MOTOR_FREEZE_PROBE_RESULTS.md.
+Transfer wins 5/8 vs reset and 4/8 vs cheap native-full, below 6/8; A retention
+is 88.45%, below 95% (B 96.18% descriptive). Captured-source replay verifies
+24 checkpoint links; readback covers 169,598 decisions/receipts. No qualification.
+
+Latest fixed motor-only freeze diagnosis: docs/ODOR_ROUTED_MOTOR_FREEZE_RESULTS.md.
+From matched A checkpoints it leaves 62/192 survivors versus 20 continuous and
+60 fully frozen, gaining +7.430/founder over continuous in all 8 histories.
+It changes motor updates, exploration and cost together; this is not pure-update
+causation or qualification. Independent readback checks 181,816 decisions and
+receipts. The fixed follow-on retention/transfer probes are specified there.
+
+Latest routed development FAILED: docs/ODOR_ROUTED_DEVELOPMENT_RESULTS.md.
+Transfer gains +0.419/founder against reset and +0.364 against cheap native-full,
+but wins only 5/8 histories against each. A retention is 22.48%, below 95%;
+20/192 learned founders survive acquisition versus 60 frozen-after-A. Readback
+checks 1,398,710 decision/receipt pairs and 24 checkpoint replays. No qualification.
+
+Latest routed engineering audit: docs/ODOR_ROUTED_ENGINEERING_AUDIT.md.
+Captured-source synthetic fixtures pass routing, 705 independent TD/replay
+updates, 723 acquisition and 630 frozen-probe decision/receipt/work/debt checks,
+plus exact replay. Phases and lifespan are shortened for testing; no actual
+multi-history performance or qualification has been established.
+
+Latest candidate integration: learning/odor-routed-experiment.mjs adds the
+specified odor-free fourth acquisition phase and same-body frozen/reset forks.
+Thirteen focused tests pass, including real phase boundaries, distinct transfer
+seeds, routed-bank preservation, physical controls and terminal debt. A full
+independent routing/cost and probe audit precedes development outcome claims.
+
+Latest candidate: docs/ODOR_ROUTED_MOTOR_DESIGN.md proposes separate motor
+banks for observed odor presence and an actual odor-free acquisition phase before
+independent transfer. Isolated routed motor/taste modules pass nine focused
+tests, including cross-route credit and billing-state checks. Physical curriculum,
+full cost audit, matched outcomes and every scientific gate remain outstanding.
+
+Latest delayed-return diagnosis: docs/OWN_STEERING_DELAYED_RETURN_RESULTS.md.
+An independently checked 16-transition factual census covers 260,850 decisions;
+480 unfinished windows are censored. Initial stationary versus full-speed mean
+returns remain close and observational, with different subsequent actions and
+states. Simply extending credit to 16 steps is not established as a solution.
+
+Latest factual reward census: docs/OWN_STEERING_REWARD_RESULTS.md. It reconstructs
+260,820 own acquisition transitions and verifies 23,808 retained motor records.
+Away from contact, stationary actions have a less-negative immediate mean than
+full speed in all 8 histories and all A/B/C phases; this is observational, not
+proof of causation or long-term benefit. The fixed-speed transfer intervention
+still fails the strong-control survival gate. No qualification is achieved.
+
+Latest motor diagnosis: docs/OWN_STEERING_MOTOR_RESULTS.md. On 6,635 factual
+transfer observations, saved A and C weights select different speeds 4,559
+times; stationary preference rises from 19.9% to 37.4%. These are descriptive
+same-state model comparisons, not alternative physical outcomes or proof of
+forgetting. Independent action readback passes; eight-history gate still fails.
+
+Latest causal diagnosis: docs/OWN_STEERING_ENERGY_DIAGNOSIS.md. Current transfer
+loses 415.71 intake units to reset across seven available histories, while saving
+138.79 physical-cost units. A fixed full-speed intervention improves all seven
+current forks (+2.479/founder, +6 survivors), but loses one survivor versus reset
+and cheap native-full and lacks the extinct eighth history. It is not qualified.
+Readback covers 7,482 decisions and receipts; full goal remains active.
+
+Latest fixed own-steering development FAILED: docs/OWN_STEERING_DEVELOPMENT_RESULTS.md.
+Learned acquisition has 30/192 survivors versus matched native 38 and guarded 31;
+one history is extinct before C, making full retention/transfer comparisons
+incomplete. One of seven observed transfers beats reset or cheap native-full.
+Readback checks 833,408 decision/receipt pairs and 15 checkpoint replays, with
+full-study sensing, operation and independent-physics limitations documented.
+
+Latest frozen-probe audit: docs/OWN_STEERING_PROBE_AUDIT.md. Seven synthetic
+forks pass checkpoint ancestry replay, same-world, model freeze/reset, setup
+cost and 630 decision/receipt/work/debt checks. These are engineering fixtures,
+not qualified retention or transfer; the full multi-history collector remains.
+
+Latest retention engineering: the own-steering fork can compare an earlier
+founder's A/B model on the same later physical checkpoint, charging the same
+66 weight-copy operations as current-model forks. Sixteen focused tests pass.
+docs/OWN_STEERING_DEVELOPMENT_PLAN.md specifies remaining collector, ancestry,
+frozen-probe audit and unchanged retention/transfer/pressure requirements.
+
+Latest work audit: scripts/check-own-steering-work.mjs reconstructs every
+declared controller-work increment in the v4 randomized fixture, including
+714 motor updates and 96 taste examples. This checks the abstract accounting
+convention on logged snapshots, not low-level physical cost or full runs.
+Frozen/reset probes and the staged scientific gates still need evaluation.
+
+Latest fixture: evidence/own-steering-fixture/20261026-v4. Independent checks
+reconstruct 723 local food queries against logged world snapshots, transformed
+points, cue/contact inputs, action credit, reported-work/debt and a work lower
+bound. They do not independently replay physics or reconstruct all operations.
+
+Latest billing fixture: evidence/own-steering-fixture/20261026-v3. Separate
+readback checks 723 decisions/receipts/observations, midpoint ranking from logged
+points, guard, encoded bytes and reported-work/debt ledgers. Fifteen tests pass,
+including audit-observer neutrality. Full work-count and physical-sensor audits,
+frozen-probe audits and all scientific outcome gates remain outstanding.
+
+Latest fixture audit: docs/OWN_STEERING_FIXTURE_AUDIT.md. A separate checker
+reconstructs the own-action learner for 241 decisions per arm and terminal
+updates on the randomized cue layout. It does not independently verify physical
+observations, full controller cost, storage/debt, or frozen/reset probes.
+
+Readiness follow-up: opt-in `acquisitionGeometry:'continual'` randomizes patch
+positions once using the established transfer layout procedure, before cue A;
+default grid is unchanged. In one 4-founder/80-step fixture, 258/320 decisions
+offer midpoint steering and 116 execute it. This is not skill or performance
+qualification. Design: docs/OWN_STEERING_GEOMETRY_DESIGN.md; independent billing
+audit and complete matched acquisition/retention/transfer studies remain.
+
+Critical readiness failure: default cue acquisition has food on a 32-unit grid
+and never moves patch positions; midpoint action requires separation <=30.
+Consequently the own-steering learner cannot acquire action 1 in that setting.
+See docs/OWN_STEERING_PROTOTYPE.md and tests/own-steering-availability.test.mjs.
+The 40-step three-arm fixture is identical and the 80-step fixture has no action
+1 support. Do not launch its full development comparison with default geometry.
+
+Latest: frozen/current and reset forks now support A/B/C and original-ecology
+transfer in learning/own-steering-experiment.mjs. Ten focused tests pass,
+including fixed probe duration, same physical initialization, frozen weights,
+setup debt, terminal debt and restore. Independent cost audit, acquisition
+snapshot comparisons, full functional pressure and qualification still remain.
+
+Latest implementation: learning/own-steering-experiment.mjs wires the learner
+into actual cue acquisition with learned, forced-native and guarded arms. Seven
+focused tests pass for actions, decision-time storage, terminal debt, observer
+neutrality and exact restore. Frozen/reset forks deliberately remain unimplemented;
+complete cost auditing and all scientific gates are still outstanding.
+
+Latest learner prototype: docs/OWN_STEERING_PROTOTYPE.md and
+learning/own-steering.mjs. Its tests pass for own-action-only temporal credit,
+forced-control provenance, terminal/freeze behavior and action feasibility.
+It is not embodied or fully audited and proves no skill, cost, or transfer.
+Next wire equal-access controls through actual acquisition before frozen probes.
+
+Latest causal diagnosis: docs/FILTERED_FOCAL_RESULTS.md. Each of the three
+guarded-only deaths is rescued by switching its focal steering to native in a
+guarded background, but all three survive as guarded focals among native bodies.
+Five discordant founders, ten interventions and 48,157 decision/receipt pairs
+are preserved and independently schedule/hash checked. Interactions remain a
+plausible mechanism; this outcome-selected evidence does not qualify learning.
+
+Latest paid development: docs/FILTERED_OVERLAP_RESULTS.md. The filtered guard
+still loses one survivor against each native control, so the gate fails despite
+positive average energy. Seven focused tests pass; a separate checker covers
+115,977 decisions/receipts and debt with work lower bounds. Evidence is in
+evidence/filtered-overlap/20261026-v1 and is not in the earlier archive.
+
+Latest offline continuation: docs/PAIR_FILTER_FEASIBILITY.md compares two
+same-order pair filters on all 38,799 guarded decisions. The first increases
+counted recommendation work; reusing the computed x separation reduces it 3.56%
+on these tapes. This outcome-informed result is not a paid physical replay or
+proof of survival, transfer, learned skill, or arbitrary-input equivalence.
+
+Correction: the earlier three-by-three spatial-index census missed a floating
+point boundary case; it is not generally exact. A five-by-five neighborhood
+matches 38,799 recorded decisions and five boundary cases, skipping 66.60% of
+pair checks before overhead. See docs/OVERLAP_INDEX_FEASIBILITY.md. This is
+still an offline diagnostic, without full pricing or paid survival replay.
+
+Latest continuation: docs/OVERLAP_INDEX_FEASIBILITY.md. The portable spatial
+archive now exists:389 members,14 chunks,352,064,595 compressed bytes, every
+member stream/hash verified. Its README corrects the captured planned tar claim;
+actual format is a documented length-prefixed gzip stream. A later offline index
+census matches1007 synthetic cases and38,799 guarded decisions, avoiding85.28%
+of pair checks before indexing overhead. It is not included in that earlier
+archive and is not a paid replay, acquired skill or survival-gate success.
+
+Newest: [feeding/spatial/causal results](docs/SPATIAL_DIAGNOSTIC_RESULTS.md).
+Feeding context fails its joint C/transfer prediction gate. Overlap harvesting
+gains+1.379883 energy/founder versus cheap native-full (7/8) but loses3 survivors.
+Ten focal-policy interventions reveal interacting, not purely individual, losses.
+One guarded continuation gains+1.109251 (6/8) but still loses1 survivor: FAILED.
+Independent full readbacks cover77,177 original,47,622 focal and115,976 guarded
+decisions/receipts. No learner or qualification is promoted. Restricted runtime
+launch/timeout failures and deterministic recovery are preserved explicitly.
+Portable supplement: handoff/spatial-diagnostics-20261026/manifest.json.
+Next is exact spatial-index equivalence/cost engineering, not another score or
+threshold sweep; every scientific/RSI obligation and closed reserve remains.
+
+Newest: [alternative-target and three-speed acquisition results](docs/COVERAGE_TARGET_RESULTS.md)
+both fail their fixed development gates. Alternative-target ranking wins 3/8
+histories and loses four survivors. Three-speed acquisition gives all 55 end-C
+survivors actual stop/half/full experience, but transfer loses -1.628489 energy
+per original founder and nine survivors to cheap native-full, winning 1/8.
+Nine focused tests pass. Independent readback covers 76,928 target decisions
+and 1,443,956 acquisition/probe decisions/receipts; no independent SGD/physics
+claim. A small taste-prediction operation undercount is disclosed and corrected
+only in working code; captured v1 failures remain unchanged. The staged native
+goal stays active, old reserves stay closed, and further work remains local
+without Astra. Portable supplement: handoff/coverage-target-20261026/manifest.json.
+Next: a concrete state-sufficiency/credit hypothesis, not a parameter sweep.
+
+Newest: [actual-policy pursuit census and social prediction](docs/PURSUIT_SOCIAL_RESULTS.md)
+are complete. All eight acquisition endpoints/end-C anchors and native-full
+probe objects replay exactly. Transfer has 77 rejected moves in 38,663 decisions;
+the fixed social predictor loses to food-only in all eight histories. Crucially,
+acquisition only sampled stationary/half speed, never the full-speed benchmark.
+Next is a coherent prospective action/sensor support design, not more motor-law
+or predictor tuning. Remaining work is local to conserve the user's Astra limits.
+Portable supplement: handoff/pursuit-social-20261025/manifest.json. Old banks,
+reserves and full research criteria remain unchanged; no qualification or RSI.
+
+Latest continuation: [half-turn commitment failed](docs/ESCAPE_COMMITMENT_RESULTS.md).
+Seven events across eight histories yield -0.14260 energy/founder versus matched
+native-full and -0.37622 versus bare-full, with no survivor difference. Nine brief
+tests and independent raw-selection/actuator/arithmetic readback pass. All selected
+episodes have zero preceding collisions; this does not rule out collision-free
+orbits. Controller proposals stop pending an actual acquisition/transfer exposure
+census. No new learner, fresh bank, qualification or RSI is claimed. Portable
+supplement: handoff/escape-commitment-20261025/manifest.json. Older next-step
+statements below are historical; the full research goal remains unachieved.
+
+Newest active continuation: [Astra/root rethink](docs/ASTRA_RETHINK_20261025.md).
+The full staged native goal is active again at the user's explicit request.
+Attempts 08--16 are complete and source-bound; navigation attempt15 reaches
+104/192 survivors but still fails transfer. A one-history credit diagnosis finds
+228 beneficial arrivals with incorrect proximity-proxy labels. A new Astra thread
+reviewed the mechanism, then two lawful timing policies failed their 7.36-second
+headroom diagnostic. The 10.66-second stall/escape study has14 selected events;
+neither pulse has consistent cohort benefit. Adaptive-speed (10.37 seconds) and
+full-angle-steering (11.25 seconds) witnesses also fail against native full speed.
+All are source-bound, priced and preserved. The current motor-family learner
+sweeps are stopped; a predictive/memory skill with paid headroom over the strong
+full-speed native reference is next. No estimator is built for failed steering.
+Qualification and RSI remain unachieved. All old banks/reserves remain unchanged.
+Earlier entries below are historical. The heading describes the original handoff,
+not the live goal's status.
+
+Latest continuation: [retention/transfer development](docs/TASTE_RETENTION_TRANSFER.md)
+completes three further full-sequence attempts with brief checks. Intake-aware
+movement raises final survivors from 40 to **81/192**, versus matched frozen 41
+and reset 65, with energy advantages +2.247/+0.829 per original founder. Twelve
+targeted checks pass in 0.53 seconds; the last run takes 122 seconds. Descriptive
+A/B retention is 98.11%/92.61%; transfer is still negative (-0.499), so B retention
+and original-ecology movement remain next. All seven attempts are preserved;
+new incremental archive: `handoff/taste-continuation-20261025/manifest.json`.
+Earlier checkpoint statements below are historical. This is tuned development,
+not fresh qualification, functional-pressure success or RSI.
+
+Current user direction: large implementation chunks with brief checks and
+development retries, rather than exhaustive verification after every edit.
+The new immediate development goal has produced
+[an integrated learner with measured full-world gains](docs/TASTE_DEVELOPMENT_PROGRESS.md):
+40/192 survivors versus 29 frozen-after-A and 36 reset-at-B/C, plus positive mean
+energy over both on eight reusable development histories. All four source-bound
+attempts are preserved under `evidence/taste-development/` and the portable
+checkpoint `handoff/taste-development-20261025/manifest.json`. The last world run
+took 103 seconds; nine targeted checks took 0.54 seconds. Next substantive
+weaknesses are survival, 95% retained advantage and original-ecology transfer.
+This is exploratory development, not qualification or RSI. All old locked banks
+and closed reserves remain unchanged. Older status entries below are historical.
+
+Current checkpoint: the direct-value experiment, exact replay, full independent
+reconstruction and read-only factual description are complete. Both audits pass;
+the candidate still fails its locked development gate. Final survival is 23/192
+original founders. The completed summary/audits/description/logs are preserved
+in `handoff/value-development-audits-20261025/manifest.json`, linked to the
+immutable full data package. The original finishing script's null exit-code
+failure is preserved; a guarded manual summary and tested process-handle fix
+avoid rerunning scientific audits. All 96 scored-bank reserves stay closed.
+[Current results](docs/VALUE_LEARNING_RESULTS.md) and
+[factual diagnosis](docs/VALUE_EXPOSURE_DIAGNOSIS.md) supersede the process states
+in older checkpoint entries below. A new
+[stationary taste-credit hypothesis](docs/STATIONARY_TASTE_CREDIT.md) has an
+isolated adapter and three targeted passing tests; no integrated new learner or
+fresh bank exists. The complete goal remains active/unachieved.
+
+Newest preservation: the complete failed direct-value collected/scored bank is
+portable in `handoff/value-development-data-20261025/manifest.json`: 222 files,
+116 chunks, all hashes checked and all files restored/verified with zero
+mismatches. Full audits continue; final audit artifacts will be a linked
+supplement. All six scored development studies retain 96 closed confirmation
+histories. This preserves evidence and does not establish qualification. Read
+[the exact failed score and archive scope](docs/VALUE_LEARNING_RESULTS.md).
+
+Latest scientific score: [fixed direct-value development failed](docs/VALUE_LEARNING_RESULTS.md).
+All eight histories are collected: 14/26 required comparisons, 10/23 survival
+guards, 8/8 activity and 6/8 nonempty support pass. Acquired A skill, B retention,
+functional pressure and required transfer remain unproved. Its sixteen-history
+confirmation reserve stays closed. Full captured replay and independent Python
+audits are running under the one-shot finishing workflow; inspect that actual
+process and `.value-development-pipeline.log` before starting duplicates. No
+qualification or RSI claim follows. The full goal remains active/unachieved.
+
+Newest: [complete direct-value collection preflight](docs/VALUE_STUDY_PREFLIGHT.md)
+passes **263/263 tests**, independent reconstruction of 103,731 decisions and
+receipts, exact captured-source replay and separate work-counter checks. Its
+151-file portable archive is hash- and restore-verified. One fresh protocol is
+now frozen under `evidence/value-development/20261025-fixed-v1/`, hash
+`17f225fae97b2c43d2fb6fec619022f4b8047611a5506f09e48a208a787663ca`.
+Both validators checked 42 sources, 74 prior registries, 78 engineering inputs
+and 4,427 excluded seeds before outcomes. Eight development histories are now
+collecting; sixteen confirmation histories remain closed behind every required
+development gate and both audits. No qualification or RSI claim follows. Old
+failures, reserves and paused habitats are unchanged; the full goal stays active.
+Read [live study state and continuation rules](docs/VALUE_LEARNING_RUN.md).
+The immutable protocol/source/reserve snapshot is also hash- and restore-verified
+under `handoff/value-development-freeze-20261025/manifest.json` (242 files).
+
+Newest: [full direct-value wrapper audit](docs/VALUE_CUE_WORLD_ENGINEERING.md)
+passes 24 named worlds / 25 probes, 38 corruption classes and captured-source
+replay. The full wrapper checkpoint passes **255/255 tests**; four new inference
+tests also pass. The proposed 26-comparison / 23-survival-guard scorer and its
+independent Python arithmetic are checked on invented tables only. Portable
+evidence is `handoff/value-cue-world-20261025/manifest.json`. Next is the complete
+collector/source/exclusion/budget/reserve preflight and fresh prospective freeze;
+no new performance bank is opened. Old failures/reserves/habitats are unchanged.
+The full scientific goal remains active/unachieved.
+
+Newest engineering checkpoint: [direct-value core and wrapper](docs/TICK_VALUE_ENGINEERING.md).
+All **252 tests pass**. Independent Python reconstructs 1,222 synthetic events,
+202 choices, 190 live/replay updates each and 36 reservoir draws; 22 corruption
+classes and captured-source replay pass. A new 17-arm continuing wrapper, metered
+contact observations and fifteen compact frozen probe modes pass six integration
+tests. The full wrapper independent audit and complete fresh statistical protocol
+remain next; no new performance bank was opened. Complete component evidence is
+portable under `handoff/tick-value-core-20261025/manifest.json`. Old failures,
+reserves, archives and paused habitats are unchanged. Full goal stays active.
+
+Newest: [conditional policy/intake diagnosis](docs/TICK_POLICY_DIAGNOSIS.md)
+independently reconstructs 33,400 predictions on 1,336 fixed own-observation
+contexts and exactly replays all 131,454 candidate intake receipts. Policies
+changed little on those contexts. Of 60,267 cue-sign mismatches, 58,862 involved
+already-local patches excluded by the .06 sensing threshold; every stationary
+mismatch was in that condition. This is not a successful learner or causal proof
+of qualification failure. All **234 tests pass**. A metered, isolated contact-cue
+component and [prospective direct-value design](docs/CONTACT_CUE_VALUE_DESIGN.md)
+exist; the next learner/controls/audit and fresh lock remain to be built. No
+failed reserve, old archive or paused habitat changed. Full goal remains active.
+
+Authoritative newest checkpoint: [fixed tick development failed and is fully
+audited](docs/TICK_LEARNING_RESULTS.md). Exact replay covers 104 main worlds /
+128 probes-and-shams; supplemental independent Python reconstructs 4,129,934
+decisions/receipts, 1,847,617 updates and all gates with zero warnings. Preserve
+the original residual-comparison checker failure and separate correction;
+the scientific failure stays 8/22 comparisons, 13/19 survival guards, 8/8
+activity checks. All sixteen confirmation histories remain unopened. Complete
+portable evidence: `handoff/tick-development-20261025/manifest.json`, separate
+from artificial preflight evidence. Next is mechanism/signal diagnosis, not
+same-bank tuning or sample extension. Full research goal stays active/unachieved.
+Earlier collecting/auditing status paragraphs below are historical.
+
+Latest: [the fixed tick development study failed](docs/TICK_LEARNING_RESULTS.md):
+8/22 required comparisons, 13/19 survival guards and 8/8 activity checks passed
+across eight histories / 104 main worlds / 128 probes-and-shams. All sixteen
+confirmation histories stay closed. Exact cold replay is live; the original
+numeric checker failed only its near-zero residual comparison so far. A separate
+captured supplemental checker keeps the original conservation limit on both
+residuals and every other check; it is running, not yet reported passed. Frozen
+scientific sources/results remain unchanged. Finish both audits and preserve
+the complete campaign before another candidate. The full goal stays active.
+
+Current continuation: [the fixed tick learning campaign](docs/TICK_LEARNING_RESULTS.md)
+is source-frozen after **225/225 zero-skip tests**, independent full collector/
+inference engineering checks and captured-source replay. Eight fresh development
+histories are collecting; sixteen confirmation histories remain closed. The
+protocol has 22 required comparisons, 19 exact-count survival guards, actual
+activity checks and explicit collection/replay/audit/storage ceilings. No
+qualification score is reported yet. Check live process/rows/logs before
+resuming, preserve partial evidence, and use only captured scientific entrypoints.
+The full goal remains active/unachieved; no habitat or old reserve was reopened.
+
+Continuation 2026-10-25: the user asked to continue and set the goal. The native
+tracker now has the full staged research objective **active**, not complete.
+[Functional-pressure design](docs/TICK_FUNCTIONAL_PRESSURE.md) implements a
+paired saved-A/saved-B weight intervention in identical frozen A bodies, useful
+B-acquisition checks, an exact copy sham and conservative reset-cost-neutral
+skill effects. Named engineering records pass independent Python reconstruction
+and exact captured-source replay; [all 216 tests pass](docs/TICK_FUNCTIONAL_PRESSURE_ENGINEERING.md)
+with no skips/failures. The new portable evidence is preserved under
+`handoff/tick-pressure-20261025/manifest.json`. This is not demonstrated pressure or acquired
+behavior. Next: finish the complete prospective statistics/scorer and independent
+inference audit, then lock seeds, budgets and the whole protocol before any
+performance histories. All older failed banks, reserves and paused habitats
+remain unchanged. Earlier status paragraphs are historical checkpoints.
+
+Newest continuation: [wrapper engineering auditing](docs/TICK_CUE_WORLD_ENGINEERING.md)
+passes 19 named main fixtures / 23 short probes, independent Python accounting,
+exact captured-source Node replay and 27 corruption types. **211/211 tests pass**
+with no skips/failures and clean diff checks. Full evidence and the complete
+29-file source closure are preserved in the local evidence directory and
+`handoff/tick-cue-world-20261024/manifest.json`. These are artificial engineering
+fixtures, not performance histories or independent physics. Next: functional
+pressure intervention, locked statistical protocol and matching scorer/auditor
+extensions before performance seeds. The full goal stays active/unachieved;
+all failed banks, unopened reserves and paused habitats remain untouched.
+Earlier status paragraphs and test totals below are historical checkpoints.
+
+Current software validation: **208/208 Node tests pass**, no failed/skipped
+tests; `git diff --check` is clean. Earlier totals below are historical.
+
+Newest: [tick continuing-world integration](docs/TICK_CUE_INTEGRATION.md) adds
+`learning/tick-cue-experiment.mjs` and seven integration tests. Thirteen main arms
+and fourteen paired A/B/C/original-ecology probe specifications execute with
+all-founder debt, terminal work, no refill, no probe acquisition/backflow and no
+unused circuit on fixed controls. Transfer includes both always-accept cruise
+and stationary controls. Reset-initialization cost is explicit and cannot alone
+qualify skill. No performance bank has been opened. Next is independent wrapper
+trace auditing, a functional pressure manipulation and the complete prospective
+freeze. The earlier core audit does not cover this wrapper. The full goal stays
+active and unachieved; no RSI claim or unrelated habitat restart.
+
+Current software validation: **201/201 Node tests pass**, no skipped tests;
+`git diff --check` is clean. This is not a scientific qualification result.
+
+Newest: the native tracker now reports the full revised goal **active**; the
+paused-tracker statement in the earlier continuation below is historical.
+[Tick actor-critic design](docs/TICK_ACTOR_CRITIC_DESIGN.md) fixes the new opt-in
+component semantics. [Engineering evidence](docs/TICK_ACTOR_CRITIC_ENGINEERING.md)
+records independent reconstruction of 118 events / 19 choices / 14 updates and
+fourteen tampering types, with a source-bound local tape and captured Python
+checker. No new performance bank was registered/opened. Next: implement the
+continuing wrapper and matched controls, specify real functional pressure, then
+freeze the complete prospective performance protocol and full audits. This is
+not a qualified learner or RSI. Work remains local and uncommitted.
+
+Newest continuation (2026-10-24): disregard the user's misdirected Grok request;
+the user explicitly asked to resume the research goal. Direct
+[cue/outcome credit engineering](docs/CUE_CREDIT_DIAGNOSIS.md) adds three
+one-tick physical fixtures and two synthetic learner API schedules. Contact cue,
+ranked motor target and consumed patch can differ; eight-tick credit uses the
+earlier decision features. All 189 Node tests pass. These are existence checks,
+not failure-cause or prevalence evidence. No performance bank/reserve or paused
+habitat was opened. Next is a prospective observation/credit specification with
+matched costs, not another tuned motor or a qualification claim. Local work is
+uncommitted. The native goal tracker last reported paused even though the user
+has authorized continuation; no available status-update operation resumes it.
+
+Newest: [odor-identity engineering](docs/ODOR_IDENTITY_RESULTS.md) passes exact algebra and captured-code regeneration, with explicit pressure/neutral-transfer limits. The separately frozen [pursuit motor diagnostic](docs/PURSUIT_ACTION_AUTHORITY_RESULTS.md) failed legacy-fast superiority across sixteen fresh histories / eighty nonlearning worlds; complete cold replay and independent motor/energy arithmetic pass. Preserve its tied-survival artifact and separate exact-count working correction; the energy failure remains. All 186 tests pass. The renewed native goal is active and unachieved. Further work is direct, per user preference. No habitat was restarted; new source/evidence remains local and uncommitted.
+
+Latest continuation: [cue representation analysis](docs/CUE_MECHANISM_DIAGNOSIS.md) found exact odor collisions in 76/243 fixed contexts. The [original-transfer speed diagnostic](docs/TRANSFER_ACTION_AUTHORITY_RESULTS.md) completed sixteen fresh histories / 80 nonlearning worlds and failed its gate (1/3 energy comparisons, 2/3 mean-survival guards). Both audits and all 173 Node tests pass. Complete portable diagnostic archives are linked from those documents. No failed bank or reserved confirmation history was changed, and no saved habitat was restarted. The next obligation is an odor-identity preserving prospective mechanism and an independently justified transfer action interface; no learning qualification, autonomous revision or RSI is established. This continuation is local and uncommitted; earlier committed/pushed status below is historical.
+
 Latest checkpoint: [fixed cue-learning development failed](docs/CUE_LEARNING_RESULTS.md): 5/20 required development checks, 2/12 survival guards, 8/8 pressure and 8/8 activity checks. All 120 main worlds and 104 probes cold-replayed; independent Python rebuilt 320,703 transitions and 343,319 learned-policy decisions without warnings. All 169 tests pass. Before scoring, source review disclosed an always-accept transfer baseline paying for unused learner storage; original sources/data are preserved and the working correction is separately captured/tested. Its sixteen confirmation histories remain closed. Full learning/retention/transfer qualification and later recursive stages remain unachieved. The user requested continued work toward completion today; no scientific outcome or completion date is promised.
 
 Latest checkpoint: [cue/action authority](docs/CUE_ACTION_AUTHORITY_RESULTS.md) passed all eight declared statistical gates and six observed survival guards across 128 nonlearning worlds. Exact cold replay and independent reconstruction of 576,190 decisions/receipts passed. All 167 Node tests pass. [Plain-language tracker](docs/PROGRESS.md) separates completed work from demonstrated scientific success. The opt-in cue environment and learner/probe substrate are implemented; qualification of learned behavior remains next. No policy or RSI claim is promoted, and the four failed studies/reserves remain unchanged.

@@ -1,5 +1,212 @@
 # Handoff touched-file catalog
 
+Newest: docs/GATE_REPLAY_RESOURCE_ATTRIBUTION_RESULTS.md records the predeclared matched-RNG patch-write attribution. Runners/checkers/evidence: scripts/gate-replay-resource-attribution.mjs, scripts/check-gate-replay-resource-attribution.mjs, evidence/gate-replay-resource-attribution/20261026-v1. Both audits pass; no learner, qualification or reserve change.
+
+Newest: docs/SPATIAL_DIAGNOSTIC_RESULTS.md records three failed gates and causal
+diagnosis. Designs: docs/FEEDING_CONTEXT_DESIGN.md,
+docs/OVERLAP_HARVEST_DESIGN.md, docs/OVERLAP_CAUSAL_DIAGNOSIS.md,
+docs/GUARDED_OVERLAP_DESIGN.md. Implementations/runners/checkers:
+learning/feeding-context.mjs, learning/overlap-harvest.mjs,
+learning/guarded-overlap.mjs, scripts/feeding-context.mjs,
+scripts/check-feeding-context.py, scripts/overlap-harvest.mjs,
+scripts/diagnose-overlap.mjs, scripts/check-overlap.py,
+scripts/guarded-overlap.mjs, scripts/resume-guarded-overlap.mjs,
+scripts/check-guarded-overlap.mjs and corresponding tests.
+scripts/package-spatial-diagnostics.mjs preserves complete input tapes, sources,
+outcomes and interrupted captures as verified split standard gzip/tar chunks.
+Manifest: handoff/spatial-diagnostics-20261026/manifest.json.
+
+Newest: learning/alternative-target.mjs, scripts/alternative-target.mjs and
+tests/alternative-target.test.mjs preserve the failed richer target witness.
+learning/coverage-sarsa.mjs, learning/coverage-taste.mjs and
+learning/coverage-experiment.mjs integrate actual three-speed own-experience
+learning and stationary taste credit; scripts/coverage-development.mjs freezes
+the failed fixed comparison. tests/coverage-sarsa.test.mjs and
+tests/coverage-experiment.test.mjs cover action provenance, continuation,
+freezing, setup billing and extinction. Independent readers:
+scripts/check-alternative-target.py, scripts/check-coverage-development.py.
+Designs: docs/ALTERNATIVE_TARGET_DESIGN.md and
+docs/FULL_SPEED_ACQUISITION_DESIGN.md. Results/caveats:
+docs/COVERAGE_TARGET_RESULTS.md. Portable evidence:
+handoff/coverage-target-20261026/manifest.json, built and content-verified by
+scripts/package-coverage-target.py. Working taste constants are corrected after
+the v1 capture; never substitute working bytes for the frozen study sources.
+
+Newest: learning/pursuit-census.mjs and scripts/pursuit-census.mjs preserve
+observer-neutral actual acquisition/native-full episodes; learning/social-yield.mjs
+and scripts/social-yield.mjs test own-history social prediction. Corresponding
+tests, prospective design documents, docs/PURSUIT_SOCIAL_RESULTS.md and
+scripts/check-pursuit-social.py cover exact replay and independent frozen-model
+evaluation. handoff/pursuit-social-20261025/manifest.json preserves the complete
+raw tapes, frozen sources and original comparison inputs. No control gain or RSI.
+
+Newest: docs/ESCAPE_COMMITMENT_DESIGN.md and docs/ESCAPE_COMMITMENT_RESULTS.md
+record the fixed half-turn witness and failure. scripts/escape-commitment.mjs,
+tests/escape-commitment.test.mjs and the opt-in extension to
+learning/stall-transfer.mjs implement priced matched countdown/history control.
+scripts/check-escape-commitment.py independently checks prior-only selection,
+actuators, hashes and arithmetic. handoff/escape-commitment-20261025/manifest.json
+preserves the source-bound raw evidence and input anchors. This is not a full
+learner reconstruction, fresh qualification or RSI.
+
+Current checkpoint: `development/numeric-audit.json` and `summary.json` complete
+the direct-value verification. Both full audits pass; the candidate failed.
+`supplemental/value-exposure-cost-description.json` and its pooled companion
+describe all eight factual tapes. `docs/VALUE_EXPOSURE_DIAGNOSIS.md` gives the
+counts and interpretation limits. `handoff/value-development-audits-20261025/manifest.json`
+is the linked final audit/description/log/source supplement to the immutable
+222-file full data archive. The original PowerShell null-exit-code error and
+the tested handle-opening correction are both preserved. Older pending-state
+entries below are historical.
+
+`docs/STATIONARY_TASTE_CREDIT.md`, `learning/stationary-taste-credit.mjs` and
+`tests/stationary-taste-credit.test.mjs` specify and isolate a prospective lawful
+own-intake credit mechanism. Three targeted tests pass; this is not a complete
+learner, fresh performance result, qualification or autonomous revision.
+
+`development/inference-audit.json` in the direct-value study independently
+checks all endpoint effects/inference/guards on replay-bound rows and agrees
+with the failed score. `runs/audit-value-endpoint-inference.py` is its source;
+include the recorded extra runtime in final audit-budget accounting. The full
+policy/ledger numerical audit is still live and remains mandatory.
+
+`scripts/describe-value-development.py` is a read-only failed-bank exposure/
+cost/memory-origin description, guarded by both complete audit approvals.
+`tests/value-exposure-description.test.mjs` passes three named-fixture tests.
+The captured observer tool is queued by `runs/describe-value-after-audits.ps1`;
+read `.value-exposure-description-run.log` and inspect its actual process before
+starting duplicates. Exact replay has passed all eight histories; numerical
+reconstruction remains live and the description has not run on the real bank.
+
+`handoff/value-development-data-20261025/manifest.json` preserves all immutable
+collected/scored direct-value data (222 files / 116 chunks), with hash and full
+restore verification. `runs/package-value-collected-data.py` implements the
+explicit immutable allowlist and is itself preserved in observer tools. Final
+audits/logs/report are a subsequent linked supplement; both audits are still
+running. All 96 scored-bank confirmation histories remain closed.
+
+Latest result: `docs/VALUE_LEARNING_RESULTS.md` records the failed locked
+eight-history score and precise limits while both full audits run. Read
+`docs/VALUE_LEARNING_RUN.md` and `.value-development-pipeline.log` before starting
+duplicate audit work. The sixteen-history confirmation bank remains closed.
+
+Newest: `docs/VALUE_STUDY_PREFLIGHT.md`, `scripts/value-development.mjs`,
+`scripts/audit-value-development.py`, `tests/value-development-audit.test.mjs`
+and `handoff/value-study-preflight-20261025/manifest.json` preserve complete
+collector/source/exclusion/budget/reserve preflight, with 263/263 tests.
+`scripts/report-value-development.py` produces a factual summary only after
+both result-bound audits pass. The fresh source-frozen development study is
+collecting under `evidence/value-development/20261025-fixed-v1/`; confirmation
+is closed. No performance result is available at this checkpoint.
+`docs/VALUE_LEARNING_RUN.md` records the locked protocol and safe continuation;
+`handoff/value-development-freeze-20261025/manifest.json` preserves its complete
+immutable source/protocol/reserve/exclusion snapshot (242 verified files).
+`scripts/audit-development-reserves.py` checks current protocol/result archive
+bindings and closed failed/unfinished reserves. The live development finishing
+workflow is `runs/finish-value-development.ps1`; inspect its process and
+`.value-development-pipeline.log` before starting any duplicate scorer/audit.
+
+# Latest direct-value wrapper and prospective inference checkpoint
+
+- `docs/VALUE_CUE_WORLD_ENGINEERING.md`: independent wrapper coverage, precise
+  limitations, test evidence and restore/recheck commands.
+- `docs/VALUE_LEARNING_DEVELOPMENT.md`: proposed unchanged scientific gates,
+  26 comparisons, 23 survival guards, support, budgets and remaining preflight.
+- `learning/value-development.mjs`, `scripts/value-development-fixtures.mjs`,
+  `scripts/audit-value-statistics.py`, `scripts/value-inference-engineering.mjs`,
+  `tests/value-development.test.mjs`: prospective collection/scoring primitives
+  and independently checked invented inference fixtures.
+- `scripts/value-cue-engineering.mjs`, `scripts/audit-value-cue.py`,
+  `tests/value-cue-audit.test.mjs`: named full wrapper reconstruction and replay.
+- `handoff/value-cue-world-20261025/manifest.json`: portable wrapper and invented
+  inference evidence, captured sources, audits and actual test logs.
+
+Newest component/integration work adds `learning/tick-value.mjs`,
+`learning/value-cue-experiment.mjs`, three new test files, the synthetic
+`scripts/tick-value-engineering.mjs` tape/closure/replay entrypoint and
+`scripts/audit-tick-value.py`. Read [fixed value semantics](TICK_VALUE_DESIGN.md),
+[wrapper/probe conventions](VALUE_CUE_INTEGRATION.md) and
+[engineering scope/results](TICK_VALUE_ENGINEERING.md). Portable evidence:
+`handoff/tick-value-core-20261025/manifest.json`. It includes full component
+sources and separate captured integration sources; core arithmetic does not
+stand in for the still-required independent world-wrapper audit. All failed
+scientific banks and their unopened reserves remain unchanged.
+
+The new [policy/provenance diagnosis](TICK_POLICY_DIAGNOSIS.md) adds
+`learning/tick-policy-diagnosis.mjs`, `scripts/extract-tick-policy-diagnosis.py`,
+`scripts/tick-policy-diagnosis.mjs`, `scripts/audit-tick-policy-diagnosis.py`,
+`scripts/tick-consumption-provenance.mjs`, its independent Python auditor,
+capture/report scripts and two test files. `learning/contact-cue.mjs` and its
+tests implement only the isolated metered observation component; read
+[the prospective value design](CONTACT_CUE_VALUE_DESIGN.md) before integration.
+Portable new evidence: `handoff/tick-policy-diagnosis-20261025/manifest.json`.
+All frozen failed sources/results/archives and unopened reserves are unchanged.
+
+Final tick-campaign disposition: [failed and fully audited](TICK_LEARNING_RESULTS.md).
+Additional `scripts/audit-tick-development-supplemental.py` and its focused test
+preserve/correct only the near-zero endpoint residual mapping comparison while
+enforcing both original conservation bounds and every other check. The original
+frozen failure remains intact. `scripts/describe-tick-development.py` and
+[post-hoc exposure/credit description](TICK_LEARNING_DIAGNOSIS.md) summarize only
+the existing failed traces. `scripts/report-tick-development.py` derives the
+exclusive final summary only after both audit hashes pass. Complete portable
+bank: `handoff/tick-development-20261025/manifest.json`; separate artificial
+preflight: `handoff/tick-study-preflight-20261025/manifest.json`.
+
+The new fixed tick study adds `learning/tick-development.mjs`, the captured-source
+runner `scripts/tick-development.mjs`, streaming checker
+`scripts/audit-tick-development.py`, independent inference checker
+`scripts/audit-tick-statistics.py`, named artificial fixture generator
+`scripts/tick-development-fixtures.mjs` and two `tests/tick-development*.test.mjs`
+files. The wrapper checker admits incremental streaming without weakening its
+completed-fixture checks. Read [design](TICK_LEARNING_DEVELOPMENT.md) and
+[campaign record](TICK_LEARNING_RESULTS.md) before collecting, scoring or auditing.
+The frozen scientific bank is separate from preflight artificial evidence.
+
+2026-10-25 continuation adds `learning/tick-cue-pressure.mjs`,
+`scripts/tick-pressure-engineering.mjs`, `scripts/audit-tick-pressure.py`,
+`tests/tick-pressure.test.mjs` and [the prospective functional-pressure
+design](TICK_FUNCTIONAL_PRESSURE.md). The wrapper admits one additional A:B
+snapshot probe without changing its original fourteen specifications. Full
+goal tracking is active. Named artificial fixtures validate intervention,
+sham, debt/extinction and raw-effect arithmetic; actual pressure and the
+complete performance/statistical freeze remain unachieved.
+See [engineering validation](TICK_FUNCTIONAL_PRESSURE_ENGINEERING.md) and the
+portable `handoff/tick-pressure-20261025/manifest.json` for sources, both audits,
+the correction record and full 216-test zero-skip log.
+
+Newest wrapper audit adds `scripts/tick-cue-engineering.mjs`,
+`scripts/audit-tick-cue.py`, `tests/tick-cue-world-audit.test.mjs` and observer-only
+wrapper receipts. Read [scope/results](TICK_CUE_WORLD_ENGINEERING.md) first.
+`handoff/tick-cue-world-20261024/manifest.json` preserves complete captured local
+imports, the fixture record, both audits and the 211-test log. Earlier core
+evidence remains unchanged. Performance statistics and pressure remain next.
+
+The newest integration adds `learning/tick-cue-experiment.mjs`,
+`tests/tick-cue-experiment.test.mjs` and
+[continuing-world integration](TICK_CUE_INTEGRATION.md). It is separate from all
+frozen study sources. Read its debt/probe/reset-cost conventions before writing
+the independent wrapper checker or performance protocol.
+
+The newest candidate adds `learning/tick-actor-critic.mjs`,
+`tests/tick-actor-critic.test.mjs`,
+`scripts/tick-actor-critic-engineering.mjs`,
+`scripts/audit-tick-actor-critic.py` and
+`tests/tick-actor-critic-audit.test.mjs`. Read
+[component design](TICK_ACTOR_CRITIC_DESIGN.md) and
+[engineering scope/results](TICK_ACTOR_CRITIC_ENGINEERING.md) before integration.
+Its local source-bound tape is not a portable frozen performance study.
+
+The newest direct continuation adds `scripts/audit-cue-credit.mjs`,
+`tests/cue-credit.test.mjs` and [cue-credit diagnosis](CUE_CREDIT_DIAGNOSIS.md).
+The local engineering record is `evidence/cue-credit/20261024-v1/record.json`;
+the CLI can regenerate it to a fresh output path. This small deterministic
+diagnostic is not a portable frozen performance study or an independent audit.
+
+The next continuation adds [odor identity design/results](ODOR_IDENTITY_RESULTS.md), `learning/odor-identity.mjs`, its Node recorder, rational checker and exhaustive tests. The [odor archive](../handoff/odor-identity-20261024/manifest.json) preserves fixed codes, sources and checks. [Pursuit design/results](PURSUIT_ACTION_AUTHORITY_RESULTS.md), `learning/pursuit-authority.mjs`, frozen runner, independent per-tick motor/ledger checker and two test files cover the failed new diagnostic. Its [archive](../handoff/pursuit-authority-20261024/manifest.json) preserves original floating tied-guard behavior plus the separate exact-count working correction. Both this and the prior continuation remain local and uncommitted.
+
+The resumed diagnostic continuation adds [cue mechanism analysis](CUE_MECHANISM_DIAGNOSIS.md), [transfer action design](TRANSFER_ACTION_AUTHORITY.md) and [failed transfer result](TRANSFER_ACTION_AUTHORITY_RESULTS.md). New code is `learning/transfer-authority.mjs`, `scripts/transfer-authority.mjs`, the independent `scripts/audit-transfer-authority.py`, the deterministic `scripts/audit-cue-representation.mjs` / `.py` pair, and `tests/transfer-authority.test.mjs`. The [mechanism archive](../handoff/cue-mechanism-20261024/manifest.json) and [transfer archive](../handoff/transfer-authority-20261024/manifest.json) preserve recorded contexts, captured sources, traces, results, seed inputs, preflight checks and audits. Previous banks/reserves and archives remain unchanged. This continuation is local and uncommitted.
+
 The cue continuation adds [action-headroom design/results](CUE_ACTION_AUTHORITY_RESULTS.md), [fixed cue-learning design/results](CUE_LEARNING_RESULTS.md), and a [plain-language tracker](PROGRESS.md). `engine.mjs` has opt-in cue/toxin physics, physical receipts and the v8 checkpoint identity. `learning/cue-foraging.mjs` contains external assignments, controls, joint checkpoints and frozen probes; `learning/cue-development.mjs` declares contrasts/gates. New runners, independent policy/body/physical checkers, a descriptive exposure script and three focused test files cover both studies. Common billing/summaries are exported without changing old learners. The [action archive](../handoff/cue-authority-20261024/manifest.json) and [failed cue-learning archive](../handoff/cue-learning-20261024/manifest.json) preserve every original source, seed input, result and audit. The latter separately captures the pre-score fixed-control disclosure and working correction, without rewriting original data. Prior archives and confirmation reserves remain intact.
 
 The latest continuation adds [sparse-policy design](MUSHROOM_POLICY_DEVELOPMENT.md), [failed result](MUSHROOM_POLICY_RESULTS.md), and [task/action reassessment](EMBODIED_TASK_REASSESSMENT.md). New code is `learning/mushroom-body.mjs`, `learning/mushroom-development.mjs`, the frozen development runner, independent sparse-policy and inference checkers, supplemental exact-JSON physical auditor, report generator and focused tests. Common dispatch/summaries expose its synaptic compartments and complete work state. [The new archive](../handoff/mushroom-policy-20261024/manifest.json) preserves sources, seed registries, all outcomes/audits and the signed-zero failure/correction without changing older archives.

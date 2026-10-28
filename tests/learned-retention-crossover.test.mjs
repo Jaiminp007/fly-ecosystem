@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {OdorRoutedExperiment} from '../learning/odor-routed-experiment.mjs';
+import {installLearnedRetentionCrossover} from '../learning/learned-retention-crossover.mjs';
+import {VALUE_REFERENCE} from '../learning/value-development.mjs';
+
+test('retention crossover copies only selected paid components',()=>{
+  const history={seed:1172370180,cueSeed:779516274,resourceSeeds:[420032585,2354526836,3935934626,1347207440]},run=new OdorRoutedExperiment({history,reference:{...VALUE_REFERENCE,founders:4},acquisitionGeometry:'continual',steeringLearner:'cue-shared',steeringProtection:'protect',spatialSelector:'incremental',contactCueMode:'filter',cueTastePolicy:'shared-plus-cue',contactBandit:'learned'});run.advance(8);const anchor=run.checkpoint(false),taste=structuredClone(anchor),steering=structuredClone(anchor),gate=structuredClone(anchor);for(const fly of anchor.world.world.flies){taste.state.learners[fly.id].cueTaste.weights[0]=2;steering.state.learners[fly.id].steering.contextWeights[1][0][0]=3;gate.state.learners[fly.id].contactBandit.weights[1][0]=4;}
+  const options={phase:'A',seed:1004137408,modelAnchor:anchor,compactFrozen:true},control=OdorRoutedExperiment.fork(anchor,options),mixed=OdorRoutedExperiment.fork(anchor,options),before=structuredClone(control.learners),world=control.world.checkpoint();installLearnedRetentionCrossover(control,anchor,anchor,anchor);installLearnedRetentionCrossover(mixed,taste,steering,gate);assert.deepEqual(mixed.world.checkpoint(),world);
+  for(const fly of mixed.world.flies){const state=mixed.learners[fly.id],baseline=control.learners[fly.id],prior=before[fly.id];assert.equal(state.work.scalarOperations-prior.work.scalarOperations,340);assert.equal(baseline.work.scalarOperations-prior.work.scalarOperations,340);assert.equal(state.charge.incurredEnergy,baseline.charge.incurredEnergy);assert.equal(state.cueTaste.weights[0],2);assert.equal(state.steering.contextWeights[1][0][0],3);assert.equal(state.contactBandit.weights[1][0],4);assert.deepEqual(state.steering.support,prior.steering.support);assert.equal(state.contactBandit.rngState,prior.contactBandit.rngState);}
+  const invalid=structuredClone(anchor);invalid.state.contactBandit='random';assert.throws(()=>installLearnedRetentionCrossover(mixed,anchor,anchor,invalid));const restored=OdorRoutedExperiment.restore(mixed.checkpoint());mixed.advance(5);restored.advance(5);assert.deepEqual(mixed.checkpoint(),restored.checkpoint());
+});
