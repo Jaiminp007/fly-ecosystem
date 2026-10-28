@@ -17,6 +17,13 @@ inspected before continuing. Never duplicate executions or regenerate banks.
 - [ ] Harness Q path + synthetic tests (fresh seed range, disjoint from V1).
 - [ ] Runner V2 mode (N/Q gated, P descriptive, N->P + N->Q direct, Q exposure
   + translation assertions) + scorer tests. Full `npm test` green.
+- [x] 2026-10-28: Harness + runner + scorer + 12 new tests committed
+  (`6f3d51f`); learner flags zero-mismatch vs v2qual artifact (Gen1 R=4).
+  Full suite 485 tests: 473 pass, 4 pre-existing env/closure fails, 8 skipped.
+- [x] 2026-10-28: ONE V2 bank drawn `evidence/body-transfer/v2/fresh-01/`
+  (sha `47b44c62…`, 8 histories / 72 seeds, 19,943 excluded, 1,362 evidence
+  registries, 75 handoff sources; no overlap with V1 bank/test-banks or any
+  synthetic literal; committed force-add like V1). Next: single attempt.
 - [ ] Implementation freeze (flag verification vs v2 qualification artifact,
   source hashes incl. V2 plan). Then draw ONE V2 bank. Then single attempt.
 

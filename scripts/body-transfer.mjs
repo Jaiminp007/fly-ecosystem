@@ -418,7 +418,7 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
           if(bodyComplete(row,body)){
             console.log(JSON.stringify({stage:'skip',row:label,seed:history.seed,reason:`${body} complete on disk`}));continue;
           }
-          redoneSections.push(`${history.seed}:${body}`);
+          if(resume)redoneSections.push(`${history.seed}:${body}`);
           const arms={};
           let pStops=0,qExposure=0,qMoves=0;
           const emit=body==='P'
@@ -470,7 +470,7 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
         if(sharedComplete(row)){
           console.log(JSON.stringify({stage:'skip',row:'row-shared-direct',seed:history.seed,reason:'shared+direct complete on disk'}));continue;
         }
-        redoneSections.push(`${history.seed}:shared-direct`);
+        if(resume)redoneSections.push(`${history.seed}:shared-direct`);
         const {endpoint}=runMain(history,'nativeFullCruise','N');
         row.shared={endpoint};note(1,0,BT_TICKS,endpoint.scalarOperations);
         const atC=read(join(output,'anchors','N',`${history.seed}-C.json`));
@@ -515,8 +515,8 @@ export function runBodyTransfer({bankPath,output,resume=false,rescore=false}){
     compute:{totalScalarOperationsBurned:totalBurned,uniqueScalarOperations:ledger.scalarOperations},
     resume:resume?{resumed:true,ledgerApproximate:preload.approximate,reason:'Resume after interruption: sections complete on disk were skipped after verification; missing sections were recomputed deterministically from frozen history seeds.',redoneSections,instrumentRepair:{changedFiles:['scripts/body-transfer.mjs'],originalRunnerSha:savedAttempt.sourceSha256['scripts/body-transfer.mjs'],repairedRunnerSha:sources['scripts/body-transfer.mjs']}}:{resumed:false},
     scope:attempt.scope};
-  write(join(output,'results.json'),result);
-  console.log(JSON.stringify({verdict,attenuation:score.attenuation,transportContrast:score.transportContrast,gate7:{maxResidual:gate7.maxResidual,revivalViolations,nondegPMin:gate7.nondegPMin,nondegQMin:gate7.nondegQMin,qMovesMax:gate7.qMovesMax,outputBytes:gate7.outputBytes}}));
+  writeOver(join(output,'results.json'),result);
+  console.log(JSON.stringify({verdict,attenuation:score.attenuation,transportContrast:score.transportContrast,gate7:{maxResidual:gate7.maxResidual,revivalViolations:gate7.revivalViolations,nondegPMin:gate7.nondegPMin,nondegQMin:gate7.nondegQMin,qMovesMax:gate7.qMovesMax,outputBytes:gate7.outputBytes}}));
   return result;
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
