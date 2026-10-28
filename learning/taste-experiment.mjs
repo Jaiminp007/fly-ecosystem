@@ -125,11 +125,11 @@ export class TasteExperiment{
   }
 }
 
-export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=256,founders=24,body=null}){
+export function runTasteProbe(anchor,{family='A',version='current',seed,ticks=256,founders=24,body=null,emit=null}){
   assert.ok(['A','B','C','transfer'].includes(family)&&['A','B','C','current','reset','acceptCruise','acceptStationary','nativeFullCruise'].includes(version));assert.ok(validSeed(seed)&&ticks>=1&&ticks<=256);
   if(body!==null)assert.ok(['N','P','Q'].includes(body));
   if(!anchor)return {family,version,seed,founders,body:body??'N',survivors:0,value:0,skippedAllDead:true};
-  const run=TasteExperiment.restore(anchor);assert.equal(run.program,'taste');assert.equal(founders,run.founderIds.length);
+  const run=TasteExperiment.restore(anchor,emit);assert.equal(run.program,'taste');assert.equal(founders,run.founderIds.length);
   if(body!==null)run.body=body;
   const models=['A','B','C'].includes(version)?run.savedModels[version]:null;if(['A','B','C'].includes(version))assert.ok(models);
   for(const id of run.founderIds){const state=run.learners[id];if(fixed(version)){

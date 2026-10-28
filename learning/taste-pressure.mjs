@@ -9,14 +9,14 @@ export const TASTE_PRESSURE_SPECS=Object.freeze([
   ['transfer','current'],['transfer','reset'],['transfer','acceptCruise'],['transfer','acceptStationary']
 ].map(([family,version])=>Object.freeze({family,version})));
 
-export function runTastePressureBattery(anchor,history,{founders=24,ticks=256,existing={}}={}){
+export function runTastePressureBattery(anchor,history,{founders=24,ticks=256,existing={},emit=null}={}){
   const sourceCheckpointSha256=digest(anchor),probes={};
   for(const {family,version} of TASTE_PRESSURE_SPECS){
-    const key=`${family}:${version}`,result=existing[key]??runTasteProbe(anchor,{family,version,seed:history.probeSeeds[family],founders,ticks});
+    const key=`${family}:${version}`,result=existing[key]??runTasteProbe(anchor,{family,version,seed:history.probeSeeds[family],founders,ticks,emit:emit&&family==='A'?(e=>emit({probe:key,event:e})):null});
     assert.equal(result.family,family);assert.equal(result.version,version);assert.equal(result.seed,history.probeSeeds[family]);assert.equal(result.founders,founders);
     probes[key]=result;
   }
-  const sham=runTasteProbe(structuredClone(anchor),{family:'A',version:'A',seed:history.probeSeeds.A,founders,ticks});
+  const sham=runTasteProbe(structuredClone(anchor),{family:'A',version:'A',seed:history.probeSeeds.A,founders,ticks,emit:emit?(e=>emit({probe:'sham',event:e})):null});
   assert.deepEqual(sham,probes['A:A']);assert.equal(digest(anchor),sourceCheckpointSha256);
   for(const family of ['A','B','transfer'])assert.equal(new Set(Object.entries(probes).filter(([k])=>k.startsWith(family+':')).map(([,p])=>p.startWorldSha256)).size,1);
   return {schema:1,kind:'taste-functional-pressure',sourceCheckpointSha256,founders,probes,sham};
