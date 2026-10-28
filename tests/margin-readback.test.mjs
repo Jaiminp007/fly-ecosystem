@@ -56,7 +56,7 @@ test('flag-on emits shaped motor-margin records, bills exactly 2+motorDimensions
 });
 
 test('collector accepts wrapped and raw motor-margin, counts bad records, ignores other types',()=>{
-  const c=collectMarginReadback();
+  const c=collectMarginReadback(16);
   const good={type:'update',event:{type:'motor-margin',record:{tick:1,cruise:true,baseProbability:.62,probability:.608,phi:Array.from({length:16},(_,j)=>j===0?1:0)}}};
   c.emit({probe:'A:current',event:good});
   c.emit({type:'update',event:{type:'motor-margin',record:{tick:2,cruise:false,baseProbability:.5,probability:.5,phi:Array(16).fill(0)}}});
@@ -68,4 +68,21 @@ test('collector accepts wrapped and raw motor-margin, counts bad records, ignore
   assert.equal(s.n,1);assert.equal(s.events,3);assert.equal(s.bad,2);
   assert.ok(Number.isFinite(s.meanMargin)&&s.nearFrac>=0);
   assert.equal(c.summarize(c.perProbe.main).n,1);
+});
+
+test('collector is dims-aware: ecology 96-dim accepted, wrong length bad, stream seen without margins',()=>{
+  const c=collectMarginReadback(96);
+  const rec96={type:'update',event:{type:'motor-margin',record:{tick:1,cruise:true,baseProbability:.62,probability:.608,phi:Array.from({length:96},(_,j)=>j===0?1:0)}}};
+  c.emit({probe:'A:current',event:rec96});
+  c.emit({probe:'A:current',event:rec96});
+  const s=c.summarize(c.perProbe['A:current']);
+  assert.equal(s.n,2);assert.equal(s.bad,0);assert.equal(s.phiLength,96);
+  assert.ok(s.blocks[0]>=2);assert.ok(Number.isFinite(s.meanMargin));
+  // 16-dim record under 96 expectation is bad, not counted.
+  c.emit({probe:'A:current',event:{type:'update',event:{type:'motor-margin',record:{tick:3,cruise:true,baseProbability:.6,probability:.59,phi:Array(16).fill(0)}}}});
+  assert.equal(c.summarize(c.perProbe['A:current']).bad,1);
+  // Reset-style stream: decision records observed (seen) but zero margin events.
+  c.emit({probe:'A:reset',event:{type:'decision',own:null,action:0,outputs:[0,0],requestedExtra:0}});
+  const r=c.summarize(c.perProbe['A:reset']);
+  assert.ok(r.seen>0&&r.n===0&&r.events===0);
 });

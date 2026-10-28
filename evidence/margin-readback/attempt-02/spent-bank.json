@@ -1,0 +1,95 @@
+{
+  "history": 3101318742,
+  "anchorDigestBefore": "8c8deac11c60249ba47a10f96653f76a359ebc5f93d775926ebd6ab00429cddd",
+  "anchorDigestAfter": "8c8deac11c60249ba47a10f96653f76a359ebc5f93d775926ebd6ab00429cddd",
+  "survivors": {
+    "A:A": 8,
+    "A:B": 8,
+    "A:current": 8,
+    "A:reset": 6,
+    "B:A": 6,
+    "B:B": 9,
+    "B:current": 10,
+    "B:reset": 5,
+    "transfer:current": 14,
+    "transfer:reset": 14,
+    "transfer:acceptCruise": 14,
+    "transfer:acceptStationary": 12
+  },
+  "perProbe": {
+    "A:A": {
+      "n": 2890,
+      "events": 2890,
+      "seen": 11560,
+      "bad": 0,
+      "meanMargin": 0.1711088192775388,
+      "nearFrac": 0.34878892733564015,
+      "blocks": {
+        "0": 2101,
+        "1": 383,
+        "2": 339,
+        "3": 67
+      },
+      "phiLength": 96
+    },
+    "A:B": {
+      "n": 2966,
+      "events": 2966,
+      "seen": 11864,
+      "bad": 0,
+      "meanMargin": 0.15106369525612626,
+      "nearFrac": 0.3914362778152394,
+      "blocks": {
+        "0": 2259,
+        "1": 368,
+        "2": 262,
+        "3": 77
+      },
+      "phiLength": 96
+    },
+    "A:current": {
+      "n": 2941,
+      "events": 2941,
+      "seen": 11764,
+      "bad": 0,
+      "meanMargin": 0.1984759335098182,
+      "nearFrac": 0.07004420265215913,
+      "blocks": {
+        "0": 2238,
+        "1": 339,
+        "2": 303,
+        "3": 61
+      },
+      "phiLength": 96
+    },
+    "A:reset": {
+      "n": 2420,
+      "events": 2420,
+      "seen": 9680,
+      "bad": 0,
+      "meanMargin": 0.24999999999999994,
+      "nearFrac": 0,
+      "blocks": {
+        "0": 589,
+        "1": 1663,
+        "3": 168
+      },
+      "phiLength": 96
+    },
+    "sham": {
+      "n": 2890,
+      "events": 2890,
+      "seen": 11560,
+      "bad": 0,
+      "meanMargin": 0.1711088192775388,
+      "nearFrac": 0.34878892733564015,
+      "blocks": {
+        "0": 2101,
+        "1": 383,
+        "2": 339,
+        "3": 67
+      },
+      "phiLength": 96
+    }
+  }
+}

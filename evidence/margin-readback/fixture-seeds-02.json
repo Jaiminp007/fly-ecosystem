@@ -1,0 +1,14 @@
+{
+  "scope": "D1-FIX synthetic fixture seeds. Zero bank contact; union-excluded via evidence-JSON scan. Spent on first use; never a qual/dev bank.",
+  "spentFixtureSeeds": [
+    380011,
+    380012,
+    380013,
+    380014,
+    380015,
+    380016,
+    380017,
+    380018,
+    380019
+  ]
+}

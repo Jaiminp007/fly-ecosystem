@@ -9,6 +9,18 @@ mechanism, ELSEWHERE/H2 branches) +
 `docs/MOTOR_ANCHOR_RESULTS_V1_DEV.md` (DEV-NOGO, D1 gap preserved) — neither
 re-litigated here.
 
+## D1-FIX V2 (2026-10-28)
+
+Attempt-02 executed (17 exec, within caps) → verdict NO-GO per frozen bars
+(G1 ✓ 1024/1024 bad=0 phi96, G2 ✗ premise-false, G3 ✓ |Δv+billed|=1.04e-13,
+G4 ✓ 5 keys bad=0 digest unchanged, G5 ✓). Read-only correction: version
+`'reset'` is taste-program (zeroed weights), NOT fixed — its stream is a
+perfect zero-weight positive control (constant 0.75 → margin exactly 0.25,
+both synthetic and spent rows; sham==A:A sanity holds). Genuine
+fixed-program negative never tested → V3 authorized (G2neg acceptStationary
++ G2pos reset-constant, fresh seeds 380021+, third spent row 604620731).
+V2 CLOSED as a negative. Full record: `docs/MARGIN_READBACK_RESULTS_V2.md`.
+
 ## D1-FIX V1 (2026-10-28)
 
 Attempt-01 executed (17 exec, within caps) → verdict NO-GO per frozen bars
