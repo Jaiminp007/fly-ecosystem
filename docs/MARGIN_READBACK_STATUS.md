@@ -9,6 +9,19 @@ mechanism, ELSEWHERE/H2 branches) +
 `docs/MOTOR_ANCHOR_RESULTS_V1_DEV.md` (DEV-NOGO, D1 gap preserved) — neither
 re-litigated here.
 
+## D1-FIX V3 (2026-10-28)
+
+Attempt-03 executed (18 exec, within caps) → computed NO-GO
+(G1 ✓, G2neg ✓, G2pos ✗, G3 ✓, G4 ✓, G5 ✓). Read-only correction: G2pos's
+single failing clause references a nonexistent live field (`re.meanMargin`
+→ NaN); ledgered evidence satisfies EVERY bar (reset n=1024 bad=0
+min===max TRUE |mean−.25|=2.8e-17). Execution incident disclosed: first
+invocation crashed on fixed+emit (fixedBody has no config); 1-line
+behavior-identical guard applied, triage re-run clean, single WRITTEN
+attempt on plan seeds; 4 crashed executions ledgered, zero output observed.
+Acceptance decided by frozen V4 RECOMPUTATION (zero worlds/seeds), not by
+re-run. Full record: `docs/MARGIN_READBACK_RESULTS_V3.md`.
+
 ## D1-FIX V2 (2026-10-28)
 
 Attempt-02 executed (17 exec, within caps) → verdict NO-GO per frozen bars

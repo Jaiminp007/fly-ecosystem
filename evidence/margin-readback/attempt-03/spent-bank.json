@@ -1,0 +1,105 @@
+{
+  "history": 604620731,
+  "anchorDigestBefore": "9198d42632364ac40fc0d033a6ca2a4958f0c382b851a2541eafafec3bf8425f",
+  "anchorDigestAfter": "9198d42632364ac40fc0d033a6ca2a4958f0c382b851a2541eafafec3bf8425f",
+  "survivors": {
+    "A:A": 11,
+    "A:B": 11,
+    "A:current": 11,
+    "A:reset": 8,
+    "B:A": 9,
+    "B:B": 11,
+    "B:current": 11,
+    "B:reset": 9,
+    "transfer:current": 15,
+    "transfer:reset": 15,
+    "transfer:acceptCruise": 16,
+    "transfer:acceptStationary": 16
+  },
+  "perProbe": {
+    "A:A": {
+      "n": 3410,
+      "events": 3410,
+      "seen": 13640,
+      "bad": 0,
+      "meanMargin": 0.1616466437250894,
+      "minMargin": 0.0027918642421522755,
+      "maxMargin": 0.27044164552460914,
+      "nearFrac": 0.3255131964809384,
+      "blocks": {
+        "0": 2580,
+        "1": 405,
+        "2": 376,
+        "3": 49
+      },
+      "phiLength": 96
+    },
+    "A:B": {
+      "n": 3514,
+      "events": 3514,
+      "seen": 14056,
+      "bad": 0,
+      "meanMargin": 0.1517851890197239,
+      "minMargin": 0.00002101943298682407,
+      "maxMargin": 0.3254856792956745,
+      "nearFrac": 0.4348321001707456,
+      "blocks": {
+        "0": 2299,
+        "1": 622,
+        "2": 505,
+        "3": 88
+      },
+      "phiLength": 96
+    },
+    "A:current": {
+      "n": 3440,
+      "events": 3440,
+      "seen": 13760,
+      "bad": 0,
+      "meanMargin": 0.178071699933746,
+      "minMargin": 0.00020904199710292115,
+      "maxMargin": 0.35827077959002596,
+      "nearFrac": 0.24680232558139534,
+      "blocks": {
+        "0": 2721,
+        "1": 459,
+        "2": 182,
+        "3": 78
+      },
+      "phiLength": 96
+    },
+    "A:reset": {
+      "n": 2949,
+      "events": 2949,
+      "seen": 11796,
+      "bad": 0,
+      "meanMargin": 0.24999999999999997,
+      "minMargin": 0.2499999999999999,
+      "maxMargin": 0.2499999999999999,
+      "nearFrac": 0,
+      "blocks": {
+        "0": 721,
+        "1": 2063,
+        "3": 165
+      },
+      "phiLength": 96
+    },
+    "sham": {
+      "n": 3410,
+      "events": 3410,
+      "seen": 13640,
+      "bad": 0,
+      "meanMargin": 0.1616466437250894,
+      "minMargin": 0.0027918642421522755,
+      "maxMargin": 0.27044164552460914,
+      "nearFrac": 0.3255131964809384,
+      "blocks": {
+        "0": 2580,
+        "1": 405,
+        "2": 376,
+        "3": 49
+      },
+      "phiLength": 96
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "anchorDigest": "e41b90972c825449a4a365f0229a76589063e75dbc0b0287d64864de700c46d0",
+  "survivorsAnchor": 4,
+  "withEmit": {
+    "survivors": 4,
+    "value": -9.414137941866393,
+    "ops": 4224344,
+    "perProbe": {
+      "A:current": {
+        "n": 1024,
+        "events": 1024,
+        "seen": 4096,
+        "bad": 0,
+        "meanMargin": 0.10586587387826038,
+        "minMargin": 0.00013259739690407724,
+        "maxMargin": 0.2499999999999999,
+        "nearFrac": 0.5361328125,
+        "blocks": {
+          "0": 790,
+          "1": 114,
+          "2": 113,
+          "3": 7
+        },
+        "phiLength": 96
+      }
+    }
+  },
+  "noEmit": {
+    "survivors": 4,
+    "value": -9.406759118336915,
+    "ops": 4123992
+  },
+  "reset": {
+    "survivors": 4,
+    "perProbe": {
+      "A:reset": {
+        "n": 1024,
+        "events": 1024,
+        "seen": 4096,
+        "bad": 0,
+        "meanMargin": 0.24999999999999997,
+        "minMargin": 0.2499999999999999,
+        "maxMargin": 0.2499999999999999,
+        "nearFrac": 0,
+        "blocks": {
+          "0": 193,
+          "1": 738,
+          "3": 93
+        },
+        "phiLength": 96
+      }
+    }
+  }
+}

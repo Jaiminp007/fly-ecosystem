@@ -86,3 +86,16 @@ test('collector is dims-aware: ecology 96-dim accepted, wrong length bad, stream
   const r=c.summarize(c.perProbe['A:reset']);
   assert.ok(r.seen>0&&r.n===0&&r.events===0);
 });
+
+test('collector tracks min/max margins; bit-constant zero-weight stream has min===max',()=>{
+  const c=collectMarginReadback(96);
+  const mk=bp=>({probe:'A:reset',event:{type:'update',event:{type:'motor-margin',record:{tick:1,cruise:true,baseProbability:bp,probability:bp,phi:Array(96).fill(0)}}}});
+  c.emit(mk(0.75));c.emit(mk(0.75));c.emit(mk(0.75));
+  const s=c.summarize(c.perProbe['A:reset']);
+  assert.equal(s.n,3);assert.equal(s.bad,0);
+  assert.equal(s.minMargin,s.maxMargin);assert.equal(s.minMargin,0.25);
+  const d=collectMarginReadback(96);
+  d.emit(mk(0.75));d.emit({probe:'A:reset',event:{type:'update',event:{type:'motor-margin',record:{tick:2,cruise:false,baseProbability:0.6,probability:0.59,phi:Array(96).fill(0)}}}});
+  const t=d.summarize(d.perProbe['A:reset']);
+  assert.ok(t.minMargin<t.maxMargin);assert.equal(t.n,2);
+});

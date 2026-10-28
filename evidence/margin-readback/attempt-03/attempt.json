@@ -1,0 +1,36 @@
+{
+  "kind": "margin-readback-attempt",
+  "plan": "docs/MARGIN_READBACK_PLAN_V3.md",
+  "singleAttempt": true,
+  "supersedes": "evidence/margin-readback/attempt-02 (NO-GO per V2 bars, G2 premise false; preserved, not rescored)",
+  "sources": {
+    "learning/taste-energy.mjs": "53681ea706db5bb104eeea6ee0556522565b55c946cdeaf2572f6669f176c3f9",
+    "learning/taste-experiment.mjs": "446830b9f779f171d284bd7a18a1249cec705e06f94e45676da3b4ce38ef10d3",
+    "scripts/margin-readback-check.mjs": "30a5198f977a232a727b7394af1719453c68ec6bdf13fc753a79046c88e0ce31"
+  },
+  "fixtureSeeds": [
+    380021,
+    380022,
+    380023,
+    380024,
+    380025,
+    380026,
+    380027,
+    380028,
+    380029
+  ],
+  "spentBank": {
+    "protocol": "evidence/body-transfer/v2/fresh-01/protocol.json",
+    "history": 604620731,
+    "label": "MEASUREMENT"
+  },
+  "verdict": {
+    "G1_synthEmit": true,
+    "G2neg_fixedProgram": true,
+    "G2pos_resetConstant": false,
+    "G3_synthBilling": true,
+    "G4_spentEmit": true,
+    "go": false
+  },
+  "wallMs": 4414
+}
