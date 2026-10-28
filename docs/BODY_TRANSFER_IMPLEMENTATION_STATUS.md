@@ -69,15 +69,17 @@ before continuing. Never duplicate executions or regenerate banks.
   6ee9b1d4…, taste-energy 24b91847…, pursuit-authority 0c2b55cf…,
   taste-pressure a1604a8a…, body-transfer.test 35f4f826…,
   body-transfer-score.test 7b541746…, plan 04f66e61… (42-file manifest).
-- Bank hash: none (not drawn).
+- Bank hash: d21fb50a… (`evidence/body-transfer/v1/fresh-01/protocol.json`):
+  8 histories / 72 fresh seeds, 19,791 excluded, 1,359 evidence registries,
+  75 handoff sources. Drawn once 2026-10-28 post-freeze; never regenerate.
 
 ## Execution ledger
-- Worlds run for the study: 0 / 440. Study bank seeds spent: none.
+- Worlds run for the study: 0 / 440. Study bank seeds spent: 72 (fresh-01).
 - Pre-freeze synthetic worlds only (2-founder, <=5 ticks, seeds 355001-355009).
 
 ## Spent seeds
 - 355001-355009 (synthetic harness checks; must remain excluded via test-file scan).
 
 ## Next action
-1. Draw the ONE real bank (single), record hash, commit. THEN run attempt-01.
+1. Run the single authorized attempt-01 (440 executions) on fresh-01.
 2. Independent audit, publish `docs/BODY_TRANSFER_RESULTS_V1.md`, update PROGRESS.
