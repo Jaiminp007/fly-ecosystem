@@ -134,3 +134,16 @@ inspected before continuing. Never duplicate executions or regenerate banks.
   untested two-timescale machinery, (3) Option B new sense (localResourceSense
   amount channel, currently unimported).
 - Diagnostic committed locally; NOT pushed to PR #3 (kept as V1+V2 ship).
+
+## V3 line opened: slow-direction anchor (2026-10-28, DESIGN ONLY)
+- Frozen plan `docs/BODY_TRANSFER_PLAN_V3.md`: first line to protect readout
+  *direction* (slow-EMA rotation-damped anchor, μ=1e-3, λ∈{0,0.02,0.08}) rather
+  than reallocate rehearsal volume. Explicitly-identified revised learner
+  (Gen1 R=4 + anchor; λ=0 bit-identical default). N+Q gated, P dropped (spent),
+  same 7 V2 gates/bars, refusal criteria unchanged.
+- Two phases: D (one 32-seed dev bank, N-only, predeclared go bar
+  ΔA-ret≥+0.15 / B≥−0.10 / level≥−0.20 / alignment strictly up, else CLOSE) then
+  Q (one fresh 72-seed bank, 432 executions, single attempt + audit) iff D goes.
+  Worst case 708 executions. No qual seeds touched; no code written yet.
+- Next action: implement anchor in taste-energy.mjs (opt-in flag, billed ops,
+  checkpointed) + synthetic tests on fresh 37700x range → freeze → Phase D.
