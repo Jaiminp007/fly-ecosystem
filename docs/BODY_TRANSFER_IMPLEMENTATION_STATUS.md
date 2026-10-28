@@ -147,3 +147,17 @@ inspected before continuing. Never duplicate executions or regenerate banks.
   Worst case 708 executions. No qual seeds touched; no code written yet.
 - Next action: implement anchor in taste-energy.mjs (opt-in flag, billed ops,
   checkpointed) + synthetic tests on fresh 37700x range → freeze → Phase D.
+
+## V3 implementation (2026-10-28, synthetic only, no banks/worlds)
+- Anchor implemented in `learning/taste-energy.mjs`: opt-in `slowAnchorRate` /
+  `slowAnchorStrength` (default 0 = Gen1 bit-identical), EMA slow vector
+  `weights.slowDir`, rotation-only pull `+λ(s/|w||s| − w·c/|w|²)` skipped while
+  either norm is zero, all ops billed, checkpointed/restored/reset; scoped to
+  single-readout configs (streams>1/phaseSlots>1 + λ>0 throws).
+- `tests/taste-anchor.test.mjs` 6/6 green on fresh 377001-377006 range
+  (bit-identity, billing floor, rotation property, zero-slow guard, restore,
+  reset, combo rejection). Full suite: 491 tests, 479 pass, 4 fail
+  PRE-EXISTING (reconstruction/closure audits 356/357/481/482 — same class as
+  before, numbers shifted by the 6 new tests), 8 skipped.
+- Next: freeze record → Phase-D dev instrument (`scripts/body-transfer-dev.mjs`,
+  new code under V3 plan) → ONE 32-seed dev bank → 276 executions → go/no-go.
