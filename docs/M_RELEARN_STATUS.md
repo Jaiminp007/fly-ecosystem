@@ -11,7 +11,9 @@ minimize ticks-to-criterion. Retention was a means; speed is the end.
   (385001–385054) with per-tick curves stored raw + same-context criterion
   (80% of candidate same-tick, 8-tick sustain, per-tick death guard);
   verdict rule median ≤64 → real ceiling-proof/close, >64 → gap → V1b
-  picks one family, 100% censored → close as design failure. No new
-  machinery. Instrument ready (per-tick scorer, smoked; bank fresh-02
-  pre-built 385001–385054; triage clean). Next: single V1a attempt
-  (24 mains, zero probes) via module import.
+  picks one family, 100% censored → close as design failure. V1a EXECUTED
+  → CEILING-PROVEN, line CLOSED: ticks-to-80% = 0 on all 12 episodes
+  (per-tick, reachable criterion). Wipe costs literally 0 ticks; zeroed ≡
+  trained behaviorally from tick one (greedy cruise dominates) — explains
+  transfer fails, retention nulls, reset≈candidate, exploration-tax gains.
+  No V1b. 24 mains, all caps, no crash. RESULTS_V1A.
