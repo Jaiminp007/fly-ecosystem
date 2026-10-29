@@ -12,5 +12,6 @@ minimize ticks-to-criterion. Retention was a means; speed is the end.
   (80% of candidate same-tick, 8-tick sustain, per-tick death guard);
   verdict rule median ≤64 → real ceiling-proof/close, >64 → gap → V1b
   picks one family, 100% censored → close as design failure. No new
-  machinery. Next: extend dev instrument (raw curves + new scorer) +
-  smoke + triage, then the single V1a attempt.
+  machinery. Instrument ready (per-tick scorer, smoked; bank fresh-02
+  pre-built 385001–385054; triage clean). Next: single V1a attempt
+  (24 mains, zero probes) via module import.
