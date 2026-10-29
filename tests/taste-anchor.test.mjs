@@ -16,6 +16,7 @@ test('anchor default off is bit-identical to Gen1 (weights and billing)',()=>{
 
 test('anchor on bills extra ops and moves the trajectory',()=>{
   const c=createTasteEnergyBody(377002,377002),d=createTasteEnergyBody(377002,377002,{slowAnchorRate:1e-3,slowAnchorStrength:.08});
+  d.motorPending={tick:1,phi:Array(16).fill(0),cruise:true,baseProbability:0.9,probability:0.9,initialEnergy:50}; // fail-closed gate needs a pending decision
   assert.ok(Array.isArray(d.weights.slowDir)&&d.weights.slowDir.every(v=>v===0));
   for(let k=0;k<20;k++){tasteUpdate(c,rec(k%11,.5),'live',()=>{});tasteUpdate(d,rec(k%11,.5),'live',()=>{});}
   assert.ok(d.work.scalarOperations>c.work.scalarOperations);
@@ -28,6 +29,7 @@ test('anchor pull is rotation-only: raises alignment faster than control',()=>{
   const run=(s,steps)=>{for(let k=0;k<steps;k++)tasteUpdate(s,{phi:Array.from({length:11},(_,j)=>j===0?.5:.05*(j+1)),target:1},'live',()=>{});};
   const c=mk(0),d=mk(.08);
   for(const s of [c,d]){s.weights.taste=[1,...Array(10).fill(0)];}
+  d.motorPending={tick:1,phi:Array(16).fill(0),cruise:true,baseProbability:0.9,probability:0.9,initialEnergy:50}; // fail-closed gate needs a pending decision
   d.weights.slowDir=[0,1,...Array(9).fill(0)];
   const cos0=cos(d.weights.taste,d.weights.slowDir);
   run(c,1);run(d,1);
@@ -38,6 +40,7 @@ test('anchor pull is rotation-only: raises alignment faster than control',()=>{
 
 test('zero slow norm skips the pull (no NaN) while the EMA tracks',()=>{
   const s=createTasteEnergyBody(377004,377004,{slowAnchorRate:1e-3,slowAnchorStrength:.08});
+  s.motorPending={tick:1,phi:Array(16).fill(0),cruise:true,baseProbability:0.9,probability:0.9,initialEnergy:50}; // fail-closed gate needs a pending decision
   tasteUpdate(s,rec(0,.5),'live',()=>{});
   assert.ok(s.weights.taste.every(Number.isFinite));
   assert.ok(s.weights.slowDir.some(v=>v!==0));
@@ -46,7 +49,9 @@ test('zero slow norm skips the pull (no NaN) while the EMA tracks',()=>{
 
 test('anchor state survives checkpoint restore and clears on reset',()=>{
   let s=createTasteEnergyBody(377005,377005,{slowAnchorRate:1e-3,slowAnchorStrength:.02});
+  s.motorPending={tick:1,phi:Array(16).fill(0),cruise:true,baseProbability:0.9,probability:0.9,initialEnergy:50}; // fail-closed gate needs a pending decision
   for(let k=0;k<5;k++)tasteUpdate(s,rec(k,.5),'replay',()=>{});
+  s.motorPending=null; // synthetic pending opened the gate; restore sees probe-like clean state
   s=restoreTasteEnergyBody(JSON.parse(JSON.stringify(s)));
   assert.ok(s.weights.slowDir.some(v=>v!==0));
   resetTasteEnergyBody(s);
