@@ -49,6 +49,14 @@ test('billing uniform: gate eval exactly 3 ops, anchor only when open',()=>{
   assert.equal(gi.work.scalarOperations,run(0.2,0.55).work.scalarOperations);
 });
 
+test('null survives JSON checkpoint restore (off-encoding); undefined still compats to open',()=>{
+  for(const tau of [null,0,0.2]){
+    const s=createTasteEnergyBody(11,11,{slowAnchorRate:.5,slowAnchorStrength:1,marginGateTau:tau});
+    const r=restoreTasteEnergyBody(JSON.parse(JSON.stringify(s)));
+    assert.equal(r.config.marginGateTau,tau);
+  }
+});
+
 test('invalid tau rejected (negative, NaN, Infinity)',()=>{
   assert.throws(()=>createTasteEnergyBody(11,11,{marginGateTau:-1}));
   assert.throws(()=>createTasteEnergyBody(11,11,{marginGateTau:NaN}));

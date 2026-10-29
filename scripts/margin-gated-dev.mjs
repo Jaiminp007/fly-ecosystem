@@ -61,12 +61,22 @@ export function marginGatedDevSources(){
     'docs/MARGIN_GATED_PLAN_V1A.md','docs/MARGIN_GATED_PLAN_V1B.md','docs/MARGIN_GATED_PLAN_V1C.md'])visit(resolve(root,name));
   return found;
 }
+function priorEvidenceSeeds(){
+  const into=new Set();
+  const seedWalk=(v,k)=>{if(Array.isArray(v))for(const x of v)seedWalk(x,k);
+    else if(v&&typeof v==='object')for(const[kk,vv]of Object.entries(v))seedWalk(vv,/seed/i.test(kk)?kk:k);
+    else if(/seed/i.test(k)&&Number.isInteger(v)&&v>0&&v<=0xffffffff)into.add(v);};
+  const walkFs=dir=>{for(const e of readdirSync(dir,{withFileTypes:true})){const p=join(dir,e.name);
+    if(e.isDirectory())walkFs(p);else if(e.name.endsWith('.json')){try{seedWalk(JSON.parse(readFileSync(p,'utf8')),'');}catch{}}}};
+  walkFs(join(root,'evidence'));return into;
+}
 export function marginGatedDevBank(path){
   if(existsSync(path)){const p=read(path);assert.equal(p.experiment,G_EXPERIMENT);return p;}
   const {excluded,registries,engineering,handoffSources}=bodyTransferExclusions();
   for(const t of gateExtraTokens())excluded.add(t);
   for(const s of G_SPENT_SEEDS)excluded.add(s);
-  for(const s of G_FIXTURE_SEEDS)assert.ok(!excluded.has(s),`Fixture seed ${s} already spent`);
+  const prior=priorEvidenceSeeds();
+  for(const s of G_FIXTURE_SEEDS)assert.ok(!prior.has(s),`Fixture seed ${s} already used in prior evidence`);
   const histories=G_FIXTURE_SEEDS.length/G_HISTORIES===9?Array.from({length:G_HISTORIES},(_,h)=>{
     const s=G_FIXTURE_SEEDS.slice(h*9,h*9+9);
     return {seed:s[0],cueSeed:s[1],resourceSeeds:s.slice(2,6),probeSeeds:{A:s[6],B:s[7],transfer:s[8]}};
@@ -213,6 +223,9 @@ export function runMarginGatedDev({bankPath,output,resume=false}){
     runtimes[tag]={wall,cpuS};checkpointLedger();
   }
   assert.deepEqual(marginGatedDevSources(),sources,'Sources changed during dev run');
+  // V1d dual provenance: on resume, the attempt started under different
+  // sources (disclosed instrument fix). Attempt record holds the start set.
+  const executionSources=resume?read(join(outputAbs,'attempt.json')).sourceSha256:sources;
   assert.ok((Date.now()-t0)/1000<=G_WALL_CAP_SECONDS,'Dev aggregate wall cap breached');
   // G1: pool control-candidate relevance recs across histories.
   const pool=rows.filter(r=>r.tag==='tau-null').flatMap(r=>r.relevance.recs);
@@ -244,7 +257,7 @@ export function runMarginGatedDev({bankPath,output,resume=false}){
     go:g1.go&&g2.go,verdict:(g1.go&&g2.go)?'DEV-GO':'DEV-NOGO'};
   assert.equal(ledger.mains,G_EXPECT_MAINS,'Dev mains count mismatch');
   assert.equal(ledger.probes,G_EXPECT_PROBES,'Dev probes count mismatch');
-  writeOver(join(outputAbs,'dev-results.json'),{perTau,g1,g2,g3,decision,ledger,runtimes,redone});
+  writeOver(join(outputAbs,'dev-results.json'),{perTau,g1,g2,g3,decision,ledger,runtimes,redone,executionSources,scoringSources:sources});
   return {perTau,g1,g2,g3,decision,ledger};
 }
 const args=Object.fromEntries(process.argv.slice(2).map((a,i,arr)=>a.startsWith('--')?[a.slice(2),arr[i+1]&&!arr[i+1].startsWith('--')?arr[i+1]:true]:[]).filter(x=>x.length));
