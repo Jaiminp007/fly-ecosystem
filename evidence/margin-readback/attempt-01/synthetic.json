@@ -1,0 +1,37 @@
+{
+  "anchorDigest": "9ba8d55714bbe12489dd6a822d8ead05a4eabd77f204c1d2a0189683c592d93f",
+  "survivorsAnchor": 4,
+  "withEmit": {
+    "survivors": 4,
+    "value": -7.281541696149418,
+    "ops": 4223734,
+    "perProbe": {
+      "main": {
+        "n": 0,
+        "events": 1024,
+        "bad": 1024,
+        "meanMargin": null,
+        "nearFrac": null,
+        "blocks": {}
+      }
+    }
+  },
+  "noEmit": {
+    "survivors": 4,
+    "value": -7.274162872620266,
+    "ops": 4123382
+  },
+  "reset": {
+    "survivors": 4,
+    "perProbe": {
+      "main": {
+        "n": 0,
+        "events": 1024,
+        "bad": 1024,
+        "meanMargin": null,
+        "nearFrac": null,
+        "blocks": {}
+      }
+    }
+  }
+}

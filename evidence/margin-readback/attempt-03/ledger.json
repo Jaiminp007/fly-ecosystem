@@ -1,0 +1,21 @@
+{
+  "kind": "margin-readback-ledger",
+  "executions": 18,
+  "worldTicks": 4864,
+  "founderSlots": 86016,
+  "scalarOperations": 154641137,
+  "spentFixtureSeeds": [
+    380021,
+    380022,
+    380023,
+    380024,
+    380025,
+    380026,
+    380027,
+    380028,
+    380029
+  ],
+  "spentBankReuse": [
+    604620731
+  ]
+}

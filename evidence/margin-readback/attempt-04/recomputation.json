@@ -1,0 +1,21 @@
+{
+  "kind": "margin-readback-recomputation",
+  "plan": "docs/MARGIN_READBACK_PLAN_V4.md",
+  "evidence": "evidence/margin-readback/attempt-03",
+  "sources": {
+    "scripts/margin-readback-check.mjs": "30a5198f977a232a727b7394af1719453c68ec6bdf13fc753a79046c88e0ce31",
+    "learning/taste-energy.mjs": "53681ea706db5bb104eeea6ee0556522565b55c946cdeaf2572f6669f176c3f9",
+    "learning/taste-experiment.mjs": "446830b9f779f171d284bd7a18a1249cec705e06f94e45676da3b4ce38ef10d3"
+  },
+  "clauses": {
+    "caps": true,
+    "G1": true,
+    "G2pos": true,
+    "G3": true,
+    "G4": true,
+    "G2neg_carried": true,
+    "G5_carried": true
+  },
+  "go": true,
+  "acceptance": "D1 probe-margin readback ACCEPTED: decision-path motor-margin emission proven on synthetic (1024/1024 shaped, billed exactly, behavior-identical), zero-weight constancy proven (min===max, |mean-0.25|<=1e-9), fixed-program negative proven (zero events, stream observed), spent-bank readback proven (5 keys, digest unchanged). Margin-gated follow-ups may now be PROPOSED under their own frozen plans."
+}
