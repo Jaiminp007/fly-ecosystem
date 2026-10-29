@@ -134,12 +134,16 @@ function anchorIdentity(a,b){
 export function runMarginGatedDev({bankPath,output,resume=false}){
   const sources=marginGatedDevSources();
   const bankPathAbs=resolve(bankPath),outputAbs=resolve(output);
+  const p=marginGatedDevBank(bankPathAbs);
+  assert.equal(p.histories.length,G_HISTORIES);
+  // Fixture AFTER bank build: the exclusion scan seed-indexes every evidence
+  // JSON (visitSeedKeys propagates any /seed/i key), so writing it first
+  // would exclude our own fresh seeds from our own build. Worlds run only
+  // below; the fixture still precedes any seed use. Future banks see it.
   const fixturePath=join(pathDirname(bankPathAbs),'fixture-seeds-01.json');
   const fixture={seeds:[...G_FIXTURE_SEEDS]};
   if(existsSync(fixturePath))assert.deepEqual(read(fixturePath),fixture,'Fixture seeds file already exists with different content; will not overwrite');
   else write(fixturePath,fixture);
-  const p=marginGatedDevBank(bankPathAbs);
-  assert.equal(p.histories.length,G_HISTORIES);
   let rows=[],ledger={mains:0,probes:0,worldTicks:0,founderSlots:0,scalarOperations:0},runtimes={},redone=[];
   const t0=Date.now();
   if(existsSync(join(outputAbs,'dev-results.json'))&&!resume)throw new Error(`Dev output already exists; preserve it: ${outputAbs}`);
