@@ -21,11 +21,12 @@ export const R_HISTORIES=6;
 export const R_ARMS=Object.freeze(['candidate','unlearned','frozen','reset']);
 export const R_EXPECT_MAINS=24, R_EXPECT_PROBES=0;
 export const R_OP_CAP=20_000_000_000, R_WALL_CAP_SECONDS=3600;
-export const R_FIXTURE_SEEDS=Object.freeze(Array.from({length:54},(_,j)=>384001+j));
-const R_SPENT_RANGES=[[379001,379009],[380001,380009],[380011,380019],[380021,380029],[382001,382036],[383001,383036]];
+export const R_FIXTURE_SEEDS=Object.freeze(Array.from({length:54},(_,j)=>385001+j));
+const R_SPENT_RANGES=[[379001,379009],[380001,380009],[380011,380019],[380021,380029],[382001,382036],[383001,383036],[384001,384054]];
 export const R_SPENT_SEEDS=Object.freeze([381001,...R_SPENT_RANGES.flatMap(([a,b])=>Array.from({length:b-a+1},(_,j)=>a+j))]);
-export const R_BIN_TICKS=32, R_REF_FRAC=0.8, R_SUSTAIN=2, R_EPISODE_TICKS=512;
+export const R_SUSTAIN_TICKS=8, R_REF_FRAC=0.8, R_EPISODE_TICKS=512;
 export const R_MIN_ALIVE_FRAC=0.5;
+export const R_CEILING_TICKS=64;
 const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(p,'utf8'));
 const write=(p,v)=>{mkdirSync(pathDirname(p),{recursive:true});writeFileSync(p,JSON.stringify(v));};
@@ -77,35 +78,37 @@ export function mRelearnDevBank(path){
   assert.equal(new Set(flat).size,R_HISTORIES*9,'Dev bank draws must be 54 unique seeds');
   const p={schema:1,experiment:R_EXPERIMENT,createdAt:new Date().toISOString(),histories,
     excludedSeeds:[...excluded].sort((a,b)=>a-b),registries,engineering,handoffSources,
-    scope:'M-RELEARN Phase-A dev bank (deterministic fresh 384001-384054, 9/history). First use is the single Phase-A run; any exposure spends it. Union-excluded from all future qual banks via evidence-protocol scan.'};
+    scope:'M-RELEARN dev bank (deterministic fresh 385001-385054, 9/history). First use is the single V1a run; any exposure spends it. Union-excluded from all future qual banks via evidence-protocol scan.'};
   write(path,p);return p;
 }
-// Curve collector: per-tick observe energy -> 32-tick bins. Recording-only.
+// Curve collector: per-tick observe energy (raw means+n; V1a stores ticks,
+// no pre-binning — binning is what confined Phase A to >=32-tick resolution).
 export function collectCurve(){
   const bins=new Map();
   const emit=e=>{
     if(e.type!=='observe'||!e.own||!Number.isInteger(e.own.tick)||!Number.isFinite(e.own.energy))return;
-    const b=Math.floor(e.own.tick/R_BIN_TICKS);
-    let s=bins.get(b);if(!s){s={sum:0,n:0};bins.set(b,s);}
+    const t=e.own.tick;
+    let s=bins.get(t);if(!s){s={sum:0,n:0};bins.set(t,s);}
     s.sum+=e.own.energy;s.n++;
   };
   const means={};for(const [b,s] of bins)means[b]=s.sum/s.n;
   return {emit,bins,means};
 }
-// Ticks-to-criterion on binned curves (pure; exported for smoke tests).
-// refBins: phase-A bin indices; epBins: episode bin indices; epStart: episode start tick.
-export function scoreEpisode(means,counts,refBins,epBins,epStart,founders){
-  const need=Math.ceil(R_MIN_ALIVE_FRAC*founders*R_BIN_TICKS);
-  let ref=-Infinity;
-  for(const b of refBins){if((counts[b]??0)>=need&&means[b]>ref)ref=means[b];}
-  if(!Number.isFinite(ref))return {ticks:null,censored:true,reason:'no-adequate-reference-bin'};
-  const target=R_REF_FRAC*ref;
-  for(let i=0;i+R_SUSTAIN<=epBins.length;i++){
-    const win=epBins.slice(i,i+R_SUSTAIN);
-    if(win.every(b=>(counts[b]??0)>=need&&means[b]>=target))
-      return {ticks:win[0]*R_BIN_TICKS-epStart,censored:false,reason:'criterion-met',ref,target};
+// V1a ticks-to-criterion on RAW per-tick curves (pure; exported for smoke).
+// Same-context reference: candidate same-tick level. First tick t in the
+// episode with t..t+R_SUSTAIN_TICKS-1 ALL satisfying reset>=0.8*candidate
+// with >=50% founders alive in BOTH arms; ticks = t - epStart; censored at 512.
+export function scoreEpisodeV1a(rMeans,rCounts,cMeans,cCounts,epStart,founders){
+  const need=Math.ceil(R_MIN_ALIVE_FRAC*founders);
+  const ok=k=>(rCounts[k]??0)>=need&&(cCounts[k]??0)>=need;
+  for(let t=epStart;t+R_SUSTAIN_TICKS<=epStart+R_EPISODE_TICKS;t++){
+    let pass=true;
+    for(let k=t;k<t+R_SUSTAIN_TICKS;k++){
+      if(!ok(k)||!(rMeans[k]>=R_REF_FRAC*cMeans[k])){pass=false;break;}
+    }
+    if(pass)return {ticks:t-epStart,censored:false,reason:'criterion-met'};
   }
-  return {ticks:null,censored:true,reason:'never-reached',ref,target};
+  return {ticks:null,censored:true,reason:'never-reached'};
 }
 function checkMainIntegrity(endpoint,label){
   assert.ok(Math.abs(endpoint.accountingResidual)<1e-7,`${label}: physical conservation failed`);
@@ -131,11 +134,11 @@ export function runMRelearnDev({bankPath,output,resume=false}){
   }else{
     for(const name of Object.keys(sources)){const t=join(outputAbs,'sources',name);mkdirSync(pathDirname(t),{recursive:true});writeFileSync(t,readFileSync(join(root,name)),{flag:'wx'});}
     write(join(outputAbs,'protocol.json'),p);
-    write(join(outputAbs,'attempt.json'),{schema:1,kind:'m-relearn-phaseA-attempt',createdAt:new Date().toISOString(),
+    write(join(outputAbs,'attempt.json'),{schema:1,kind:'m-relearn-v1a-attempt',createdAt:new Date().toISOString(),
       bankSha256:digest(readFileSync(bankPathAbs)),sourceSha256:sources,ticks:BT_TICKS,founders:BT_FOUNDERS,
       baseLearnerOptions:{...BT_LEARNER_OPTIONS},arms:[...R_ARMS],
       caps:{executions:300,aggregateScalarOperations:R_OP_CAP,wallSeconds:R_WALL_CAP_SECONDS},
-      scope:'M-RELEARN Phase-A single baselines run (V1). No tuning; conjunctive Phase-B gate decides.'});
+      scope:'M-RELEARN V1a single re-measurement (V1a). No tuning; conjunctive V1a verdict decides.'});
   }
   const checkpointLedger=()=>writeOver(join(outputAbs,'ledger.json'),{ledger,runtimes,redone});
   const note=(mains,probes,ticks,ops)=>{ledger.mains+=mains;ledger.probes+=probes;ledger.worldTicks+=(mains+probes)*ticks;
@@ -180,27 +183,27 @@ export function runMRelearnDev({bankPath,output,resume=false}){
   return verdict;
 }
 export function scoreMRelearn(rows){
-  // Reset episodes: B = ticks 512-1023 (bins 16-31), C = 1024-1535 (bins 32-47).
-  // Reference: phase-A bins 0-15.
-  const refBins=Array.from({length:16},(_,j)=>j);
-  const epB=Array.from({length:16},(_,j)=>16+j),epC=Array.from({length:16},(_,j)=>32+j);
+  // V1a: reset episodes B (ticks 512-1023) and C (1024-1535) vs candidate same-tick.
+  const byArmSeed={};for(const r of rows)byArmSeed[r.arm+':'+r.history.seed]=r;
   const episodes=[];
-  for(const r of rows.filter(r=>r.arm==='reset')){
-    for(const [ep,epBins,epStart] of [['B',epB,512],['C',epC,1024]]){
-      const s=scoreEpisode(r.curves.means,r.curves.counts,refBins,epBins,epStart,BT_FOUNDERS);
-      episodes.push({seed:r.history.seed,episode:ep,...s});
+  const seeds=[...new Set(rows.map(r=>r.history.seed))];
+  for(const seed of seeds){
+    const rr=byArmSeed['reset:'+seed],cc=byArmSeed['candidate:'+seed];
+    if(!rr||!cc)continue;
+    for(const [ep,epStart] of [['B',512],['C',1024]]){
+      const s=scoreEpisodeV1a(rr.curves.means,rr.curves.counts,cc.curves.means,cc.curves.counts,epStart,BT_FOUNDERS);
+      episodes.push({seed,episode:ep,...s});
     }
   }
+  const unc=episodes.filter(e=>!e.censored).map(e=>e.ticks);
   const med=a=>{const s=[...a].sort((x,y)=>x-y);const m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;};
-  const uncensored=ep=>episodes.filter(e=>e.episode===ep&&!e.censored).map(e=>e.ticks);
-  const censored=ep=>episodes.filter(e=>e.episode===ep&&e.censored).length;
-  const mB=uncensored('B'),mC=uncensored('C');
-  const medianB=mB.length?med(mB):null,medianC=mC.length?med(mC):null;
-  // Reported (not gating): frozen decay, candidate ceiling, unlearned floor, return-A rebound (bins 48-55).
-  const curve=(arm,seed)=>rows.find(r=>r.arm===arm&&r.history.seed===seed).curves.means;
-  const gate={medianB,medianC,censorB:censored('B'),censorC:censored('C'),
-    go:(medianB!==null&&medianB>256)||(medianC!==null&&medianC>256),
-    reason:'median ticks-to-80% > 256 in either episode'};
-  return {episodes,medianB,medianC,censorB:censored('B'),censorC:censored('C'),gate,
-    verdict:gate.go?'PHASE-B-LICENSED':'CEILING-PROOF'};
+  const median=unc.length?med(unc):null;
+  const censored=episodes.filter(e=>e.censored).length;
+  // Reported (not gating): frozen decay, candidate ceiling, unlearned floor, return-A rebound (per-tick curves now).
+  const gate=median===null
+    ?{median,censored,go:false,verdict:'DESIGN-FAILURE',reason:'100% censored again — close line, publish failure'}
+    :median<=R_CEILING_TICKS
+    ?{median,censored,go:false,verdict:'CEILING-PROVEN',reason:'relearning at/below old resolution floor — close line'}
+    :{median,censored,go:true,verdict:'GAP-FOR-V1B',reason:'measurable relearning gap — V1b picks one family'};
+  return {episodes,median,censored,gate,verdict:gate.verdict};
 }
