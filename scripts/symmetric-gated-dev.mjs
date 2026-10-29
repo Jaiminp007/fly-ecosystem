@@ -130,9 +130,9 @@ function checkNonDegeneracy(rows,outputAbs){
   const W={};for(const t of S_TAUS)W[tauTag(t)]={};
   for(const r of rows){const w=weightsOf(read(join(outputAbs,'anchors',r.tag,`${r.history.seed}-C.json`)));W[r.tag][r.history.seed]=w;}
   let opened=false,closed=false;const detail=[];
-  for(const h of Object.keys(W[0.3])){
-    const sameAsNull=JSON.stringify(W[0.3][h])===JSON.stringify(W[null][h]);
-    const sameAsZero=JSON.stringify(W[0.3][h])===JSON.stringify(W[0][h]);
+  for(const h of Object.keys(W['tau-0.3'])){
+    const sameAsNull=JSON.stringify(W['tau-0.3'][h])===JSON.stringify(W['tau-null'][h]);
+    const sameAsZero=JSON.stringify(W['tau-0.3'][h])===JSON.stringify(W['tau-0'][h]);
     detail.push({seed:Number(h),sameAsNull,sameAsZero});
     if(!sameAsNull)opened=true;if(!sameAsZero)closed=true;
   }
