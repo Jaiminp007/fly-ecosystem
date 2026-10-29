@@ -8,6 +8,5 @@ above the bites-nothing 0.2 (G1 cuts 0.101/0.207).
 - 2026-10-28: `docs/SYMMETRIC_GATED_PLAN_V1.md` FROZEN (DESIGN ONLY).
   Read-only verification complete (single call site, Gen1 outer-condition
   intact, hoist math-preserving, no other slowDir readers).
-- Next: single Phase-D attempt (228 exec, 383001–383036). Instrument IMPLEMENTED
-  (masked apply), fixtures green (symmetric-gated 4/4, margin-gated 7/7,
-  taste-anchor 6/6), full-suite triage clean (6 pre-existing only).
+- Next: single Phase-D attempt via module import (CLI path untrusted).
+  Bank pre-built and verified (symmetric-gated-dev, 383001–383036).
