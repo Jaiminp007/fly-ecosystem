@@ -7,7 +7,7 @@ minimize ticks-to-criterion. Retention was a means; speed is the end.
   read-only: reset arm = 2 from-scratch relearning episodes/main (B-moving,
   C-scarce wipes); curves need no instrument (phaseRows + emit binning);
   32-tick bins, 80%-of-own-max criterion, 50%-survivor death guard.
-- Next: implement Phase-A dev instrument (phaseRows save + curve collector +
-  ticks-to-criterion scorer) + triage, then the single Phase-A attempt
-  (24 mains, zero probes, 384001–384054). Phase B only if median > 256
-  (V1a picks one of the 4 frozen families).
+- Next: single Phase-A attempt via module import (bank pre-built and
+  verified: m-relearn-dev, 384001–384054). Dev instrument committed
+  (phaseRows save + 32-tick curve collector + criterion scorer, smoked);
+  suite triage clean (6 pre-existing only, no engine changes).
