@@ -42,11 +42,16 @@ test('null pending fail-closed (equals null-tau run)',()=>{
   assert.deepEqual(a.weights.taste,b.weights.taste);
 });
 
-test('billing uniform: gate eval exactly 3 ops, anchor only when open',()=>{
-  const g0=run(0,0.9),gi=run(null,0.9),base=run(0,0.9,0);
-  assert.equal(gi.work.scalarOperations-base.work.scalarOperations,3);
-  assert.equal(g0.work.scalarOperations,run(0.2,0.9).work.scalarOperations);
-  assert.equal(gi.work.scalarOperations,run(0.2,0.55).work.scalarOperations);
+test('symmetric billing: open and closed bill exactly equal ops (S-GATE masked apply)',()=>{
+  const g0=run(0,0.9),gi=run(null,0.9);
+  assert.notDeepEqual(g0.weights.taste,gi.weights.taste); // pull applied vs masked
+  assert.equal(g0.work.scalarOperations,gi.work.scalarOperations); // same path, same billing
+});
+
+test('closed gate perturbs nothing but billing (null vs strength-0)',()=>{
+  const gi=run(null,0.9),base=run(0,0.9,0);
+  assert.deepEqual(gi.weights.taste,base.weights.taste);
+  assert.ok(gi.work.scalarOperations>base.work.scalarOperations);
 });
 
 test('null survives JSON checkpoint restore (off-encoding); undefined still compats to open',()=>{

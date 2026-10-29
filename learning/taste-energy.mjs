@@ -150,7 +150,7 @@ export function tasteUpdate(state,record,mode,emit,boost=1){
   if(state.config.phaseSlots>1){const w=state.slot[mode==='replay'?(record.slot??0):state.activeSlot];for(let j=0;j<state.config.tasteDimensions;j++)w[j]=clip(state,m.add(w[j],m.mul(step,record.phi[j])));}
   else{const key=state.config.streams>1?(state.controller===0?'taste':'tasteB'):'taste';
   for(let j=0;j<state.config.tasteDimensions;j++)state.weights[key][j]=clip(state,m.add(state.weights[key][j],m.mul(step,record.phi[j])));}
-  if(state.config.slowAnchorStrength>0&&marginGatePass(state,m))anchorTasteDirection(state,m);
+  if(state.config.slowAnchorStrength>0)anchorTasteDirection(state,m,marginGatePass(state,m));
   if(mode==='replay'&&state.config.consolidationRate>0){const g=state.config.consolidationRate;
     for(let j=0;j<state.config.tasteDimensions;j++){const fast=state.weights.taste[j],slow=state.weights.slowTaste[j];
       state.weights.taste[j]=clip(state,m.add(fast,m.mul(g,m.sub(slow,fast))));
@@ -179,16 +179,17 @@ function marginGatePass(state,m){
   const pass=m.less(t2,m2)||t2===m2;
   return ok&&pass;
 }
-function anchorTasteDirection(state,m){
+function anchorTasteDirection(state,m,apply){
   const n=state.config.tasteDimensions,mu=state.config.slowAnchorRate,lam=state.config.slowAnchorStrength;
   const w=state.weights.taste,s=state.weights.slowDir;
   for(let j=0;j<n;j++)s[j]=m.add(s[j],m.mul(mu,m.sub(w[j],s[j])));
   const wn=m.sqrt(dot(state,w,w)),sn=m.sqrt(dot(state,s,s));
   if(!m.less(0,wn)||!m.less(0,sn))return;
   const denom=m.mul(wn,sn),c=m.div(dot(state,w,s),denom),wn2=m.mul(wn,wn);
+  const k=apply?lam:0; // S-GATE masked apply: compute-always, apply-gated.
   for(let j=0;j<n;j++){
     const pull=m.sub(m.div(s[j],denom),m.div(m.mul(w[j],c),wn2));
-    w[j]=clip(state,m.add(w[j],m.mul(lam,pull)));}
+    w[j]=clip(state,m.add(w[j],m.mul(k,pull)));}
 }
 function anchorActorDirection(state,m){
   const n=state.config.motorDimensions,mu=state.config.motorAnchorRate,lam=state.config.motorAnchorStrength;
