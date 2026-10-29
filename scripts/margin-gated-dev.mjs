@@ -260,5 +260,62 @@ export function runMarginGatedDev({bankPath,output,resume=false}){
   writeOver(join(outputAbs,'dev-results.json'),{perTau,g1,g2,g3,decision,ledger,runtimes,redone,executionSources,scoringSources:sources});
   return {perTau,g1,g2,g3,decision,ledger};
 }
+export function rescoreMarginGatedDev({bankPath,output}){
+  // Analytic-only completion (V1e): zero worlds, zero bank contact. Recomputes
+  // the full verdict from ledgered rows/anchors/ledger after the G3' crash.
+  const sources=marginGatedDevSources();
+  const bankPathAbs=resolve(bankPath),outputAbs=resolve(output);
+  const attempt=read(join(outputAbs,'attempt.json'));
+  assert.equal(digest(readFileSync(bankPathAbs)),attempt.bankSha256,'Bank changed since attempt start');
+  const rows=readdirSync(join(outputAbs,'rows')).filter(f=>f.endsWith('.json')).map(f=>read(join(outputAbs,'rows',f)));
+  assert.equal(rows.length,16,'Row count mismatch');
+  const led=read(join(outputAbs,'ledger.json'));const ledger=led.ledger;
+  assert.equal(ledger.mains,G_EXPECT_MAINS,'Mains count mismatch');
+  assert.equal(ledger.probes,G_EXPECT_PROBES,'Probes count mismatch');
+  const pool=rows.filter(r=>r.tag==='tau-null').flatMap(r=>r.relevance.recs);
+  const g1=(()=>{const c=collectRelevance();for(const r of pool)c.recs.push(r);return c.verdict();})();
+  const perTau=G_TAUS.map(tau=>{
+    const tag=tau===null?'tau-null':`tau-${tau}`;
+    const rs=rows.filter(r=>r.tag===tag);assert.equal(rs.length,G_HISTORIES);
+    const aret=rs.map(r=>r.probes['A:current'].value-0.95*r.probes['A:A'].value-0.05*r.probes['A:reset'].value);
+    const bret=rs.map(r=>r.probes['B:current'].value-0.95*r.probes['B:B'].value-0.05*r.probes['B:reset'].value);
+    const lvl=rs.map(r=>r.arms.candidate.endpoint.budgetAdjustedEnergyPerFounder-r.arms.unlearned.endpoint.budgetAdjustedEnergyPerFounder);
+    const mean=a=>a.reduce((x,v)=>x+v,0)/a.length;
+    return {tau,meanAret:mean(aret),meanBret:mean(bret),meanLevel:mean(lvl),meanAlign:mean(rs.map(r=>r.alignment.cos))};
+  });
+  const g2=gateGoNoGo(perTau);
+  const opE=BT_PRICING.operationEnergy;
+  let tau0engaged=false;
+  const g3pp=G_FIXTURE_SEEDS.filter((_,j)=>j%9===0).map(seed=>{
+    const aC=read(join(outputAbs,'anchors','tau-null',`${seed}-C.json`));
+    const gC=read(join(outputAbs,'anchors','gen1',`${seed}-C.json`));
+    const t0=read(join(outputAbs,'anchors','tau-0',`${seed}-C.json`));
+    const la=Object.values(aC.state.learners),lg=Object.values(gC.state.learners);
+    const clauses={nEqual:la.length===lg.length,slowDirZeros:true,gen1Unalloc:true,rngIdentical:true,billedDirection:false,sameAlive:false,resid:NaN,dOps:0};
+    const byG=new Map(lg.map(l=>[l.agentId,l]));
+    for(const x of la){const y=byG.get(x.agentId);
+      if(!y){clauses.nEqual=false;continue;}
+      if(!(Array.isArray(x.weights.slowDir)&&x.weights.slowDir.every(v=>v===0)))clauses.slowDirZeros=false;
+      if(!(y.weights.slowDir===undefined))clauses.gen1Unalloc=false;
+      for(const k of RNG_KEYS)if(x[k]!==y[k])clauses.rngIdentical=false;}
+    for(const l of Object.values(t0.state.learners))
+      if(Array.isArray(l.weights.slowDir)&&l.weights.slowDir.some(v=>v!==0))tau0engaged=true;
+    const nC=r=>r.arms.candidate.endpoint;
+    const rN=rows.find(r=>r.tag==='tau-null'&&r.history.seed===seed),rG=rows.find(r=>r.tag==='gen1'&&r.history.seed===seed);
+    const dOps=nC(rN).scalarOperations-nC(rG).scalarOperations;
+    clauses.dOps=dOps;clauses.billedDirection=dOps>0;
+    const dV=nC(rN).budgetAdjustedEnergyPerFounder-nC(rG).budgetAdjustedEnergyPerFounder;
+    clauses.resid=Math.abs(dV+dOps*opE/BT_FOUNDERS);
+    const aliveA=new Set(la.filter(l=>!l.dead).map(l=>l.agentId)),aliveG=new Set(lg.filter(l=>!l.dead).map(l=>l.agentId));
+    clauses.sameAlive=aliveA.size===aliveG.size&&[...aliveA].every(id=>aliveG.has(id));
+    return {seed,clauses};
+  });
+  const g3go=tau0engaged&&g3pp.every(g=>g.clauses.nEqual&&g.clauses.slowDirZeros&&g.clauses.gen1Unalloc&&g.clauses.rngIdentical&&g.clauses.billedDirection);
+  const g3={clauses:['slowDir-zeros','gen1-unallocated','tau0-engaged','rng-identical','billed-direction'],tau0engaged,perHistory:g3pp,go:g3go};
+  const decision={g1,g2,g3seeds:g3pp.map(g=>g.seed),tau0engaged,go:g1.go&&g2.go&&g3.go,verdict:(g1.go&&g2.go&&g3.go)?'DEV-GO':'DEV-NOGO'};
+  writeOver(join(outputAbs,'dev-results.json'),{perTau,g1,g2,g3,decision,ledger,runtimes:led.runtimes,redone:led.redone,
+    executionSources:attempt.sourceSha256,scoringSources:sources});
+  return {perTau,g1,g2,g3,decision,ledger};
+}
 const args=Object.fromEntries(process.argv.slice(2).map((a,i,arr)=>a.startsWith('--')?[a.slice(2),arr[i+1]&&!arr[i+1].startsWith('--')?arr[i+1]:true]:[]).filter(x=>x.length));
 if(args.bank&&args.output)runMarginGatedDev({bankPath:args.bank,output:args.output,resume:args.resume===true||args.resume==='true'});

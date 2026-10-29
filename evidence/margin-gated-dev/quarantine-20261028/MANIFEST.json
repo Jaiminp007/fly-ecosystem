@@ -1,0 +1,817 @@
+[
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/README.md",
+  "bytes": 1957,
+  "sha256": "3b12c7ec19c919d3e364ab989ce3eff7cc380041d783c1213b188f32be20a30e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-bank-protocol.json",
+  "bytes": 219765,
+  "sha256": "0f7629bf21ff0da9c599d9f5970384b512f6035a6f93815035c48f2de60b2f1a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-bank-protocol.json",
+  "bytes": 220333,
+  "sha256": "2489d5e58ff47ea56782fa438ee84ac72fe3c877306261d5670d582337ad19e6"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/attempt.json",
+  "bytes": 4979,
+  "sha256": "177511bc0bb56007610eb232816845be17130cf756ec9f5e6098e9a1039aa5d0"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/dev-results.json",
+  "bytes": 867,
+  "sha256": "90094e0ad5eb7a83bab9cadb0e28ee5251ed87c6151d5a3c4ebe96f4d121af8c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/ledger.json",
+  "bytes": 289,
+  "sha256": "3ba37c115b72d7fb1633e812c8338a83fd093a26e6bf3ad1c9c0dbadbe6129ce"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/protocol.json",
+  "bytes": 219765,
+  "sha256": "0f7629bf21ff0da9c599d9f5970384b512f6035a6f93815035c48f2de60b2f1a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/1203750515-A.json",
+  "bytes": 885845,
+  "sha256": "a8a40b3464b288f3aca4448c5683999d1976d8e8e6fbea90b84493dcc3ea7041"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/1203750515-C.json",
+  "bytes": 841996,
+  "sha256": "fc05f9da0f7e115785c63f9e219fc65da70363d381683bab026e807d347d2e97"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/1889926751-A.json",
+  "bytes": 878079,
+  "sha256": "365477ee6ab7a61ea647e5111cb3ba97f8e090715619489d47341d4c3eab0677"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/1889926751-C.json",
+  "bytes": 902130,
+  "sha256": "2589fdd460896ffb4dff8c1c656196e148ee916ec9346a3ce83bf02e001c9fa5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/3021861896-A.json",
+  "bytes": 879811,
+  "sha256": "6173efd57ea771005a6d54526e449d5971b99138e17f706fff6cd0a8c5fff315"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/3021861896-C.json",
+  "bytes": 882088,
+  "sha256": "0c8f384c7bc896c6e8aaad66ff2f0a928a4880f2fd7c49af0b23123ab9f3c169"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/787404104-A.json",
+  "bytes": 886300,
+  "sha256": "d4cd66c3758f7b9827311175debd2972c417aca022e182c988708695422beab7"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0/787404104-C.json",
+  "bytes": 821611,
+  "sha256": "7658ca5aa7c279e27b3f471135674437448909ace2aed4f946e5e78e889ba704"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/1203750515-A.json",
+  "bytes": 902135,
+  "sha256": "7fb9b4ad5c7743899108fcf4e8b006801aef5dd517eb4fbfb1d5b952420afdb5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/1203750515-C.json",
+  "bytes": 852586,
+  "sha256": "c7fda44789072ca7078f972d42a05319a625ee8d0b2890b1e2f4f01ba03ec14e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/1889926751-A.json",
+  "bytes": 894453,
+  "sha256": "1c94ec2bb8b9fd8415bdc7db91c3fa6c51c9d6400e08cbf333aa9b961af8d47a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/1889926751-C.json",
+  "bytes": 933775,
+  "sha256": "88bc2871567ea133ade2fba66568398acbc20ccf55b4c3db348d96a53fb09220"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/3021861896-A.json",
+  "bytes": 896199,
+  "sha256": "25296b175f0b6ecf6e129bf8a4c4ec3af76db398318dd978e785a78acc9e69ee"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/3021861896-C.json",
+  "bytes": 892033,
+  "sha256": "3822e491478b5083b21af262d48cf750392e8b38f83bd0671106d62a80566363"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/787404104-A.json",
+  "bytes": 902616,
+  "sha256": "e2bd896ca8e666ed9eefcb01c5920d48601aad57637c3f630418466b9b457d0b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.02/787404104-C.json",
+  "bytes": 831948,
+  "sha256": "8f07cacdc7a4854832683608e4c1ad21dfe676eff65776840996cec416ded97d"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/1203750515-A.json",
+  "bytes": 902215,
+  "sha256": "7c5d763fb98b8d5e63fb330f6ff1ea0dc853fe350abfd60a08cd9d728f94dcf9"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/1203750515-C.json",
+  "bytes": 852671,
+  "sha256": "604e6e418fcaddb3af583bc736a786f27ad4326fd5cd719792c5278aaee83b86"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/1889926751-A.json",
+  "bytes": 894421,
+  "sha256": "cefc19f5478a7e53a71bb1847b715ef04cda2ca9a7848df979878e91e2e0c531"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/1889926751-C.json",
+  "bytes": 933794,
+  "sha256": "73041262c4ac0d9d70d059f11cb5671d205e4a5bafa6fbe607d91342cbc4551d"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/3021861896-A.json",
+  "bytes": 896183,
+  "sha256": "7b2fcdd069f96ef888d7ce6a84e38ee9eedaa801d566132c341c8b9d38fe9b98"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/3021861896-C.json",
+  "bytes": 892094,
+  "sha256": "7fee26439020193bd1ef2feb6e5852c14da98a1f7951bb5608a5aec6628ea449"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/787404104-A.json",
+  "bytes": 902684,
+  "sha256": "ec217ee6b80ec254292b5bf7af773a8ac70590ecafc384f47a4a0a5d5fa9dccd"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/anchors/lambda-0.08/787404104-C.json",
+  "bytes": 831943,
+  "sha256": "2560459e2cfbf29a451b0336139b6ea032a59b7e13f74ff4c1d2d5f01d2b34d1"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/1203750515-lambda-0.02.json",
+  "bytes": 21199,
+  "sha256": "5fcd529a52dd414a98900d268f3f941b2bb3a2e309cbab3986d794c07a94698a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/1203750515-lambda-0.08.json",
+  "bytes": 21200,
+  "sha256": "273bd119e900b74a33af4c0a62f49280156d6af798957861468f7827e9004e94"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/1203750515-lambda-0.json",
+  "bytes": 21160,
+  "sha256": "fd89070a40987c04680733ce959fffdb45e735c378f9af79d2a2d50dd448648c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/1889926751-lambda-0.02.json",
+  "bytes": 21179,
+  "sha256": "e22c366673e4f3302fb5c4bf7526a8db09dfe088c278dd669fddbd2629c8f538"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/1889926751-lambda-0.08.json",
+  "bytes": 21175,
+  "sha256": "3e107195b14e83500fe6fa001a7d7293e3ec207c481c4b6c63e1509064ecd820"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/1889926751-lambda-0.json",
+  "bytes": 21180,
+  "sha256": "1c6a53303582f247406ac1d7e84e2d7c793c1752531d418d5236baf90c2769e9"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/3021861896-lambda-0.02.json",
+  "bytes": 21159,
+  "sha256": "703b3ff0bdebbe80394897dfeb62ec054c9b0efd0cd4331b8e45184c937a74a5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/3021861896-lambda-0.08.json",
+  "bytes": 21158,
+  "sha256": "7aa5c14b80e90716cbaf59ac037f0c655d97af3b2956e30235a11fc446fa4caa"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/3021861896-lambda-0.json",
+  "bytes": 21151,
+  "sha256": "57c9489183a59054bfe5934d8e95245ded3a322ba3a8a95defb33c7cdc3ec4c1"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/787404104-lambda-0.02.json",
+  "bytes": 21168,
+  "sha256": "1e66506a728a10dc2504788d13c220db95c22a764938ba5e86f3918df781c184"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/787404104-lambda-0.08.json",
+  "bytes": 21168,
+  "sha256": "6c9a56b52db411a5a4b95fa6bdddb1e52e43911bb9c4ce50a250c225987485f2"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/rows/787404104-lambda-0.json",
+  "bytes": 21158,
+  "sha256": "37a0576074cd1fb7536de0fe5e032924082445daaee2d73c5a08f4579a7bead7"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/challenges.mjs",
+  "bytes": 1390,
+  "sha256": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/engine.mjs",
+  "bytes": 33874,
+  "sha256": "3ad70cada677fbde3a3e1de1aa7025575ab0acfc0cd4ae06adbfdef2c630aba5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/docs/BODY_TRANSFER_PLAN_V3.md",
+  "bytes": 4890,
+  "sha256": "912b2f141c54c2cfb0e5b1f8305313420d08961f9eec8661fdb3c2ae8572a422"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/behavior-policy.mjs",
+  "bytes": 2655,
+  "sha256": "163ba254ded8290e0b960848b60be82d7c6b908742800b18de9c220fa82c8fdb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/contact-cue.mjs",
+  "bytes": 1159,
+  "sha256": "3631801548e07eb43f0f21edab0fa600d5991d26d0b538d7f5c3ad5e425a638c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/contact-observation.mjs",
+  "bytes": 1581,
+  "sha256": "0bcb82326ad01f00896b590c4489c0d966021f7a1cc2a8bcd6f15c9dfcd570c4"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/continual-regimes.mjs",
+  "bytes": 3378,
+  "sha256": "afda88397a380586a3ba20c4a5ae4f611207c40d1d60a909ba8baa7f4487b44b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/cue-foraging.mjs",
+  "bytes": 19006,
+  "sha256": "875b6a096a5247fca427e6a0a6d5eced3c2f67fd6c418966db10df5b4e5c44a2"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/embodied-control.mjs",
+  "bytes": 1685,
+  "sha256": "7f92aac55d8bd74ad34c4a17a06e84961bd82fcc3aecd17da98774e81543d3ec"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/embodied-programs.mjs",
+  "bytes": 3776,
+  "sha256": "7bb97b82f41e87ac0b60bc19aa28bdbeff778e62411806e751e0d31120b8d976"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/episodic-actor.mjs",
+  "bytes": 18915,
+  "sha256": "7a13b41e36df0887451a74ff7deab16bd1b055a45c1ec60aaad5bf1ea57bd86d"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/episodic.mjs",
+  "bytes": 13122,
+  "sha256": "6c63d91ee48db88f08f1af29bfe0ae692bf5974e02c1f0625ea2f966bdcbca23"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/intervention-study.mjs",
+  "bytes": 11628,
+  "sha256": "b96923467d82e3f90c0015fc64656b279695c5512079105e8273c3767b9b5460"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/joint-episodic.mjs",
+  "bytes": 10033,
+  "sha256": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/kernel-learner.mjs",
+  "bytes": 8039,
+  "sha256": "86333639c66af3965a8447a8f0be4ca39073ea9321842737da31812f4880f536"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/mushroom-body.mjs",
+  "bytes": 8346,
+  "sha256": "611ac082278ac2758f05550fd35109e54ae7a1d63362d8fc7dd0106afc4b5c15"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/odor-identity.mjs",
+  "bytes": 1928,
+  "sha256": "86346814a64f3b88d7556e09abba2e0b493bfddd7095ae342298de622908ff87"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/policy-aware-outcome.mjs",
+  "bytes": 13177,
+  "sha256": "740c1f00a1eb8acaf67cf7a018337eec924c6f93c57b718dc873248f9821e8d6"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/pursuit-authority.mjs",
+  "bytes": 6292,
+  "sha256": "0c2b55cf94adb556aa223b89763f311e7600261be4b8ffaee67b930884c26ef3"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/retrace-sarsa-body.mjs",
+  "bytes": 7351,
+  "sha256": "a7cd49c9030b0892467d08ef4284fc82c3d5848e18da623e892f30e10996cb8b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/sarsa-body.mjs",
+  "bytes": 9005,
+  "sha256": "6cb9d316875978b5b97bc41147a871ff8e14770d0617534797e76556110c6ce4"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/sarsa-experiment.mjs",
+  "bytes": 12012,
+  "sha256": "a7500e50538873506205433e53805e9860b1f1bb270f889a51bd698e4ab6230e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/sarsa-screen.mjs",
+  "bytes": 9246,
+  "sha256": "f6e74c1bce7ac2991fbda6acc7dfca1add13ef1bca768b0d36d846356643d640"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/self-modifying-tasks.mjs",
+  "bytes": 5211,
+  "sha256": "0b06be944e4b335fb067b568009b9e52cac8b2853d33b36f4b4eb8b797a2c29c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/self-modifying.mjs",
+  "bytes": 9838,
+  "sha256": "4aa2d6c010b2d8a4a153cbc637eaaa71d23601a5a2f445968cfce17841a816c2"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/stationary-taste-credit.mjs",
+  "bytes": 2316,
+  "sha256": "914b8fc85c9a28f34ecaa68b9b2e5d191f239da0767391ff7558c26ffae9d636"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/taste-energy.mjs",
+  "bytes": 46081,
+  "sha256": "c0bb939ed67b5aaaaee4c6001c17629528f02e3bb2a2a8031fceb582033ef454"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/taste-experiment.mjs",
+  "bytes": 13879,
+  "sha256": "446830b9f779f171d284bd7a18a1249cec705e06f94e45676da3b4ce38ef10d3"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/taste-pressure.mjs",
+  "bytes": 2530,
+  "sha256": "7f7e18a84f101b90985c011e4e84b97470e1e5095d4db26d8165eccf9d621e38"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/tick-actor-critic.mjs",
+  "bytes": 12592,
+  "sha256": "f17ee7c25f30dbab412536fa5f88ef4de9c902b809e71792daa337927abec275"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/tick-cue-experiment.mjs",
+  "bytes": 19435,
+  "sha256": "de55ac2f2f9034a801df2862c8ff80d6c7b1d96fd29eee43b88d83cdc5869233"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/tick-cue-pressure.mjs",
+  "bytes": 3875,
+  "sha256": "fe1b1e15dc59eb74621f33f3bf380492a9ddcc2be982a324be1bdc3b49d9c22c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/tick-value.mjs",
+  "bytes": 12654,
+  "sha256": "1bb3b4210326eb2e43c361aa455b9db4403a7958d497f13c5dc58809f6c8a48a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/tile-sarsa-body.mjs",
+  "bytes": 9484,
+  "sha256": "6fc476e5fd49fac8d9af48564a3eaae7f7427adbae761a9e0ee350a9ab9d48fb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/trace-actor.mjs",
+  "bytes": 7716,
+  "sha256": "d0d63f3e2315d130c037a40b36259d75617157ce9df689e713d682e48e5f7241"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/value-cue-experiment.mjs",
+  "bytes": 19273,
+  "sha256": "699f98354e319862ce31c9d3e61fb598e955edf1a77e944dc43664aca2b582b3"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/learning/value-development.mjs",
+  "bytes": 13797,
+  "sha256": "89b89436f159160cda868424d14ef560c873fae175c6345615b7c24cd162e381"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/scripts/body-transfer-dev.mjs",
+  "bytes": 13467,
+  "sha256": "37cea50b609b1a51a3f48e9b400b8f6d3a8c645eaf6b371b7325d04aa92505a4"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/scripts/body-transfer.mjs",
+  "bytes": 34068,
+  "sha256": "6baeafb391a6001a76c419f22abdd8438b066c5345ebc5052e7c69dc6f32c8bb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun-attempt-01/sources/tests/taste-anchor.test.mjs",
+  "bytes": 4380,
+  "sha256": "e756ddad82aa98cb0b08251cc26fc841cc8685bbdae0d39edf3378e3f1de4bca"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/attempt.json",
+  "bytes": 4979,
+  "sha256": "c5d66df668b96b10bf0e537ff59e05ea72947919f1c0a4e512492f1445d0d9fd"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/dev-results.json",
+  "bytes": 865,
+  "sha256": "e5d90d55af6630a7d921c745cac3d5b78177ab049d436d0da56efbee1c84093a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/ledger.json",
+  "bytes": 288,
+  "sha256": "c8238bb99a3ea1f5b9585a5024e22fb707be438c2858719a17594b342796fba5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/protocol.json",
+  "bytes": 220333,
+  "sha256": "2489d5e58ff47ea56782fa438ee84ac72fe3c877306261d5670d582337ad19e6"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/1506258051-A.json",
+  "bytes": 873366,
+  "sha256": "6820464407ec56d311ce1a10e63e05a47811e4bf5e08489b26e5ca6bcf319457"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/1506258051-C.json",
+  "bytes": 838634,
+  "sha256": "12fb2a28cb542c0be6b0dba94b74400abd4041d9d1cd642a3549ecef4677a1eb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/1732119738-A.json",
+  "bytes": 884113,
+  "sha256": "311881c8c9c4a634e187fb31314e865b81bee6525505929d093fcef362aee45b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/1732119738-C.json",
+  "bytes": 861363,
+  "sha256": "e4e17d2142c7e9f31793867e90de5c66ad00485ccb41e04a41d57d5173870ca0"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/2836548805-A.json",
+  "bytes": 876370,
+  "sha256": "ac0c0a07594ea827a498a831feba2a469ac9fd812ba52b32cdb1710e15115d48"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/2836548805-C.json",
+  "bytes": 857614,
+  "sha256": "7474673fde88a304fabf292d3496f09619ccf40c27b17b350c6e79c35e197609"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/3078083023-A.json",
+  "bytes": 886474,
+  "sha256": "b793391ccad223038074f0d92cd09844c8ac5e4efa83fedc7c20ca307c17b4e5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0/3078083023-C.json",
+  "bytes": 798818,
+  "sha256": "e2afdad0d4b8bc20c2eb8fde7ff86b1e6ee34c99d4c6ac2fbb33da173f6dd3d0"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/1506258051-A.json",
+  "bytes": 889792,
+  "sha256": "414aa2f1c71a350b2916656d29a52cf62109a0b36acd1c7e5f1a2f30d3d2af2c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/1506258051-C.json",
+  "bytes": 870713,
+  "sha256": "07caeef6614738ad51099e61dc9ecbb34718c906d7587a77a46090155aa9c88c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/1732119738-A.json",
+  "bytes": 900478,
+  "sha256": "12c417efc342f14781ea67ed2523c7bfc3f89e146a7b825a89ea6a8544a77011"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/1732119738-C.json",
+  "bytes": 893095,
+  "sha256": "bbac0e1bbe155c4c4e99829f73db3056dd7a0d84a101936a001a07a5399cbdf1"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/2836548805-A.json",
+  "bytes": 892485,
+  "sha256": "5e4ea18ad24f4490bd11769398140338245a2300a7d5c4ab88730b6611c33f92"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/2836548805-C.json",
+  "bytes": 888794,
+  "sha256": "490015ccd6fc7749b55cdd318cb83c83c730011037f236fe01bc28c48445a73f"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/3078083023-A.json",
+  "bytes": 902783,
+  "sha256": "554c038d33cce8786ec967a4ed2cd95faf839b191dcd64669511f771a171a153"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.02/3078083023-C.json",
+  "bytes": 829974,
+  "sha256": "1b701623b6660273c7d3a498ae435932505159f5a111eceb851a562e90acd7de"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/1506258051-A.json",
+  "bytes": 889828,
+  "sha256": "f994316727e71238d5eec7230922886a9b92c52f9053364e0b4d3fcb2e85df3e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/1506258051-C.json",
+  "bytes": 870672,
+  "sha256": "98f3239cb6a5ba08332d2a900d734f23e5549ccbfaa042e968096d2fcca77a8a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/1732119738-A.json",
+  "bytes": 900514,
+  "sha256": "1e320234336981746a53ae36fd0484d92a068ace0d2323162dd93ae0fe4a2b7c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/1732119738-C.json",
+  "bytes": 893126,
+  "sha256": "a247d3b86a91d283e78cdb8750dee7c5627e0b54c23806d28985454a6cfee333"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/2836548805-A.json",
+  "bytes": 892481,
+  "sha256": "c2f2317a1dc4f70f3ccab17e824ac545b56ada31705c665e4ca43bd987a0b3f0"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/2836548805-C.json",
+  "bytes": 888763,
+  "sha256": "e55556fb686d2922e5306e7ad5bc3113afd7b84dd6c57bf767346f7d31d555d9"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/3078083023-A.json",
+  "bytes": 902527,
+  "sha256": "ee4749ce52173ae59d2e0dd791ce58b47512d34f50e39d3f229446a8f87137cc"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/anchors/lambda-0.08/3078083023-C.json",
+  "bytes": 829861,
+  "sha256": "2e322fcb7967bd5d12536db88e4e0bda09fb4363401b80d9a6784016ee888a76"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/1506258051-lambda-0.02.json",
+  "bytes": 21128,
+  "sha256": "53310ab2b59fcf06dc74d5cb004444a12cfce9b7aa014856d619daf71947d1db"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/1506258051-lambda-0.08.json",
+  "bytes": 21128,
+  "sha256": "a2f0c48f8b882a111c0eb69d25b4f9bc104a38f102d3f73f8cf5bad06994751e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/1506258051-lambda-0.json",
+  "bytes": 21151,
+  "sha256": "c4c220597a9000b0e7c1c94210a7f0e50026d33a3a8dfad2a836b9eff7277a03"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/1732119738-lambda-0.02.json",
+  "bytes": 21175,
+  "sha256": "15a08f961bd792729e221e983c70c48e35f77e4f099f973358e3e086351b4561"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/1732119738-lambda-0.08.json",
+  "bytes": 21176,
+  "sha256": "845dce520dcc2b7b7a79fa3e628586442ddfa6a039b3f71fffd409043738e888"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/1732119738-lambda-0.json",
+  "bytes": 21165,
+  "sha256": "b5f0e6a1c95be791f48e585385537010867ebf6d6a2fbbe1fdb27e14b8b38406"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/2836548805-lambda-0.02.json",
+  "bytes": 21142,
+  "sha256": "66cf569edc347d75b416f19a0bfdf35e1b543c0b7327fa79345b6bd8ea3f751b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/2836548805-lambda-0.08.json",
+  "bytes": 21142,
+  "sha256": "45af302cddf52a5a39ffd63d61dcf4b6906671896b54b4e2a81acf29bde8bef5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/2836548805-lambda-0.json",
+  "bytes": 21171,
+  "sha256": "6f11b6b4a4bd40b98a935634fe4eab00378cd04e3c01929ca39f4fcc273051bc"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/3078083023-lambda-0.02.json",
+  "bytes": 21159,
+  "sha256": "01cf35aed775252c872ce4df5851d8f9b32393f6585e8135f624508794e03a29"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/3078083023-lambda-0.08.json",
+  "bytes": 21166,
+  "sha256": "5f1a6a8619bef9e9526aa2756abf68f4df5e6b16ba67f79e69c71f54508554ec"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/rows/3078083023-lambda-0.json",
+  "bytes": 21131,
+  "sha256": "b01dd8cb0cee5bdd0cc340407d7781ac00d92964d7b8cdfe88f38edce6bb1d36"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/challenges.mjs",
+  "bytes": 1390,
+  "sha256": "a24fa8bbfc820e454886a1c68c6f72c6d891d380c24d0de7ac67b5121d546e8e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/engine.mjs",
+  "bytes": 33874,
+  "sha256": "3ad70cada677fbde3a3e1de1aa7025575ab0acfc0cd4ae06adbfdef2c630aba5"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/docs/BODY_TRANSFER_PLAN_V3.md",
+  "bytes": 4890,
+  "sha256": "912b2f141c54c2cfb0e5b1f8305313420d08961f9eec8661fdb3c2ae8572a422"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/behavior-policy.mjs",
+  "bytes": 2655,
+  "sha256": "163ba254ded8290e0b960848b60be82d7c6b908742800b18de9c220fa82c8fdb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/contact-cue.mjs",
+  "bytes": 1159,
+  "sha256": "3631801548e07eb43f0f21edab0fa600d5991d26d0b538d7f5c3ad5e425a638c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/contact-observation.mjs",
+  "bytes": 1581,
+  "sha256": "0bcb82326ad01f00896b590c4489c0d966021f7a1cc2a8bcd6f15c9dfcd570c4"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/continual-regimes.mjs",
+  "bytes": 3378,
+  "sha256": "afda88397a380586a3ba20c4a5ae4f611207c40d1d60a909ba8baa7f4487b44b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/cue-foraging.mjs",
+  "bytes": 19006,
+  "sha256": "875b6a096a5247fca427e6a0a6d5eced3c2f67fd6c418966db10df5b4e5c44a2"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/embodied-control.mjs",
+  "bytes": 1685,
+  "sha256": "7f92aac55d8bd74ad34c4a17a06e84961bd82fcc3aecd17da98774e81543d3ec"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/embodied-programs.mjs",
+  "bytes": 3776,
+  "sha256": "7bb97b82f41e87ac0b60bc19aa28bdbeff778e62411806e751e0d31120b8d976"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/episodic-actor.mjs",
+  "bytes": 18915,
+  "sha256": "7a13b41e36df0887451a74ff7deab16bd1b055a45c1ec60aaad5bf1ea57bd86d"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/episodic.mjs",
+  "bytes": 13122,
+  "sha256": "6c63d91ee48db88f08f1af29bfe0ae692bf5974e02c1f0625ea2f966bdcbca23"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/intervention-study.mjs",
+  "bytes": 11628,
+  "sha256": "b96923467d82e3f90c0015fc64656b279695c5512079105e8273c3767b9b5460"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/joint-episodic.mjs",
+  "bytes": 10033,
+  "sha256": "3b0ff724c1727179bc08db315bdbbf55ba90196de632aeed9b0899acd5663634"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/kernel-learner.mjs",
+  "bytes": 8039,
+  "sha256": "86333639c66af3965a8447a8f0be4ca39073ea9321842737da31812f4880f536"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/mushroom-body.mjs",
+  "bytes": 8346,
+  "sha256": "611ac082278ac2758f05550fd35109e54ae7a1d63362d8fc7dd0106afc4b5c15"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/odor-identity.mjs",
+  "bytes": 1928,
+  "sha256": "86346814a64f3b88d7556e09abba2e0b493bfddd7095ae342298de622908ff87"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/policy-aware-outcome.mjs",
+  "bytes": 13177,
+  "sha256": "740c1f00a1eb8acaf67cf7a018337eec924c6f93c57b718dc873248f9821e8d6"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/pursuit-authority.mjs",
+  "bytes": 6292,
+  "sha256": "0c2b55cf94adb556aa223b89763f311e7600261be4b8ffaee67b930884c26ef3"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/retrace-sarsa-body.mjs",
+  "bytes": 7351,
+  "sha256": "a7cd49c9030b0892467d08ef4284fc82c3d5848e18da623e892f30e10996cb8b"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/sarsa-body.mjs",
+  "bytes": 9005,
+  "sha256": "6cb9d316875978b5b97bc41147a871ff8e14770d0617534797e76556110c6ce4"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/sarsa-experiment.mjs",
+  "bytes": 12012,
+  "sha256": "a7500e50538873506205433e53805e9860b1f1bb270f889a51bd698e4ab6230e"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/sarsa-screen.mjs",
+  "bytes": 9246,
+  "sha256": "f6e74c1bce7ac2991fbda6acc7dfca1add13ef1bca768b0d36d846356643d640"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/self-modifying-tasks.mjs",
+  "bytes": 5211,
+  "sha256": "0b06be944e4b335fb067b568009b9e52cac8b2853d33b36f4b4eb8b797a2c29c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/self-modifying.mjs",
+  "bytes": 9838,
+  "sha256": "4aa2d6c010b2d8a4a153cbc637eaaa71d23601a5a2f445968cfce17841a816c2"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/stationary-taste-credit.mjs",
+  "bytes": 2316,
+  "sha256": "914b8fc85c9a28f34ecaa68b9b2e5d191f239da0767391ff7558c26ffae9d636"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/taste-energy.mjs",
+  "bytes": 46081,
+  "sha256": "c0bb939ed67b5aaaaee4c6001c17629528f02e3bb2a2a8031fceb582033ef454"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/taste-experiment.mjs",
+  "bytes": 13879,
+  "sha256": "446830b9f779f171d284bd7a18a1249cec705e06f94e45676da3b4ce38ef10d3"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/taste-pressure.mjs",
+  "bytes": 2530,
+  "sha256": "7f7e18a84f101b90985c011e4e84b97470e1e5095d4db26d8165eccf9d621e38"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/tick-actor-critic.mjs",
+  "bytes": 12592,
+  "sha256": "f17ee7c25f30dbab412536fa5f88ef4de9c902b809e71792daa337927abec275"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/tick-cue-experiment.mjs",
+  "bytes": 19435,
+  "sha256": "de55ac2f2f9034a801df2862c8ff80d6c7b1d96fd29eee43b88d83cdc5869233"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/tick-cue-pressure.mjs",
+  "bytes": 3875,
+  "sha256": "fe1b1e15dc59eb74621f33f3bf380492a9ddcc2be982a324be1bdc3b49d9c22c"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/tick-value.mjs",
+  "bytes": 12654,
+  "sha256": "1bb3b4210326eb2e43c361aa455b9db4403a7958d497f13c5dc58809f6c8a48a"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/tile-sarsa-body.mjs",
+  "bytes": 9484,
+  "sha256": "6fc476e5fd49fac8d9af48564a3eaae7f7427adbae761a9e0ee350a9ab9d48fb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/trace-actor.mjs",
+  "bytes": 7716,
+  "sha256": "d0d63f3e2315d130c037a40b36259d75617157ce9df689e713d682e48e5f7241"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/value-cue-experiment.mjs",
+  "bytes": 19273,
+  "sha256": "699f98354e319862ce31c9d3e61fb598e955edf1a77e944dc43664aca2b582b3"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/learning/value-development.mjs",
+  "bytes": 13797,
+  "sha256": "89b89436f159160cda868424d14ef560c873fae175c6345615b7c24cd162e381"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/scripts/body-transfer-dev.mjs",
+  "bytes": 13467,
+  "sha256": "37cea50b609b1a51a3f48e9b400b8f6d3a8c645eaf6b371b7325d04aa92505a4"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/scripts/body-transfer.mjs",
+  "bytes": 34068,
+  "sha256": "6baeafb391a6001a76c419f22abdd8438b066c5345ebc5052e7c69dc6f32c8bb"
+ },
+ {
+  "path": "evidence/margin-gated-dev/quarantine-20261028/foreign-v3-rerun2-attempt-01/sources/tests/taste-anchor.test.mjs",
+  "bytes": 4380,
+  "sha256": "e756ddad82aa98cb0b08251cc26fc841cc8685bbdae0d39edf3378e3f1de4bca"
+ }
+]

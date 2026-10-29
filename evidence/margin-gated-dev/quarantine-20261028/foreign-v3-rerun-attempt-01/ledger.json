@@ -1,0 +1,1 @@
+{"ledger":{"mains":72,"probes":156,"worldTicks":168960,"founderSlots":4055040,"scalarOperations":9576305274},"runtimes":{"lambda-0":{"wall":93.2327092,"cpuS":92.187},"lambda-0.02":{"wall":95.89711669999998,"cpuS":87.032},"lambda-0.08":{"wall":94.15539679999999,"cpuS":87.859}},"redone":[]}
