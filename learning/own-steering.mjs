@@ -2,18 +2,18 @@ import assert from 'node:assert/strict';
 import {advanceRng} from './intervention-study.mjs';
 
 export const STEERING_FEATURES=8;
-export function createOwnSteering(agentId,seed){
-  assert.ok(Number.isSafeInteger(agentId)&&agentId>0&&Number.isInteger(seed)&&seed>0&&seed<=0xffffffff);
-  return {agentId,weights:Array.from({length:2},()=>Array(STEERING_FEATURES).fill(0)),pending:null,rngState:seed,
+export function createOwnSteering(agentId,seed,dims=STEERING_FEATURES){  assert.ok(Number.isSafeInteger(agentId)&&agentId>0&&Number.isInteger(seed)&&seed>0&&seed<=0xffffffff);
+  assert.ok(Number.isSafeInteger(dims)&&dims>0);
+  return {agentId,weights:Array.from({length:2},()=>Array(dims).fill(0)),pending:null,rngState:seed,
     acquisition:true,dead:false,lastDecisionTick:null,updates:0,work:{scalarOperations:0}};
 }
 function values(state,features){
-  state.work.scalarOperations+=2*2*STEERING_FEATURES;
+  const D=state.weights[0].length;state.work.scalarOperations+=2*2*D;
   return state.weights.map(weights=>weights.reduce((sum,weight,index)=>sum+weight*features[index],0));
 }
 function validate(state,own){
   assert.equal(own.agentId,state.agentId);assert.ok(Number.isInteger(own.tick));
-  assert.ok(Number.isFinite(own.energy));assert.ok(Array.isArray(own.features)&&own.features.length===STEERING_FEATURES&&own.features.every(Number.isFinite));
+  assert.ok(Number.isFinite(own.energy));assert.ok(Array.isArray(own.features)&&own.features.length===state.weights[0].length&&own.features.every(Number.isFinite));
   assert.equal(typeof own.midpointAvailable,'boolean');assert.ok(!state.dead);
 }
 function update(state,energy,nextFeatures,available,terminal){
@@ -22,11 +22,32 @@ function update(state,energy,nextFeatures,available,terminal){
   const next=terminal?0:values(state,nextFeatures),bootstrap=terminal?0:available?Math.max(...next):next[0];
   const reward=(energy-pending.energy)/120,delta=reward+Math.exp(-1/256)*bootstrap-prediction;
   state.work.scalarOperations+=9;
-  for(let index=0;index<STEERING_FEATURES;index++){
+  for(let index=0;index<state.weights[pending.action].length;index++){
     const value=state.weights[pending.action][index]+.05*delta*pending.features[index];
     state.weights[pending.action][index]=Math.max(-8,Math.min(8,value));
   }
-  state.work.scalarOperations+=5*STEERING_FEATURES;state.updates++;state.pending=null;
+  state.work.scalarOperations+=5*state.weights[pending.action].length;state.updates++;state.pending=null;
+}
+export function superviseOwnSteering(state,features,expert){
+  // ODOR DEV ROUND 4 frozen BC rule (PLAN V1 §1): perceptron push/pull
+  // toward the expert action, same rate/bounds as the live rule.
+  // Billing is the frozen formula: values 2*2*D + update 2*(2*D+1).
+  assert.ok(Array.isArray(features)&&features.length===state.weights[0].length&&features.every(Number.isFinite));
+  assert.ok(expert===0||expert===1);
+  const D=state.weights[0].length;
+  const s0=state.weights[0].reduce((s,w,j)=>s+w*features[j],0);
+  const s1=state.weights[1].reduce((s,w,j)=>s+w*features[j],0);
+  const pred=s1>s0?1:0;
+  let ops=2*2*D;
+  if(pred!==expert){
+    for(let j=0;j<D;j++){
+      state.weights[expert][j]=Math.max(-8,Math.min(8,state.weights[expert][j]+.05*features[j]));
+      state.weights[1-expert][j]=Math.max(-8,Math.min(8,state.weights[1-expert][j]-.05*features[j]));
+    }
+    ops+=2*(2*D+1);state.updates++;
+  }
+  state.work.scalarOperations+=ops;
+  return {action:pred,updated:pred!==expert,ops};
 }
 export function chooseOwnSteering(state,own,{forcedAction=null}={}){
   validate(state,own);
@@ -50,5 +71,5 @@ export function freezeOwnSteering(state){
 }
 export function resetOwnSteering(state){
   assert.ok(!state.dead);for(const weights of state.weights)weights.fill(0);
-  state.pending=null;state.work.scalarOperations+=2*STEERING_FEATURES;
+  state.pending=null;state.work.scalarOperations+=2*state.weights[0].length;
 }

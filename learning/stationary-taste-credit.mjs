@@ -31,7 +31,8 @@ export function finishStationaryTasteAction(state, {agentId, tick, lastFood, ter
   const pending = state.pending;
   // Charge the action and both outcome comparisons on every completion, including
   // controls, absent contacts, neutral sensations and final terminal work.
-  const stationaryAccept = pending.action === 2, positive = lastFood > 0, negative = lastFood < 0;
+  // Opt-in (state.sipLabels): a stationary refusal under the sip body also yields a taste label. Default unchanged.
+  const stationaryAccept = pending.action === 2 || (state.sipLabels === true && pending.action === 3), positive = lastFood > 0, negative = lastFood < 0;
   assert.ok(Number.isSafeInteger(state.scalarOperations) && state.scalarOperations >= 0 && Number.isSafeInteger(state.scalarOperations+3));
   state.scalarOperations += 3;
   const example = stationaryAccept && pending.contactPresent && (positive || negative)

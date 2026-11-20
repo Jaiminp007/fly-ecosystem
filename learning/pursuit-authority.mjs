@@ -44,7 +44,7 @@ export function simulatePursuitAuthority(protocol,history,emit=()=>{}){
         controller.decisions++;controller.lastDecisionTick=tick;
         emit({stage:'probe',type:'decision',arm:mode,agentId:fly.id,tick,choice:controller.heldAction,rngState:controller.rngState});
       }
-      const motor=mode==='legacyFast'?{outputs:motorPrimitive(raw,1,false),operations:6}:pursuitMotor(raw,controller.heldAction);
+      const motor=mode==='legacyFast'?{outputs:motorPrimitive(raw,1,false),operations:12}:pursuitMotor(raw,controller.heldAction);
       controller.ticks++;controller.work.scalarOperations+=motor.operations;
       emit({stage:'probe',type:'motor',arm:mode,agentId:fly.id,tick,sensors:[raw[0],raw[1],raw[2],raw[10],raw[11]],action:controller.heldAction,outputs:motor.outputs,operations:motor.operations});
       const bill=chargeForStep(controller,protocol.pricing);

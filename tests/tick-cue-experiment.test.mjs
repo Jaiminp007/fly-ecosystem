@@ -56,7 +56,7 @@ test('all thirteen arms cold-continue exactly; random and fixed choices pay thei
         assert.equal(state.rngState,rng);
         const decisions = events.filter(event => event.type === 'decision' && event.own.agentId === state.agentId);
         for (let index = 1; index < decisions.length; index++) {
-          const event = decisions[index], motor = [0,2].includes(event.choice) ? 6 : 9;
+          const event = decisions[index], motor = [0,2].includes(event.choice) ? 12 : 15;
           assert.equal(event.scalarOperations-decisions[index-1].scalarOperations,(arm === 'random' ? 10 : 1)+motor);
         }
       }

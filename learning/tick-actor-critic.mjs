@@ -152,11 +152,11 @@ export function observeTickBody(state, own, emit = () => {}) {
   state.lastObservedTick = own.tick; state.awaitingObservation = false; state.dead = own.terminal;
 }
 
-export function tickMotor(state, raw, action) {
+export function tickMotor(state, raw, action, mateBias=0, gateThr=-Infinity, leaveBias=0, leaveThr=-Infinity) {
   assert.ok(finiteVector(raw,17) && Number.isInteger(action) && action >= 0 && action < 4);
   const accept = action === 0 || action === 2;
-  state.work.scalarOperations += accept ? 6 : 9;
-  const outputs = motorPrimitive(raw,accept ? 1 : -1);
+  state.work.scalarOperations += accept ? 12 : 15;
+  const outputs = motorPrimitive(raw,accept ? 1 : -1,false,mateBias,gateThr,leaveBias,leaveThr);
   if (action >= 2) outputs[1] = -1;
   return outputs;
 }

@@ -5,16 +5,17 @@ import {CONTINUAL_PHASES,enterContinualPhase,updateContinualResources} from './c
 import {makeCueCodebook,enterCuePhase,updateCueResources,cueObservation} from './cue-foraging.mjs';
 import {chargeForStep,billSarsaWork,encodedStateBytes} from './sarsa-experiment.mjs';
 import {createTickBody,chooseTickAction,observeTickBody,tickMotor,freezeTickBody,resetTickBody,restoreTickBody} from './tick-actor-critic.mjs';
+import {createKernelCriticBody,chooseKernelCriticAction,observeKernelCriticBody,restoreKernelCriticBody} from './tick-kernel-critic.mjs';
 
 export const TICK_CUE_ARMS = Object.freeze(['candidate','frozen','reset','cueBlind','shuffled','nullCandidate','nullBlind',
-  'incumbent','acceptCruise','refuseCruise','acceptStationary','refuseStationary','random']);
+  'incumbent','acceptCruise','refuseCruise','acceptStationary','refuseStationary','random','kernelCritic']);
 export const TICK_CUE_PROBES = Object.freeze([
   ...[['A','A'],['A','C'],['A','reset'],['B','A'],['B','B'],['B','C'],['B','reset'],['C','B'],['C','C']],
   ...['A','C','reset','accept','acceptStationary'].map(version => ['transfer',version])
 ].map(([family,version]) => Object.freeze({family,version})));
 // Additional prospective interference intervention; keep the original battery unchanged.
 export const TICK_CUE_PRESSURE_PROBES = Object.freeze([Object.freeze({family: 'A',version: 'B'})]);
-const learned = arm => ['candidate','frozen','reset','cueBlind','shuffled','nullCandidate','nullBlind'].includes(arm);
+const learned = arm => ['candidate','frozen','reset','cueBlind','shuffled','nullCandidate','nullBlind','kernelCritic'].includes(arm);
 const canonical = value => JSON.parse(JSON.stringify(value));
 const validSeed = value => Number.isInteger(value) && value > 0 && value <= 0xffffffff;
 
@@ -48,7 +49,7 @@ export class TickCueExperiment {
     this.startingDebt = 0; this.startingOperations = 0; this.learners = {};
     for (const id of this.founderIds) {
       const seed = (history.seed ^ Math.imul(id,2654435761)) >>> 0 || 1;
-      this.learners[id] = learned(arm) ? createTickBody(id,seed) : fixedState(id,seed,arm);
+      this.learners[id] = learned(arm) ? (arm === 'kernelCritic' ? createKernelCriticBody(id,seed) : createTickBody(id,seed)) : fixedState(id,seed,arm);
     }
     this.phaseIndex = 0; this.phaseEnd = CONTINUAL_PHASES[0].ticks;
     this.phaseRows = []; this.savedModels = {}; this.atC = null;
@@ -120,7 +121,7 @@ export class TickCueExperiment {
       }
       const observation = this.observation(fly,raw,tick);
       const own = {agentId: fly.id,tick,energy: fly.energy-state.charge.outstandingEnergy,raw,observation};
-      const choice = learned(this.arm) ? chooseTickAction(state,own,row => this.record({type: 'transition',...row})) : this.fixedChoice(state,tick);
+      const choice = learned(this.arm) ? (this.arm === 'kernelCritic' ? chooseKernelCriticAction(state,own,row => this.record({type: 'transition',...row})) : chooseTickAction(state,own,row => this.record({type: 'transition',...row}))) : this.fixedChoice(state,tick);
       const outputs = tickMotor(state,raw,choice), bill = chargeForStep(state,this.pricing);
       this.record({type: 'decision',own,sourceCue: fly.sensedCue,physicalEnergy: fly.energy,choice,outputs,rngState: state.rngState,
         scalarOperations: state.work.scalarOperations,storageBytes: state.charge.storageBytes,requestedExtra: bill.energyCost});
@@ -137,7 +138,7 @@ export class TickCueExperiment {
     for (const fly of before) {
       const state = this.learners[fly.id], alive = this.world.flies.includes(fly);
       const own = {agentId: fly.id,tick: this.world.tick,energy: (alive ? fly.energy : 0)-state.charge.outstandingEnergy,terminal: !alive};
-      if (learned(this.arm)) observeTickBody(state,own,row => this.record({type: 'transition',...row}));
+      if (learned(this.arm)) (this.arm === 'kernelCritic' ? observeKernelCriticBody(state,own,row => this.record({type: 'transition',...row})) : observeTickBody(state,own,row => this.record({type: 'transition',...row})));
       else {state.lastObservedTick = this.world.tick; state.dead = !alive;}
       if (!alive && this.arm !== 'incumbent') billSarsaWork(state,this.pricing);
       this.record({type: 'observe',own,physicalEnergy: alive ? fly.energy : 0,discardedEnergy: alive ? 0 : fly.energy,
@@ -207,7 +208,7 @@ export class TickCueExperiment {
       assert.equal(state.dead,!run.world.flies.some(fly => fly.id === id));
       assert.ok(state.lastObservedTick <= run.world.tick);
       if (!state.dead) assert.equal(state.lastObservedTick,run.world.tick);
-      if (learned(run.arm)) run.learners[id] = restoreTickBody(state);
+      if (learned(run.arm)) run.learners[id] = run.arm === 'kernelCritic' ? restoreKernelCriticBody(state) : restoreTickBody(state);
       else {
         assert.deepEqual(Object.keys(state).sort(),Object.keys(fixedState(id,state.rngState,run.arm)).sort());
         assert.equal(state.kind,run.arm === 'incumbent' ? 'native-tick-reference-observer' : 'fixed-tick-menu-control');

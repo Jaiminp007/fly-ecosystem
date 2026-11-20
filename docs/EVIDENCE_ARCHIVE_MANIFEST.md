@@ -103,3 +103,14 @@ Restore: `cd evidence && tar -xzf <archive>`. Verify: `sha256sum -c` against the
 | worker-migration.tar.gz | 152757544 | 13979275 | 985b465d8091c13ac00e8badff2960ed9e68f292364a27f68bf7397a5e2cb087 | 15 |
 | worker-runtime.tar.gz | 849919152 | 82454613 | dca3d04f96de6f8226a02af4def8062df44553bb9c68ba6d2e8d139f269d4c09 | 69 |
 | worker-world-benchmark.tar.gz | 138372331 | 12949065 | 19ff0b108efa57c76c2848be56c709cb7ea21fc2c203c7a6b238f55c1137e970 | 18 |
+| odor-routed-development-r2.tar.gz | 657098018 | 121164362 | 92c28393f57ecbcf49462a79a458aceb6eefe47306febb570de8eb2f1f20f338 | 218 |
+| odor-routed-development-r3.tar.gz | 588297929 | 114651796 | 9113f7924cf9423d99843700e4c2e7ae698e67e84aee974eae30abdad3beb295 | 194 |
+| odor-routed-development-r4.tar.gz | 610496241 | 111603129 | 98715caad38191abbef7bd26886cae29c18f4b1a819be72f9331f8b6982b3114 | 226 |
+| odor-routed-development-r5.tar.gz | 570375339 | 110856925 | 44c489bbc339b9129c45230dc2390379effae28c26c58a8409d3a66938e37304 | 195 |
+| odor-routed-development-r6.tar.gz | 576690759 | 111500074 | 1b73faf08a257e33def485004ad41244b8adbabbc7200d357688d8a02950df56 | 196 |
+| odor-routed-development-r7.tar.gz | 50364262 | 9989114 | 9ca49ebaa41502a011a663e3672474b92e81d886671d99670936af8c443a65d4 | 69 |
+| odor-routed-development-r8.tar.gz | 576498492 | 109264161 | e6d847c84673376174378fcc100213bc9aeab82718724711522eed259481b00d | 206 |
+| odor-routed-development-r9.tar.gz | 556374178 | 106017763 | 425bac0ebb31ddd3c80f5032cf319e8a8bf8161c32a08db770d5921053fcfc3d | 206 |
+| odor-routed-development-r10.tar.gz | 555937933 | 105942388 | fe9395c2453e89cce2b7611eae09e55cb55f1488729f09d55276df8419bb39e6 | 205 |
+
+Rounds R2-R10 archived 2026-11-03 (all lines CLOSED: R2/R3/R4/R5/R6/R8/R9 NO-GO, R7 INCOMPLETE-EXTINCT, R10 PARTIAL; verdicts in docs/ + verdict.json inside each archive; ~4.49G → ~0.97G, ~3.5G freed). Seed-bearing files (protocol.json, bank-protocol.json, r1plain-sha256.json) copied to evidence/_spent-seed-registry/<round>/ BEFORE archiving so future bank-exclusion scans keep seeing spent seeds. Verify: tar -tzf + gzip -t + full file-list diff per archive; one full test-extraction (R10, 205 files; verdict.json reproduces published R10-PARTIAL 5/5/7). Restore: cd evidence && tar -xzf <archive>.

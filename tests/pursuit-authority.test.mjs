@@ -58,7 +58,7 @@ test('named engineering pursuit fixture regenerates exact traces, own RNG, all-f
         }
         if(event.type==='motor'){
           const raw=Array(17).fill(0);[raw[0],raw[1],raw[2],raw[10],raw[11]]=event.sensors;
-          const expected=mode==='legacyFast'?{outputs:motorPrimitive(raw,1,false),operations:6}:pursuitMotor(raw,heldAction);
+          const expected=mode==='legacyFast'?{outputs:motorPrimitive(raw,1,false),operations:12}:pursuitMotor(raw,heldAction);
           assert.equal(event.action,heldAction);assert.deepEqual(event.outputs,expected.outputs);assert.equal(event.operations,expected.operations);
         }
       }

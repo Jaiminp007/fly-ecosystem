@@ -133,7 +133,7 @@ test('same old steering supports the declared factorial action menu, without a t
     const before = state.work.scalarOperations, accept = action === 0 || action === 2;
     const expected = motorPrimitive(own.raw,accept ? 1 : -1); if (action >= 2) expected[1] = -1;
     assert.deepEqual(tickMotor(state,own.raw,action),expected);
-    assert.equal(state.work.scalarOperations-before,accept ? 6 : 9);
+    assert.equal(state.work.scalarOperations-before,accept ? 12 : 15);
   }
 });
 

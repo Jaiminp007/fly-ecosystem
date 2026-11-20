@@ -9,6 +9,24 @@ export const CONTINUAL_PHASES = Object.freeze([
   Object.freeze({id: 'C', kind: 'scarce', ticks: 512, nutrient: .2, shiftEvery: 0}),
   Object.freeze({id: 'return-A', kind: 'stable', ticks: 256, nutrient: .4, shiftEvery: 0})
 ]);
+// ODOR DEV ROUND 2 rehearsal table (PLAN V1 FROZEN): A256-B512-A128-
+// C512-A128-D256 = 1792 ticks (same budget as round 1). Slot keys at
+// runtime: A1,B1,A2,C1,A3,D1 with 'A' aliased to the final A-slot.
+// A-revisits reuse the A resource seed via ODOR_R2_SEED_MAP.
+export const CONTINUAL_PHASES_REHEARSAL = Object.freeze([
+  Object.freeze({id: 'A', kind: 'stable', ticks: 256, nutrient: .4, shiftEvery: 0}),
+  Object.freeze({id: 'B', kind: 'moving', ticks: 512, nutrient: .4, shiftEvery: 128}),
+  Object.freeze({id: 'A', kind: 'stable', ticks: 128, nutrient: .4, shiftEvery: 0}),
+  Object.freeze({id: 'C', kind: 'scarce', ticks: 512, nutrient: .2, shiftEvery: 0}),
+  Object.freeze({id: 'A', kind: 'stable', ticks: 128, nutrient: .4, shiftEvery: 0}),
+  Object.freeze({id: 'D', kind: 'stable', ticks: 256, nutrient: .4, shiftEvery: 0})
+]);
+// Frozen round-2 numbers (importable, no side effects): schedule ticks,
+// seed map (A-slots -> resourceSeeds[0]; B->1; C->2; D->3), caps.
+export const ODOR_R2_TICKS = Object.freeze([256,512,128,512,128,256]);
+export const ODOR_R2_SEED_MAP = Object.freeze([0,1,0,2,0,3]);
+export const ODOR_R2_OP_CAP = 40_000_000_000;
+export const ODOR_R2_WALL_CAP_SECONDS = 3600;
 
 function layout(world, rng, moveFood) {
   world.resourceCenters = Array.from({length: 3}, () => ({x: rng.range(100, 900), y: rng.range(80, 560)}));

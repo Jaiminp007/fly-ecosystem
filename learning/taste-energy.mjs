@@ -4,7 +4,8 @@ import {createStationaryTasteCredit,beginStationaryTasteAction,finishStationaryT
 
 export const TASTE_ENERGY_DEFAULTS=Object.freeze({mechanism:'stationary-taste-energy-v1',tasteDimensions:11,motorDimensions:16,
   holdTicks:16,capacity:32,recent:8,discount:.95,lambda:.9,epsilon:.1,tasteRate:.1,actorRate:.05,criticRate:.1,
-  tdRmsRate:.03125,tdFloor:1e-6,advantageBound:4,weightBound:8,priorOdds:3,feedingRule:'matching',marginReadback:false,marginGateTau:0});
+  tdRmsRate:.03125,tdFloor:1e-6,advantageBound:4,weightBound:8,priorOdds:3,feedingRule:'matching',marginReadback:false,marginGateTau:0,selfMod:false,
+  assocBrake:false,assocC0:2000,assocDecay:0,baselineRate:0});
 const vector=(a,n,bound=Infinity)=>Array.isArray(a)&&a.length===n&&Array.from(a).every(v=>Number.isFinite(v)&&Math.abs(v)<=bound);
 const signs=a=>vector(a,4,1)&&(a.every(v=>v===0)||a.every(v=>v===1||v===-1));
 const zeros=n=>Array(n).fill(0),canonical=x=>x===0?0:x;
@@ -16,20 +17,22 @@ function math(state){
 }
 function dot(state,w,x){const m=math(state);return w.reduce((sum,v,j)=>m.add(sum,m.mul(v,x[j])),0);}
 function sigmoid(state,value){const m=math(state);return m.div(1,m.add(1,m.exp(m.sub(0,value))));}
-function draw(state,key){state[key]=advanceRng(state[key]);state.work.scalarOperations+=6;return math(state).div(state[key],4294967296);}
+export function draw(state,key){state[key]=advanceRng(state[key]);state.work.scalarOperations+=6;return math(state).div(state[key],4294967296);}
 function indexDraw(state,key,n){const m=math(state);const value=m.mul(draw(state,key),n);state.work.scalarOperations++;return Math.floor(value);}
 function clip(state,value,bound=8){const m=math(state);return m.max(-bound,m.min(bound,value));}
 
 export function createTasteEnergyBody(agentId,seed,options={}){
   assert.ok(options&&typeof options==='object'&&!Array.isArray(options));
-  keys(options,Object.keys(options).filter(k=>['tasteLearning','normalizeMotor','cueBlind','feedingRule','tasteRepresentation','tasteRate','capacity','recent','replayStrata','replayPasses','consolidationRate','motorConsolidationRate','streams','streamHysteresis','surpriseGain','surpriseWindow','phaseSlots','slotRate','marginWidth','marginBoost','replayTournament','replayRate','replaySkip','replaySurpriseGain','evictBias','motorAnchorRate','motorAnchorStrength','motorRepresentation','holdTicks','criticWarmStart','motorRule','renewalRate','greedyInference','slowAnchorRate','slowAnchorStrength','marginGateTau'].includes(k)));
-  const {tasteLearning=true,normalizeMotor=true,cueBlind=false,feedingRule='matching',tasteRepresentation='pairwise',tasteRate=.1,capacity=32,recent=8,replayStrata=1,replayPasses=1,consolidationRate=0,motorConsolidationRate=0,streams=1,streamHysteresis=0,surpriseGain=0,surpriseWindow=0,phaseSlots=1,slotRate=.05,marginWidth=0,marginBoost=0,replayTournament=1,replayRate=1,replaySkip=0,replaySurpriseGain=0,evictBias=0,motorAnchorRate=0,motorAnchorStrength=0,motorRepresentation='shared',holdTicks=16,criticWarmStart=false,motorRule='td',renewalRate=.1,greedyInference=false,slowAnchorRate=0,slowAnchorStrength=0,marginGateTau=0}=options;
+  keys(options,Object.keys(options).filter(k=>['tasteLearning','normalizeMotor','cueBlind','feedingRule','tasteRepresentation','tasteRate','capacity','recent','replayStrata','replayPasses','consolidationRate','motorConsolidationRate','streams','streamHysteresis','surpriseGain','surpriseWindow','phaseSlots','slotRate','marginWidth','marginBoost','replayTournament','replayRate','replaySkip','replayGain','replaySurpriseGain','replayDamageGain','replayThreatGain','evictBias','motorAnchorRate','motorAnchorStrength','motorRepresentation','holdTicks','criticWarmStart','motorRule','renewalRate','greedyInference','slowAnchorRate','slowAnchorStrength','marginGateTau','selfMod','assocBrake','assocC0','assocDecay','baselineRate'].includes(k)));
+  const {tasteLearning=true,normalizeMotor=true,cueBlind=false,feedingRule='matching',tasteRepresentation='pairwise',tasteRate=.1,capacity=32,recent=8,replayStrata=1,replayPasses=1,consolidationRate=0,motorConsolidationRate=0,streams=1,streamHysteresis=0,surpriseGain=0,surpriseWindow=0,phaseSlots=1,slotRate=.05,marginWidth=0,marginBoost=0,replayTournament=1,replayRate=1,replaySkip=0,replayGain=1,replaySurpriseGain=0,replayDamageGain=0,replayThreatGain=0,evictBias=0,motorAnchorRate=0,motorAnchorStrength=0,motorRepresentation='shared',holdTicks=16,criticWarmStart=false,motorRule='td',renewalRate=.1,greedyInference=false,slowAnchorRate=0,slowAnchorStrength=0,marginGateTau=0,selfMod=false,assocBrake=false,assocC0=2000,assocDecay=0,baselineRate=0}=options;
+  assert.ok(typeof assocBrake==='boolean');assert.ok(Number.isFinite(assocC0)&&assocC0>0);assert.ok(Number.isFinite(assocDecay)&&assocDecay>=0&&assocDecay<=1);
   assert.ok(Number.isFinite(slowAnchorRate)&&slowAnchorRate>=0&&slowAnchorRate<=1);
-  assert.ok(marginGateTau===null||(Number.isFinite(marginGateTau)&&marginGateTau>=0));
+  assert.ok(marginGateTau===null||(Number.isFinite(marginGateTau)&&marginGateTau>=0));assert.ok(typeof selfMod==='boolean');
   assert.ok(Number.isFinite(slowAnchorStrength)&&slowAnchorStrength>=0&&slowAnchorStrength<=1);
   assert.ok(!(slowAnchorStrength>0&&slowAnchorRate<=0));
   assert.ok(!(slowAnchorStrength>0&&(streams>1||phaseSlots>1)));
   assert.ok(Number.isFinite(motorAnchorRate)&&motorAnchorRate>=0&&motorAnchorRate<=1);
+  assert.ok(Number.isFinite(baselineRate)&&baselineRate>=0&&baselineRate<=1);
   assert.ok(Number.isFinite(motorAnchorStrength)&&motorAnchorStrength>=0&&motorAnchorStrength<=1);
   assert.ok(!(motorAnchorStrength>0&&motorAnchorRate<=0));
   assert.ok(!(motorAnchorStrength>0&&(streams>1||phaseSlots>1)));
@@ -40,7 +43,7 @@ export function createTasteEnergyBody(agentId,seed,options={}){
   assert.ok(Number.isFinite(consolidationRate)&&consolidationRate>=0&&consolidationRate<=1);
   assert.ok(Number.isFinite(motorConsolidationRate)&&motorConsolidationRate>=0&&motorConsolidationRate<=1);
   assert.ok(Number.isInteger(streams)&&(streams===1||streams===2));assert.ok(Number.isInteger(replayPasses)&&replayPasses>=1);
-  assert.ok(Number.isFinite(streamHysteresis)&&streamHysteresis>=0&&streamHysteresis<=1);assert.ok(Number.isFinite(surpriseGain)&&surpriseGain>=0);assert.ok(Number.isInteger(surpriseWindow)&&surpriseWindow>=0);assert.ok(phaseSlots===1||phaseSlots===2);assert.ok(Number.isFinite(slotRate)&&slotRate>0);assert.ok(Number.isFinite(marginWidth)&&marginWidth>=0);assert.ok(Number.isFinite(marginBoost)&&marginBoost>=0);assert.ok(Number.isInteger(replayTournament)&&replayTournament>=1&&replayTournament<=3);assert.ok(Number.isFinite(replayRate)&&replayRate>0);assert.ok(Number.isFinite(replaySkip)&&replaySkip>=0);assert.ok(Number.isFinite(replaySurpriseGain)&&replaySurpriseGain>=0);assert.ok(evictBias===-1||evictBias===0||evictBias===1);assert.ok(!(streams>1&&phaseSlots>1));assert.ok(!(consolidationRate>0&&phaseSlots>1));
+  assert.ok(Number.isFinite(streamHysteresis)&&streamHysteresis>=0&&streamHysteresis<=1);assert.ok(Number.isFinite(surpriseGain)&&surpriseGain>=0);assert.ok(Number.isInteger(surpriseWindow)&&surpriseWindow>=0);assert.ok(phaseSlots===1||phaseSlots===2);assert.ok(Number.isFinite(slotRate)&&slotRate>0);assert.ok(Number.isFinite(marginWidth)&&marginWidth>=0);assert.ok(Number.isFinite(marginBoost)&&marginBoost>=0);assert.ok(Number.isInteger(replayTournament)&&replayTournament>=1&&replayTournament<=3);assert.ok(Number.isFinite(replayRate)&&replayRate>0);assert.ok(Number.isFinite(replaySkip)&&replaySkip>=0);assert.ok(Number.isFinite(replayGain)&&replayGain>=0);assert.ok(Number.isFinite(replaySurpriseGain)&&replaySurpriseGain>=0);assert.ok(Number.isFinite(replayDamageGain)&&replayDamageGain>=0);assert.ok(Number.isFinite(replayThreatGain)&&replayThreatGain>=0);assert.ok(evictBias===-1||evictBias===0||evictBias===1);assert.ok(!(streams>1&&phaseSlots>1));assert.ok(!(consolidationRate>0&&phaseSlots>1));
   const tasteDimensions=tasteRepresentation==='orthogonal'?16:11;
   assert.ok(['shared','appetite','intake','balance','ecology'].includes(motorRepresentation));assert.ok([1,4,16].includes(holdTicks));
   const motorDimensions=motorRepresentation==='shared'?16:motorRepresentation==='appetite'?48:motorRepresentation==='ecology'?96:64;
@@ -48,14 +51,16 @@ export function createTasteEnergyBody(agentId,seed,options={}){
   if(motorRule!=='td')assert.ok(holdTicks===1&&!criticWarmStart);
   assert.ok([tasteLearning,normalizeMotor,cueBlind,criticWarmStart,greedyInference].every(v=>typeof v==='boolean'));
   assert.ok(Number.isSafeInteger(agentId)&&agentId>0&&Number.isInteger(seed)&&seed>0&&seed<=0xffffffff);
-  return {schema:1,kind:'own-taste-energy',agentId,config:{...TASTE_ENERGY_DEFAULTS,tasteLearning,normalizeMotor,cueBlind,feedingRule,tasteRepresentation,tasteRate,capacity,recent,replayStrata,replayPasses,consolidationRate,motorConsolidationRate,streams,streamHysteresis,surpriseGain,surpriseWindow,phaseSlots,slotRate,marginWidth,marginBoost,replayTournament,replayRate,replaySkip,replaySurpriseGain,evictBias,tasteDimensions,motorRepresentation,motorDimensions,holdTicks,slowAnchorRate,slowAnchorStrength,marginGateTau,motorAnchorRate,motorAnchorStrength,...(criticWarmStart?{criticWarmStart:true}:{}),...(motorRule!=='td'?{motorRule,renewalRate}:{}),...(greedyInference?{greedyInference:true}:{})},
+  return {schema:1,kind:'own-taste-energy',agentId,config:{...TASTE_ENERGY_DEFAULTS,tasteLearning,normalizeMotor,cueBlind,feedingRule,tasteRepresentation,tasteRate,capacity,recent,replayStrata,replayPasses,consolidationRate,motorConsolidationRate,streams,streamHysteresis,surpriseGain,surpriseWindow,phaseSlots,slotRate,marginWidth,marginBoost,replayTournament,replayRate,replaySkip,replayGain,replaySurpriseGain,replayDamageGain,replayThreatGain,evictBias,tasteDimensions,motorRepresentation,motorDimensions,holdTicks,slowAnchorRate,slowAnchorStrength,marginGateTau,selfMod,motorAnchorRate,motorAnchorStrength,assocBrake,assocC0,assocDecay,baselineRate,...(criticWarmStart?{criticWarmStart:true}:{}),...(motorRule!=='td'?{motorRule,renewalRate}:{}),...(greedyInference?{greedyInference:true}:{})},
     priorLogit:Math.log(3),tasteScale:1/Math.sqrt(tasteDimensions),
     weights:{taste:zeros(tasteDimensions),actor:zeros(motorDimensions),critic:zeros(motorDimensions),...(consolidationRate>0?{slowTaste:zeros(tasteDimensions)}:{}),...(slowAnchorStrength>0?{slowDir:zeros(tasteDimensions)}:{}),...(motorAnchorStrength>0?{slowMotorDir:zeros(motorDimensions)}:{}),...(motorConsolidationRate>0?{slowActor:zeros(motorDimensions),slowCritic:zeros(motorDimensions)}:{}),...(streams>1?{tasteB:zeros(tasteDimensions)}:{})},eligibility:{actor:zeros(motorDimensions),critic:zeros(motorDimensions)},
     credit:createStationaryTasteCredit(agentId,{maskedCue:cueBlind}),hold:{cruise:false,remaining:0},motorPending:null,tdRms:0,
     recent:[],older:[],olderSeen:0,tasteExamples:0,acquiredTasteExamples:0,
     feedRngState:seed,motorRngState:(seed^0x9e3779b9)>>>0||1,retentionRngState:(seed^0xa511e9b3)>>>0||1,replayRngState:(seed^0x63d83595)>>>0||1,
     decisions:0,lastDecisionTick:0,lastObservedTick:0,awaitingObservation:false,acquisition:true,dead:false,
-    work:{scalarOperations:6,liveUpdates:0,replayUpdates:0,tasteLiveUpdates:0,motorUpdates:0,surpriseBoosts:0,marginBoosts:0,replaySkips:0,replaySurpriseBoosts:0,evictSwaps:0},
+    ...(assocBrake?{brakes:{}}:{}),
+    work:{scalarOperations:6,liveUpdates:0,replayUpdates:0,tasteLiveUpdates:0,motorUpdates:0,surpriseBoosts:0,marginBoosts:0,replaySkips:0,replaySurpriseBoosts:0,replayDamageBoosts:0,replayThreatBoosts:0,evictSwaps:0,...(assocBrake?{brakeUpdates:0}:{})},
+    tasteBaselineC:0,
     charge:{operationsBilled:0,outstandingEnergy:0,incurredEnergy:0,paidEnergy:0,storageBytes:0},
     ...(motorRepresentation==='balance'||motorRepresentation==='ecology'?{balance:{before:null,delta:0}}:{}),...(criticWarmStart?{criticReady:false}:{}),...(greedyInference?{inference:false}:{}),...(streams>1?{streamEma:[0,0],controller:0}:{}),...(surpriseGain>0?{surpriseEma:0}:{}),...(surpriseGain>0?{surpriseTimer:0}:{}),...(phaseSlots>1?{slot:[zeros(tasteDimensions),zeros(tasteDimensions)],gapEma:null,slotC:null,activeSlot:0,slotLastTick:null}:{})};
 }
@@ -93,9 +98,24 @@ export function tasteEnergyFeatures(state,raw,cue,contactPresent,odorPresent=cue
   motor.splice(context*16,16,...base);
   return {taste,motor,prediction};
 }
-function tastePrediction(state,phi,weights){
+export function tastePrediction(state,phi,weights){
   const w=weights??(state.config.phaseSlots>1?state.slot[state.activeSlot]:state.config.streams>1?state.weights[state.controller===0?'taste':'tasteB']:state.weights.taste);
   return sigmoid(state,math(state).add(state.priorLogit,dot(state,w,phi)));}
+// End-of-seg cue-value probe (VALUE-PROBE V1 instrument only). Builds taste
+// phi through the EXISTING tasteFeatures path and returns tastePrediction
+// under current weights — exact because taste phi is context-free (cue
+// only). Bills exactly like live predictions (math-op wrapper only, no
+// surcharge; symmetric on every arm so comparisons are unaffected).
+// Reads weights/RNG/buffers, mutates none.
+export function probeCueValues(state,cues){
+  assert.ok(Array.isArray(cues)&&cues.length>0,'probe needs a non-empty cue list');
+  const out=[];
+  for(const cue of cues){
+    assert.ok(Array.isArray(cue)&&cue.length===4&&cue.every(v=>v===1||v===-1||v===0),'bad cue pattern');
+    out.push(tastePrediction(state,tasteFeatures(state,cue)));
+  }
+  return out;
+}
 // Phase-indexed taste slots: endogenous online 2-means over the slow cue EMA.
 // No labels or phase boundaries; the active slot owns prediction and live
 // learning, records carry their slot, replay routes to the tagged slot.
@@ -138,18 +158,63 @@ function remember(state,record){
   if(bias>0?m.less(vScore,dScore):m.less(dScore,vScore)){state.older[victim]=displaced;state.work.evictSwaps++;}
 }
 export function tasteUpdate(state,record,mode,emit,boost=1){
-  const m=math(state),slotW=state.config.phaseSlots>1?state.slot[mode==='replay'?(record.slot??0):state.activeSlot]:undefined,prediction=tastePrediction(state,record.phi,slotW),error=m.sub(record.target,prediction);let rate=state.config.tasteRate;const gain=state.config.surpriseGain??0;
+  const m=math(state),slotW=state.config.phaseSlots>1?state.slot[mode==='replay'?(record.slot??0):state.activeSlot]:undefined;
+  // A1 adaptive baseline (docs/ODOR_DEV_ROUND8_AMENDMENT_A1.md, frozen):
+  // c tracks the background target rate (EMA, alpha=baselineRate), centered
+  // error = (target-c)-prediction. EMA computed-always/apply-live (S-GATE
+  // precedent): uniform 4 ops via m in both modes when on (+4 plain when
+  // off); behavior changes only when baselineRate>0 (plain-JS gate, no RNG
+  // draws, so null arms match unmodified code in weights/decisions).
+  const br=state.config.baselineRate??0;
+  let centeredTarget=record.target;
+  if(br>0){
+    const nextC=m.add(state.tasteBaselineC,m.mul(br,m.sub(record.target,state.tasteBaselineC)));
+    if(mode==='live')state.tasteBaselineC=nextC;
+    centeredTarget=m.sub(record.target,state.tasteBaselineC);
+  } else state.work.scalarOperations+=4;
+  const prediction=tastePrediction(state,record.phi,slotW),error=m.sub(centeredTarget,prediction);let rate=state.config.tasteRate;const gain=state.config.surpriseGain??0;
   if(mode==='live'&&gain>0){const err2=m.mul(error,error),warm=m.less(1e-4,state.surpriseEma),surprised=m.less(m.mul(2,state.surpriseEma),err2),W=state.config.surpriseWindow??0;
     let boost=false;if(state.surpriseTimer>0){boost=true;state.surpriseTimer--;}else if(warm&&surprised){boost=true;state.surpriseTimer=W;}
     if(boost){rate=m.mul(rate,m.add(1,gain));state.work.surpriseBoosts++;}
     state.surpriseEma=m.add(state.surpriseEma,m.mul(.05,m.sub(err2,state.surpriseEma)));}
   const mw=state.config.marginWidth??0,mb=state.config.marginBoost??0;
   if(mode==='live'&&mw>0&&mb>0){const dist=m.sub(prediction,.5);if(m.less(m.mul(dist,dist),m.mul(mw,mw))){rate=m.mul(rate,m.add(1,mb));state.work.marginBoosts++;}}
-  if(mode==='replay'){const rr=state.config.replayRate??1;if(rr!==1)rate=m.mul(rate,rr);if(boost!==1)rate=m.mul(rate,boost);}
+  // Associability brake (BRAKE-LIFT V1+V2, docs/BRAKE_LIFT_PLAN_V1.md,
+  // docs/BRAKE_LIFT_PLAN_V2.md). V1 gated live updates only; V2 gates
+  // live AND replay (replay dominance 1:4 measured). Symmetric
+  // billing: IDENTICAL ops on every arm and mode (explicit +=3);
+  // behavior changes only when assocBrake is on (plain-JS arithmetic,
+  // no RNG draws, so null arms are bit-identical in behavior). Brake
+  // state lives in state.brakes (pattern->b), set by the instrument
+  // post-transplant from train contacts; absent cues read 0 (unbraked).
+  {
+    const phi=record.phi;
+    const cueKey=phi.length>=5?((phi[1]>0?1:phi[1]<0?-1:0)+','+(phi[2]>0?1:phi[2]<0?-1:0)+','+(phi[3]>0?1:phi[3]<0?-1:0)+','+(phi[4]>0?1:phi[4]<0?-1:0)):'0,0,0,0';
+    const brakeOn=state.config.assocBrake===true;
+    const b=(state.brakes??{})[cueKey]??0;
+    const next=brakeOn?b*(1-(state.config.assocDecay??0)):b;
+    if(brakeOn&&next!==b)state.brakes[cueKey]=next;
+    if(brakeOn)rate=rate*(1-b);
+    if(brakeOn)state.work.brakeUpdates+=1;
+    state.work.scalarOperations+=3;
+  }
+  if(mode==='replay'){const rr=state.config.replayRate??1;if(rr!==1)rate=m.mul(rate,rr);const rg=state.config.replayGain??1;if(rg!==1)rate=m.mul(rate,rg);if(boost!==1)rate=m.mul(rate,boost);}
   const step=m.mul(rate,error);
   if(state.config.phaseSlots>1){const w=state.slot[mode==='replay'?(record.slot??0):state.activeSlot];for(let j=0;j<state.config.tasteDimensions;j++)w[j]=clip(state,m.add(w[j],m.mul(step,record.phi[j])));}
   else{const key=state.config.streams>1?(state.controller===0?'taste':'tasteB'):'taste';
-  for(let j=0;j<state.config.tasteDimensions;j++)state.weights[key][j]=clip(state,m.add(state.weights[key][j],m.mul(step,record.phi[j])));}
+  const sc=state.config.sparseUpdate;
+  if(sc)assert.ok(state.config.phaseSlots===1&&state.config.streams===1,'sparseUpdate BT scope (single-phase single-stream only)');
+  if(!sc){for(let j=0;j<state.config.tasteDimensions;j++)state.weights[key][j]=clip(state,m.add(state.weights[key][j],m.mul(step,record.phi[j])));}
+  else{
+    // C14 sparse update (input-conditioned target selection): top-fraction weights by
+    // |phi*w| stay plastic per tick; rest frozen. Plain-JS mask (deterministic, ties->lowest
+    // index); billed explicitly 2*n (rank + masked muls). Off path above is untouched (bit-identical).
+    const n=state.config.tasteDimensions,f=sc.fraction,w=state.weights[key],phi=record.phi;
+    const order=Array.from({length:n},(_,j)=>j).sort((a,b)=>(Math.abs(phi[b]*w[b])-Math.abs(phi[a]*w[a]))||(a-b));
+    const keep=new Array(n).fill(0);for(let k=0;k<Math.ceil(f*n);k++)keep[order[k]]=1;
+    state.work.scalarOperations+=2*n;
+    for(let j=0;j<n;j++)w[j]=clip(state,m.add(w[j],m.mul(m.mul(step,phi[j]),keep[j])));
+  }}
   if(state.config.slowAnchorStrength>0)anchorTasteDirection(state,m,marginGatePass(state,m));
   if(mode==='replay'&&state.config.consolidationRate>0){const g=state.config.consolidationRate;
     for(let j=0;j<state.config.tasteDimensions;j++){const fast=state.weights.taste[j],slow=state.weights.slowTaste[j];
@@ -213,14 +278,20 @@ function replayDraw(state,records,lo,hi){
       if(m.less(bestScore,s)){bestScore=s;best=i;}}}
   return records[best];
 }
-function replayGated(state,record,emit){
-  const cfg=state.config,skip=cfg.replaySkip??0,h=cfg.replaySurpriseGain??0;
+export function replayGated(state,record,emit){
+  const cfg=state.config,skip=cfg.replaySkip??0,h=cfg.replaySurpriseGain??0,d=cfg.replayDamageGain??0,t=cfg.replayThreatGain??0;
   let boost=1;
-  if(skip>0||h>0){const m=math(state),w=cfg.phaseSlots>1?state.slot[record.slot??0]:undefined;
+  if(skip>0||h>0||d>0||t>0){const m=math(state),w=cfg.phaseSlots>1?state.slot[record.slot??0]:undefined;
     const err=m.sub(record.target,tastePrediction(state,record.phi,w)),err2=m.mul(err,err);
     if(skip>0&&m.less(err2,m.mul(skip,skip))){state.work.replaySkips++;return;}
     const ema=state.surpriseEma??0;
-    if(h>0&&ema>1e-4&&m.less(m.mul(2,ema),err2)){boost=1+h;state.work.replaySurpriseBoosts++;}}
+    if(h>0&&ema>1e-4&&m.less(m.mul(2,ema),err2)){boost=1+h;state.work.replaySurpriseBoosts++;}
+    // Damage gate mirrors the surprise gate (single-knob discipline: arms never set both;
+    // combination needs its own frozen plan). Damage checked after surprise; last-wins if combined.
+    if(d>0&&m.less(0,record.damage??0)){boost=1+d;state.work.replayDamageBoosts++;}
+    // Threat gate mirrors the damage gate (single-knob discipline: arms never combine
+    // gains; combination needs its own frozen plan). Threat checked after damage; last-wins if combined.
+    if(t>0&&record.outcomeSign===-1){boost=1+t;state.work.replayThreatBoosts++;}}
   tasteUpdate(state,record,'replay',emit,boost);}
 export function replay(state,emit){
   const records=[...state.older,...state.recent];
@@ -331,7 +402,7 @@ export function chooseTasteEnergyAction(state,own,emit=()=>{}){
   state.decisions++;state.lastDecisionTick=own.tick;state.awaitingObservation=true;
   return action;
 }
-export function observeTasteEnergyBody(state,own,emit=()=>{}){
+export function observeTasteEnergyBody(state,own,emit=()=>{},aux){
   assert.equal(own.agentId,state.agentId);assert.ok(!state.dead&&state.awaitingObservation);
   assert.equal(own.tick,state.lastDecisionTick);assert.equal(own.tick,state.lastObservedTick+1);
   assert.ok(Number.isFinite(own.energy)&&typeof own.terminal==='boolean');
@@ -342,7 +413,7 @@ export function observeTasteEnergyBody(state,own,emit=()=>{}){
     const phi=tasteFeatures(state,example.cue);state.work.scalarOperations++;
     state.tasteExamples++;state.acquiredTasteExamples++;
     if(state.config.phaseSlots>1){if(state.slotLastTick===null||state.slotLastTick===undefined)state.slotLastTick=example.tick;else{slotObserve(state,example.tick-state.slotLastTick);state.slotLastTick=example.tick;}}
-    const record={...example,phi,target:example.outcomeSign===1?1:0,experience:state.tasteExamples,...(state.config.phaseSlots>1?{slot:state.activeSlot}:{})};
+    const record={...example,phi,target:example.outcomeSign===1?1:0,experience:state.tasteExamples,...(state.config.phaseSlots>1?{slot:state.activeSlot}:{}),...(state.config.replayDamageGain>0?{damage:aux?.damage??0}:{})};
     remember(state,record);
     if(state.config.streams>1)streamObserve(state,record.phi,record.target);
     tasteUpdate(state,record,'live',emit);replay(state,emit);
@@ -365,8 +436,8 @@ export function resetTasteEnergyBody(state){
   if(state.config.streams>1){state.weights.tasteB=zeros(state.config.tasteDimensions);state.streamEma=[0,0];state.controller=0;}if(state.config.surpriseGain>0){state.surpriseEma=0;state.surpriseTimer=0;}if(state.config.phaseSlots>1){state.slot=[zeros(state.config.tasteDimensions),zeros(state.config.tasteDimensions)];state.gapEma=null;state.slotC=null;state.activeSlot=0;state.slotLastTick=null;}
   if(state.config.motorConsolidationRate>0){state.weights.slowActor=zeros(state.config.motorDimensions);state.weights.slowCritic=zeros(state.config.motorDimensions);}
   state.eligibility={actor:zeros(state.config.motorDimensions),critic:zeros(state.config.motorDimensions)};
-  state.motorPending=null;state.hold={cruise:false,remaining:0};state.tdRms=0;state.work.surpriseBoosts=0;state.work.marginBoosts=0;state.work.replaySkips=0;state.work.replaySurpriseBoosts=0;state.work.evictSwaps=0;
-  state.recent=[];state.older=[];state.olderSeen=0;state.acquiredTasteExamples=0;
+  state.motorPending=null;state.hold={cruise:false,remaining:0};state.tdRms=0;state.work.surpriseBoosts=0;state.work.marginBoosts=0;state.work.replaySkips=0;state.work.replaySurpriseBoosts=0;state.work.replayDamageBoosts=0;state.work.evictSwaps=0;
+  state.recent=[];state.older=[];state.olderSeen=0;state.acquiredTasteExamples=0;state.tasteBaselineC=0;
   if(state.balance)state.balance={before:null,delta:0};
   if(state.config.criticWarmStart)state.criticReady=false;
 }
@@ -380,8 +451,11 @@ export function compactTasteEnergyBody(state){
 }
 export function restoreTasteEnergyBody(value){
   assert.equal(value?.schema,1);assert.equal(value.kind,'own-taste-energy');
-  if(value.config.capacity===undefined)value.config.capacity=32;if(value.config.recent===undefined)value.config.recent=8;if(value.config.replayStrata===undefined)value.config.replayStrata=1;if(value.config.replayPasses===undefined)value.config.replayPasses=1;if(value.config.consolidationRate===undefined)value.config.consolidationRate=0;if(value.config.motorConsolidationRate===undefined)value.config.motorConsolidationRate=0;if(value.config.streams===undefined)value.config.streams=1;if(value.config.streamHysteresis===undefined)value.config.streamHysteresis=0;if(value.config.surpriseGain===undefined)value.config.surpriseGain=0;if(value.config.surpriseWindow===undefined)value.config.surpriseWindow=0;if(value.config.phaseSlots===undefined)value.config.phaseSlots=1;if(value.config.slotRate===undefined)value.config.slotRate=.05;if(value.config.marginWidth===undefined)value.config.marginWidth=0;if(value.config.marginBoost===undefined)value.config.marginBoost=0;if(value.config.replayTournament===undefined)value.config.replayTournament=1;if(value.config.replayRate===undefined)value.config.replayRate=1;if(value.config.replaySkip===undefined)value.config.replaySkip=0;if(value.config.replaySurpriseGain===undefined)value.config.replaySurpriseGain=0;if(value.config.evictBias===undefined)value.config.evictBias=0;if(value.config.slowAnchorRate===undefined)value.config.slowAnchorRate=0;if(value.config.slowAnchorStrength===undefined)value.config.slowAnchorStrength=0;if(value.config.marginGateTau===undefined)value.config.marginGateTau=0;if(value.config.motorAnchorRate===undefined)value.config.motorAnchorRate=0;if(value.config.motorAnchorStrength===undefined)value.config.motorAnchorStrength=0;if(value.config.marginReadback===undefined)value.config.marginReadback=false;if(value.work.surpriseBoosts===undefined)value.work.surpriseBoosts=0;if(value.work.marginBoosts===undefined)value.work.marginBoosts=0;if(value.work.replaySkips===undefined)value.work.replaySkips=0;if(value.work.replaySurpriseBoosts===undefined)value.work.replaySurpriseBoosts=0;if(value.work.evictSwaps===undefined)value.work.evictSwaps=0;
-  const sample=createTasteEnergyBody(value.agentId,value.feedRngState,{tasteLearning:value.config.tasteLearning,normalizeMotor:value.config.normalizeMotor,cueBlind:value.config.cueBlind,feedingRule:value.config.feedingRule,tasteRepresentation:value.config.tasteRepresentation,tasteRate:value.config.tasteRate,capacity:value.config.capacity??32,recent:value.config.recent??8,replayStrata:value.config.replayStrata??1,replayPasses:value.config.replayPasses??1,consolidationRate:value.config.consolidationRate??0,motorConsolidationRate:value.config.motorConsolidationRate??0,streams:value.config.streams??1,streamHysteresis:value.config.streamHysteresis??0,surpriseGain:value.config.surpriseGain??0,surpriseWindow:value.config.surpriseWindow??0,phaseSlots:value.config.phaseSlots??1,slotRate:value.config.slotRate??.05,marginWidth:value.config.marginWidth??0,marginBoost:value.config.marginBoost??0,replayTournament:value.config.replayTournament??1,replayRate:value.config.replayRate??1,replaySkip:value.config.replaySkip??0,replaySurpriseGain:value.config.replaySurpriseGain??0,evictBias:value.config.evictBias??0,slowAnchorRate:value.config.slowAnchorRate??0,slowAnchorStrength:value.config.slowAnchorStrength??0,marginGateTau:value.config.marginGateTau,motorAnchorRate:value.config.motorAnchorRate??0,motorAnchorStrength:value.config.motorAnchorStrength??0,motorRepresentation:value.config.motorRepresentation,holdTicks:value.config.holdTicks,criticWarmStart:value.config.criticWarmStart??false,motorRule:value.config.motorRule??'td',renewalRate:value.config.renewalRate??.1,greedyInference:value.config.greedyInference??false});
+  if(value.config.capacity===undefined)value.config.capacity=32;if(value.config.recent===undefined)value.config.recent=8;if(value.config.replayStrata===undefined)value.config.replayStrata=1;if(value.config.replayPasses===undefined)value.config.replayPasses=1;if(value.config.consolidationRate===undefined)value.config.consolidationRate=0;if(value.config.motorConsolidationRate===undefined)value.config.motorConsolidationRate=0;if(value.config.streams===undefined)value.config.streams=1;if(value.config.streamHysteresis===undefined)value.config.streamHysteresis=0;if(value.config.surpriseGain===undefined)value.config.surpriseGain=0;if(value.config.surpriseWindow===undefined)value.config.surpriseWindow=0;if(value.config.phaseSlots===undefined)value.config.phaseSlots=1;if(value.config.slotRate===undefined)value.config.slotRate=.05;if(value.config.marginWidth===undefined)value.config.marginWidth=0;if(value.config.marginBoost===undefined)value.config.marginBoost=0;if(value.config.replayTournament===undefined)value.config.replayTournament=1;if(value.config.replayRate===undefined)value.config.replayRate=1;if(value.config.replaySkip===undefined)value.config.replaySkip=0;if(value.config.replaySurpriseGain===undefined)value.config.replaySurpriseGain=0;if(value.config.replayDamageGain===undefined)value.config.replayDamageGain=0;if(value.config.evictBias===undefined)value.config.evictBias=0;if(value.config.slowAnchorRate===undefined)value.config.slowAnchorRate=0;if(value.config.slowAnchorStrength===undefined)value.config.slowAnchorStrength=0;if(value.config.marginGateTau===undefined)value.config.marginGateTau=0;if(value.config.selfMod===undefined)value.config.selfMod=false;if(value.config.motorAnchorRate===undefined)value.config.motorAnchorRate=0;if(value.config.motorAnchorStrength===undefined)value.config.motorAnchorStrength=0;if(value.config.marginReadback===undefined)value.config.marginReadback=false;if(value.config.assocBrake===undefined)value.config.assocBrake=false;if(value.config.assocC0===undefined)value.config.assocC0=2000;if(value.config.assocDecay===undefined)value.config.assocDecay=0;if(value.config.baselineRate===undefined)value.config.baselineRate=0;if(value.config.assocBrake)assert.ok(value.brakes&&typeof value.brakes==='object');else assert.equal(value.brakes,undefined);if(value.work.surpriseBoosts===undefined)value.work.surpriseBoosts=0;if(value.work.marginBoosts===undefined)value.work.marginBoosts=0;if(value.work.replaySkips===undefined)value.work.replaySkips=0;if(value.work.replaySurpriseBoosts===undefined)value.work.replaySurpriseBoosts=0;if(value.work.evictSwaps===undefined)value.work.evictSwaps=0;if(value.config.assocBrake)assert.ok(Number.isInteger(value.work.brakeUpdates));else assert.equal(value.work.brakeUpdates,undefined);if(value.tasteBaselineC===undefined)value.tasteBaselineC=0;
+  const sample=createTasteEnergyBody(value.agentId,value.feedRngState,{tasteLearning:value.config.tasteLearning,normalizeMotor:value.config.normalizeMotor,cueBlind:value.config.cueBlind,feedingRule:value.config.feedingRule,tasteRepresentation:value.config.tasteRepresentation,tasteRate:value.config.tasteRate,capacity:value.config.capacity??32,recent:value.config.recent??8,replayStrata:value.config.replayStrata??1,replayPasses:value.config.replayPasses??1,consolidationRate:value.config.consolidationRate??0,motorConsolidationRate:value.config.motorConsolidationRate??0,streams:value.config.streams??1,streamHysteresis:value.config.streamHysteresis??0,surpriseGain:value.config.surpriseGain??0,surpriseWindow:value.config.surpriseWindow??0,phaseSlots:value.config.phaseSlots??1,slotRate:value.config.slotRate??.05,marginWidth:value.config.marginWidth??0,marginBoost:value.config.marginBoost??0,replayTournament:value.config.replayTournament??1,replayRate:value.config.replayRate??1,replaySkip:value.config.replaySkip??0,replaySurpriseGain:value.config.replaySurpriseGain??0,replayDamageGain:value.config.replayDamageGain??0,evictBias:value.config.evictBias??0,slowAnchorRate:value.config.slowAnchorRate??0,slowAnchorStrength:value.config.slowAnchorStrength??0,marginGateTau:value.config.marginGateTau,selfMod:value.config.selfMod??false,motorAnchorRate:value.config.motorAnchorRate??0,motorAnchorStrength:value.config.motorAnchorStrength??0,assocBrake:value.config.assocBrake??false,assocC0:value.config.assocC0??2000,assocDecay:value.config.assocDecay??0,baselineRate:value.config.baselineRate??0,motorRepresentation:value.config.motorRepresentation,holdTicks:value.config.holdTicks,criticWarmStart:value.config.criticWarmStart??false,motorRule:value.config.motorRule??'td',renewalRate:value.config.renewalRate??.1,greedyInference:value.config.greedyInference??false});
+  if(value.config.sparseUpdate!==undefined){const su=value.config.sparseUpdate;
+    assert.ok(su&&Number.isFinite(su.fraction)&&su.fraction>0&&su.fraction<1&&su.rule==='activation','bad sparseUpdate restore');
+    sample.config.sparseUpdate={fraction:su.fraction,rule:su.rule};}
   return restoreCheckedTasteEnergyBody(value,sample);
 }
 function restoreCheckedTasteEnergyBody(value,sample){
@@ -390,7 +464,7 @@ function restoreCheckedTasteEnergyBody(value,sample){
   if(value.balance){keys(value.balance,['before','delta']);assert.ok(Number.isFinite(value.balance.delta));assert.ok(value.awaitingObservation?Number.isFinite(value.balance.before):value.balance.before===null);}
   if(value.config.criticWarmStart)assert.equal(typeof value.criticReady,'boolean');
   assert.equal(typeof value.config.marginReadback,'boolean');
-  assert.ok(value.config.marginGateTau===null||(Number.isFinite(value.config.marginGateTau)&&value.config.marginGateTau>=0));
+  assert.ok(value.config.marginGateTau===null||(Number.isFinite(value.config.marginGateTau)&&value.config.marginGateTau>=0));assert.ok(typeof value.config.selfMod==='boolean');
   if(value.config.greedyInference){assert.equal(typeof value.inference,'boolean');if(value.inference)assert.equal(value.acquisition,false);}
   for(const [key,n] of [['taste',value.config.tasteDimensions],['actor',value.config.motorDimensions],['critic',value.config.motorDimensions]])assert.ok(vector(value.weights[key],n,8));
   if(value.config.consolidationRate>0)assert.ok(vector(value.weights.slowTaste,value.config.tasteDimensions,8));else assert.equal(value.weights.slowTaste,undefined);
@@ -403,7 +477,7 @@ function restoreCheckedTasteEnergyBody(value,sample){
   for(const key of ['decisions','lastDecisionTick','lastObservedTick','olderSeen','tasteExamples','acquiredTasteExamples'])assert.ok(Number.isSafeInteger(value[key])&&value[key]>=0);
   for(const key of ['awaitingObservation','acquisition','dead'])assert.equal(typeof value[key],'boolean');
   assert.equal(value.decisions,value.lastDecisionTick);assert.equal(value.lastDecisionTick,value.lastObservedTick+(value.awaitingObservation?1:0));
-  assert.ok(!(value.dead&&value.awaitingObservation));assert.ok(Number.isFinite(value.tdRms)&&value.tdRms>=0);if(!value.config.normalizeMotor)assert.equal(value.tdRms,0);
+  assert.ok(!(value.dead&&value.awaitingObservation));assert.ok(Number.isFinite(value.tdRms)&&value.tdRms>=0);if(!value.config.normalizeMotor)assert.equal(value.tdRms,0);assert.ok(Number.isFinite(value.tasteBaselineC));
   keys(value.hold,['cruise','remaining']);assert.equal(typeof value.hold.cruise,'boolean');assert.ok(Number.isInteger(value.hold.remaining)&&value.hold.remaining>=0&&value.hold.remaining<value.config.holdTicks);
   keys(value.credit,['schema','agentId','maskedCue','tick','pending','dead','scalarOperations']);assert.equal(value.credit.schema,2);assert.equal(value.credit.agentId,value.agentId);
   assert.equal(value.credit.maskedCue,value.config.cueBlind);assert.equal(value.credit.tick,value.lastObservedTick);assert.equal(value.credit.dead,value.dead);assert.equal(value.credit.scalarOperations,value.lastObservedTick*3);
@@ -426,7 +500,7 @@ function restoreCheckedTasteEnergyBody(value,sample){
   }
   if(value.acquisition&&!value.dead&&(value.hold.remaining>0||value.awaitingObservation))assert.ok(value.motorPending);
   if(!value.acquisition||value.dead){assert.equal(value.motorPending,null);assert.ok(Object.values(value.eligibility).flat().every(v=>v===0));}
-  keys(value.work,['scalarOperations','liveUpdates','replayUpdates','tasteLiveUpdates','motorUpdates','surpriseBoosts','marginBoosts','replaySkips','replaySurpriseBoosts','evictSwaps']);for(const v of Object.values(value.work))assert.ok(Number.isSafeInteger(v)&&v>=0);
+  keys(value.work,['scalarOperations','liveUpdates','replayUpdates','tasteLiveUpdates','motorUpdates','surpriseBoosts','marginBoosts','replaySkips','replaySurpriseBoosts','replayDamageBoosts','replayThreatBoosts','evictSwaps']);for(const v of Object.values(value.work))assert.ok(Number.isSafeInteger(v)&&v>=0);
   assert.equal(value.work.liveUpdates,value.work.tasteLiveUpdates+value.work.motorUpdates);assert.equal(value.work.tasteLiveUpdates,value.tasteExamples);
   assert.ok(value.acquiredTasteExamples<=value.tasteExamples);assert.equal(value.olderSeen,Math.max(0,value.acquiredTasteExamples-(value.config.recent??8)));
   assert.ok(Array.isArray(value.recent)&&Array.isArray(value.older));assert.equal(value.recent.length,Math.min(value.config.recent??8,value.acquiredTasteExamples));assert.equal(value.older.length,Math.min((value.config.capacity??32)-(value.config.recent??8),value.olderSeen));

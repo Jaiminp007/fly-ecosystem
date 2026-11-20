@@ -1,0 +1,1 @@
+{"ledger":{"mains":20,"probes":0,"worldTicks":35840,"founderSlots":860160,"scalarOperations":3305435343},"runtimes":{"chains":{"chain0":{"wall":55.451830699999995,"cpuS":56.626000000000005,"op1":"replaySurprise","op2":"replaySurprise"},"chain1":{"wall":57.4439468,"cpuS":57.42199999999999,"op1":"replaySurprise","op2":"replaySurprise"}}},"redone":[]}

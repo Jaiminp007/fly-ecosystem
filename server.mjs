@@ -72,9 +72,12 @@ const server=http.createServer(async(req,res)=>{try{
     }
   }
   if(req.method!=='GET')return json(res,404,{error:'Unknown route'});
-  const routes={'/':'index.html','/app.js':'app.js','/style.css':'style.css'};
+  const routes={'/':'dist/index.html','/app.js':'dist/app.js','/style.css':'dist/style.css',
+    // Microverse: a browser-side simulation; the server only serves its static files.
+    '/microverse':'dist/microverse.html','/microverse/':'dist/microverse.html','/microverse.js':'dist/microverse.js',
+    '/microverse/sim.mjs':'microverse/sim.mjs','/microverse/strains.mjs':'microverse/strains.mjs','/microverse/config.mjs':'microverse/config.mjs'};
   const file=routes[url.pathname];if(!file)return json(res,404,{error:'Not found'});
-  const body=await readFile(join(ROOT,'dist',file));res.writeHead(200,{'Content-Type':file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});res.end(body);
+  const body=await readFile(join(ROOT,file));res.writeHead(200,{'Content-Type':/\.m?js$/.test(file)?'text/javascript':file.endsWith('.css')?'text/css':'text/html','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});res.end(body);
 }catch(e){json(res,400,{error:e.message});}});
 server.listen(PORT,hosted?'0.0.0.0':'127.0.0.1',()=>console.log(`Fly ecosystem: http://127.0.0.1:${PORT}`));
 async function stop(){const saved=checkpoint();paused=true;try{await atomic('autosave.json',saved);server.close(()=>process.exit(0));}catch(e){console.error(e.message);process.exit(1);}}

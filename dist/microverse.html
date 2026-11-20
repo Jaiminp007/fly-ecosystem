@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Afterwing Microverse</title>
+<meta name="description" content="A small closed world where artificial flies breed, learn, improve their own learning programs and die. Runs entirely in your browser.">
+<style>
+:root{color-scheme:dark;--bg:#101218;--panel:#171b24;--line:#303644;--text:#f1f1e9;--muted:#adb5c3;--accent:#edcf70;--self:#edcf70;--other:#99cae8;--good:#7fc97a;--bad:#d9827a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,sans-serif}
+header{padding:20px 4vw;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-size:18px;letter-spacing:.13em;font-weight:600;display:flex;align-items:center;gap:12px}.brand .mark{color:var(--accent);font-size:28px}
+nav{display:flex;gap:20px;font-size:14px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--text)}
+main{max-width:1500px;margin:auto;padding:28px 4vw;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px}
+.eyebrow{display:block;font:12px/1.5 ui-monospace,monospace;letter-spacing:.13em;color:var(--accent);margin-bottom:10px}
+h1{font-size:clamp(32px,4vw,56px);line-height:1.04;font-weight:500;letter-spacing:-.05em;margin:0}h1 em{font-family:Georgia,serif;font-weight:400}
+h2{font-size:18px;font-weight:550;margin:0 0 12px;letter-spacing:-.01em}
+p{color:var(--muted);margin:10px 0 16px;max-width:70ch}
+.toolbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:20px 0 16px}
+button,select,input{font:inherit;font-size:14px;color:var(--text);background:#1c2330;border:1px solid #3c4656;border-radius:3px;min-height:40px;padding:6px 12px}
+button{cursor:pointer}button:hover{background:#303b4d}button.primary{background:var(--accent);color:#211b0b;border-color:var(--accent);font-weight:650}
+input[type=number]{width:110px}input[type=range]{accent-color:var(--accent);min-height:0;padding:0;border:0;background:none}
+label{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.world{border:1px solid #404858;background:#121924;position:relative}
+.world-label{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;font:12px ui-monospace,monospace;letter-spacing:.1em;color:var(--accent);border-bottom:1px solid var(--line);flex-wrap:wrap}.world-label span{color:var(--muted);letter-spacing:0}
+canvas#world{display:block;width:100%;height:auto;image-rendering:pixelated;cursor:crosshair;aspect-ratio:1}
+.legend{display:flex;flex-wrap:wrap;gap:16px;padding:10px 14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}.legend span{display:flex;align-items:center;gap:6px}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%}.legend b{display:inline-block;width:10px;height:10px}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:20px 0;border-bottom:1px solid var(--line)}
+.metrics span{display:block;font-size:13px;color:var(--muted)}.metrics strong{font:clamp(20px,2vw,28px)/1.4 ui-monospace,monospace;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+#chart{width:100%;height:170px;display:block;margin-top:8px}
+aside section{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:20px}
+.strain{border-left:3px solid var(--line);padding:4px 0 4px 12px;margin-bottom:14px}
+.strain h3{margin:0 0 6px;font-size:15px;font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.grid2 span{display:block;font-size:12px;color:var(--muted)}.grid2 strong{font:15px ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.subtle{font-size:13px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.chips code{font:12px ui-monospace,monospace;background:#202736;border:1px solid var(--line);padding:2px 6px;border-radius:3px}
+.chips code.hit{border-color:var(--accent);color:var(--accent)}
+.methods{grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px}.methods p{font-size:15px}
+.notice{padding:14px 18px;border:1px solid #716344;background:#252219;color:#eddaa4;font-size:14px;margin-top:16px}
+@media(max-width:980px){main{display:block;padding:20px 16px}aside{margin-top:28px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){header{padding:14px 16px}nav{gap:14px}.toolbar label{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style></head>
+<body>
+<header><div class="brand"><span class="mark">⠿</span> AFTERWING <span class="subtle" style="letter-spacing:.08em">MICROVERSE</span></div>
+<nav><a href="/">Observatory</a><a href="#about">About this world</a><a href="https://github.com/Jaiminp007/fly-ecosystem">Source ↗</a></nav></header>
+<main>
+<section>
+  <span class="eyebrow">A CLOSED WORLD · RUNS IN YOUR BROWSER</span>
+  <h1>Flies that improve<br><em>how they learn.</em></h1>
+  <p>Each fly inherits a learning program — which taste features to compute, which senses to use — but none of its parent's learned knowledge. During life it can rewrite that program from its own experience. Food chemistry keeps changing. Watch which lineages take over.</p>
+  <div class="toolbar">
+    <select id="scenario" aria-label="Scenario">
+      <option value="SELF,FIXED">Self-improving vs fixed flies</option>
+      <option value="SELF,SHAM">Self-improving vs fake self-improvers (random rewrites)</option>
+      <option value="SELF,EVO">Self-improving vs mutation-only evolution</option>
+      <option value="SELF">Self-improving flies alone</option>
+      <option value="ORACLE,FIXED">Born knowing the rule vs fixed flies</option>
+    </select>
+    <label>Seed <input id="seed" type="number" min="1" value="101"></label>
+    <button id="play" class="primary">Pause</button>
+    <button id="reset">New world</button>
+    <label>Speed <input id="speed" type="range" min="1" max="60" value="12" aria-label="Ticks per frame"></label>
+  </div>
+  <div class="world">
+    <div class="world-label">MICROVERSE · 40 × 40 <span id="ruleLabel">—</span></div>
+    <canvas id="world" width="640" height="640" aria-label="World map: food patches and flies"></canvas>
+    <div class="legend" id="legend"></div>
+  </div>
+  <div class="metrics">
+    <div><span>World time</span><strong id="mTick">0</strong></div>
+    <div><span>Population</span><strong id="mPop">0</strong></div>
+    <div><span>Births</span><strong id="mBirths">0</strong></div>
+    <div><span>Deaths</span><strong id="mDeaths">0</strong></div>
+  </div>
+  <h2 style="margin-top:20px">Population by lineage</h2>
+  <canvas id="chart" width="900" height="170" aria-label="Population of each strain over time"></canvas>
+</section>
+<aside>
+  <section><h2>Lineages</h2><div id="strains"></div></section>
+  <section><h2>Selected fly</h2><div id="fly" class="subtle">Click a fly on the map to inspect its inherited program and what it has learned.</div></section>
+</aside>
+<section class="methods" id="about">
+  <h2>About this world</h2>
+  <p><strong>The world.</strong> A 40 × 40 torus with eight food patches that keep moving. Every food plant has an odor, an 8-bit chemical code. Whether food is nutritious or toxic follows a hidden rule over that code, and the rule changes every 3,000 ticks (pairs of bits, a staircase, triples, a single bit). Odor codes are redrawn every 100 ticks, so flies must learn the rule, not memorize odors. Flies breed when they have enough energy, and die when they starve or grow old.</p>
+  <p><strong>The flies.</strong> Each fly has a taste learner (a set of feature masks over the odor code) and a movement learner (a set of senses). Both learn during life. A self-improving fly can also add features its own evidence supports and drop ones that stopped paying, and it watches whether its taste model actually predicts better than guessing. Children inherit the program and the evidence behind it, never the learned values.</p>
+  <p><strong>What has been tested.</strong> In pre-registered tests on fresh worlds, self-improving flies out-competed fixed flies, a random-rewrite sham, and mutation-only evolution, and re-learned after every rule change. A separate benefit of self-improving <em>movement</em> on top of taste was not shown. Details: <a href="https://github.com/Jaiminp007/fly-ecosystem/blob/main/docs/MICROVERSE_LOG.md" style="color:var(--accent)">goal ladder and full log</a>.</p>
+  <div class="notice">This is a small constructed world with hand-written learning rules. It shows bounded self-improvement inside one world — not open-ended intelligence, and not a model of real insects. Food colors on the map show the true value, which the flies cannot see.</div>
+</section>
+</main>
+<script type="module" src="/microverse.js"></script>
+</body></html>

@@ -28,7 +28,7 @@ export function simulateTransferAuthority(p,h,emit=()=>{}){
       const s=learners[fly.id];if((tick-start-1)%8===0){flush(fly.id);s.work.scalarOperations++;s.heldSpeed=mode==='slow'?-1:mode==='tasteSpeed'&&raw[13]>0?-1:1;
         if(mode==='randomSpeed'){s.rngState=advanceRng(s.rngState);s.heldSpeed=s.rngState/4294967296<.5?-1:1;s.work.scalarOperations+=6;}
         s.decisions++;s.lastDecisionTick=tick;emit({stage:'probe',type:'decision',arm:mode,agentId:fly.id,tick,previousIntake:raw[13],choice:s.heldSpeed,rngState:s.rngState});}
-      s.ticks++;s.work.scalarOperations+=6;const bill=chargeForStep(s,p.pricing);
+      s.ticks++;s.work.scalarOperations+=12;const bill=chargeForStep(s,p.pricing);
       return {...bill,afterController:outputs=>{const motor=motorPrimitive(raw,1,s.heldSpeed<0);for(let j=0;j<5;j++)outputs[j]=motor[j];},afterStep:r=>{
         const old=receipts[fly.id];if(old){old.steps++;old.finalEnergy=r.finalEnergy;old.cost+=r.cost;old.paidExtra+=r.paidExtra;old.beneficialEaten+=r.beneficialEaten;old.byteSeconds+=s.charge.storageBytes*.1;}
         else receipts[fly.id]={agentId:fly.id,tick,steps:1,initialEnergy:r.initialEnergy,finalEnergy:r.finalEnergy,cost:r.cost,paidExtra:r.paidExtra,beneficialEaten:r.beneficialEaten,byteSeconds:s.charge.storageBytes*.1};}};

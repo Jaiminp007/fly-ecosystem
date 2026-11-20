@@ -227,9 +227,10 @@ def apply_event(state, event, pricing):
         assert type(action) is int and 0 <= action < 4
         accept = action in (0, 2)
         attraction, wall = 2*(raw[2]-raw[1]), 1.8*(raw[10]-raw[11])
-        turn = math.tanh((attraction if accept else -attraction+.8*raw[0])+wall)
+        matePull = 0.0*(raw[8]-raw[7])  # k=0 for all replayed records (null-default)
+        turn = math.tanh((attraction+matePull if accept else -(attraction+matePull)+.8*raw[0])+wall)
         same(event['outputs'], [turn, -1 if action >= 2 else 0, 1 if accept else -1, -1, 0], 'motor')
-        state['work']['scalarOperations'] += 6 if accept else 9
+        state['work']['scalarOperations'] += 12 if accept else 15  # ML1: +2 leave muls (was V4 +1 gate mul)
     elif kind == 'charge':
         bill(state, pricing)
         charge = state['charge']

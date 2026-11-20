@@ -30,7 +30,7 @@ test('transfer authority shares initial worlds, uses own taste and charges bound
     assert.ok(Math.abs(end.endpoint.accountingResidual)<1e-6);
     for(const state of Object.values(end.learners)){
       assert.ok(state.decisions<=32);
-      assert.equal(state.work.scalarOperations,state.ticks*6+state.decisions*(mode==='randomSpeed'?7:1));
+      assert.equal(state.work.scalarOperations,state.ticks*12+state.decisions*(mode==='randomSpeed'?7:1));
       if(state.ticks)assert.ok(state.charge.incurredEnergy>0&&state.charge.storageBytes>0);
       else assert.equal(state.charge.incurredEnergy,0);
       assert.equal(state.weights,undefined);
